@@ -1,0 +1,14 @@
+{
+  "version": "V6.2",
+  "purpose": "Controlled candidate generation using the saved best V4 model; no retraining in V6.",
+  "loaded_model_path": "outputs\\v4\\best_model.joblib",
+  "loaded_model_class": "LGBMRegressor",
+  "candidate_count": 486,
+  "top_n": 30,
+  "diverse_top_n": 30,
+  "unique_prediction_count_rounded_6": 252,
+  "max_predicted_pce": 18.127339121680002,
+  "candidate_count_at_max_predicted_pce": 2,
+  "max_groups": null,
+  "warning": "Predicted PCE values are model-based prioritization outputs, not experimental validation."
+}

@@ -1,0 +1,15 @@
+metric,value
+loaded_model_class,LGBMRegressor
+loaded_model_path,outputs\v4\best_model.joblib
+candidate_count,486
+diverse_candidate_count,30
+unique_prediction_count_rounded_6,252
+max_predicted_pce,18.127339121680002
+candidate_count_at_max_predicted_pce,2
+mean_predicted_pce,15.515157304488941
+median_predicted_pce,15.693648362129096
+min_predicted_pce,12.48386101221235
+top_architecture,nip
+top_etl,PCBM-60
+top_htl,P3HT
+note,"Predicted PCE values are model-based prioritization outputs, not experimental validation."

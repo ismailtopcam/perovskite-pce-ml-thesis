@@ -1,0 +1,26 @@
+{
+  "version": "V4",
+  "purpose": "Final model comparison with DOI-group-safe and leakage-safe protocol.",
+  "split": "GroupShuffleSplit holdout + GroupKFold CV",
+  "group_col": "Ref_DOI_number",
+  "mode": "strict",
+  "excluded_leakage_prefixes": [
+    "JV_",
+    "EQE_",
+    "Stability_",
+    "Stabilised_performance_",
+    "Outdoor_",
+    "Module_JV_"
+  ],
+  "rows": 42391,
+  "groups": 7712,
+  "features": 27,
+  "train_rows": 33750,
+  "test_rows": 8641,
+  "train_groups": 6169,
+  "test_groups": 1543,
+  "best_model": "LightGBM",
+  "n_estimators": 300,
+  "cv": 5,
+  "random_state": 42
+}

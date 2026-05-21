@@ -1,0 +1,264 @@
+feature,mean_abs_shap
+num__A_FA,1.0206810167916007
+cat__Perovskite_deposition_solvents_DMF; DMSO,0.4976969489956643
+cat__HTL_stack_sequence_Spiro-MeOTAD,0.34968162289529053
+cat__HTL_stack_sequence_none,0.2828889381902822
+num__Perovskite_deposition_thermal_annealing_time,0.2723389711634231
+cat__HTL_stack_sequence_PEDOT:PSS,0.27092698400943965
+num__B_Pb,0.26520985644046163
+cat__Perovskite_deposition_solvents_DMF,0.2465915705449589
+num__A_MA,0.24407590221160344
+cat__Perovskite_additives_compounds_Unknown,0.21457108744650394
+num__X_Br,0.19013525879031828
+num__Perovskite_band_gap,0.17773543403068423
+cat__ETL_stack_sequence_TiO2-c | TiO2-mp,0.15943109980544845
+cat__HTL_stack_sequence_PTAA,0.15501330061379082
+num__B_Sn,0.14565182978801744
+cat__Perovskite_deposition_solvents_DMF >> IPA,0.1357541950777295
+num__Perovskite_thickness,0.13135757655579586
+cat__ETL_stack_sequence_PCBM-60,0.11726789735056299
+cat__Perovskite_additives_compounds_infrequent_sklearn,0.11610643411027198
+cat__Perovskite_deposition_solvents_GBL,0.10639827793393579
+cat__Cell_architecture_pin,0.09729694529093079
+num__A_other,0.0928148994929534
+num__Perovskite_deposition_thermal_annealing_temperature,0.09201706031684889
+cat__Perovskite_deposition_solvents_DMSO; GBL,0.0893781797037981
+num__Cell_semitransparent,0.08378618363113896
+num__A_Cs,0.07964620783104391
+cat__Perovskite_deposition_solvents_DMF; DMSO >> IPA,0.07934736642147017
+num__X_I,0.07351553061454957
+cat__Perovskite_deposition_procedure_Spin-coating >> Spin-coating,0.06852910640109812
+cat__Perovskite_deposition_procedure_Spin-coating,0.06546140052053155
+cat__ETL_stack_sequence_SnO2-np,0.06400668428899188
+cat__HTL_stack_sequence_infrequent_sklearn,0.060527505203242876
+num__Cell_flexible,0.05816999435514331
+cat__HTL_stack_sequence_P3HT,0.04949356369353348
+cat__ETL_stack_sequence_ZnO-c | ZnO-nw,0.048916387191179626
+cat__ETL_stack_sequence_infrequent_sklearn,0.04058924270641796
+num__B_other,0.03991123831128535
+cat__ETL_stack_sequence_none,0.03791111795053607
+cat__ETL_stack_sequence_TiO2-c,0.03392969501204608
+cat__ETL_stack_sequence_SnO2-c,0.03241838696042729
+num__X_other,0.031034271903253027
+cat__Perovskite_deposition_procedure_Spin-coating >> CBD,0.03006221460657235
+cat__Perovskite_deposition_synthesis_atmosphere_Air,0.027452652640483594
+cat__Perovskite_additives_compounds_Undoped,0.026956136103065874
+cat__ETL_stack_sequence_C60 | BCP,0.022677102785162537
+cat__HTL_stack_sequence_NiO-c,0.02233600382731383
+cat__Perovskite_deposition_solvents_DMF; GBL,0.02216160752517418
+cat__ETL_stack_sequence_PCBM-60 | Bphen,0.01968456681812485
+cat__ETL_stack_sequence_PCBM-60 | C60 | BCP,0.019512670439738537
+cat__Perovskite_additives_compounds_MACl,0.019135897654959756
+cat__Perovskite_additives_compounds_Cl,0.017854758420678542
+cat__Perovskite_deposition_synthesis_atmosphere_Air >> Air,0.016524585944073612
+cat__Perovskite_deposition_procedure_infrequent_sklearn,0.016009953528878913
+cat__ETL_stack_sequence_TiO2-c | Al2O3-mp,0.015658966671598863
+cat__Perovskite_deposition_procedure_Unknown,0.015097769004519103
+cat__Perovskite_deposition_solvents_DMSO,0.01433437929961202
+cat__ETL_stack_sequence_TiO2-c | TiO2-mp | ZrO2-mp,0.014279629713715365
+cat__Perovskite_deposition_synthesis_atmosphere_N2,0.013997987171893085
+cat__ETL_stack_sequence_PCBM-60 | BCP | LiF,0.013571762308968359
+cat__Perovskite_deposition_synthesis_atmosphere_Unknown,0.013391351066269123
+cat__HTL_stack_sequence_CuSCN,0.012468121006538399
+cat__HTL_stack_sequence_CuI,0.012430910452178355
+cat__Perovskite_deposition_solvents_infrequent_sklearn,0.012255659596540553
+cat__ETL_stack_sequence_SnO2-c | C60-SAM,0.011925923408509493
+cat__ETL_stack_sequence_ZnO-np,0.011726802107604722
+cat__ETL_stack_sequence_PCBM-60 | BCP,0.010710302357688592
+cat__Cell_architecture_nip,0.010507603032771635
+cat__Cell_architecture_infrequent_sklearn,0.009384545291065775
+cat__ETL_stack_sequence_ZnO-c,0.00923012239548064
+cat__ETL_stack_sequence_CdS,0.009143019904869858
+cat__HTL_stack_sequence_NiO-mp,0.008829828042840857
+cat__Perovskite_deposition_procedure_Slot-die coating,0.008811799201070291
+cat__ETL_stack_sequence_TiO2-mp,0.008443459128046638
+cat__Perovskite_deposition_solvents_Unknown,0.008358765796315034
+cat__ETL_stack_sequence_PCBM-60 | Zr(acac)4,0.007946161091661994
+cat__Perovskite_deposition_synthesis_atmosphere_N2 >> Air,0.007592572197653496
+cat__Perovskite_deposition_solvents_DMF; NMP,0.007503655664307597
+cat__Perovskite_deposition_procedure_Spray-coating,0.007141211828065374
+cat__HTL_stack_sequence_Graphene oxide,0.007119405629532936
+cat__Perovskite_deposition_solvents_DMF >> Methanol,0.0068658999137832626
+cat__Perovskite_deposition_synthesis_atmosphere_Dry air,0.006051384370712917
+cat__HTL_stack_sequence_2PACz,0.005845972093343011
+cat__Perovskite_deposition_synthesis_atmosphere_Ambient >> Ambient,0.005566092020639455
+cat__Perovskite_deposition_procedure_Spin-coating >> Gas reaction,0.005165323345102272
+cat__Perovskite_deposition_synthesis_atmosphere_Ar,0.005164316132663955
+cat__HTL_stack_sequence_NiO,0.004993220769367163
+cat__ETL_stack_sequence_TiO2-np,0.004973214963369234
+cat__Perovskite_deposition_synthesis_atmosphere_infrequent_sklearn,0.004889712889810024
+cat__ETL_stack_sequence_PCBM-60 | Rhodamine 101,0.004801243204029456
+cat__Perovskite_additives_compounds_HI,0.004752936573790435
+cat__ETL_stack_sequence_PCBM-60 | TiO2-c,0.004589290397702407
+cat__Perovskite_deposition_synthesis_atmosphere_Dry air >> Dry air,0.004481667187576753
+cat__Perovskite_deposition_solvents_Dimethylacetamide; NMP,0.004426598997816648
+cat__ETL_stack_sequence_C60 | Bphen,0.004363574803529574
+cat__Perovskite_deposition_solvents_H2O >> IPA,0.004197484289111211
+cat__Perovskite_additives_compounds_TBP,0.004194585251398574
+cat__ETL_stack_sequence_Unknown,0.004109290552110106
+cat__HTL_stack_sequence_P3CT-Na,0.004098124245914222
+cat__Perovskite_deposition_procedure_Spin-coating >> Recrystallization,0.004002496236216559
+cat__Perovskite_deposition_procedure_Inkjet printing,0.003974526331400051
+cat__Perovskite_deposition_procedure_Doctor blading,0.00360454569037917
+cat__Perovskite_deposition_procedure_Co-evaporation,0.003564416526466784
+cat__Perovskite_deposition_procedure_Dropcasting >> CBD,0.003435999509922686
+cat__ETL_stack_sequence_PCBM-60 | Rhodamine 101 | LiF,0.0033973370904866857
+cat__HTL_stack_sequence_NiO-np,0.003293964591217155
+cat__ETL_stack_sequence_SnO2,0.0032832266618937163
+cat__ETL_stack_sequence_PCBM-60 | ZnO,0.0031505820679729305
+cat__Perovskite_deposition_synthesis_atmosphere_Ambient,0.0031358780818922932
+cat__Perovskite_deposition_solvents_DMF; DMSO; NMP,0.0030637882187410535
+cat__Perovskite_deposition_synthesis_atmosphere_N2 >> N2,0.0030018292918075206
+cat__ETL_stack_sequence_SnO2-c | PCBM-60,0.002849088945137876
+cat__Perovskite_deposition_synthesis_atmosphere_Vacuum,0.0028462879609030284
+cat__Perovskite_deposition_procedure_Drop-infiltration,0.0028432100364011417
+cat__Perovskite_additives_compounds_5-AVAI,0.002821967439408456
+cat__ETL_stack_sequence_TiO2-c | C60,0.0028130860399835328
+cat__ETL_stack_sequence_TiO2-c | TiO2-nw,0.002745750178763942
+cat__ETL_stack_sequence_TiO2-c | TiO2-nanofibers,0.0026880552931214502
+cat__Perovskite_deposition_synthesis_atmosphere_N2 >> N2 >> N2,0.0025468993112559095
+cat__Perovskite_deposition_solvents_DMF >> Unknown,0.002424465024303011
+cat__ETL_stack_sequence_ZnO-np | SnO2-np,0.0024053481392343383
+cat__Perovskite_deposition_procedure_Spin-coating >> Ion exchange,0.002399589365980757
+cat__Perovskite_deposition_procedure_Drop-infiltration >> CBD,0.002369791976751571
+cat__Perovskite_deposition_procedure_Electrospraying,0.002329725658611764
+cat__Perovskite_deposition_synthesis_atmosphere_Vacuum >> Air,0.0022778455489098517
+cat__Perovskite_additives_compounds_Acetate,0.0022199901576951927
+cat__ETL_stack_sequence_PCBM-60; F8TBT,0.0022027332464535387
+cat__Perovskite_deposition_solvents_DMF; NNP,0.00217280368042656
+cat__Perovskite_deposition_solvents_DMF; DMSO >> none,0.002132239032466612
+cat__Perovskite_deposition_solvents_none,0.0020387249266248953
+cat__ETL_stack_sequence_PCBM-60 | PEI,0.0020306742766987647
+cat__Perovskite_deposition_procedure_Evaporation >> Evaporation,0.001992277771801049
+cat__Perovskite_additives_compounds_Acetate; Cl,0.001955368861953121
+cat__ETL_stack_sequence_PCBM-60 | PFN,0.0019079614231687625
+cat__Perovskite_deposition_solvents_DMSO >> IPA,0.0018504574558242356
+cat__Perovskite_additives_compounds_PEAI,0.001846728244882366
+cat__HTL_stack_sequence_TT1,0.00168685572710329
+cat__HTL_stack_sequence_PTAA | PFN,0.0015852404556778218
+cat__Perovskite_deposition_procedure_Ultrasonic spray,0.0015695147855523401
+num__A_Rb,0.00156122364116366
+cat__Perovskite_deposition_solvents_none >> IPA,0.0015093777497093314
+num__X_Cl,0.0014854556097615998
+cat__ETL_stack_sequence_TiO2-c | SnO2-c,0.0014834908525267728
+cat__Perovskite_deposition_synthesis_atmosphere_N2 >> MAI,0.0014517863410168424
+cat__ETL_stack_sequence_PCBM-60 | C60,0.001424403957231262
+cat__ETL_stack_sequence_PCBM-70,0.0013755023853297894
+cat__ETL_stack_sequence_PCBM-60 | ZnO-np,0.0013715480770039288
+cat__HTL_stack_sequence_P3CT-N,0.0013575804226345577
+cat__Perovskite_deposition_synthesis_atmosphere_Air >> N2,0.0013500668657118302
+cat__ETL_stack_sequence_SnO2-c | C60,0.0013495073987734114
+cat__HTL_stack_sequence_Unknown,0.0013423808852569556
+cat__ETL_stack_sequence_PCBM-60 | LiF,0.0012851340217039189
+cat__Perovskite_deposition_procedure_Spin-coating >> Spin-coating >> Spin-coating,0.0012833980768140797
+cat__Perovskite_additives_compounds_Rb,0.0012593377241302034
+cat__Perovskite_deposition_solvents_DMF; DMSO >> IPA >> IPA,0.0012542166363674356
+cat__HTL_stack_sequence_PEDOT:PSS | PEDOT:PSS,0.0012436146152612602
+cat__ETL_stack_sequence_Ca | C60,0.0011145279214263267
+cat__Perovskite_deposition_synthesis_atmosphere_Vacuum >> N2,0.0010517856399035587
+cat__HTL_stack_sequence_MoO3,0.001031258591093901
+cat__Perovskite_additives_compounds_CsI,0.0009838795999835392
+cat__Perovskite_deposition_solvents_acetonitrile,0.0009322091159524975
+cat__Perovskite_deposition_solvents_DMF; DMSO >> none >> IPA,0.0009106751875487075
+cat__Perovskite_deposition_solvents_DMF >> Ethanol,0.0009093146856934128
+cat__Perovskite_deposition_procedure_Evaporation >> Gas reaction,0.0009049290339904151
+cat__Perovskite_deposition_procedure_Spin-coating >> Dipp-coating,0.0008770392204337979
+cat__HTL_stack_sequence_NiO-c | PTAA,0.0008134325236748734
+cat__ETL_stack_sequence_TiO2-nt,0.0007982382223188592
+cat__ETL_stack_sequence_TiO2-c | SnO2-np,0.0007970958618978333
+cat__ETL_stack_sequence_PCBM-60 | PEIE,0.0007836916748659504
+cat__Perovskite_deposition_solvents_DMF; DMSO; GBL,0.0007036836317436265
+cat__ETL_stack_sequence_ZnO-c | ZnO-mp,0.0006998900748971417
+cat__Perovskite_additives_compounds_HPA,0.0006841007067098137
+cat__Perovskite_deposition_synthesis_atmosphere_Air >> MAI; Vacuum,0.0006729003776129471
+cat__HTL_stack_sequence_NiO-c | NiO-mp,0.0006614094663436501
+cat__ETL_stack_sequence_ZnO-c | ZnO-nw | TiO2-c,0.0006587240141926472
+cat__HTL_stack_sequence_HTM,0.0006542756088904355
+cat__Perovskite_deposition_solvents_DMF >> none,0.0006333330975268862
+cat__Perovskite_deposition_solvents_none >> none,0.0006229799782495407
+cat__Perovskite_additives_compounds_K,0.0005524662589517664
+cat__ETL_stack_sequence_C60 | bis-C60,0.0005466267109802817
+cat__Perovskite_additives_compounds_SnF2,0.0005315519590712017
+cat__ETL_stack_sequence_C60 | BCP | LiF,0.0005144539832369554
+cat__Perovskite_deposition_procedure_Spin-coating >> CBD >> Spin-coating,0.00047341742963204886
+cat__Perovskite_additives_compounds_NH4Cl,0.00046535864074321106
+cat__ETL_stack_sequence_TiO2-c | TiO2-mp | Al2O3-mp,0.000461022739167525
+cat__ETL_stack_sequence_TiO2-c | TiO2-np,0.00045920798332132237
+cat__ETL_stack_sequence_TiO2-nw,0.0004553783810594142
+cat__HTL_stack_sequence_NiMgLiO,0.00039051003687734027
+cat__Perovskite_additives_compounds_Urea,0.00039013115371912727
+cat__Perovskite_deposition_synthesis_atmosphere_Air >> Air; MACl,0.00038911227547176877
+cat__ETL_stack_sequence_SnO2-np | PCBM-60,0.0003607222165243851
+cat__Perovskite_deposition_solvents_GBL; NMP,0.0003283140855259376
+cat__Perovskite_deposition_synthesis_atmosphere_Unknown >> MAI,0.0003182387646647805
+cat__ETL_stack_sequence_C60,0.0003024423341845495
+cat__Perovskite_deposition_solvents_acetonitrile; Methylamine,0.000288537632565363
+cat__Perovskite_deposition_solvents_DMF >> DMF; IPA,0.0002270675292529794
+cat__ETL_stack_sequence_PCBM-60 | bis-C60,0.00020799535577352735
+num__B_Ge,0.00018284613747651877
+cat__ETL_stack_sequence_Nb2O5,0.00017138778552623992
+cat__Perovskite_deposition_synthesis_atmosphere_Air >> Air; MABr,0.0001526522021519346
+cat__Perovskite_additives_compounds_SCN,0.00014397226501531983
+cat__Perovskite_deposition_solvents_DMF >> IPA >> none,0.00013854406363811945
+cat__Perovskite_deposition_procedure_Spin-coating >> Evaporation,0.00012695432557158941
+cat__Perovskite_deposition_procedure_Dropcasting,0.00012634334626639976
+cat__Perovskite_additives_compounds_Pb(SCN)2; SnF2,0.00010975447422200205
+cat__Perovskite_deposition_synthesis_atmosphere_Ar >> Ar,8.756011769234534e-05
+cat__HTL_stack_sequence_Spiro-MeOTAD | PEDOT:PSS,4.5007135137054593e-05
+cat__ETL_stack_sequence_ZnO,4.038877692265353e-05
+cat__Perovskite_deposition_synthesis_atmosphere_Air >> MAI,2.647186613329981e-05
+cat__HTL_stack_sequence_PEDOT:PSS | PolyTPD,0.0
+cat__Perovskite_additives_compounds_Cl; HI,0.0
+cat__Perovskite_additives_compounds_Ag,0.0
+cat__HTL_stack_sequence_P3CT,0.0
+cat__Perovskite_additives_compounds_Thiourea,0.0
+cat__Perovskite_deposition_procedure_Evaporation >> Spin-coating,0.0
+cat__Perovskite_deposition_procedure_Spin-coating >> Diffusion-gas reaction,0.0
+cat__Perovskite_additives_compounds_methylammonium chloride,0.0
+cat__Perovskite_additives_compounds_NH4SCN,0.0
+cat__Perovskite_additives_compounds_KI,0.0
+cat__Perovskite_additives_compounds_H2O,0.0
+cat__Perovskite_deposition_solvents_none >> none >> none,0.0
+cat__Cell_architecture_Unknown,0.0
+num__A_K,0.0
+cat__Perovskite_additives_compounds_HCl,0.0
+cat__Perovskite_additives_compounds_Pb(SCN)2,0.0
+cat__Perovskite_additives_compounds_PbCl2,0.0
+cat__HTL_stack_sequence_PolyTPD,0.0
+cat__HTL_stack_sequence_PTB7,0.0
+cat__Perovskite_additives_compounds_RbI,0.0
+cat__HTL_stack_sequence_PCBM-60,0.0
+cat__HTL_stack_sequence_PDBD-T,0.0
+cat__HTL_stack_sequence_PEDOT,0.0
+cat__HTL_stack_sequence_MoO3 | PEDOT:PSS,0.0
+cat__ETL_stack_sequence_ZnO-np | C60,0.0
+cat__HTL_stack_sequence_CuPc,0.0
+cat__HTL_stack_sequence_EH44,0.0
+cat__Perovskite_deposition_procedure_Evaporation >> CBD,0.0
+cat__Perovskite_deposition_procedure_Evaporation,0.0
+cat__ETL_stack_sequence_SnO2-c | SnO2-c,0.0
+cat__ETL_stack_sequence_SnO2-c | TiO2-mp,0.0
+cat__Perovskite_deposition_procedure_Spin-coating | Spin-coating,0.0
+cat__Perovskite_deposition_synthesis_atmosphere_Air >> Air >> Air,0.0
+cat__Perovskite_deposition_procedure_Spin-coating >> Spin-coating >> CBD,0.0
+cat__Perovskite_deposition_procedure_Spin-coating >> Spray-coating,0.0
+cat__HTL_stack_sequence_NiMgLiO-c,0.0
+cat__Perovskite_deposition_synthesis_atmosphere_Air >> Air; MAI,0.0
+cat__ETL_stack_sequence_TiO2-c | TiO2-mp | SnO2-c,0.0
+cat__ETL_stack_sequence_ZnO-c | TiO2-c,0.0
+cat__Perovskite_deposition_synthesis_atmosphere_N2 | N2,0.0
+cat__Perovskite_deposition_synthesis_atmosphere_Air >> N2 >> Air,0.0
+cat__ETL_stack_sequence_SnO2-np | C60,0.0
+cat__ETL_stack_sequence_TiO2-c | PCBM-60,0.0
+cat__Perovskite_deposition_solvents_DMF >> DMF,0.0
+cat__Perovskite_deposition_synthesis_atmosphere_Vacuum >> MAI; Vacuum,0.0
+cat__Perovskite_deposition_synthesis_atmosphere_Vacuum >> Unknown,0.0
+cat__Perovskite_deposition_synthesis_atmosphere_Vacuum >> Vacuum,0.0
+cat__Perovskite_deposition_synthesis_atmosphere_Unknown >> MAI; Vacuum,0.0
+cat__Perovskite_deposition_solvents_2-methoxyethanol; acetonitrile; NMP; DMF,0.0
+cat__Perovskite_deposition_solvents_DMF >> DMF >> IPA,0.0
+cat__Perovskite_deposition_synthesis_atmosphere_Unknown >> Air,0.0
+cat__Perovskite_deposition_synthesis_atmosphere_Unknown >> Unknown,0.0
+cat__ETL_stack_sequence_ICBA | C60 | BCP,0.0
+cat__ETL_stack_sequence_PCBM-60 | AZO-np,0.0
+cat__Perovskite_deposition_solvents_DMF >> IPA >> IPA,0.0
