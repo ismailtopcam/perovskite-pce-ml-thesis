@@ -20,7 +20,6 @@ pip install -r requirements.txt
 ```
 
 ## Veri
-Ham CSV'yi su yola koy (git'e GIRMEZ, .gitignore'da):
 ```
 data/raw/Perovskite_database_content_all_data.csv
 ```
