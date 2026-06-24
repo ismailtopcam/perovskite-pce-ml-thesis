@@ -1,11 +1,4 @@
 {
-  "version": "V5",
-  "purpose": "SHAP analysis for the selected DOI-group-safe leakage-safe model.",
-  "loaded_model_path": "outputs/v4/best_model.joblib",
-  "best_model": "LGBMRegressor",
-  "rows": 42391,
-  "features_before_encoding": 27,
-  "features_after_encoding": 263,
-  "shap_sample_rows": 1000,
-  "random_state": 42
+  "model": "CatBoost",
+  "shap_sample": 3000
 }

@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Bu yazılımı kullanırsanız lütfen aşağıdaki gibi atıf yapın."
+title: "Perovskite PCE ML: Tekrar üretilebilir, sızıntı-güvenli ML hattı"
+abstract: "Perovskite Database kayıtlarından güç dönüşüm verimi (PCE) tahmini için DOI-grup-güvenli, sızıntıya karşı korumalı ve tekrar üretilebilir bir makine öğrenmesi / yazılım mühendisliği hattı."
+type: software
+authors:
+  - family-names: "Topçam"
+    given-names: "İsmail"
+    # orcid: "https://orcid.org/XXXX-XXXX-XXXX-XXXX"   # TODO: gerçek ORCID'i yaz
+version: "0.1.0"
+date-released: "2026-01-01"            # TODO: yayın (release) tarihini yaz
+license: MIT
+url: "https://github.com/ismailtopcam/perovskite-pce-ml-thesis.git"   # TODO: gerçek repo URL'i
+# doi: "10.5281/zenodo.XXXXXXX"        # TODO: Zenodo release sonrası concept-DOI'yi buraya ekle
+keywords:
+  - "perovskite solar cells"
+  - "power conversion efficiency"
+  - "machine learning"
+  - "data leakage"
+  - "reproducibility"

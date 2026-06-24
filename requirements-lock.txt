@@ -1,0 +1,17 @@
+# Kaydedilen calisma ortami (run-manifest: outputs/manifests/manifest_stage2_features.json)
+# Python 3.14.4  |  Windows-11
+# Bu dosya, tezde belirtilen tekrar-uretilebilirligi destekler (kesin surumler).
+# Cekirdek bilimsel yigin (manifestten dogrulanmis):
+numpy==2.4.6
+pandas==3.0.3
+scikit-learn==1.8.0
+scipy==1.17.1
+xgboost==3.2.0
+lightgbm==4.6.0
+catboost==1.2.10
+shap==0.51.0
+# Manifeste kaydedilmeyenler (kendi ortamindan `pip freeze` ile kesin surumu ekle):
+matplotlib
+seaborn
+pyyaml
+pytest

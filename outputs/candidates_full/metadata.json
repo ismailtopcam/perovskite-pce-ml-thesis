@@ -1,14 +1,24 @@
 {
-  "version": "V6.2",
-  "purpose": "Controlled candidate generation using the saved best V4 model; no retraining in V6.",
-  "loaded_model_path": "outputs\\v4\\best_model.joblib",
-  "loaded_model_class": "LGBMRegressor",
-  "candidate_count": 486,
-  "top_n": 30,
-  "diverse_top_n": 30,
-  "unique_prediction_count_rounded_6": 252,
-  "max_predicted_pce": 18.127339121680002,
-  "candidate_count_at_max_predicted_pce": 2,
-  "max_groups": null,
-  "warning": "Predicted PCE values are model-based prioritization outputs, not experimental validation."
+  "model": "CatBoost",
+  "axis_sizes": {
+    "A": 7,
+    "B": 2,
+    "X": 3,
+    "arch": 2,
+    "ETL": 3,
+    "HTL": 3,
+    "solvent": 1
+  },
+  "n_candidates": 756,
+  "n_expected_product": 756,
+  "assumptions": {
+    "band_gap": 1.6,
+    "anneal_temp": 100.0,
+    "anneal_time": 20.0
+  },
+  "pred_max": 17.777606817121573,
+  "pred_min": 8.056491982899438,
+  "pred_mean": 12.9888535552477,
+  "train_pce_max": 34.8,
+  "train_pce_p99": 20.9
 }

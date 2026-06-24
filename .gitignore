@@ -1,59 +1,16 @@
-# Python cache
+# Ham veri ve uretilmis ciktilar git'e GIRMEZ (boyut + tekrar uretilebilirlik)
+data/raw/*
+data/processed/*
+outputs/*
+!**/.gitkeep
+# Python
 __pycache__/
-*.py[cod]
-*$py.class
-
-# Virtual environments
+*.pyc
 .venv/
 venv/
-env/
-
-# Raw / large data files
-/Perovskite_database_content_all_data.csv
-/data/
-*.zip
-*.rar
-*.7z
-
-# Model binary files
 *.joblib
-*.pkl
-
-# OS / editor files
+.ipynb_checkpoints/
 .DS_Store
-Thumbs.db
-.vscode/
-.idea/
-
-# Ignore generated outputs by default
-/outputs/**
-
-# Keep documentation for outputs
-!/outputs/
-!/outputs/README.md
-
-# Keep selected final V4 outputs
-!/outputs/v4/
-!/outputs/v4/model_comparison_holdout.csv
-!/outputs/v4/model_comparison_groupkfold.csv
-!/outputs/v4/actual_vs_predicted_best_model.png
-!/outputs/v4/metadata.json
-
-# Keep selected final SHAP outputs
-!/outputs/shap_full/
-!/outputs/shap_full/shap_top_features.csv
-!/outputs/shap_full/shap_summary_plot.png
-!/outputs/shap_full/shap_top20_bar.png
-!/outputs/shap_full/metadata.json
-
-# Keep selected final candidate outputs
-!/outputs/candidates_full/
-!/outputs/candidates_full/candidate_prediction_summary.csv
-!/outputs/candidates_full/top_candidates_diverse.csv
-!/outputs/candidates_full/metadata.json
-
-# Optional: keep report/thesis folder placeholders and notes, but avoid committing thesis drafts by default
-/thesis/*.docx
-/thesis/*.pdf
-!/thesis/README.md
-!/thesis/.gitkeep
+catboost_info/
+.pytest_cache/
+*.egg-info/
