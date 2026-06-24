@@ -1,9 +1,6 @@
 # Perovskite PCE ML — Tekrar Uretilebilir, Sizinti-Guvenli ML Pipeline
 
-<!-- Zenodo DOI rozeti: Zenodo release sonrasi asagidaki XXXX yerine gercek numarayi yaz ve yorumu kaldir:
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXX.svg)](https://doi.org/10.5281/zenodo.XXXX)
--->
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20829027.svg)](https://doi.org/10.5281/zenodo.20829027)
 
 Perovskite Database kayitlarindan PCE tahmini icin **dogrulama-metodolojisi odakli**
 bir makine ogrenmesi / yazilim muhendisligi calismasi. Vurgu, en yuksek skor degil;
