@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "perovskite-pce-ml"
+version = "0.1.0"
+description = "Perovskit PCE tahmini icin tekrar uretilebilir, sizinti-guvenli ML hatti"
+requires-python = ">=3.10"
+readme = "README.md"
+dependencies = [
+  "numpy", "pandas", "scikit-learn", "scipy", "pyyaml",
+  "matplotlib", "shap", "xgboost", "lightgbm", "catboost",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

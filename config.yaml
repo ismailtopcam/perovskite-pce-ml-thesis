@@ -1,0 +1,56 @@
+# Tum pipeline parametreleri tek yerde — savunmada "su deger nereden" sorusunun cevabi.
+seed: 42
+
+paths:
+  raw_csv: "data/raw/Perovskite_database_content_all_data.csv"
+  processed_dir: "data/processed"
+  outputs_dir: "outputs"
+
+target: "JV_default_PCE"
+group_col: "Ref_DOI_number"
+
+cleaning:
+  pce_min: 0.0
+  pce_max: 35.0      # >35 tek-eklemli icin fiziksel disi; aykiri/hatali sayilir
+
+# Kompozisyon vektorizasyonunda ayri sutun acilacak iyonlar; gerisi *_other
+known_ions:
+  A: ["FA", "MA", "Cs", "Rb", "K"]
+  B: ["Pb", "Sn", "Ge"]
+  X: ["I", "Br", "Cl"]
+
+# Stage 1'de satir temizligi icin gereken + Stage 2'de ozellik olacak kolonlar.
+# Eksik olursa kod cokmez, sadece atlar.
+columns:
+  composition:
+    a_ions: "Perovskite_composition_a_ions"
+    a_coef: "Perovskite_composition_a_ions_coefficients"
+    b_ions: "Perovskite_composition_b_ions"
+    b_coef: "Perovskite_composition_b_ions_coefficients"
+    x_ions: "Perovskite_composition_c_ions"
+    x_coef: "Perovskite_composition_c_ions_coefficients"
+  device:
+    - "Cell_architecture"
+    - "Cell_flexible"
+    - "Cell_semitransparent"
+    - "ETL_stack_sequence"
+    - "HTL_stack_sequence"
+    - "Perovskite_band_gap"
+  process:                      # Stage 2'de eklenecek surec degiskenleri (SHAP'te one cikanlar)
+    - "Perovskite_deposition_solvents"
+    - "Perovskite_deposition_thermal_annealing_temperature"
+    - "Perovskite_deposition_thermal_annealing_time"
+  module_flag: "Module"
+
+features:
+  onehot_top_n: 15          # ETL/HTL/cozucu icin en sik N kategori, gerisi *_other
+  add_descriptors: false    # Goldschmidt t, oktahedral mu, Bartel tau fiziksel tanimlayicilari
+  band_gap_col: "Perovskite_band_gap"
+  solvent_col: "Perovskite_deposition_solvents"
+  anneal_temp_col: "Perovskite_deposition_thermal_annealing_temperature"
+  anneal_time_col: "Perovskite_deposition_thermal_annealing_time"
+  arch_col: "Cell_architecture"
+  etl_col: "ETL_stack_sequence"
+  htl_col: "HTL_stack_sequence"
+  flexible_col: "Cell_flexible"
+  semitransparent_col: "Cell_semitransparent"
