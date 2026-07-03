@@ -10,7 +10,13 @@ import numpy as np
 import pandas as pd
 
 def _first_number(x):
-    """'100 | 150', '>100', '100-150 C', 'RT' gibi degerlerden temsili sayi cikarir (max)."""
+    """Cok-degerli/araliksal girdiden ('100 | 150', '>100', '100-150 C') temsili sayiyi MAX olarak cikarir.
+
+    Annealing icin max secimi kasitlidir: cok-asamali tavlamada kristallesmeyi
+    belirleyen en yuksek/nihai sicaklik adimi en bilgilendiricidir; '100-150 C'
+    gibi araliklarda da ust sinir nihai islenme kosulunu temsil eder. 'RT' gibi
+    sayisiz degerler NaN dondurur (sonradan medyanla doldurulur).
+    """
     if pd.isna(x):
         return np.nan
     nums = re.findall(r"\d+\.?\d*", str(x))

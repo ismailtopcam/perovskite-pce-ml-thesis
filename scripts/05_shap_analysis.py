@@ -63,13 +63,13 @@ def main():
     # grafikler
     plt.figure()
     shap.summary_plot(sv, Xs, show=False, max_display=20)
-    plt.tight_layout(); plt.savefig(outdir / "shap_summary_plot.png", dpi=150); plt.close()
+    plt.tight_layout(); plt.savefig(outdir / "shap_summary_plot.png", dpi=300); plt.close()
 
     top20 = imp.head(20)[::-1]
     plt.figure(figsize=(8, 7))
     plt.barh(top20["feature"], top20["mean_abs_shap"])
     plt.xlabel("Ortalama |SHAP| (PCE puani)"); plt.tight_layout()
-    plt.savefig(outdir / "shap_top20_bar.png", dpi=150); plt.close()
+    plt.savefig(outdir / "shap_top20_bar.png", dpi=300); plt.close()
 
     json.dump({"model": best, "shap_sample": int(len(idx))},
               open(outdir / "metadata.json", "w"), indent=2)

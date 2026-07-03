@@ -1,0 +1,13 @@
+{
+  "descriptor_yok": {
+    "r2": 0.4122,
+    "std": 0.0052,
+    "n_feat": 77
+  },
+  "descriptor_var": {
+    "r2": 0.4093,
+    "std": 0.0058,
+    "n_feat": 81
+  },
+  "delta_r2": -0.0028
+}

@@ -1,0 +1,6 @@
+A,B,X,arch,ETL,HTL,Predicted_PCE,marginal90_low,marginal90_high,mondrian_top_low,mondrian_top_high
+FA0.8_MA0.1_Cs0.1,Pb,I,pin,SnO2_np,Spiro_MeOTAD,17.7776,11.36,24.2,12.28,23.28
+FA0.8_MA0.1_Cs0.1,Pb,I,nip,SnO2_np,Spiro_MeOTAD,17.6324,11.21,24.05,12.13,23.13
+FA0.8_MA0.1_Cs0.1,Pb,I0.83_Br0.17,pin,SnO2_np,Spiro_MeOTAD,17.6241,11.21,24.04,12.13,23.12
+FA0.8_MA0.1_Cs0.1,Pb,I0.83_Br0.17,nip,SnO2_np,Spiro_MeOTAD,17.5303,11.11,23.95,12.03,23.03
+FA0.85_MA0.15,Pb,I,pin,SnO2_np,Spiro_MeOTAD,17.4067,10.99,23.83,11.91,22.91

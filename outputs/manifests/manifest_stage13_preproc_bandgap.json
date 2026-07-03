@@ -1,0 +1,27 @@
+{
+  "stage": "stage13_preproc_bandgap",
+  "timestamp_utc": "2026-06-24T22:25:06+00:00",
+  "seed": 42,
+  "target": "JV_default_PCE",
+  "group_col": "Ref_DOI_number",
+  "onehot_top_n": 15,
+  "versions": {
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  },
+  "metrics": {
+    "band_gap_global_median": 1.6
+  },
+  "outputs": [
+    "outputs/robustness/fold_invariance.csv",
+    "outputs/robustness/band_gap_ablation.csv"
+  ]
+}
