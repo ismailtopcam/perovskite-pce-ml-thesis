@@ -1,0 +1,48 @@
+{
+  "n_calibration": 3992,
+  "n_conformal_test": 4155,
+  "marginal": {
+    "90": {
+      "half_width": 6.4186,
+      "width": 12.8372,
+      "empirical_coverage": 0.8818
+    },
+    "80": {
+      "half_width": 4.679,
+      "width": 9.3579,
+      "empirical_coverage": 0.7613
+    }
+  },
+  "mondrian_90": {
+    "empirical_coverage": 0.8833,
+    "mean_half_width": 6.326,
+    "mean_width": 12.652,
+    "per_quartile_half_width": {
+      "Q1": 6.2715,
+      "Q2": 6.9938,
+      "Q3": 6.6518,
+      "Q4": 5.4987
+    }
+  },
+  "applicability_domain": {
+    "knn_k": 5,
+    "threshold_pct": 95,
+    "threshold": 3.0024,
+    "frac_inside": 0.8014,
+    "mae_inside": 3.2801,
+    "mae_outside": 3.194,
+    "coverage90_inside": 0.882,
+    "coverage90_outside": 0.8812
+  },
+  "top_candidate": {
+    "Predicted_PCE": 17.78,
+    "marginal_90": [
+      11.36,
+      24.2
+    ],
+    "mondrian_top": [
+      12.28,
+      23.28
+    ]
+  }
+}

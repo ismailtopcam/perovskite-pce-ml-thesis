@@ -1,0 +1,44 @@
+{
+  "stage": "14_pipeline_cv",
+  "timestamp_utc": "2026-06-26T18:21:00+00:00",
+  "seed": 42,
+  "target": "JV_default_PCE",
+  "group_col": "Ref_DOI_number",
+  "onehot_top_n": 15,
+  "versions": {
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  },
+  "metrics": {
+    "global_mean": 0.4128724715701157,
+    "global_std": 0.006457042722070404,
+    "foldlocal_mean": 0.4126550339759742,
+    "foldlocal_std": 0.006375660105998738,
+    "delta": -0.00021743759414150077,
+    "global_folds": [
+      0.42081726780095463,
+      0.41101997618059516,
+      0.4109287413479269,
+      0.40275045145540667,
+      0.4188459210656953
+    ],
+    "foldlocal_folds": [
+      0.4218072129646415,
+      0.41074263820815526,
+      0.4085271538100701,
+      0.4042454627425732,
+      0.41795270215443103
+    ]
+  },
+  "outputs": [
+    "results.json"
+  ]
+}

@@ -20,8 +20,18 @@ pip install -r requirements.txt
 ```
 data/raw/Perovskite_database_content_all_data.csv
 ```
+Veri kaynagi: **Perovskite Database** (Jacobsson vd., 2022, *Nature Energy*, DOI: 10.1038/s41560-021-00941-3).
+Ham CSV kendi ozgun kaynagindan indirilir; bu depoda **yeniden dagitilmaz** (`.gitignore`).
 
 ## Calistirma sirasi
+
+Tek komut (tum cekirdek hat):
+```bash
+python run_all.py            # cekirdek hat (01-10)
+python run_all.py --all      # + ek dogrulama/saglamlik betikleri (11-14)
+```
+
+Ya da adim adim:
 ```bash
 python scripts/01_prepare_data.py          # veri temizleme + kompozisyon vektorizasyonu
 python scripts/02_build_features.py        # ozellik matrisi (cihaz + surec)
@@ -35,6 +45,26 @@ python scripts/09_descriptor_ablation.py   # fiziksel tanimlayici (Goldschmidt/t
 python scripts/10_conformal_uncertainty.py # tahmin belirsizligi: DOI-grup-guvenli conformal + uygulanabilirlik-alani
 ```
 
+## Ek dogrulama / saglamlik betikleri
+Cekirdek hattin (01-10) sonuclarini stres-testen ek dogrulama betikleri (manifest + outputs uretir):
+```bash
+python scripts/11_pce_outlier_audit.py     # PCE>30 denetimi + PCE<=30/<=28 duyarlilik
+python scripts/12_catboost_tuning.py        # CatBoost dogrudan grup-guvenli hiperparametre aramasi (default vs tuned)
+python scripts/13_preprocessing_and_bandgap.py # on-isleme kat-invaryansi + band gap ablasyonu
+python scripts/14_pipeline_cv.py            # on-isleme sizintisi: fold-local sklearn Pipeline vs global (ayni GroupKFold)
+```
+
+## DOI-grup denetim betikleri
+Gruplama anahtarinin (ham DOI dizgileri) kalitesini ve olasi kalinti sizintiyi olcen bagimsiz denetim betikleri (repo kokunde):
+```bash
+python doi_grup_dogrulama_v2.py          # DOI'siz kayit sayimi, normalizasyon carpismalari, holdout/CV kat-siniri asimlari
+python doi_normalizasyon_duyarlilik.py   # normalize_doi() uygulanmis gruplarla ayni CatBoost'un duyarlilik kosumu (~40 sn)
+python kontamine_test_maesi.py           # sinir asan yayinlarin holdout-test kayitlarinda hata analizi (~15 sn)
+```
+Bulgu ozeti: 44 yayin buyuk/kucuk harf varyantiyla cift kayitli; kat-siniri asan 362 kayit (%0,87).
+Normalizasyonla fark |dR2| <= 0,003 (kat gurultusu icinde); skor sisirme izi yok. Baslik sonuclar bu nedenle
+ozgun kosumdan raporlanir; kusur olculmus kalinti risk olarak belgelenmistir.
+
 ## Testler
 ```bash
 pytest -q
@@ -45,7 +75,7 @@ pytest -q
 - `src/perovskite_ml/` — paket (data, features, models, validation, explain, candidates)
 - `scripts/` — sirayla calisan asama runner'lari
 - `tests/` — birim testler
-- `data/`, `outputs/` — uretilen icerik (git'e girmez)
+- `data/`, `outputs/` — uretilen icerik (varsayilan git-disi; tezde atif yapilan kucuk sonuc dosyalari surum kontrolune dahildir)
 
 ## Tam calisma ortami (tekrar uretilebilirlik)
 Calismanin kaydedildigi ortam (run-manifest'ten):

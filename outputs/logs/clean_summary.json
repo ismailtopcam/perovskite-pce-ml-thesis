@@ -1,0 +1,33 @@
+{
+  "raw_rows": 43398,
+  "removed_total": 1913,
+  "clean_rows": 41485,
+  "removed_by_reason": {
+    "pce_not_numeric": 1002,
+    "module_record": 344,
+    "coef_not_numeric": 291,
+    "ion_coef_count_mismatch": 141,
+    "missing_ion_or_coef": 130,
+    "pce_out_of_range": 5
+  },
+  "pce_mean": 12.0347,
+  "pce_median": 12.77,
+  "pce_std": 5.2411,
+  "n_unique_doi": 7396,
+  "vectorized_columns": [
+    "A_FA",
+    "A_MA",
+    "A_Cs",
+    "A_Rb",
+    "A_K",
+    "A_other",
+    "B_Pb",
+    "B_Sn",
+    "B_Ge",
+    "B_other",
+    "X_I",
+    "X_Br",
+    "X_Cl",
+    "X_other"
+  ]
+}

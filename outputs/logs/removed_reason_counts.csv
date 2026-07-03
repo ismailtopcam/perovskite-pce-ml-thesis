@@ -1,0 +1,7 @@
+reason,count
+pce_not_numeric,1002
+module_record,344
+coef_not_numeric,291
+ion_coef_count_mismatch,141
+missing_ion_or_coef,130
+pce_out_of_range,5

@@ -1,0 +1,35 @@
+{
+  "stage": "stage11_robustness",
+  "timestamp_utc": "2026-06-24T22:14:34+00:00",
+  "seed": 42,
+  "target": "JV_default_PCE",
+  "group_col": "Ref_DOI_number",
+  "onehot_top_n": 15,
+  "versions": {
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  },
+  "metrics": {
+    "temiz_kayit": 42317,
+    "max_PCE": 34.8,
+    "PCE_gt_30": 8,
+    "PCE_gt_30_yuzde": 0.019,
+    "PCE_gt_27": 12,
+    "gt30_module_TRUE": 0,
+    "gt30_certified_TRUE": 0,
+    "gt30_cell_area_median_cm2": 0.1,
+    "gt30_farkli_DOI": 4
+  },
+  "outputs": [
+    "outputs/robustness/pce_outlier_audit.csv",
+    "outputs/robustness/robustness_cv.csv"
+  ]
+}

@@ -41,7 +41,7 @@ def main():
     plt.plot([0, 100], [0, 100], "--", color="gray", label="Rastgele secim")
     plt.xlabel("Incelenen hucre orani (%)")
     plt.ylabel(f"Yakalanan yuksek-verim (PCE>={GAINS_THR}) orani (%)")
-    plt.legend(); plt.tight_layout(); plt.savefig(outdir / "gains_curve.png", dpi=150); plt.close()
+    plt.legend(); plt.tight_layout(); plt.savefig(outdir / "gains_curve.png", dpi=300); plt.close()
 
     json.dump({"n_test": int(len(df)), "spearman": float(rho), "gains_threshold": GAINS_THR},
               open(outdir / "metadata.json", "w"), indent=2)

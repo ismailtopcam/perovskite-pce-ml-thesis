@@ -1,0 +1,26 @@
+{
+  "stage": "stage10_conformal",
+  "timestamp_utc": "2026-06-28T22:04:55+00:00",
+  "seed": 42,
+  "target": "JV_default_PCE",
+  "group_col": "Ref_DOI_number",
+  "onehot_top_n": 15,
+  "versions": {
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  },
+  "metrics": {
+    "marginal90_half_width": 6.4186,
+    "marginal90_coverage": 0.8818,
+    "ad_frac_inside": 0.8014
+  },
+  "outputs": []
+}

@@ -1,0 +1,16 @@
+{
+  "model": "CatBoost",
+  "best_params": {
+    "depth": 6,
+    "learning_rate": 0.05,
+    "iterations": 500
+  },
+  "default_cv_r2": [
+    0.4129,
+    0.0065
+  ],
+  "tuned_cv_r2": [
+    0.4129,
+    0.0065
+  ]
+}

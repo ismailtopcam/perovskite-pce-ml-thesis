@@ -10,8 +10,8 @@ xgboost==3.2.0
 lightgbm==4.6.0
 catboost==1.2.10
 shap==0.51.0
-# Manifeste kaydedilmeyenler (kendi ortamindan `pip freeze` ile kesin surumu ekle):
-matplotlib
-seaborn
-pyyaml
-pytest
+# Gorsellestirme + yapilandirma + test (kullanici ortamindan pip freeze ile pinlendi):
+matplotlib==3.10.9
+seaborn==0.13.2
+PyYAML==6.0.3
+pytest==9.0.3

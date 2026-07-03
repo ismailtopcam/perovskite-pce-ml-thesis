@@ -1,0 +1,5 @@
+durum,ozellik,model,R2_mean,R2_std
+band_gap_dahil,77,CatBoost,0.4129,0.0065
+band_gap_dahil,77,HistGBM,0.4122,0.0052
+band_gap_haric,75,CatBoost,0.4122,0.005
+band_gap_haric,75,HistGBM,0.4108,0.0066

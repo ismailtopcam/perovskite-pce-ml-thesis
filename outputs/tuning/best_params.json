@@ -1,0 +1,17 @@
+{
+  "model": "HistGradientBoosting",
+  "best_params": {
+    "learning_rate": 0.05,
+    "max_leaf_nodes": 31,
+    "l2_regularization": 1.0,
+    "max_iter": 200
+  },
+  "default_cv_r2": [
+    0.4122,
+    0.0052
+  ],
+  "tuned_cv_r2": [
+    0.4124,
+    0.0059
+  ]
+}

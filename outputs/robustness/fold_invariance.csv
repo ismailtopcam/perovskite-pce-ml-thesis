@@ -1,0 +1,6 @@
+fold,band_gap_train_median,band_gap_delta_vs_global,ETL_stack_sequence_top15_overlap,HTL_stack_sequence_top15_overlap,Perovskite_deposition_solvents_top15_overlap
+1,1.6,0.0,14/15,15/15,15/15
+2,1.6,0.0,14/15,14/15,15/15
+3,1.6,0.0,15/15,14/15,15/15
+4,1.6,0.0,15/15,14/15,15/15
+5,1.6,0.0,13/15,15/15,15/15
