@@ -1,0 +1,9 @@
+Ref_DOI_number,Cell_architecture,JV_default_PCE,Cell_stack_sequence,Perovskite_composition_long_form
+10.1039/d0ta04721j,nip,34.8,SLG | ITO | ZnO-np | SnO2-np | Perovskite | Spiro-MeOTAD | Au,MAPbI3
+10.1039/d0ta04721j,nip,33.4,SLG | ITO | ZnO-np | SnO2-np | Perovskite | Spiro-MeOTAD | Au,MAPbI3
+10.1002/aenm.201901980,pin,33.0,SLG | ITO | NiO-c | Perovskite | PCBM-60 | BCP | Ag,MAPbBrI2
+10.1039/d0ta04721j,nip,32.3,SLG | ITO | ZnO-np | SnO2-np | Perovskite | Spiro-MeOTAD | Au,MAPbI3
+10.1002/aenm.201901980,pin,31.4,SLG | ITO | NiO-c | Perovskite | PCBM-60 | BCP | Ag,MAPbI3
+10.1002/aenm.201901980,pin,30.6,SLG | ITO | NiO-c | Perovskite | PCBM-60 | BCP | Ag,MAPbBrI2
+10.1039/c9ra05323a,nip,30.3,SLG | FTO | TiO2-c | TiO2-mp | Perovskite | Spiro-MeOTAD | Au,Cs0.05FA0.76MA0.16PbBr1.5I1.5
+10.1002/aelm.201900884,nip,30.01,SLG | FTO | TiO2-c | TiO2-mp | Perovskite | TPA-BPFN-TPA | Ag,MAPbI3
