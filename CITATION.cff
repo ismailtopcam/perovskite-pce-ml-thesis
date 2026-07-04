@@ -12,7 +12,7 @@ date-released: "2026-07-02"            # Zenodo release gunuyle eslesmelidir
 license: MIT
 repository-code: "https://github.com/ismailtopcam/perovskite-pce-ml-thesis"
 url: "https://github.com/ismailtopcam/perovskite-pce-ml-thesis"
-doi: "10.5281/zenodo.20829027"
+doi: "10.5281/zenodo.21196013"
 keywords:
   - "perovskite solar cells"
   - "power conversion efficiency"
