@@ -62,7 +62,8 @@ def main() -> None:
     if run_supp:
         model_ready = ROOT / "data" / "processed" / "model_ready_dataset.csv"
         run("thesis_data_analysis.py", [str(model_ready)])
-    n = len(steps) + (1 if run_supp else 0)
+        run("thesis_figures.py")
+    n = len(steps) + (2 if run_supp else 0)
     print(
         f"\nTUM ADIMLAR BASARIYLA TAMAMLANDI "
         f"({time.time() - t0:.1f} s, {n} betik)."
