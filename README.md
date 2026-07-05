@@ -54,6 +54,7 @@ python scripts/13_preprocessing_and_bandgap.py # on-isleme kat-invaryansi + band
 python scripts/14_pipeline_cv.py            # on-isleme sizintisi: fold-local sklearn Pipeline vs global (ayni GroupKFold)
 python scripts/thesis_data_analysis.py data/processed/model_ready_dataset.csv
                                             # betimsel istatistik: DOI grup dagilimi, gurultu tabani (Tablo 5.1), band gap (ML yok)
+python scripts/thesis_figures.py            # tez veri sekillerinin (4.1-4.7, 4.12, 4.13) repo icinden yeniden uretimi -> outputs/figures/
 ```
 
 Tezde atif yapilan iki ek denetim betigi (repo kokunde; ciktilari surum kontrolunde):
