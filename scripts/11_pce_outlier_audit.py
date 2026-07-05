@@ -24,7 +24,7 @@ from perovskite_ml.utils.manifest import write_manifest
 def main():
     cfg = load_config(str(ROOT / "config.yaml"))
     seed = cfg["seed"]; tgt = cfg["target"]; gcol = cfg["group_col"]
-    pmax = cfg["cleaning"]["pce_max"]
+    pmin = cfg["cleaning"]["pce_min"]; pmax = cfg["cleaning"]["pce_max"]
     outdir = ROOT / cfg["paths"]["outputs_dir"] / "robustness"
     outdir.mkdir(parents=True, exist_ok=True)
 
@@ -33,7 +33,8 @@ def main():
     want = [tgt, gcol, "Module", "Cell_area_measured", "JV_certified_values"]
     df = pd.read_csv(raw, usecols=lambda c: c in want, low_memory=False)
     p = pd.to_numeric(df[tgt], errors="coerce")
-    keep = (p > 0) & (p <= pmax)
+    # clean_data.clean_rows ile ayni tanim: sinirlar DAHIL (PCE=0 gecerli kayittir)
+    keep = (p >= pmin) & (p <= pmax)
     clean = df[keep]; pc = p[keep]
     hi = clean[pc > 30]
 
