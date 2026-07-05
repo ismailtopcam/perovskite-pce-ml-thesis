@@ -91,6 +91,12 @@ Calismanin kaydedildigi ortam (run-manifest'ten):
 Python 3.14.4, numpy 2.4.6, pandas 3.0.3, scikit-learn 1.8.0, scipy 1.17.1, xgboost 3.2.0, lightgbm 4.6.0, catboost 1.2.10, shap 0.51.0.
 Kesin surumler `requirements-lock.txt` dosyasinda; ayrica her kosu `outputs/manifests/` altina timestamp + seed + paket surumlerini JSON olarak yazar.
 
+**Not:** Tezde raporlanan tum sayisal ciktilar bu lock ortaminda uretilmistir. `requirements.txt`
+genis uyumluluk icin alt-sinir bildirir; birebir tekrar uretim icin `requirements-lock.txt` kullanin.
+Seed sabitleme ayni ortam icinde determinizmi garanti eder; farkli isletim sistemi / derleyici /
+kutuphane surumu kombinasyonlarinda (ozellikle boosting kutuphanelerinde) binde-bir duzeyinde
+kucuk sayisal farklar olusabilir.
+
 ## Yazilim muhendisligi katmanlari
 - **Veri-dogrulama / sema** (`validation/schema.py`): hat calismadan once veri sozlesmesini denetler; **model-ready icinde olcum-sonrasi (sizinti) kolonu kalmissa hatti durdurur** (Breck vd., 2019 operasyonel hali).
 - **Run-manifest** (`utils/manifest.py`): her asama icin timestamp, seed, paket surumleri, satir/ozellik sayilari ve cikti listesini JSON olarak yazar (Sculley vd., 2015 — provenans/tekrar uretilebilirlik).
