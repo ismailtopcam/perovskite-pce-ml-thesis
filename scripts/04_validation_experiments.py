@@ -64,10 +64,9 @@ def main():
     # --- Deney B: olcum-sonrasi (leaky) degiskenler ON vs OFF ---
     b_done = False
     try:
-        raw_full = pd.read_csv(cfg["paths"]["raw_csv"], encoding="utf-8-sig", low_memory=False)
+        raw_full = pd.read_csv(ROOT / cfg["paths"]["raw_csv"], encoding="utf-8-sig", low_memory=False)
         have = [c for c in LEAK_COLS if c in raw_full.columns]
         if have:
-            base_cols = [c for c in raw_full.columns]  # clean_rows satir bazli; tum kolonlari tutar
             cleaned_b, _ = clean_rows(raw_full, cfg)
             vec_b = vectorize_dataframe(cleaned_b, cfg)
             Mb = build_features(vec_b, cfg)
@@ -83,8 +82,9 @@ def main():
             rows.append({"deney": "B_olcum_sonrasi", "ayar": f"leakage_ON (+{','.join(c.split('_')[-1] for c in have)})",
                          "R2_mean": leak_mean, "R2_std": leak_std})
             b_done = True
-    except Exception as e:
-        print(f"[stage4] Deney B atlandi ({type(e).__name__}: {e})")
+    except FileNotFoundError as e:
+        # Ham CSV depoda dagitilmaz; yoksa yalnizca Deney B atlanir (A ve C etkilenmez).
+        print(f"[stage4] Deney B atlandi — ham CSV bulunamadi: {e}")
 
     # --- Deney C: ozellik kapsami (DOI-grup ile) ---
     comp = [c for c in X.columns if c.split("_")[0] in ("A", "B", "X")]

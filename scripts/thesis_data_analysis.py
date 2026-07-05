@@ -137,15 +137,31 @@ def d1_noise_floor(df, pce_col, doi_col, bg_col, comp_cols):
 
 def c1_bandgap(df, bg_col):
     section("C1 (opsiyon) — BAND-GAP DAGILIM QUANTILE'LARI")
-    bg = df[bg_col].dropna().astype(float)
+    full = df[bg_col].astype(float)
+    # model_ready girdisinde band_gap medyanla doldurulmustur; gercek dagilim icin
+    # eksiklik bayragiyla gozlemli alt kumeye inilmelidir (bayrak yoksa dropna yeterli).
+    flag = f"{bg_col}_missing"
+    if flag in df.columns:
+        bg = full[df[flag] == 0].dropna()
+        n_imp = int((df[flag] == 1).sum())
+        print(f"Doldurulmus (imputed) kayit: {n_imp:,} (%{100*n_imp/len(df):.1f}) — asagidaki "
+              f"istatistikler yalnizca gozlemli degerler uzerindendir.")
+    else:
+        bg = full.dropna()
+        if len(bg) == len(df):
+            print("[UYARI] Eksiklik bayragi yok ve kolonda NaN yok; kolon medyanla "
+                  "doldurulmus olabilir — istatistikler medyana yanli cikabilir.")
     q = bg.quantile([.05, .25, .5, .75, .95]).round(3).to_dict()
-    print(f"n (band_gap dolu)         : {len(bg):,}")
+    print(f"n (band_gap gozlemli)     : {len(bg):,}")
     print(f"Quantile 5/25/50/75/95    : {q}")
     print(f"Ortalama / std            : {bg.mean():.3f} / {bg.std():.3f}")
     frac_tandem = 100 * ((bg >= 1.70) & (bg <= 1.80)).mean()
     frac_wide = 100 * (bg >= 1.70).mean()
     print(f"1.70-1.80 eV (tandem penceresi) payi : %{frac_tandem:.1f}")
     print(f">=1.70 eV (genis-bant) payi          : %{frac_wide:.1f}")
+    if flag in df.columns:
+        frac_wide_all = 100 * (full >= 1.70).mean()
+        print(f">=1.70 eV payi (imputed dahil, referans): %{frac_wide_all:.1f}")
     print("\n-> 5.4 icin: 75. persentil {:.2f} / 95. persentil {:.2f} ise, egitim "
           "kutlesinin ~1.6 eV'de yogunlastigi ve tandem bolgesinin (>=1.70) yalnizca "
           "%{:.1f}'unu kapsadigi yazilabilir.".format(q[0.75], q[0.95], frac_wide))

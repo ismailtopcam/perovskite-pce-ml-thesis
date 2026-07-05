@@ -1,0 +1,50 @@
+{
+  "raw_groups": {
+    "label": "HAM gruplar — mevcut pipeline",
+    "holdout": {
+      "MAE": 3.1506,
+      "RMSE": 4.0755,
+      "R2": 0.3924,
+      "n_test": 8147
+    },
+    "gkf5": {
+      "R2_mean": 0.4129,
+      "R2_std": 0.0065,
+      "MAE_mean": 3.1197,
+      "RMSE_mean": 4.0153,
+      "R2_folds": [
+        0.4208,
+        0.411,
+        0.4109,
+        0.4028,
+        0.4188
+      ]
+    },
+    "n_groups": 7397
+  },
+  "normalized_groups": {
+    "label": "NORMALIZE gruplar — normalize_doi() eklenmis",
+    "holdout": {
+      "MAE": 3.1503,
+      "RMSE": 4.1029,
+      "R2": 0.3936,
+      "n_test": 8355
+    },
+    "gkf5": {
+      "R2_mean": 0.4101,
+      "R2_std": 0.0165,
+      "MAE_mean": 3.1215,
+      "RMSE_mean": 4.0218,
+      "R2_folds": [
+        0.4211,
+        0.4138,
+        0.4199,
+        0.3775,
+        0.4182
+      ]
+    },
+    "n_groups": 7353
+  },
+  "delta_gkf_r2": 0.0028,
+  "delta_holdout_r2": -0.0012
+}

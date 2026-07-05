@@ -52,6 +52,14 @@ python scripts/11_pce_outlier_audit.py     # PCE>30 denetimi + PCE<=30/<=28 duya
 python scripts/12_catboost_tuning.py        # CatBoost dogrudan grup-guvenli hiperparametre aramasi (default vs tuned)
 python scripts/13_preprocessing_and_bandgap.py # on-isleme kat-invaryansi + band gap ablasyonu
 python scripts/14_pipeline_cv.py            # on-isleme sizintisi: fold-local sklearn Pipeline vs global (ayni GroupKFold)
+python scripts/thesis_data_analysis.py data/processed/model_ready_dataset.csv
+                                            # betimsel istatistik: DOI grup dagilimi, gurultu tabani (Tablo 5.1), band gap (ML yok)
+```
+
+Tezde atif yapilan iki ek denetim betigi (repo kokunde; ciktilari surum kontrolunde):
+```bash
+python pce30_ustu_stack_incelemesi.py    # PCE>30 kayitlarin hucre yigini denetimi (tandem izi var mi?) -> outputs/robustness/pce30_ustu_stack.csv
+python aday_uyumluluk_filtresi.py        # (mimari,ETL,HTL) uclulerinin egitimde birlikte-gorulme denetimi -> outputs/candidates_full/*_compat_N5.csv, triple_cooccurrence.csv
 ```
 
 ## DOI-grup denetim betikleri
@@ -63,7 +71,8 @@ python kontamine_test_maesi.py           # sinir asan yayinlarin holdout-test ka
 ```
 Bulgu ozeti: 44 yayin buyuk/kucuk harf varyantiyla cift kayitli; kat-siniri asan 362 kayit (%0,87).
 Normalizasyonla fark |dR2| <= 0,003 (kat gurultusu icinde); skor sisirme izi yok. Baslik sonuclar bu nedenle
-ozgun kosumdan raporlanir; kusur olculmus kalinti risk olarak belgelenmistir.
+ozgun kosumdan raporlanir; kusur olculmus kalinti risk olarak belgelenmistir. Duyarlilik kosumunun sayisal
+ciktisi `outputs/robustness/doi_normalizasyon_duyarlilik.json` olarak kaydedilir (tez Bolum 5.7'deki degerler).
 
 ## Testler
 ```bash

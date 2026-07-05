@@ -26,6 +26,11 @@ def _first_number(x):
     return max(vals)
 
 def _onehot_topn(df, col, top_n, prefix):
+    # NaN -> "unknown"; ham veride ayrica "Unknown" gercek bir kategori olarak var
+    # (cozucude 1.044 kayit). Ikisi bilerek AYRI tutulur: birlestirmek top-N kumesini
+    # ve 77-ozellik matrisini degistirip v0.2.0 ciktilarinin tekrar uretilebilirligini
+    # bozar. Boslugun mu "Unknown" yazmanin mi ayni anlama geldigi veri girisinden
+    # bilinemez; birlestirme ancak yeni bir surumde, tum sonuclar yeniden uretilerek yapilmali.
     s = df[col].fillna("unknown").astype(str)
     top = s.value_counts().head(top_n).index
     s = s.where(s.isin(top), prefix + "_other")
