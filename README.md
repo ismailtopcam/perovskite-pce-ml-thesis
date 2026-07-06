@@ -7,6 +7,23 @@ bir makine ogrenmesi / yazilim muhendisligi calismasi. Vurgu, en yuksek skor deg
 **leakage-safe, DOI-grup-guvenli, tekrar uretilebilir** bir hat ve muhendislik
 kararlarinin sonuc gecerliligini nasil degistirdiginin olculmesidir.
 
+## Sonuclar (bir bakista)
+
+| Baslik | Sonuc |
+|---|---|
+| Temiz veri | 41.485 kayit (ham: 43.398 x 410 kolon) |
+| Ozellik sayisi | 77 |
+| Nihai model | CatBoost (ilk 4 boosting ~esit; salt-sklearn HistGBM dahil) |
+| Ana dogrulama | DOI-grup 5-kat GroupKFold CV |
+| **R2 (grup-guvenli)** | **0,413 ± 0,006** |
+| R2 (rastgele bolme — sizinti sismesi) | 0,481 (+0,068) |
+| R2 (+Voc/Jsc/FF — hedef sizintisi) | 0,938 (bu yuzden dislandi) |
+| MAE / RMSE | 3,12 / 4,02 PCE puani |
+| Aday uzayi / egitimde desteklenen | 756 / 546 |
+
+Dusuk gorunen 0,413 bilincli bir tercihtir: gorulmemis yayinlara genellemeyi olcer.
+Tum degerler `outputs/` altindaki commit'li dosyalardan izlenebilir.
+
 ## Kurulum
 ```bash
 python -m venv .venv
