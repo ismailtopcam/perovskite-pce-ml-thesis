@@ -1,6 +1,7 @@
 # Perovskite PCE ML — Tekrar Uretilebilir, Sizinti-Guvenli ML Pipeline
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21196013.svg)](https://doi.org/10.5281/zenodo.21196013)
+[![CI](https://github.com/ismailtopcam/perovskite-pce-ml-thesis/actions/workflows/ci.yml/badge.svg)](https://github.com/ismailtopcam/perovskite-pce-ml-thesis/actions/workflows/ci.yml)
 
 Perovskite Database kayitlarindan PCE tahmini icin **dogrulama-metodolojisi odakli**
 bir makine ogrenmesi / yazilim muhendisligi calismasi. Vurgu, en yuksek skor degil;
@@ -34,11 +35,21 @@ pip install -r requirements.txt
 ```
 
 ## Veri
-```
-data/raw/Perovskite_database_content_all_data.csv
-```
 Veri kaynagi: **Perovskite Database** (Jacobsson vd., 2022, *Nature Energy*, DOI: 10.1038/s41560-021-00941-3).
-Ham CSV kendi ozgun kaynagindan indirilir; bu depoda **yeniden dagitilmaz** (`.gitignore`).
+Ham CSV bu depoda **yeniden dagitilmaz** (`.gitignore`); ozgun kaynagindan indirilir:
+
+1. https://www.perovskitedatabase.com adresinden (Download bolumu) tum-veri CSV'sini indirin.
+2. Dosyayi tam olarak su yola yerlestirin (ad dahil):
+   ```
+   data/raw/Perovskite_database_content_all_data.csv
+   ```
+3. Bu calismada kullanilan anlik goruntunun kimligi (indirdiginiz dosyayi dogrulayin):
+   - **43.398 kayit x 410 kolon**, ~87 MB
+   - SHA-256: `da66a634e9106e58ce4d012558d468bc2f19b95987f149fb9c5d208d363ea67a`
+
+Perovskite Database yasayan bir veri tabanidir; daha guncel bir anlik goruntuyle kayit sayilari ve
+turetilen sonuclar kucuk farklar gosterebilir. Tezde raporlanan tum sayilar yukaridaki anlik
+goruntuye aittir; farkli bir kopya kullaniyorsaniz once satir sayisi ve checksum'i karsilastirin.
 
 ## Calistirma sirasi
 
@@ -94,8 +105,12 @@ ciktisi `outputs/robustness/doi_normalizasyon_duyarlilik.json` olarak kaydedilir
 
 ## Testler
 ```bash
-pytest -q
+pytest -q     # 30 birim test; ham veri gerektirmez (sentetik veriyle calisir)
 ```
+CI (`.github/workflows/ci.yml`) her push/PR'da testleri **Python 3.10 ve 3.13** uzerinde kosar;
+guncel durum yukaridaki CI rozetinde gorunur. Kapsam: kompozisyon donusumu, ozellik insasi
+(medyan+bayrak, top-N one-hot), sema/sizinti kontrolu, DOI-grup ayrim ayrikligi, veri temizleme
+nedenleri ve sinir dahilligi, aday uzayi kodlama sozlesmesi (756).
 
 ## Klasor yapisi
 - `config.yaml` — tum parametreler (seed, kolonlar, temizleme esikleri)
