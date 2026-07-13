@@ -24,6 +24,20 @@ mühendislik kararlarının sonuç geçerliliğini nasıl değiştirdiğinin öl
 
 Düşük görünen 0,413 bilinçli bir tercihtir: görülmemiş yayınlara genellemeyi ölçer.
 Tüm değerler `outputs/` altındaki commit'li dosyalardan izlenebilir.
+Model ve veri özeti: [MODEL_CARD.md](MODEL_CARD.md) · [DATA_CARD.md](DATA_CARD.md)
+
+## Etkileşimli web uygulaması
+
+Tezin veri hattı, doğrulama deneyleri ve bulguları etkileşimli olarak yayında:
+**<https://tez.ismailtopcam.dev>**
+
+- Kaynak kodu ayrı depodadır: <https://github.com/ismailtopcam/perovskite-pce-ml-app>
+  (Streamlit; 9 sayfa — veri hattı gezgini, doğrulama deneyleri, canlı tahmin +
+  conformal aralık + yerel SHAP, DOI gezgini, provenans).
+- Uygulamanın tüm verisi ve modeli **bu depodan deterministik üretilir**
+  (`tools/prepare_app_data.py`, pipeline commit'i uygulama içinde görünür); model
+  artefaktı SHA-256'sı [MODEL_CARD.md](MODEL_CARD.md)'de kayıtlıdır. Yani web
+  sitesindeki her sayı, buradaki commit'li çıktılarla aynı kaynaktan gelir.
 
 ## Kurulum
 ```bash
@@ -106,12 +120,19 @@ Normalizasyonla fark |dR2| <= 0,003 (kat gürültüsü içinde); skor şişirme 
 
 ## Testler
 ```bash
-pytest -q     # 30 birim test; ham veri gerektirmez (sentetik veriyle çalışır)
+pytest -q     # 31 test; ham veri gerektirmez (sentetik veriyle çalışır)
 ```
 CI (`.github/workflows/ci.yml`) her push/PR'da testleri **Python 3.10 ve 3.13** üzerinde koşar;
 güncel durum yukarıdaki CI rozetinde görünür. Kapsam: kompozisyon dönüşümü, özellik inşası
 (medyan+bayrak, top-N one-hot), şema/sızıntı kontrolü, DOI-grup ayrım ayrıklığı, veri temizleme
-nedenleri ve sınır dahilliği, aday uzayı kodlama sözleşmesi (756).
+nedenleri ve sınır dahilliği, aday uzayı kodlama sözleşmesi (756) ve **uçtan uca duman testi**
+(temizleme → vektörleştirme → özellik → grup-güvenli eğitim/tahmin → koşu-manifesti;
+`tests/test_smoke_pipeline.py`).
+
+**Kapsam ayrımı:** CI, paket modüllerinin birlikte çalıştığını hafif bağımlılık kümesiyle ve
+eski/yeni Python sürümleriyle doğrular; tezde raporlanan sayılar ise "Tam çalışma ortamı"
+bölümündeki lock ortamında, 41.485 kayıtlık gerçek koşumla üretilmiştir. CI rozeti bu tam
+koşumu değil, uyumluluğu kanıtlar.
 
 ## Klasör yapısı
 - `config.yaml` — tüm parametreler (seed, kolonlar, temizleme eşikleri)
@@ -130,6 +151,13 @@ geniş uyumluluk için alt-sınır bildirir; birebir tekrar üretim için `requi
 Seed sabitleme aynı ortam içinde determinizmi garanti eder; farklı işletim sistemi / derleyici /
 kütüphane sürümü kombinasyonlarında (özellikle boosting kütüphanelerinde) binde-bir düzeyinde
 küçük sayısal farklar oluşabilir.
+
+## Lisans ve atıf
+
+Bu deponun **MIT lisansı yalnızca kodu kapsar**. Perovskite Database verisi kendi
+lisansına tabidir (**CC BY 4.0** — atıf zorunlu: Jacobsson vd., 2022, *Nature Energy*;
+ayrıntı: [DATA_CARD.md](DATA_CARD.md)). Ham veri bu depoda yeniden dağıtılmaz.
+Bu çalışmaya atıf için `CITATION.cff` dosyasına bakın.
 
 ## Yazılım mühendisliği katmanları
 - **Veri-doğrulama / şema** (`validation/schema.py`): hat çalışmadan önce veri sözleşmesini denetler; **model-ready içinde ölçüm-sonrası (sızıntı) kolonu kalmışsa hattı durdurur** (Breck vd., 2019 operasyonel hâli).
