@@ -66,3 +66,19 @@ print(f"\nKontamine test kayitlari (n={len(mask_contam)}): MAE = {ae[mask_contam
 print(f"Temiz test kayitlari     (n={len(mask_clean)}): MAE = {ae[mask_clean].mean():.3f}")
 print("\nYorum: kontamine MAE, temiz MAE'den YUKSEK ise sizinti bu kayitlarda")
 print("olculebilir bir skor sisirmesi yaratmamis demektir.")
+
+# Ozet JSON (tez 5.7'deki 35 kayit / MAE 3,36-3,15 degerleri commit'li dosyadan izlenebilsin)
+import json
+from pathlib import Path
+
+summary = {
+    "n_contaminated_test": int(len(mask_contam)),
+    "n_clean_test": int(len(mask_clean)),
+    "mae_contaminated": round(float(ae[mask_contam].mean()), 3),
+    "mae_clean": round(float(ae[mask_clean].mean()), 3),
+    "n_train_side_records": int(train_side_n),
+}
+outp = Path("outputs/robustness/kontamine_test_maesi.json")
+outp.parent.mkdir(parents=True, exist_ok=True)
+json.dump(summary, open(outp, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
+print(f"\nOzet JSON: {outp}")

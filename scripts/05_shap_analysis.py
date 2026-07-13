@@ -21,6 +21,7 @@ from perovskite_ml.models.registry import build_models
 from perovskite_ml.validation.splits import holdout_split
 from perovskite_ml.explain.shap_analysis import (
     sample_for_shap, compute_shap_values, shap_importance, save_shap_plots)
+from perovskite_ml.utils.manifest import write_manifest
 
 
 def main():
@@ -57,6 +58,10 @@ def main():
 
     json.dump({"model": best, "shap_sample": int(len(idx))},
               open(outdir / "metadata.json", "w"), indent=2)
+    write_manifest(ROOT / cfg["paths"]["outputs_dir"] / "manifests", "stage5_shap", cfg,
+                   metrics={"model": best, "shap_sample": int(len(idx)),
+                            "top_feature": str(imp.iloc[0]["feature"])},
+                   outputs=["outputs/shap_full/shap_top_features.csv"])
 
     print("\n================= STAGE 5 RESULTS =================")
     print(f"Model: {best} | SHAP ornek: {len(idx)} kayit")

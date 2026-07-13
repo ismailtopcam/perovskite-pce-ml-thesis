@@ -97,15 +97,25 @@ def main():
         axes[1].set_title("Band gap'e gore ortalama PCE (kutu n >= 30)")
         _save(fig, outdir, "sekil_4_03_bandgap.png", made)
 
-        # Sekil 4.5 — DOI basina kayit sayisi
-        sizes = M.groupby(M[gcol].fillna("unknown_doi").astype(str)).size()
+        # Sekil 4.5 — DOI basina kayit sayisi (tez basligiyla uyumlu: yalnizca
+        # DOI'si bilinen yayinlar; x-ekseni 60 kayitta kesilir, kuyruk maks 127).
+        # DOI'siz kayitlarin tek yapay grupta toplandigi kurulum (7.397 grup,
+        # en buyuk grup 201) yalnizca bolme mantigini ilgilendirir; tez metninde
+        # ayrica raporlanir.
+        known = M[M[gcol].notna()]
+        sizes = known.groupby(known[gcol].astype(str)).size()
+        p95, p99 = np.percentile(sizes, [95, 99])
         fig, ax = plt.subplots(figsize=(7, 4))
         ax.hist(sizes, bins=np.arange(0.5, sizes.max() + 1.5, 1),
                 color="#4878a8", edgecolor="white", linewidth=0.3)
         ax.set_yscale("log")
+        ax.set_xlim(0, 60)
+        ax.axvline(sizes.median(), color="#a85248", linestyle="--", linewidth=1.2,
+                   label=f"medyan = {sizes.median():.0f}")
+        ax.legend()
         ax.set_xlabel("Yayin basina kayit sayisi"); ax.set_ylabel("Yayin sayisi (log)")
-        ax.set_title(f"Yayin (DOI) basina kayit dagilimi ({_tr(sizes.shape[0])} grup; "
-                     f"medyan {sizes.median():.0f}, maks {sizes.max()})")
+        ax.set_title(f"Yayin (DOI) basina kayit dagilimi ({_tr(sizes.shape[0])} yayin; "
+                     f"p95={p95:.0f}, p99={p99:.0f}, maks={sizes.max()}; eksen 60'ta kesildi)")
         _save(fig, outdir, "sekil_4_05_doi_dagilimi.png", made)
 
         # Sekil 4.6 — medyanla doldurulan degiskenlerin oranlari

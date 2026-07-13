@@ -135,3 +135,24 @@ print("\n[D] Ham veri kontrolu (Perovskite_database_content_all_data.csv):")
 raw = pd.read_csv("data/raw/Perovskite_database_content_all_data.csv",
                   encoding="utf-8-sig", usecols=["Ref_DOI_number"], low_memory=False)
 print(f"    Ham satir: {len(raw)}, DOI'siz (NaN): {raw['Ref_DOI_number'].isna().sum()}")
+
+# ---------- Ozet JSON (tez 5.7 / README'deki degerler commit'li dosyadan izlenebilsin) ----------
+import json
+from pathlib import Path
+
+summary = {
+    "n_doi_missing": int(n_missing),
+    "n_unknown_doi_group": int(n_unknown),
+    "n_groups_pipeline": int(len(uniq_raw)),
+    "n_collisions_normalized": int(len(collisions)),
+    "n_records_affected": int(n_affected_records),
+    "n_collisions_split_holdout": int(len(split_holdout)),
+    "n_collisions_split_cv": int(len(split_cv)),
+    "n_records_split_holdout": int(n_rec_split_holdout),
+    "n_records_split_cv": int(n_rec_split_cv),
+    "pct_records_split_cv": round(100 * n_rec_split_cv / len(M), 3),
+}
+outp = Path("outputs/robustness/doi_grup_dogrulama.json")
+outp.parent.mkdir(parents=True, exist_ok=True)
+json.dump(summary, open(outp, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
+print(f"\nOzet JSON: {outp}")

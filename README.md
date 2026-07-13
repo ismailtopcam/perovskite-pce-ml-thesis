@@ -56,7 +56,7 @@ goruntuye aittir; farkli bir kopya kullaniyorsaniz once satir sayisi ve checksum
 Tek komut (tum cekirdek hat):
 ```bash
 python run_all.py            # cekirdek hat (01-10)
-python run_all.py --all      # + ek dogrulama/saglamlik betikleri (11-14)
+python run_all.py --all      # + ek dogrulama/saglamlik betikleri (11-14 + thesis_data_analysis + thesis_figures)
 ```
 
 Ya da adim adim:
@@ -94,14 +94,15 @@ python aday_uyumluluk_filtresi.py        # (mimari,ETL,HTL) uclulerinin egitimde
 ## DOI-grup denetim betikleri
 Gruplama anahtarinin (ham DOI dizgileri) kalitesini ve olasi kalinti sizintiyi olcen bagimsiz denetim betikleri (repo kokunde):
 ```bash
-python doi_grup_dogrulama_v2.py          # DOI'siz kayit sayimi, normalizasyon carpismalari, holdout/CV kat-siniri asimlari
+python doi_grup_dogrulama_v2.py          # DOI'siz kayit sayimi, normalizasyon carpismalari, holdout/CV kat-siniri asimlari -> outputs/robustness/doi_grup_dogrulama.json
 python doi_normalizasyon_duyarlilik.py   # normalize_doi() uygulanmis gruplarla ayni CatBoost'un duyarlilik kosumu (~40 sn)
-python kontamine_test_maesi.py           # sinir asan yayinlarin holdout-test kayitlarinda hata analizi (~15 sn)
+python kontamine_test_maesi.py           # sinir asan yayinlarin holdout-test kayitlarinda hata analizi (~15 sn) -> outputs/robustness/kontamine_test_maesi.json
 ```
 Bulgu ozeti: 44 yayin buyuk/kucuk harf varyantiyla cift kayitli; kat-siniri asan 362 kayit (%0,87).
 Normalizasyonla fark |dR2| <= 0,003 (kat gurultusu icinde); skor sisirme izi yok. Baslik sonuclar bu nedenle
-ozgun kosumdan raporlanir; kusur olculmus kalinti risk olarak belgelenmistir. Duyarlilik kosumunun sayisal
-ciktisi `outputs/robustness/doi_normalizasyon_duyarlilik.json` olarak kaydedilir (tez Bolum 5.7'deki degerler).
+ozgun kosumdan raporlanir; kusur olculmus kalinti risk olarak belgelenmistir. Uc kosumun sayisal ciktilari
+`outputs/robustness/` altinda commit'lidir: `doi_grup_dogrulama.json` (44/362 denetimi),
+`doi_normalizasyon_duyarlilik.json` ve `kontamine_test_maesi.json` (tez Bolum 5.7'deki degerler).
 
 ## Testler
 ```bash

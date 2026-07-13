@@ -1,0 +1,12 @@
+{
+  "n_doi_missing": 201,
+  "n_unknown_doi_group": 201,
+  "n_groups_pipeline": 7397,
+  "n_collisions_normalized": 44,
+  "n_records_affected": 420,
+  "n_collisions_split_holdout": 10,
+  "n_collisions_split_cv": 37,
+  "n_records_split_holdout": 87,
+  "n_records_split_cv": 362,
+  "pct_records_split_cv": 0.873
+}

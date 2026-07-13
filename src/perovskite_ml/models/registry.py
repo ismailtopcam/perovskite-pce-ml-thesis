@@ -2,7 +2,6 @@
 kuruluysa eklenir, kurulu degilse zarafetle atlanir (ortamdan bagimsiz calisir)."""
 from sklearn.ensemble import RandomForestRegressor, HistGradientBoostingRegressor
 from sklearn.linear_model import Ridge
-from sklearn.neighbors import KNeighborsRegressor
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 

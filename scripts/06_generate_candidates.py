@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from perovskite_ml.config import load_config
 from perovskite_ml.candidates.candidate_space import enumerate_candidates, axis_sizes
+from perovskite_ml.utils.manifest import write_manifest
 
 def main():
     cfg = load_config(str(ROOT / "config.yaml"))
@@ -52,6 +53,11 @@ def main():
             "pred_mean": float(preds.mean()),
             "train_pce_max": float(y_train.max()), "train_pce_p99": float(np.percentile(y_train,99))}
     json.dump(meta, open(outdir / "metadata.json", "w"), indent=2)
+    write_manifest(ROOT / cfg["paths"]["outputs_dir"] / "manifests", "stage6_candidates", cfg,
+                   metrics={"model": best, "n_candidates": len(recipes),
+                            "pred_max": round(float(preds.max()), 4)},
+                   outputs=["outputs/candidates_full/candidate_predictions.csv",
+                            "outputs/candidates_full/top30_diverse.csv"])
 
     print("\n================= STAGE 6 RESULTS =================")
     print(f"Model: {best}")
