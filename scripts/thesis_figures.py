@@ -113,9 +113,12 @@ def main():
         ax.axvline(sizes.median(), color="#a85248", linestyle="--", linewidth=1.2,
                    label=f"medyan = {sizes.median():.0f}")
         ax.legend()
+        ax.text(0.98, 0.80, f"p95={p95:.0f} · p99={p99:.0f} · maks={sizes.max()}",
+                transform=ax.transAxes, ha="right", va="top", fontsize=9,
+                bbox=dict(boxstyle="round", facecolor="white", edgecolor="#b0b8c0"))
         ax.set_xlabel("Yayin basina kayit sayisi"); ax.set_ylabel("Yayin sayisi (log)")
-        ax.set_title(f"Yayin (DOI) basina kayit dagilimi ({_tr(sizes.shape[0])} yayin; "
-                     f"p95={p95:.0f}, p99={p99:.0f}, maks={sizes.max()}; eksen 60'ta kesildi)")
+        ax.set_title(f"Yayin (DOI) basina kayit dagilimi "
+                     f"({_tr(sizes.shape[0])} yayin; eksen 60'ta kesildi)")
         _save(fig, outdir, "sekil_4_05_doi_dagilimi.png", made)
 
         # Sekil 4.6 — medyanla doldurulan degiskenlerin oranlari
