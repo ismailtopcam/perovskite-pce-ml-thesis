@@ -1,29 +1,29 @@
-# Perovskite PCE ML — Tekrar Uretilebilir, Sizinti-Guvenli ML Pipeline
+# Perovskite PCE ML — Tekrar Üretilebilir, Sızıntı-Güvenli ML Hattı
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21196013.svg)](https://doi.org/10.5281/zenodo.21196013)
 [![CI](https://github.com/ismailtopcam/perovskite-pce-ml-thesis/actions/workflows/ci.yml/badge.svg)](https://github.com/ismailtopcam/perovskite-pce-ml-thesis/actions/workflows/ci.yml)
 
-Perovskite Database kayitlarindan PCE tahmini icin **dogrulama-metodolojisi odakli**
-bir makine ogrenmesi / yazilim muhendisligi calismasi. Vurgu, en yuksek skor degil;
-**leakage-safe, DOI-grup-guvenli, tekrar uretilebilir** bir hat ve muhendislik
-kararlarinin sonuc gecerliligini nasil degistirdiginin olculmesidir.
+Perovskite Database kayıtlarından PCE tahmini için **doğrulama-metodolojisi odaklı**
+bir makine öğrenmesi / yazılım mühendisliği çalışması. Vurgu, en yüksek skor değil;
+**sızıntı-güvenli (leakage-safe), DOI-grup-güvenli, tekrar üretilebilir** bir hat ve
+mühendislik kararlarının sonuç geçerliliğini nasıl değiştirdiğinin ölçülmesidir.
 
-## Sonuclar (bir bakista)
+## Sonuçlar (bir bakışta)
 
-| Baslik | Sonuc |
+| Başlık | Sonuç |
 |---|---|
-| Temiz veri | 41.485 kayit (ham: 43.398 x 410 kolon) |
-| Ozellik sayisi | 77 |
-| Nihai model | CatBoost (ilk 4 boosting ~esit; salt-sklearn HistGBM dahil) |
-| Ana dogrulama | DOI-grup 5-kat GroupKFold CV |
-| **R2 (grup-guvenli)** | **0,413 ± 0,006** |
-| R2 (rastgele bolme — sizinti sismesi) | 0,481 (+0,068) |
-| R2 (+Voc/Jsc/FF — hedef sizintisi) | 0,938 (bu yuzden dislandi) |
-| MAE / RMSE | 3,12 / 4,02 PCE puani |
-| Aday uzayi / egitimde desteklenen | 756 / 546 |
+| Temiz veri | 41.485 kayıt (ham: 43.398 x 410 kolon) |
+| Özellik sayısı | 77 |
+| Nihai model | CatBoost (ilk 4 boosting ~eşit; salt-sklearn HistGBM dahil) |
+| Ana doğrulama | DOI-grup 5-kat GroupKFold CV |
+| **R2 (grup-güvenli)** | **0,413 ± 0,006** |
+| R2 (rastgele bölme — sızıntı şişmesi) | 0,481 (+0,068) |
+| R2 (+Voc/Jsc/FF — hedef sızıntısı) | 0,938 (bu yüzden dışlandı) |
+| MAE / RMSE | 3,12 / 4,02 PCE puanı |
+| Aday uzayı / eğitimde desteklenen | 756 / 546 |
 
-Dusuk gorunen 0,413 bilincli bir tercihtir: gorulmemis yayinlara genellemeyi olcer.
-Tum degerler `outputs/` altindaki commit'li dosyalardan izlenebilir.
+Düşük görünen 0,413 bilinçli bir tercihtir: görülmemiş yayınlara genellemeyi ölçer.
+Tüm değerler `outputs/` altındaki commit'li dosyalardan izlenebilir.
 
 ## Kurulum
 ```bash
@@ -31,108 +31,108 @@ python -m venv .venv
 # Windows:        .venv\Scripts\activate
 # Linux/Mac:      source .venv/bin/activate
 pip install -r requirements.txt
-# Kesin surumlerle (tekrar uretilebilirlik):  pip install -r requirements-lock.txt
+# Kesin sürümlerle (tekrar üretilebilirlik):  pip install -r requirements-lock.txt
 ```
 
 ## Veri
-Veri kaynagi: **Perovskite Database** (Jacobsson vd., 2022, *Nature Energy*, DOI: 10.1038/s41560-021-00941-3).
-Ham CSV bu depoda **yeniden dagitilmaz** (`.gitignore`); ozgun kaynagindan indirilir:
+Veri kaynağı: **Perovskite Database** (Jacobsson vd., 2022, *Nature Energy*, DOI: 10.1038/s41560-021-00941-3).
+Ham CSV bu depoda **yeniden dağıtılmaz** (`.gitignore`); özgün kaynağından indirilir:
 
-1. https://www.perovskitedatabase.com adresinden (Download bolumu) tum-veri CSV'sini indirin.
-2. Dosyayi tam olarak su yola yerlestirin (ad dahil):
+1. https://www.perovskitedatabase.com adresinden (Download bölümü) tüm-veri CSV'sini indirin.
+2. Dosyayı tam olarak şu yola yerleştirin (ad dahil):
    ```
    data/raw/Perovskite_database_content_all_data.csv
    ```
-3. Bu calismada kullanilan anlik goruntunun kimligi (indirdiginiz dosyayi dogrulayin):
-   - **43.398 kayit x 410 kolon**, ~87 MB
+3. Bu çalışmada kullanılan anlık görüntünün kimliği (indirdiğiniz dosyayı doğrulayın):
+   - **43.398 kayıt x 410 kolon**, ~87 MB
    - SHA-256: `da66a634e9106e58ce4d012558d468bc2f19b95987f149fb9c5d208d363ea67a`
 
-Perovskite Database yasayan bir veri tabanidir; daha guncel bir anlik goruntuyle kayit sayilari ve
-turetilen sonuclar kucuk farklar gosterebilir. Tezde raporlanan tum sayilar yukaridaki anlik
-goruntuye aittir; farkli bir kopya kullaniyorsaniz once satir sayisi ve checksum'i karsilastirin.
+Perovskite Database yaşayan bir veri tabanıdır; daha güncel bir anlık görüntüyle kayıt sayıları ve
+türetilen sonuçlar küçük farklar gösterebilir. Tezde raporlanan tüm sayılar yukarıdaki anlık
+görüntüye aittir; farklı bir kopya kullanıyorsanız önce satır sayısı ve sağlama toplamını (checksum) karşılaştırın.
 
-## Calistirma sirasi
+## Çalıştırma sırası
 
-Tek komut (tum cekirdek hat):
+Tek komut (tüm çekirdek hat):
 ```bash
-python run_all.py            # cekirdek hat (01-10)
-python run_all.py --all      # + ek dogrulama/saglamlik betikleri (11-14 + thesis_data_analysis + thesis_figures)
+python run_all.py            # çekirdek hat (01-10)
+python run_all.py --all      # + ek doğrulama/sağlamlık betikleri (11-14 + thesis_data_analysis + thesis_figures)
 ```
 
-Ya da adim adim:
+Ya da adım adım:
 ```bash
-python scripts/01_prepare_data.py          # veri temizleme + kompozisyon vektorizasyonu
-python scripts/02_build_features.py        # ozellik matrisi (cihaz + surec)
-python scripts/03_compare_models.py        # 4+ model, DOI-grup holdout/CV
-python scripts/04_validation_experiments.py# rastgele vs grup, ozellik kapsami
-python scripts/05_shap_analysis.py         # SHAP aciklanabilirlik
-python scripts/06_generate_candidates.py   # aday uzayi + ekstrapolasyon analizi
-python scripts/07_screening_utility.py     # model tabanli onceliklendirme faydasi (enrichment)
-python scripts/08_hyperparameter_tuning.py # grup-guvenli hiperparametre aramasi (default vs tuned)
-python scripts/09_descriptor_ablation.py   # fiziksel tanimlayici (Goldschmidt/tau) ablasyonu
-python scripts/10_conformal_uncertainty.py # tahmin belirsizligi: DOI-grup-guvenli conformal + uygulanabilirlik-alani
+python scripts/01_prepare_data.py           # veri temizleme + kompozisyon vektörizasyonu
+python scripts/02_build_features.py         # özellik matrisi (cihaz + süreç)
+python scripts/03_compare_models.py         # 4+ model, DOI-grup holdout/CV
+python scripts/04_validation_experiments.py # rastgele vs grup, özellik kapsamı
+python scripts/05_shap_analysis.py          # SHAP açıklanabilirlik
+python scripts/06_generate_candidates.py    # aday uzayı + ekstrapolasyon analizi
+python scripts/07_screening_utility.py      # model tabanlı önceliklendirme faydası (enrichment)
+python scripts/08_hyperparameter_tuning.py  # grup-güvenli hiperparametre araması (default vs tuned)
+python scripts/09_descriptor_ablation.py    # fiziksel tanımlayıcı (Goldschmidt/tau) ablasyonu
+python scripts/10_conformal_uncertainty.py  # tahmin belirsizliği: DOI-grup-güvenli conformal + uygulanabilirlik-alanı
 ```
 
-## Ek dogrulama / saglamlik betikleri
-Cekirdek hattin (01-10) sonuclarini stres-testen ek dogrulama betikleri (manifest + outputs uretir):
+## Ek doğrulama / sağlamlık betikleri
+Çekirdek hattın (01-10) sonuçlarını stres testine tabi tutan ek doğrulama betikleri (manifest + outputs üretir):
 ```bash
-python scripts/11_pce_outlier_audit.py     # PCE>30 denetimi + PCE<=30/<=28 duyarlilik
-python scripts/12_catboost_tuning.py        # CatBoost dogrudan grup-guvenli hiperparametre aramasi (default vs tuned)
-python scripts/13_preprocessing_and_bandgap.py # on-isleme kat-invaryansi + band gap ablasyonu
-python scripts/14_pipeline_cv.py            # on-isleme sizintisi: fold-local sklearn Pipeline vs global (ayni GroupKFold)
+python scripts/11_pce_outlier_audit.py      # PCE>30 denetimi + PCE<=30/<=28 duyarlılık
+python scripts/12_catboost_tuning.py        # CatBoost doğrudan grup-güvenli hiperparametre araması (default vs tuned)
+python scripts/13_preprocessing_and_bandgap.py # ön-işleme kat-değişmezliği + band gap ablasyonu
+python scripts/14_pipeline_cv.py            # ön-işleme sızıntısı: kat-içi (fold-local) sklearn Pipeline vs global (aynı GroupKFold)
 python scripts/thesis_data_analysis.py data/processed/model_ready_dataset.csv
-                                            # betimsel istatistik: DOI grup dagilimi, gurultu tabani (Tablo 5.1), band gap (ML yok)
-python scripts/thesis_figures.py            # tez veri sekillerinin (4.1-4.7, 4.12, 4.13) repo icinden yeniden uretimi -> outputs/figures/
+                                            # betimsel istatistik: DOI grup dağılımı, gürültü tabanı (Tablo 5.1), band gap (ML yok)
+python scripts/thesis_figures.py            # tez veri şekillerinin (4.1-4.7, 4.12, 4.13) repo içinden yeniden üretimi -> outputs/figures/
 ```
 
-Tezde atif yapilan iki ek denetim betigi (repo kokunde; ciktilari surum kontrolunde):
+Tezde atıf yapılan iki ek denetim betiği (repo kökünde; çıktıları sürüm kontrolünde):
 ```bash
-python pce30_ustu_stack_incelemesi.py    # PCE>30 kayitlarin hucre yigini denetimi (tandem izi var mi?) -> outputs/robustness/pce30_ustu_stack.csv
-python aday_uyumluluk_filtresi.py        # (mimari,ETL,HTL) uclulerinin egitimde birlikte-gorulme denetimi -> outputs/candidates_full/*_compat_N5.csv, triple_cooccurrence.csv
+python pce30_ustu_stack_incelemesi.py    # PCE>30 kayıtların hücre yığını denetimi (tandem izi var mı?) -> outputs/robustness/pce30_ustu_stack.csv
+python aday_uyumluluk_filtresi.py        # (mimari,ETL,HTL) üçlülerinin eğitimde birlikte-görülme denetimi -> outputs/candidates_full/*_compat_N5.csv, triple_cooccurrence.csv
 ```
 
 ## DOI-grup denetim betikleri
-Gruplama anahtarinin (ham DOI dizgileri) kalitesini ve olasi kalinti sizintiyi olcen bagimsiz denetim betikleri (repo kokunde):
+Gruplama anahtarının (ham DOI dizgileri) kalitesini ve olası kalıntı sızıntıyı ölçen bağımsız denetim betikleri (repo kökünde):
 ```bash
-python doi_grup_dogrulama_v2.py          # DOI'siz kayit sayimi, normalizasyon carpismalari, holdout/CV kat-siniri asimlari -> outputs/robustness/doi_grup_dogrulama.json
-python doi_normalizasyon_duyarlilik.py   # normalize_doi() uygulanmis gruplarla ayni CatBoost'un duyarlilik kosumu (~40 sn) -> outputs/robustness/doi_normalizasyon_duyarlilik.json
-python kontamine_test_maesi.py           # sinir asan yayinlarin holdout-test kayitlarinda hata analizi (~15 sn) -> outputs/robustness/kontamine_test_maesi.json
+python doi_grup_dogrulama_v2.py          # DOI'siz kayıt sayımı, normalizasyon çarpışmaları, holdout/CV kat-sınırı aşımları -> outputs/robustness/doi_grup_dogrulama.json
+python doi_normalizasyon_duyarlilik.py   # normalize_doi() uygulanmış gruplarla aynı CatBoost'un duyarlılık koşumu (~40 sn) -> outputs/robustness/doi_normalizasyon_duyarlilik.json
+python kontamine_test_maesi.py           # sınır aşan yayınların holdout-test kayıtlarında hata analizi (~15 sn) -> outputs/robustness/kontamine_test_maesi.json
 ```
-Bulgu ozeti: 44 yayin buyuk/kucuk harf varyantiyla cift kayitli; kat-siniri asan 362 kayit (%0,87).
-Normalizasyonla fark |dR2| <= 0,003 (kat gurultusu icinde); skor sisirme izi yok. Baslik sonuclar bu nedenle
-ozgun kosumdan raporlanir; kusur olculmus kalinti risk olarak belgelenmistir. Uc kosumun sayisal ciktilari
-`outputs/robustness/` altinda commit'lidir: `doi_grup_dogrulama.json` (44/362 denetimi),
-`doi_normalizasyon_duyarlilik.json` ve `kontamine_test_maesi.json` (tez Bolum 5.7'deki degerler).
+Bulgu özeti: 44 yayın büyük/küçük harf varyantıyla çift kayıtlı; kat-sınırı aşan 362 kayıt (%0,87).
+Normalizasyonla fark |dR2| <= 0,003 (kat gürültüsü içinde); skor şişirme izi yok. Başlık sonuçlar bu nedenle
+özgün koşumdan raporlanır; kusur ölçülmüş kalıntı risk olarak belgelenmiştir. Üç koşumun sayısal çıktıları
+`outputs/robustness/` altında commit'lidir: `doi_grup_dogrulama.json` (44/362 denetimi),
+`doi_normalizasyon_duyarlilik.json` ve `kontamine_test_maesi.json` (tez Bölüm 5.7'deki değerler).
 
 ## Testler
 ```bash
-pytest -q     # 30 birim test; ham veri gerektirmez (sentetik veriyle calisir)
+pytest -q     # 30 birim test; ham veri gerektirmez (sentetik veriyle çalışır)
 ```
-CI (`.github/workflows/ci.yml`) her push/PR'da testleri **Python 3.10 ve 3.13** uzerinde kosar;
-guncel durum yukaridaki CI rozetinde gorunur. Kapsam: kompozisyon donusumu, ozellik insasi
-(medyan+bayrak, top-N one-hot), sema/sizinti kontrolu, DOI-grup ayrim ayrikligi, veri temizleme
-nedenleri ve sinir dahilligi, aday uzayi kodlama sozlesmesi (756).
+CI (`.github/workflows/ci.yml`) her push/PR'da testleri **Python 3.10 ve 3.13** üzerinde koşar;
+güncel durum yukarıdaki CI rozetinde görünür. Kapsam: kompozisyon dönüşümü, özellik inşası
+(medyan+bayrak, top-N one-hot), şema/sızıntı kontrolü, DOI-grup ayrım ayrıklığı, veri temizleme
+nedenleri ve sınır dahilliği, aday uzayı kodlama sözleşmesi (756).
 
-## Klasor yapisi
-- `config.yaml` — tum parametreler (seed, kolonlar, temizleme esikleri)
+## Klasör yapısı
+- `config.yaml` — tüm parametreler (seed, kolonlar, temizleme eşikleri)
 - `src/perovskite_ml/` — paket (data, features, models, validation, explain, candidates, simulation, utils)
-- `scripts/` — sirayla calisan asama runner'lari
+- `scripts/` — sırayla çalışan aşama çalıştırıcıları
 - `tests/` — birim testler
-- `data/`, `outputs/` — uretilen icerik (varsayilan git-disi; tezde atif yapilan kucuk sonuc dosyalari surum kontrolune dahildir)
+- `data/`, `outputs/` — üretilen içerik (varsayılan git-dışı; tezde atıf yapılan küçük sonuç dosyaları sürüm kontrolüne dahildir)
 
-## Tam calisma ortami (tekrar uretilebilirlik)
-Calismanin kaydedildigi ortam (run-manifest'ten):
+## Tam çalışma ortamı (tekrar üretilebilirlik)
+Çalışmanın kaydedildiği ortam (run-manifest'ten):
 Python 3.14.4, numpy 2.4.6, pandas 3.0.3, scikit-learn 1.8.0, scipy 1.17.1, xgboost 3.2.0, lightgbm 4.6.0, catboost 1.2.10, shap 0.51.0.
-Kesin surumler `requirements-lock.txt` dosyasinda; ayrica her kosu `outputs/manifests/` altina timestamp + seed + paket surumlerini JSON olarak yazar.
+Kesin sürümler `requirements-lock.txt` dosyasında; ayrıca her koşu `outputs/manifests/` altına timestamp + seed + paket sürümlerini JSON olarak yazar.
 
-**Not:** Tezde raporlanan tum sayisal ciktilar bu lock ortaminda uretilmistir. `requirements.txt`
-genis uyumluluk icin alt-sinir bildirir; birebir tekrar uretim icin `requirements-lock.txt` kullanin.
-Seed sabitleme ayni ortam icinde determinizmi garanti eder; farkli isletim sistemi / derleyici /
-kutuphane surumu kombinasyonlarinda (ozellikle boosting kutuphanelerinde) binde-bir duzeyinde
-kucuk sayisal farklar olusabilir.
+**Not:** Tezde raporlanan tüm sayısal çıktılar bu lock ortamında üretilmiştir. `requirements.txt`
+geniş uyumluluk için alt-sınır bildirir; birebir tekrar üretim için `requirements-lock.txt` kullanın.
+Seed sabitleme aynı ortam içinde determinizmi garanti eder; farklı işletim sistemi / derleyici /
+kütüphane sürümü kombinasyonlarında (özellikle boosting kütüphanelerinde) binde-bir düzeyinde
+küçük sayısal farklar oluşabilir.
 
-## Yazilim muhendisligi katmanlari
-- **Veri-dogrulama / sema** (`validation/schema.py`): hat calismadan once veri sozlesmesini denetler; **model-ready icinde olcum-sonrasi (sizinti) kolonu kalmissa hatti durdurur** (Breck vd., 2019 operasyonel hali).
-- **Run-manifest** (`utils/manifest.py`): her asama icin timestamp, seed, paket surumleri, satir/ozellik sayilari ve cikti listesini JSON olarak yazar (Sculley vd., 2015 — provenans/tekrar uretilebilirlik).
-- **Testler** (`tests/`): kompozisyon vektorizasyonu, ozellik insasi, **sema/sizinti kontrolu**, **DOI-grup ayrim ayrikligi**, **aday uzayi sayisi (756)**.
+## Yazılım mühendisliği katmanları
+- **Veri-doğrulama / şema** (`validation/schema.py`): hat çalışmadan önce veri sözleşmesini denetler; **model-ready içinde ölçüm-sonrası (sızıntı) kolonu kalmışsa hattı durdurur** (Breck vd., 2019 operasyonel hâli).
+- **Run-manifest** (`utils/manifest.py`): her aşama için timestamp, seed, paket sürümleri, satır/özellik sayıları ve çıktı listesini JSON olarak yazar (Sculley vd., 2015 — provenans/tekrar üretilebilirlik).
+- **Testler** (`tests/`): kompozisyon vektörizasyonu, özellik inşası, **şema/sızıntı kontrolü**, **DOI-grup ayrım ayrıklığı**, **aday uzayı sayısı (756)**.
 - **Paketleme**: `pyproject.toml` (`pip install -e .`, `pytest`).
