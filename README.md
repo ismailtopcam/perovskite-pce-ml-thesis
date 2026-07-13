@@ -95,7 +95,7 @@ python aday_uyumluluk_filtresi.py        # (mimari,ETL,HTL) uclulerinin egitimde
 Gruplama anahtarinin (ham DOI dizgileri) kalitesini ve olasi kalinti sizintiyi olcen bagimsiz denetim betikleri (repo kokunde):
 ```bash
 python doi_grup_dogrulama_v2.py          # DOI'siz kayit sayimi, normalizasyon carpismalari, holdout/CV kat-siniri asimlari -> outputs/robustness/doi_grup_dogrulama.json
-python doi_normalizasyon_duyarlilik.py   # normalize_doi() uygulanmis gruplarla ayni CatBoost'un duyarlilik kosumu (~40 sn)
+python doi_normalizasyon_duyarlilik.py   # normalize_doi() uygulanmis gruplarla ayni CatBoost'un duyarlilik kosumu (~40 sn) -> outputs/robustness/doi_normalizasyon_duyarlilik.json
 python kontamine_test_maesi.py           # sinir asan yayinlarin holdout-test kayitlarinda hata analizi (~15 sn) -> outputs/robustness/kontamine_test_maesi.json
 ```
 Bulgu ozeti: 44 yayin buyuk/kucuk harf varyantiyla cift kayitli; kat-siniri asan 362 kayit (%0,87).
@@ -115,7 +115,7 @@ nedenleri ve sinir dahilligi, aday uzayi kodlama sozlesmesi (756).
 
 ## Klasor yapisi
 - `config.yaml` — tum parametreler (seed, kolonlar, temizleme esikleri)
-- `src/perovskite_ml/` — paket (data, features, models, validation, explain, candidates)
+- `src/perovskite_ml/` — paket (data, features, models, validation, explain, candidates, simulation, utils)
 - `scripts/` — sirayla calisan asama runner'lari
 - `tests/` — birim testler
 - `data/`, `outputs/` — uretilen icerik (varsayilan git-disi; tezde atif yapilan kucuk sonuc dosyalari surum kontrolune dahildir)
