@@ -1,6 +1,7 @@
 # Surekli entegrasyon: her push/PR'da birim testler kosulur.
-# Testler ham veri gerektirmez (sentetik veriyle calisir); requirements.txt'in
-# bildirdigi alt-sinir uyumlulugu da eski Python surumuyle dolayli sinanir.
+# Testler ham veri gerektirmez (sentetik veriyle calisir) ve hafif bagimlilik
+# kumesiyle (boosting kutuphaneleri olmadan) kosulur; Python 3.10 matrisi,
+# eski bir Python surumuyle uyumlulugu dolayli sinar.
 name: CI
 
 on:

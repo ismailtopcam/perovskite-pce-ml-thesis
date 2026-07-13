@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from perovskite_ml.config import load_config
 from perovskite_ml.simulation.screening import enrichment_table, gains_curve
+from perovskite_ml.utils.manifest import write_manifest
 
 THRESHOLDS = [18, 20, 22]
 K_FRACS = [0.05, 0.10, 0.20]
@@ -45,6 +46,10 @@ def main():
 
     json.dump({"n_test": int(len(df)), "spearman": float(rho), "gains_threshold": GAINS_THR},
               open(outdir / "metadata.json", "w"), indent=2)
+    write_manifest(ROOT / cfg["paths"]["outputs_dir"] / "manifests", "stage7_screening", cfg,
+                   metrics={"n_test": int(len(df)), "spearman": round(float(rho), 4),
+                            "gains_threshold": GAINS_THR},
+                   outputs=["outputs/screening/enrichment.csv"])
 
     print("\n================= STAGE 7 RESULTS =================")
     print(f"Holdout test: {len(df)} hucre | Spearman(tahmin,gercek) = {rho:.3f}")

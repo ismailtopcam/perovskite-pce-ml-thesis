@@ -1,0 +1,7 @@
+{
+  "n_contaminated_test": 35,
+  "n_clean_test": 8112,
+  "mae_contaminated": 3.361,
+  "mae_clean": 3.15,
+  "n_train_side_records": 52
+}

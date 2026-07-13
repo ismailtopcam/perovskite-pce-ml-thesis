@@ -19,6 +19,7 @@ from perovskite_ml.config import load_config
 from perovskite_ml.models.registry import build_models
 from perovskite_ml.models.evaluate import metrics
 from perovskite_ml.validation.splits import holdout_split, group_kfold
+from perovskite_ml.utils.manifest import write_manifest
 
 def main():
     cfg = load_config(str(ROOT / "config.yaml"))
@@ -85,6 +86,13 @@ def main():
     json.dump({"best_model": best, "n_features": X.shape[1], "n_rows": len(M),
                "active_models": list(models.keys())},
               open(outdir / "metadata.json", "w"), indent=2)
+    write_manifest(ROOT / cfg["paths"]["outputs_dir"] / "manifests", "stage3_models", cfg,
+                   metrics={"best_model": best,
+                            "best_cv_r2": round(float(cv_df.iloc[0]["R2_mean"]), 4),
+                            "best_holdout_r2": round(float(hold_df.iloc[0]["R2"]), 4)},
+                   outputs=["outputs/v4/model_comparison_holdout.csv",
+                            "outputs/v4/model_comparison_groupkfold.csv",
+                            "outputs/v4/best_model_holdout_predictions.csv"])
 
     print("\n================= STAGE 3 RESULTS =================")
     print(">> HOLDOUT (DOI-grup 80/20):")

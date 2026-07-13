@@ -21,6 +21,7 @@ from perovskite_ml.data.load_data import load_raw
 from perovskite_ml.data.clean_data import clean_rows
 from perovskite_ml.features.composition import vectorize_dataframe
 from perovskite_ml.features.feature_builder import build_features
+from perovskite_ml.utils.manifest import write_manifest
 
 LEAK_COLS = ["JV_default_Voc", "JV_default_Jsc", "JV_default_FF"]
 
@@ -100,6 +101,12 @@ def main():
 
     df = pd.DataFrame(rows)
     df.to_csv(outdir / "validation_experiments.csv", index=False)
+    write_manifest(ROOT / cfg["paths"]["outputs_dir"] / "manifests", "stage4_validation", cfg,
+                   metrics={"random_kfold_r2": round(r_mean, 4),
+                            "group_kfold_r2": round(g_mean, 4),
+                            "inflation_r2": round(inflation, 4),
+                            "experiment_b_done": b_done},
+                   outputs=["outputs/v4/validation_experiments.csv"])
 
     print("\n================= STAGE 4 RESULTS =================")
     print(">> Deney A — Bolme stratejisi (ayni model, ayni ozellikler):")
