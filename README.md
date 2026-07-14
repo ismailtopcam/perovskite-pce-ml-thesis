@@ -99,10 +99,11 @@ python scripts/thesis_data_analysis.py data/processed/model_ready_dataset.csv
 python scripts/thesis_figures.py            # tez veri şekillerinin (4.1-4.7, 4.12, 4.13) repo içinden yeniden üretimi -> outputs/figures/
 ```
 
-Tezde atıf yapılan iki ek denetim betiği (repo kökünde; çıktıları sürüm kontrolünde):
+Tezde atıf yapılan üç ek denetim betiği (repo kökünde; çıktıları sürüm kontrolünde):
 ```bash
 python pce30_ustu_stack_incelemesi.py    # PCE>30 kayıtların hücre yığını denetimi (tandem izi var mı?) -> outputs/robustness/pce30_ustu_stack.csv
 python aday_uyumluluk_filtresi.py        # (mimari,ETL,HTL) üçlülerinin eğitimde birlikte-görülme denetimi -> outputs/candidates_full/*_compat_N5.csv, triple_cooccurrence.csv
+python htl_free_yayin_ici.py             # HTL-free vs HTL'li hücrelerin yayın-içi (paired) PCE farkı (tez Bölüm 5.3) -> outputs/robustness/htl_free_yayin_ici.json
 ```
 
 ## DOI-grup denetim betikleri
