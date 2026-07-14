@@ -20,7 +20,7 @@ mühendislik kararlarının sonuç geçerliliğini nasıl değiştirdiğinin öl
 | R2 (rastgele bölme — sızıntı şişmesi) | 0,481 (+0,068) |
 | R2 (+Voc/Jsc/FF — hedef sızıntısı) | 0,938 (bu yüzden dışlandı) |
 | MAE / RMSE | 3,12 / 4,02 PCE puanı |
-| Aday uzayı / eğitimde desteklenen | 756 / 546 |
+| Aday uzayı / eğitimde desteklenen | 756 / 504 |
 
 Düşük görünen 0,413 bilinçli bir tercihtir: görülmemiş yayınlara genellemeyi ölçer.
 Tüm değerler `outputs/` altındaki commit'li dosyalardan izlenebilir.

@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
-"""Aday uyumluluk filtresi — (mimari, ETL, HTL) uclulerinin egitim verisindeki
-birlikte-gorulme sikligina dayali veri-gudumlu filtre.
+"""Aday uyumluluk filtresi — (mimari, ETL, HTL) uclulerinin YALNIZ EGITIM
+bolmesindeki birlikte-gorulme sikligina dayali veri-gudumlu filtre.
+
+Onemli: birlikte-gorulme sayilari, pipeline'in DOI-grup holdout ayrimindaki
+(GroupShuffleSplit, seed 42) EGITIM kaydi uzerinden hesaplanir; holdout
+kayitlari sayima dahil edilmez (tez Bolum 4.5). Onceki surum tum temiz veri
+kumesini kullaniyordu (546 aday); egitim-bolmesi duzeltmesiyle destekli aday
+sayisi 504'tur.
+
 Girdi : data/processed/model_ready_dataset.csv, outputs/candidates_full/candidate_predictions.csv
 Cikti : outputs/candidates_full/triple_cooccurrence.csv
         outputs/candidates_full/candidates_compat_N5.csv
@@ -8,28 +15,34 @@ Cikti : outputs/candidates_full/triple_cooccurrence.csv
 Calistirma (repo kokunden): python aday_uyumluluk_filtresi.py
 """
 import pandas as pd
+from sklearn.model_selection import GroupShuffleSplit
 
 ARCH = ["arch_nip", "arch_pin"]
 ETL  = ["ETL_TiO2_c___TiO2_mp", "ETL_SnO2_np", "ETL_PCBM_60"]
 HTL  = ["HTL_Spiro_MeOTAD", "HTL_PTAA", "HTL_PEDOT_PSS"]
+SEED, TEST_SIZE = 42, 0.2  # config.yaml ile ayni (pipeline holdout ayrimi)
 
 M = pd.read_csv("data/processed/model_ready_dataset.csv", low_memory=False)
+groups = M["Ref_DOI_number"].fillna("unknown_doi").astype(str).values
+gss = GroupShuffleSplit(n_splits=1, test_size=TEST_SIZE, random_state=SEED)
+tr_idx, te_idx = next(gss.split(M, M["JV_default_PCE"], groups))
+Mt = M.iloc[tr_idx]
 C = pd.read_csv("outputs/candidates_full/candidate_predictions.csv")
-print(f"Egitim: {len(M)} kayit | Aday: {len(C)}")
+print(f"Egitim: {len(Mt)} kayit (holdout {len(te_idx)} haric) | Aday: {len(C)}")
 
-# --- [A] Egitimde uclu birlikte-gorulme sayimlari (aday soz dagarciginda) ---
+# --- [A] Egitim bolmesinde uclu birlikte-gorulme sayimlari ---
 rows = []
 for a in ARCH:
     for e in ETL:
         for h in HTL:
-            n = int(((M[a] == 1) & (M[e] == 1) & (M[h] == 1)).sum())
+            n = int(((Mt[a] == 1) & (Mt[e] == 1) & (Mt[h] == 1)).sum())
             rows.append({"arch": a.replace("arch_", ""),
                          "ETL": e.replace("ETL_", ""),
                          "HTL": h.replace("HTL_", ""),
                          "egitim_kayit_sayisi": n})
 co = pd.DataFrame(rows).sort_values("egitim_kayit_sayisi", ascending=False).reset_index(drop=True)
 co.to_csv("outputs/candidates_full/triple_cooccurrence.csv", index=False)
-print("\n[A] 18 aday uclusunun egitimdeki birlikte-gorulme sayilari:")
+print("\n[A] 18 aday uclusunun egitim bolmesindeki birlikte-gorulme sayilari:")
 print(co.to_string(index=False))
 
 # --- [B] Filtre: N esikleri ---
@@ -48,15 +61,8 @@ top30_f = F.drop_duplicates(subset=["A", "B", "X", "HTL"]).head(30)
 top30_f.to_csv("outputs/candidates_full/top30_compat_N5.csv", index=False)
 
 # --- [C] Karsilastirma ozeti ---
-orig30 = pd.read_csv("outputs/candidates_full/top30_diverse.csv")
-def sig(df): return set(map(tuple, df[["A", "B", "X", "arch", "ETL", "HTL"]].values))
-ortak = len(sig(orig30) & sig(top30_f))
-print(f"\n[C] Birincil esik N>={Np}:")
-print(f"    Aday: {len(C)} -> {len(F)}  (elenen {len(C)-len(F)})")
-print(f"    Ham top-30 mimari dagilimi     : {orig30['arch'].value_counts().to_dict()}")
-print(f"    Filtreli top-30 mimari dagilimi: {top30_f['arch'].value_counts().to_dict()}")
-print(f"    Filtreli top-30 ETL/HTL        : {top30_f['ETL'].value_counts().to_dict()} / {top30_f['HTL'].value_counts().to_dict()}")
-print(f"    Iki top-30 arasindaki ortak aday: {ortak}/30")
-print(f"    Tahmin tavani: ham {C['Predicted_PCE'].max():.2f} -> filtreli {F['Predicted_PCE'].max():.2f}")
-print(f"    pin+SnO2_np+Spiro_MeOTAD egitim sayisi: "
-      f"{int(co.set_index(key).loc[('pin','SnO2_np','Spiro_MeOTAD'),'egitim_kayit_sayisi'])}")
+div = pd.read_csv("outputs/candidates_full/top30_diverse.csv")
+kk = ["A", "B", "X", "arch", "ETL", "HTL"]
+ortak = pd.merge(top30_f[kk], div[kk], on=kk).shape[0]
+print(f"\n[C] Filtreli ilk-30 mimari dagilimi: {top30_f['arch'].value_counts().to_dict()}")
+print(f"[C] Filtreli tavan: {F['Predicted_PCE'].max():.2f} | cesitlendirilmis ilk-30 ile ortak: {ortak}")
