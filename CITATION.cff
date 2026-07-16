@@ -7,8 +7,8 @@ authors:
   - family-names: "Topçam"
     given-names: "İsmail"
     orcid: "https://orcid.org/0009-0005-9671-4757"
-version: "0.3.0"
-date-released: "2026-07-17"        # v0.3.0 GitHub release gunu (Zenodo otomatik arsivler)
+version: "0.3.1"
+date-released: "2026-07-17"        # v0.3.1 GitHub release gunu (Zenodo otomatik arsivler)
 license: MIT
 repository-code: "https://github.com/ismailtopcam/perovskite-pce-ml-thesis"
 url: "https://github.com/ismailtopcam/perovskite-pce-ml-thesis"
