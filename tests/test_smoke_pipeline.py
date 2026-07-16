@@ -122,3 +122,5 @@ def test_smoke_end_to_end():
         man = json.load(open(path, encoding="utf-8"))
     assert man["seed"] == 42 and man["metrics"]["n_test"] == len(te)
     assert man["versions"]["python"] and "scikit-learn" in man["versions"]
+    assert "commit" in man["git"] and "dirty" in man["git"]
+    assert isinstance(man["output_hashes"], dict)
