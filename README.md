@@ -1,11 +1,11 @@
-# Perovskite PCE ML — Tekrar Üretilebilir, Sızıntı-Güvenli ML Hattı
+# Perovskite PCE ML — Tekrar Üretilebilir, DOI-Grup-Ayrık ML Hattı
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20829027.svg)](https://doi.org/10.5281/zenodo.20829027)
 [![CI](https://github.com/ismailtopcam/perovskite-pce-ml-thesis/actions/workflows/ci.yml/badge.svg)](https://github.com/ismailtopcam/perovskite-pce-ml-thesis/actions/workflows/ci.yml)
 
 Perovskite Database kayıtlarından PCE tahmini için **doğrulama-metodolojisi odaklı**
 bir makine öğrenmesi / yazılım mühendisliği çalışması. Vurgu, en yüksek skor değil;
-**sızıntı-güvenli (leakage-safe), DOI-grup-güvenli, tekrar üretilebilir** bir hat ve
+**hedef sızıntısı denetlenmiş, ham DOI anahtarı düzeyinde grup-ayrık, tekrar üretilebilir** bir hat ve
 mühendislik kararlarının sonuç geçerliliğini nasıl değiştirdiğinin ölçülmesidir.
 
 ## Sonuçlar (bir bakışta)
@@ -22,7 +22,8 @@ mühendislik kararlarının sonuç geçerliliğini nasıl değiştirdiğinin öl
 | MAE / RMSE | 3,12 / 4,02 PCE puanı |
 | Aday uzayı / eğitimde desteklenen | 756 / 504 |
 
-Düşük görünen 0,413 bilinçli bir tercihtir: görülmemiş yayınlara genellemeyi ölçer.
+Düşük görünen 0,413 bilinçli bir tercihtir: eğitimden ham DOI anahtarı düzeyinde ayrık
+tutulan yayınlara genellemeyi ölçer (kalıntı riskler için tez Bölüm 5.7).
 Tüm değerler `outputs/` altındaki commit'li dosyalardan izlenebilir.
 Model ve veri özeti: [MODEL_CARD.md](MODEL_CARD.md) · [DATA_CARD.md](DATA_CARD.md)
 
