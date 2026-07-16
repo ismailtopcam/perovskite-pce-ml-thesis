@@ -1,4 +1,4 @@
-﻿# Perovskite PCE ML — Tekrar Üretilebilir, Sızıntı-Güvenli ML Hattı
+# Perovskite PCE ML — Tekrar Üretilebilir, Sızıntı-Güvenli ML Hattı
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20829027.svg)](https://doi.org/10.5281/zenodo.20829027)
 [![CI](https://github.com/ismailtopcam/perovskite-pce-ml-thesis/actions/workflows/ci.yml/badge.svg)](https://github.com/ismailtopcam/perovskite-pce-ml-thesis/actions/workflows/ci.yml)

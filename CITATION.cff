@@ -1,4 +1,4 @@
-﻿cff-version: 1.2.0
+cff-version: 1.2.0
 message: "Bu yazılımı kullanırsanız lütfen aşağıdaki gibi atıf yapın."
 title: "Perovskite PCE ML: Tekrar üretilebilir, sızıntı-güvenli ML hattı"
 abstract: "Perovskite Database kayıtlarından güç dönüşüm verimi (PCE) tahmini için DOI-grup-güvenli, sızıntıya karşı korumalı ve tekrar üretilebilir bir makine öğrenmesi / yazılım mühendisliği hattı."
