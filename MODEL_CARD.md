@@ -1,7 +1,7 @@
 # Model Kartı — Perovskit PCE Tahmin Modeli (CatBoost)
 
 *Biçim: Mitchell vd. (2019) "Model Cards for Model Reporting" uyarlaması.*
-*Son güncelleme: Temmuz 2026 · Tez sürümü v80 ile uyumlu.*
+*Son güncelleme: Temmuz 2026 · İsmailTopçam_Tez_2026 ile uyumlu.*
 
 ## Model kimliği
 
