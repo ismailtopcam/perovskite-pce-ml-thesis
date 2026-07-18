@@ -4,9 +4,9 @@
 [![CI](https://github.com/ismailtopcam/perovskite-pce-ml-thesis/actions/workflows/ci.yml/badge.svg)](https://github.com/ismailtopcam/perovskite-pce-ml-thesis/actions/workflows/ci.yml)
 
 Perovskite Database kayıtlarından PCE tahmini için **doğrulama-metodolojisi odaklı**
-bir makine öğrenmesi / yazılım mühendisliği çalışması. Vurgu, en yüksek skor değil;
-**hedef sızıntısı denetlenmiş, ham DOI anahtarı düzeyinde grup-ayrık, tekrar üretilebilir** bir hat ve
-mühendislik kararlarının sonuç geçerliliğini nasıl değiştirdiğinin ölçülmesidir.
+bir makine öğrenmesi / yazılım mühendisliği çalışması. Vurgu, en yüksek skoru kovalamak yerine
+**hedef sızıntısı denetlenmiş, ham DOI anahtarı düzeyinde grup-ayrık, tekrar üretilebilir** bir hat kurmak ve
+mühendislik kararlarının sonuç geçerliliğini nasıl değiştirdiğini ölçmektir.
 
 ## Sonuçlar (bir bakışta)
 
