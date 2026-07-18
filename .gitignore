@@ -14,3 +14,7 @@ venv/
 catboost_info/
 .pytest_cache/
 *.egg-info/
+# Yerel oturum/inceleme artefaktlari
+.claude/
+.codex_review/
+tmp/
