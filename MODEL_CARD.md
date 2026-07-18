@@ -38,12 +38,12 @@
 - %90 hedef: yarı-genişlik ±6,42; **ampirik kapsama %88,2**.
 - %80 hedef: yarı-genişlik ±4,68; **ampirik kapsama %76,1** (3,9 puanlık belirgin eksik kapsama — kalibrasyon/test DOI grupları arası dağılım kayması).
 - Mondrian (tahmin-çeyreği koşullu): kapsama %88,3; çeyrek yarı-genişlikleri ±6,27 / ±6,99 / ±6,65 / ±5,50.
-- Bu aralıklar kesin kapsama garantisi değil, **görülmemiş DOI gruplarındaki ampirik kapsama aralıklarıdır** (tez Bölüm 4.10, v76 ifadesi).
+- Bu aralıklar **görülmemiş DOI gruplarındaki ampirik kapsama aralıkları** olarak okunmalıdır; kesin kapsama garantisi sunmaz (tez Bölüm 4.10).
 
 ## Bilinen sınırlılıklar
 
 1. **Ekstrapolasyon yapamaz:** ağaç tabanlı model; aday tavanı 17,78 < eğitim maksimumu 34,8. Rekor kompozisyon öneremez (tez Bölüm 5.4).
-2. **Etiket gürültüsü tabanı:** özdeş reçeteler yayınlar arasında ~3,5 puanlık giderilemeyen RMSE saçılımı taşır → pratik R² tavanı ~0,52 (tez Tablo 5.1). Model bu tavana yakın çalışır.
+2. **Etiket gürültüsü tabanı:** özdeş reçeteler yayınlar arasında ~3,5 puanlık giderilemeyen RMSE saçılımı taşır; bu da pratik R² tavanını ~0,52'ye sınırlar (tez Tablo 5.1). Model bu tavana yakın çalışır.
 3. **Uygulanabilirlik alanı ayrıştırmıyor:** özellik-uzayı kNN mesafesi holdout hatasını ayırt etmedi (MAE 3,28 vs 3,19) — mesafe bir güven skoru değildir (tez Bölüm 4.10).
 4. **Tek-eklemli rejim:** eğitim verisi tek-eklemli hücre ağırlıklıdır; gözlemli band gap değerlerinin yalnızca %6,2'si ≥1,70 eV. Tandem üst-hücre bölgesi kapsam dışıdır.
 5. DOI anahtarında 44 büyük/küçük-harf çakışması ölçülmüş kalıntı risktir; normalizasyon duyarlılık koşumunda fark kat gürültüsü içindedir (tez Bölüm 5.7).
