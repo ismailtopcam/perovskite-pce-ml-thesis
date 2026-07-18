@@ -122,7 +122,7 @@ Normalizasyonla fark |dR2| <= 0,003 (kat gürültüsü içinde); skor şişirme 
 
 ## Testler
 ```bash
-pytest -q     # 31 test; ham veri gerektirmez (sentetik veriyle çalışır)
+pytest -q     # 33 test; ham veri gerektirmez (sentetik veriyle çalışır)
 ```
 CI (`.github/workflows/ci.yml`) her push/PR'da testleri **Python 3.10 ve 3.13** üzerinde koşar;
 güncel durum yukarıdaki CI rozetinde görünür. Kapsam: kompozisyon dönüşümü, özellik inşası
