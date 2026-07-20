@@ -1,0 +1,42 @@
+{
+  "stage": "15_ek_denetimler",
+  "timestamp_utc": "2026-07-20T13:33:36+00:00",
+  "seed": 42,
+  "target": "JV_default_PCE",
+  "group_col": "Ref_DOI_number",
+  "onehot_top_n": 15,
+  "versions": {
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  },
+  "git": {
+    "commit": "eb5b8bcc0440866beb397b67c818793acb104401",
+    "dirty": true
+  },
+  "metrics": {
+    "paired_t_p": 0.49544358694716795,
+    "mean_diff_R2": 0.0006939966690631127,
+    "train_R2": 0.5136214156759209,
+    "holdout_R2": 0.39235320659818107,
+    "dummy_R2_mean": -0.00033209868208388115,
+    "dummy_MAE_mean": 4.3205476533407
+  },
+  "outputs": [
+    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\paired_model_comparison.json",
+    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\train_test_gap.json",
+    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\dummy_baseline.json"
+  ],
+  "output_hashes": {
+    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\paired_model_comparison.json": "b9d07c2e0fb8846e323918847de2d89ef54798848b7bebb2782ff786dbcadbda",
+    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\train_test_gap.json": "7ab1eaa5ccddaaa8dc909e683e4e6efdf995b55fb1a22a8aabf0969106cfef33",
+    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\dummy_baseline.json": "7135dc3c0bc89490ad0f116c4ea690ef36817cd6ca37aed226fa4ad2d9b1e27b"
+  }
+}

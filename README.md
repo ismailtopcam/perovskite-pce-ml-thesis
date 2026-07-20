@@ -54,6 +54,8 @@ Veri kaynağı: **Perovskite Database** (Jacobsson vd., 2022, *Nature Energy*, D
 Ham CSV bu depoda **yeniden dağıtılmaz** (`.gitignore`); özgün kaynağından indirilir:
 
 1. https://www.perovskitedatabase.com adresinden (Download bölümü) tüm-veri CSV'sini indirin.
+   Not: Projenin güncel veri erişimi **NOMAD** platformuna taşınmıştır (Download sayfası
+   yönlendirir); bu çalışma aşağıda kimliği verilen tarihî CSV anlık görüntüsünü kullanır.
 2. Dosyayı tam olarak şu yola yerleştirin (ad dahil):
    ```
    data/raw/Perovskite_database_content_all_data.csv
@@ -95,6 +97,7 @@ python scripts/11_pce_outlier_audit.py      # PCE>30 denetimi + PCE<=30/<=28 duy
 python scripts/12_catboost_tuning.py        # CatBoost doğrudan grup-güvenli hiperparametre araması (default vs tuned)
 python scripts/13_preprocessing_and_bandgap.py # ön-işleme kat-değişmezliği + band gap ablasyonu
 python scripts/14_pipeline_cv.py            # ön-işleme sızıntısı: kat-içi (fold-local) sklearn Pipeline vs global (aynı GroupKFold)
+python scripts/15_ek_denetimler.py          # eşleştirilmiş CatBoost-HistGBM testi, eğitim-holdout farkı, DummyRegressor tabanı
 python scripts/thesis_data_analysis.py data/processed/model_ready_dataset.csv
                                             # betimsel istatistik: DOI grup dağılımı, gürültü tabanı (Tablo 5.1), band gap (ML yok)
 python scripts/thesis_figures.py            # tez veri şekillerinin (4.1-4.7, 4.12, 4.13) repo içinden yeniden üretimi -> outputs/figures/
