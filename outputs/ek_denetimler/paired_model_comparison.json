@@ -1,0 +1,23 @@
+{
+  "folds_catboost_R2": [
+    0.42081726780095463,
+    0.41101997618059516,
+    0.4109287413479269,
+    0.40275045145540667,
+    0.4188459210656953
+  ],
+  "folds_histgbm_R2": [
+    0.4194862078939968,
+    0.4106824176314986,
+    0.4120112658290608,
+    0.40379425746335706,
+    0.4149182256873498
+  ],
+  "mean_diff_R2": 0.0006939966690631127,
+  "std_diff_R2": 0.0020715749193662516,
+  "paired_t_stat": 0.7491033578733847,
+  "paired_t_p": 0.49544358694716795,
+  "wilcoxon_stat": 5.0,
+  "wilcoxon_p": 0.625,
+  "not": "Kat skorlari ayni GroupKFold bolmelerinden geldigi icin eslestirilmistir; 5 katla gucu dusuktur ve kat skorlari tam bagimsiz degildir — destekleyici kanit olarak okunmalidir."
+}
