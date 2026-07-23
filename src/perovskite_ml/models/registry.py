@@ -20,6 +20,11 @@ def build_models(seed: int = 42) -> dict:
         print(f"[models] XGBoost atlandi: {e.__class__.__name__}")
     try:
         import lightgbm as lgb
+        # NOT: subsample=0.8 LightGBM'de subsample_freq/bagging_freq verilmedigi icin FIILEN ETKISIZDIR;
+        # satir orneklemesi varsayilaninda kalir, yalnizca colsample_bytree calisir. Arsivlenmis kosumlarin
+        # (v0.3.2 ve oncesi) tekrar uretilebilirligini korumak icin parametre bilerek degistirilmemistir;
+        # davranis tez Bolum 3.9'da belgelidir. Satir orneklemesini etkinlestirmek isteyen, subsample_freq=1
+        # ekleyip tum sonuclari yeniden uretmelidir.
         models["LightGBM"] = lgb.LGBMRegressor(n_estimators=500, num_leaves=63, learning_rate=0.05,
             subsample=0.8, colsample_bytree=0.8, n_jobs=-1, random_state=seed, verbose=-1)
     except Exception as e:
