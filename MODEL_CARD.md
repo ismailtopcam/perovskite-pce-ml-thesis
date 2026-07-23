@@ -47,6 +47,7 @@
 3. **Uygulanabilirlik alanı ayrıştırmıyor:** özellik-uzayı kNN mesafesi holdout hatasını ayırt etmedi (MAE 3,28 vs 3,19) — mesafe bir güven skoru değildir (tez Bölüm 4.10).
 4. **Tek-eklemli rejim:** eğitim verisi tek-eklemli hücre ağırlıklıdır; gözlemli band gap değerlerinin yalnızca %6,2'si ≥1,70 eV. Tandem üst-hücre bölgesi kapsam dışıdır.
 5. DOI anahtarında 44 büyük/küçük-harf çakışması ölçülmüş kalıntı risktir; normalizasyon duyarlılık koşumunda fark kat gürültüsü içindedir (tez Bölüm 5.7).
+6. **Karşılaştırma modellerinde LightGBM parametre davranışı:** `subsample=0.8` yapılandırılmış olsa da `bagging_freq` verilmediğinden satır alt-örneklemesi LightGBM'de fiilen devre dışıdır; yalnızca sütun alt-örneklemesi (`colsample_bytree=0.8`) etkindir. Arşivlenmiş koşumların tekrar üretilebilirliği için parametre bilerek değiştirilmemiştir (`src/perovskite_ml/models/registry.py` içinde belgelidir; tez Bölüm 3.9). Nihai model (CatBoost) bu durumdan etkilenmez.
 
 ## Kullanım amacı ve kapsam dışı kullanım
 
