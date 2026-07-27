@@ -38,10 +38,10 @@ def main():
 
     fr, cap = gains_curve(y_true, y_pred, GAINS_THR)
     plt.figure(figsize=(6.5, 5))
-    plt.plot(fr * 100, cap * 100, linewidth=2, label="Model-yonlendirmeli secim")
-    plt.plot([0, 100], [0, 100], "--", color="gray", label="Rastgele secim")
-    plt.xlabel("Incelenen hucre orani (%)")
-    plt.ylabel(f"Yakalanan yuksek-verim (PCE>={GAINS_THR}) orani (%)")
+    plt.plot(fr * 100, cap * 100, linewidth=2, label="Model-yönlendirmeli seçim")
+    plt.plot([0, 100], [0, 100], "--", color="gray", label="Rastgele seçim")
+    plt.xlabel("İncelenen hücre oranı (%)")
+    plt.ylabel(f"Yakalanan yüksek-verim (PCE≥{GAINS_THR}) oranı (%)")
     plt.legend(); plt.tight_layout(); plt.savefig(outdir / "gains_curve.png", dpi=300); plt.close()
 
     json.dump({"n_test": int(len(df)), "spearman": float(rho), "gains_threshold": GAINS_THR},
