@@ -31,7 +31,7 @@
 | DOI-grup 5-kat CV R² | **0,413 ± 0,006** (birincil ölçüt) |
 | Holdout R² (8.147 kayıt) | 0,392 |
 | MAE / RMSE | 3,12 / 4,02 PCE puanı |
-| Karşılaştırma | Rastgele bölme aynı modeli 0,481 gösterir (+0,068 yapay şişme) |
+| Karşılaştırma | Rastgele bölme aynı modeli 0,481 gösterir (+0,068 iyimserlik; yayın grupları göz ardı edildiğinde) |
 
 ## Belirsizlik (conformal, DOI-grup-güvenli kalibrasyon)
 

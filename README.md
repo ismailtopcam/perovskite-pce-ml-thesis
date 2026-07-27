@@ -118,8 +118,8 @@ python doi_normalizasyon_duyarlilik.py   # normalize_doi() uygulanmış gruplarl
 python kontamine_test_maesi.py           # sınır aşan yayınların holdout-test kayıtlarında hata analizi (~15 sn) -> outputs/robustness/kontamine_test_maesi.json
 ```
 Bulgu özeti: 44 yayın büyük/küçük harf varyantıyla çift kayıtlı; kat-sınırı aşan 362 kayıt (%0,87).
-Normalizasyonla fark |dR2| <= 0,003 (kat gürültüsü içinde); skor şişirme izi yok. Başlık sonuçlar bu nedenle
-özgün koşumdan raporlanır; kusur ölçülmüş kalıntı risk olarak belgelenmiştir. Üç koşumun sayısal çıktıları
+Normalizasyonla fark |dR2| <= 0,003 (kat gürültüsü içinde); ek skor şişmesi izi yok. Ana sonuçlar bu nedenle
+özgün koşumdan raporlanır; kusur, etkisi ölçülmüş kalıntı risk olarak belgelenmiştir. Üç koşumun sayısal çıktıları
 `outputs/robustness/` altında commit'lidir: `doi_grup_dogrulama.json` (44/362 denetimi),
 `doi_normalizasyon_duyarlilik.json` ve `kontamine_test_maesi.json` (tez Bölüm 5.7'deki değerler).
 
