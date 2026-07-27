@@ -34,6 +34,6 @@ def save_scatter(y_true, y_pred, path):
     plt.figure(figsize=(6,6))
     plt.scatter(y_true,y_pred,s=6,alpha=0.25)
     lim=[min(y_true.min(),y_pred.min()),max(y_true.max(),y_pred.max())]
-    plt.plot(lim,lim,"--",color="red",label="ideal (tahmin=gercek)")
-    plt.xlabel("Gercek PCE (%)"); plt.ylabel("Model tahmini PCE (%)")
+    plt.plot(lim,lim,"--",color="red",label="ideal (tahmin=gerçek)")
+    plt.xlabel("Gerçek PCE (%)"); plt.ylabel("Model tahmini PCE (%)")
     plt.legend(); plt.tight_layout(); plt.savefig(path,dpi=300); plt.close()
