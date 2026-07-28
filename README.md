@@ -63,6 +63,10 @@ Ham CSV bu depoda **yeniden dağıtılmaz** (`.gitignore`); özgün kaynağında
 3. Bu çalışmada kullanılan anlık görüntünün kimliği (indirdiğiniz dosyayı doğrulayın):
    - **43.398 kayıt x 410 kolon**, ~87 MB
    - SHA-256: `da66a634e9106e58ce4d012558d468bc2f19b95987f149fb9c5d208d363ea67a`
+   - Kalıcı arşiv: bu tarihî anlık görüntü, kalıcı erişim için bağımsız bir Zenodo veri kaydı
+     olarak da arşivlidir — DOI: [10.5281/zenodo.21643572](https://doi.org/10.5281/zenodo.21643572)
+     (CC BY 4.0; atıf özgün makaleye: Jacobsson vd., 2022). DOI başına satır sayıları:
+     `outputs/robustness/ham_veri_doi_manifesti.csv`
 
 Perovskite Database yaşayan bir veri tabanıdır; daha güncel bir anlık görüntüyle kayıt sayıları ve
 türetilen sonuçlar küçük farklar gösterebilir. Tezde raporlanan tüm sayılar yukarıdaki anlık
