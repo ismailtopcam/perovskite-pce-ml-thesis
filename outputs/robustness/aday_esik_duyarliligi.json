@@ -1,0 +1,29 @@
+{
+  "egitim_kayit": 33338,
+  "esikler": {
+    "N>=1": {
+      "destekli_aday": 630,
+      "tahmin_tavani": 17.78,
+      "ilk30_medyan": 16.82,
+      "ilk30_N5_ortusme": 29
+    },
+    "N>=3": {
+      "destekli_aday": 546,
+      "tahmin_tavani": 17.78,
+      "ilk30_medyan": 16.82,
+      "ilk30_N5_ortusme": 30
+    },
+    "N>=5": {
+      "destekli_aday": 504,
+      "tahmin_tavani": 17.78,
+      "ilk30_medyan": 16.82,
+      "ilk30_N5_ortusme": 30
+    },
+    "N>=10": {
+      "destekli_aday": 420,
+      "tahmin_tavani": 17.78,
+      "ilk30_medyan": 16.82,
+      "ilk30_N5_ortusme": 30
+    }
+  }
+}
