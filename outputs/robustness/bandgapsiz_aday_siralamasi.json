@@ -1,0 +1,14 @@
+{
+  "model_ailesi": "CatBoost",
+  "cikartilan_kolonlar": [
+    "band_gap_missing",
+    "band_gap"
+  ],
+  "n_aday": 756,
+  "spearman_rho": 0.9761,
+  "ilk30_ortusme": 23,
+  "cesitlendirilmis_ilk30_ortusme": 15,
+  "tavan_bandgapli": 17.78,
+  "tavan_bandgapsiz": 17.4,
+  "ortalama_mutlak_puan_farki": 0.491
+}

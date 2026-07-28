@@ -1,0 +1,12 @@
+{
+  "model_ailesi": "CatBoost",
+  "n_egitim_final_refit": 41485,
+  "n_aday": 756,
+  "arsiv_csv_ile_max_fark": 0.0,
+  "spearman_rho": 0.9571,
+  "ilk30_ortusme": 25,
+  "cesitlendirilmis_ilk30_ortusme": 12,
+  "tavan_eski": 17.78,
+  "tavan_final_refit": 17.61,
+  "ortalama_mutlak_puan_farki": 0.48
+}
