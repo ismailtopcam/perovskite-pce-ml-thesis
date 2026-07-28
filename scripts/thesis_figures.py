@@ -36,7 +36,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from perovskite_ml.config import load_config
 
-DPI = 150
+DPI = 300  # tez yerlesimindeki ozgun kanvaslarla birebir
 
 
 def _tr(n):
@@ -69,14 +69,14 @@ def main():
         pce = M[tgt].astype(float)
 
         # Sekil 4.1 — PCE dagilimi
-        fig, ax = plt.subplots(figsize=(7, 4))
+        fig, ax = plt.subplots(figsize=(7.0, 4.5))
         ax.hist(pce, bins=70, color="#4878a8", edgecolor="white", linewidth=0.3)
         ax.set_xlabel("PCE (%)"); ax.set_ylabel("Kayit sayisi")
         ax.set_title(f"PCE dagilimi (n = {_tr(len(M))})")
         _save(fig, outdir, "sekil_4_01_pce_dagilimi.png", made)
 
         # Sekil 4.2 — A-site katyon oranlari
-        fig, axes = plt.subplots(1, 3, figsize=(10, 3.2), sharey=True)
+        fig, axes = plt.subplots(1, 3, figsize=(10.31, 2.77), sharey=True)
         for ax, col, name in zip(axes, ["A_FA", "A_MA", "A_Cs"], ["FA", "MA", "Cs"]):
             ax.hist(M[col], bins=40, color="#4878a8", edgecolor="white", linewidth=0.3)
             ax.set_title(f"A-site {name} orani"); ax.set_xlabel("oran")
@@ -87,7 +87,7 @@ def main():
         # Sekil 4.3 — band gap (yalnizca gozlemli) + band gap'e gore ortalama PCE
         obs = M[M["band_gap_missing"] == 0]
         bg = obs["band_gap"].astype(float)
-        fig, axes = plt.subplots(1, 2, figsize=(10, 3.6))
+        fig, axes = plt.subplots(1, 2, figsize=(10.366667, 3.07))
         axes[0].hist(bg, bins=60, range=(1.2, 2.4), color="#4878a8",
                      edgecolor="white", linewidth=0.3)
         axes[0].set_xlabel("Band gap (eV)"); axes[0].set_ylabel("Kayit sayisi")
@@ -109,7 +109,7 @@ def main():
         known = M[M[gcol].notna()]
         sizes = known.groupby(known[gcol].astype(str)).size()
         p95, p99 = np.percentile(sizes, [95, 99])
-        fig, ax = plt.subplots(figsize=(7, 4))
+        fig, ax = plt.subplots(figsize=(6.9, 3.3))
         ax.hist(sizes, bins=np.arange(0.5, sizes.max() + 1.5, 1),
                 color="#4878a8", edgecolor="white", linewidth=0.3)
         ax.set_yscale("log")
@@ -130,7 +130,7 @@ def main():
                  ("anneal_temp_missing", "Tavlama sicakligi"),
                  ("anneal_time_missing", "Tavlama suresi")]
         vals = [100 * M[c].mean() for c, _ in flags]
-        fig, ax = plt.subplots(figsize=(6, 3.6))
+        fig, ax = plt.subplots(figsize=(6.37, 2.47))
         bars = ax.barh([n for _, n in flags], vals, color="#4878a8")
         for b, v in zip(bars, vals):
             ax.text(v + 0.4, b.get_y() + b.get_height() / 2, f"%{v:.1f}", va="center")
@@ -149,7 +149,7 @@ def main():
         panels = [("Cell_architecture", "Mimari"),
                   ("ETL_stack_sequence", "ETL"),
                   ("HTL_stack_sequence", "HTL")]
-        fig, axes = plt.subplots(1, 3, figsize=(13, 3.8))
+        fig, axes = plt.subplots(1, 3, figsize=(10.88, 3.07))
         for ax, (col, name) in zip(axes, panels):
             vc = C[col].fillna("(bos)").astype(str).value_counts().head(8)[::-1]
             labels = [v if len(v) <= 28 else v[:25] + "..." for v in vc.index]
@@ -167,7 +167,7 @@ def main():
     cmp_path = outputs / "v4" / "model_comparison_groupkfold.csv"
     if cmp_path.exists():
         cmp = pd.read_csv(cmp_path).sort_values("R2_mean")
-        fig, ax = plt.subplots(figsize=(7, 4))
+        fig, ax = plt.subplots(figsize=(7.0, 4.2))
         ax.barh(cmp["model"], cmp["R2_mean"], xerr=cmp["R2_std"],
                 color="#4878a8", capsize=3)
         ax.set_xlabel("GroupKFold CV R² (ort. ± std)")
@@ -182,7 +182,7 @@ def main():
     if avp_path.exists():
         avp = pd.read_csv(avp_path)
         err = avp["Model_tahmini"] - avp["Gercek_PCE"]
-        fig, ax = plt.subplots(figsize=(7, 4))
+        fig, ax = plt.subplots(figsize=(7.0, 4.2))
         ax.hist(err, bins=80, color="#4878a8", edgecolor="white", linewidth=0.3)
         ax.axvline(0, color="#a85248", linewidth=1)
         ax.set_xlabel("Isaretli hata (tahmin − gercek, PCE puani)")
@@ -200,7 +200,7 @@ def main():
     if conf_path.exists() and hold_path.exists():
         conf = pd.read_csv(conf_path)
         marg = conf[conf["yontem"].str.startswith("Marginal")]
-        fig, axes = plt.subplots(1, 2, figsize=(10, 3.8))
+        fig, axes = plt.subplots(1, 2, figsize=(10.366667, 3.27))
         xs = np.arange(len(marg))
         hedef = marg["hedef_kapsama"].str.replace("%", "").astype(float)
         axes[0].bar(xs - 0.18, hedef, width=0.36, label="Hedef", color="#b0b8c0")
