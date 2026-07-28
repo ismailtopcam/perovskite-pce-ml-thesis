@@ -4,6 +4,10 @@ import numpy as np, pandas as pd
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+# Sekil ici yazilar tez kilavuzu geregi Times New Roman (mathtext: STIX serif eslenigi)
+plt.rcParams["font.family"] = "Times New Roman"
+plt.rcParams["mathtext.fontset"] = "stix"
+
 A_IONS=["FA","MA","Cs","Rb","K"]; B_IONS=["Pb","Sn","Ge"]; X_IONS=["I","Br","Cl"]
 
 def composition_label(row):
