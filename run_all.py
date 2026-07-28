@@ -37,6 +37,7 @@ SUPP = [
     "12_catboost_tuning.py",
     "13_preprocessing_and_bandgap.py",
     "14_pipeline_cv.py",
+    "15_ek_denetimler.py",
 ]
 
 

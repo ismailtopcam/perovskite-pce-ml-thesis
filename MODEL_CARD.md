@@ -10,7 +10,7 @@
 | Model türü | CatBoostRegressor (gradyan-artırmalı karar ağaçları) |
 | Hiperparametreler | iterations=500, depth=6, learning_rate=0.05, seed=42 (test/holdout'a bakılmadan baştan sabitlendi; grup-güvenli ızgara araması aynı yapılandırmayı seçti — tez Bölüm 4.8) |
 | Eğitim ortamı | Python 3.14.4, catboost 1.2.10, scikit-learn 1.8.0 (tam liste: `requirements-lock.txt` ve `outputs/manifests/`) |
-| Kod sürümü | Bu depo (v0.3.3); kalıcı arşiv — tüm sürümleri kapsayan Zenodo DOI: 10.5281/zenodo.20829027 |
+| Kod sürümü | Bu depo (v0.3.4); kalıcı arşiv — tüm sürümleri kapsayan Zenodo DOI: 10.5281/zenodo.20829027 |
 | Dağıtılan artefakt | Web uygulamasındaki `data_app/model.cbm` — SHA-256: `a9a0f431427c8023e2d10b9bb1cb1cd122a71ecbe2e50f46bbf7a8fad6ea0ae1` |
 
 ## Eğitim verisi
@@ -48,6 +48,7 @@
 4. **Tek-eklemli rejim:** eğitim verisi tek-eklemli hücre ağırlıklıdır; gözlemli band gap değerlerinin yalnızca %6,2'si ≥1,70 eV. Tandem üst-hücre bölgesi kapsam dışıdır.
 5. DOI anahtarında 44 büyük/küçük-harf çakışması ölçülmüş kalıntı risktir; normalizasyon duyarlılık koşumunda fark kat gürültüsü içindedir (tez Bölüm 5.7).
 6. **Karşılaştırma modellerinde LightGBM parametre davranışı:** `subsample=0.8` yapılandırılmış olsa da `bagging_freq` verilmediğinden satır alt-örneklemesi LightGBM'de fiilen devre dışıdır; yalnızca sütun alt-örneklemesi (`colsample_bytree=0.8`) etkindir. Arşivlenmiş koşumların tekrar üretilebilirliği için parametre bilerek değiştirilmemiştir (`src/perovskite_ml/models/registry.py` içinde belgelidir; tez Bölüm 3.9). Nihai model (CatBoost) bu durumdan etkilenmez.
+7. **CatBoost kurulum notu:** adil karşılaştırma için tüm modeller ortak one-hot sayısal matrisle eğitilir; CatBoost'a `cat_features` verilmez, dolayısıyla yerleşik kategorik hedef istatistikleri devrede değildir. `boosting_type` belirtilmediğinden bu veri boyutunda CPU varsayılanı `Plain` olarak çözümlenir (ampirik olarak doğrulandı); koşumda Ordered boosting kullanılmaz. Bu kurulumda CatBoost'un ayırt edici yönleri simetrik ağaç yapısı ve varsayılan düzenlileştirmedir (tez Bölüm 3.9).
 
 ## Kullanım amacı ve kapsam dışı kullanım
 
