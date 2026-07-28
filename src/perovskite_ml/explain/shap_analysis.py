@@ -41,6 +41,8 @@ def save_shap_plots(sv, Xs: pd.DataFrame, imp: pd.DataFrame, outdir, dpi: int = 
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+    plt.rcParams["font.family"] = "Times New Roman"  # tez kilavuzu: sekil yazilari TNR
+    plt.rcParams["mathtext.fontset"] = "stix"
     import shap
 
     plt.figure()
