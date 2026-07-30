@@ -76,8 +76,9 @@ görüntüye aittir; farklı bir kopya kullanıyorsanız önce satır sayısı v
 
 Tek komut (tüm çekirdek hat):
 ```bash
-python run_all.py            # çekirdek hat (01-10)
-python run_all.py --all      # + ek doğrulama/sağlamlık betikleri (11-14 + thesis_data_analysis + thesis_figures)
+python run_all.py               # çekirdek hat (01-10)
+python run_all.py --all         # 01-15 + tez istatistikleri (thesis_data_analysis) + tez şekilleri (thesis_figures)
+python run_thesis_audits.py     # kök-dizin sağlamlık ve provenans denetimleri (çekirdek hat çıktılarını gerektirir)
 ```
 
 Ya da adım adım:
