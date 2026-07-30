@@ -3,7 +3,8 @@
 
 Kullanim:
   python run_all.py          # cekirdek hat (01-10)
-  python run_all.py --all    # + ek dogrulama/saglamlik betikleri (11-14 + thesis_data_analysis + thesis_figures)
+  python run_all.py --all    # + ek dogrulama/saglamlik betikleri (11-15 + thesis_data_analysis + thesis_figures)
+  python run_thesis_audits.py  # kok-dizin saglamlik/provenans denetimleri (ayri calistirici)
 
 Her adim bir onceki adimin ciktilarina dayanir; bir adim basarisiz olursa
 (cikis kodu != 0) calisma durur. Betikler config.yaml ve data/ yollarini
