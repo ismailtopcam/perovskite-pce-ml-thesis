@@ -33,7 +33,7 @@ Tezin veri hattı, doğrulama deneyleri ve bulguları etkileşimli olarak yayın
 **<https://tez.ismailtopcam.dev>**
 
 - Kaynak kodu ayrı depodadır: <https://github.com/ismailtopcam/perovskite-pce-ml-app>
-  (Streamlit; 9 sayfa — veri hattı gezgini, doğrulama deneyleri, canlı tahmin +
+  (Streamlit; 10 sayfa — veri hattı gezgini, doğrulama deneyleri, canlı tahmin +
   conformal aralık + yerel SHAP, DOI gezgini, provenans).
 - Uygulamanın tüm verisi ve modeli **bu depodan deterministik üretilir**
   (`tools/prepare_app_data.py`, pipeline commit'i uygulama içinde görünür); model
