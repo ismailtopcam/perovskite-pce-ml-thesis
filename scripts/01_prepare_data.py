@@ -36,6 +36,11 @@ def main():
     cleaned, removed_log = clean_rows(df, cfg)
     n_clean = len(cleaned)
     validate_clean(cleaned, cfg)   # veri sozlesmesi: hedef sayisal & aralikta
+
+    # v0.4.0 (1-C): DOI normalizasyonu clean_rows icinde uygulanir (tek dogruluk
+    # kaynagi); birlesen varyant-grubu sayisi attrs ile raporlanir.
+    doi_variants_merged = int(cleaned.attrs.get("doi_variants_merged", 0))
+
     cleaned.to_csv(proc / "cleaned_dataset.csv", index=False)
 
     vec = vectorize_dataframe(cleaned, cfg)
@@ -57,6 +62,8 @@ def main():
         "pce_median": round(float(pce.median()), 4),
         "pce_std": round(float(pce.std()), 4),
         "n_unique_doi": int(cleaned[cfg["group_col"]].nunique()),
+        "doi_normalized": bool(cfg.get("grouping", {}).get("normalize_doi", False)),
+        "doi_variants_merged": doi_variants_merged,
         "vectorized_columns": [c for c in vec.columns if c.split("_")[0] in ("A","B","X")],
     }
     with open(logs / "clean_summary.json", "w", encoding="utf-8") as f:
@@ -69,6 +76,7 @@ def main():
     print(f"Cikarma nedenleri    : {summary['removed_by_reason']}")
     print(f"PCE  mean/median/std : {summary['pce_mean']} / {summary['pce_median']} / {summary['pce_std']}")
     print(f"Benzersiz DOI        : {summary['n_unique_doi']}")
+    print(f"DOI normalizasyonu   : {summary['doi_normalized']} (birlesen varyant grubu: {summary['doi_variants_merged']})")
     print(f"Kompozisyon sutunlari: {summary['vectorized_columns']}")
     print("===================================================")
 

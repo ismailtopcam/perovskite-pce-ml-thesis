@@ -1,6 +1,6 @@
 {
   "stage": "stage11_robustness",
-  "timestamp_utc": "2026-07-05T18:36:15+00:00",
+  "timestamp_utc": "2026-08-10T08:11:45+00:00",
   "seed": 42,
   "target": "JV_default_PCE",
   "group_col": "Ref_DOI_number",
@@ -17,6 +17,10 @@
     "catboost": "1.2.10",
     "shap": "0.51.0"
   },
+  "git": {
+    "commit": "d6ce55f6a6f710ec2bf86a173ac825ab48cbeda1",
+    "dirty": true
+  },
   "metrics": {
     "pce_gecerli_ham_kayit": 42391,
     "max_PCE": 34.8,
@@ -31,5 +35,9 @@
   "outputs": [
     "outputs/robustness/pce_outlier_audit.csv",
     "outputs/robustness/robustness_cv.csv"
-  ]
+  ],
+  "output_hashes": {
+    "outputs/robustness/pce_outlier_audit.csv": "e32e5ee39f18cc00101e58d36f35862d6b045e39e3a3ff9ca980a204228f59c0",
+    "outputs/robustness/robustness_cv.csv": "2608c674be3d8b48104e52d6e5051d29c03088b53528c45d2ea983b0a571882c"
+  }
 }

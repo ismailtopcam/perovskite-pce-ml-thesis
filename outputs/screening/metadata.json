@@ -1,5 +1,5 @@
 {
-  "n_test": 8147,
-  "spearman": 0.614775521364777,
+  "n_test": 8355,
+  "spearman": 0.6095619988329676,
   "gains_threshold": 18
 }

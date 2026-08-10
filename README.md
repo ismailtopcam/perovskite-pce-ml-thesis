@@ -15,15 +15,17 @@ mühendislik kararlarının sonuç geçerliliğini nasıl değiştirdiğini öl�
 | Temiz veri | 41.485 kayıt (ham: 43.398 x 410 kolon) |
 | Özellik sayısı | 77 |
 | Nihai model | CatBoost (ilk 4 boosting ~eşit; salt-sklearn HistGBM dahil) |
-| Ana doğrulama | DOI-grup 5-kat GroupKFold CV |
-| **R2 (grup-güvenli)** | **0,413 ± 0,006** |
-| R2 (rastgele bölme — sızıntı şişmesi) | 0,481 (+0,068) |
+| Ana doğrulama | Kanonik-DOI-grup 5-kat GroupKFold CV (v0.4.0: grup anahtarı normalize DOI) |
+| **R2 (grup-güvenli)** | **0,410 ± 0,016** |
+| R2 (rastgele bölme — sızıntı şişmesi) | 0,481 (+0,071) |
 | R2 (+Voc/Jsc/FF — hedef sızıntısı) | 0,938 (bu yüzden dışlandı) |
 | MAE / RMSE | 3,12 / 4,02 PCE puanı |
 | Aday uzayı / eğitimde desteklenen | 756 / 504 |
 
-Düşük görünen 0,413 bilinçli bir tercihtir: eğitimden ham DOI anahtarı düzeyinde ayrık
-tutulan yayınlara genellemeyi ölçer (kalıntı riskler için tez Bölüm 5.7).
+Düşük görünen 0,410 bilinçli bir tercihtir: eğitimden kanonik DOI anahtarı düzeyinde ayrık
+tutulan yayınlara genellemeyi ölçer; v0.4.0'da DOI yazım varyantları ana hatta
+normalize edilmiştir (44 varyant grubu birleşti; sınır aşımı: 0 kayıt) ve ham-anahtar
+davranışı duyarlılık katmanına taşınmıştır (tez Bölüm 5.7).
 Tüm değerler `outputs/` altındaki commit'li dosyalardan izlenebilir.
 Model ve veri özeti: [MODEL_CARD.md](MODEL_CARD.md) · [DATA_CARD.md](DATA_CARD.md)
 
@@ -103,6 +105,9 @@ python scripts/12_catboost_tuning.py        # CatBoost doğrudan grup-güvenli h
 python scripts/13_preprocessing_and_bandgap.py # ön-işleme kat-değişmezliği + band gap ablasyonu
 python scripts/14_pipeline_cv.py            # ön-işleme sızıntısı: kat-içi (fold-local) sklearn Pipeline vs global (aynı GroupKFold)
 python scripts/15_ek_denetimler.py          # eşleştirilmiş CatBoost-HistGBM testi, eğitim-holdout farkı, DummyRegressor tabanı
+python scripts/16_nested_dogrulama.py       # v0.4.0 (1-C): iç-içe (nested) grup-CV + mühürlü holdout protokolü
+python scripts/17_gurultu_tabani_v2.py      # v0.4.0 (1-C): gürültü tabanı — aynı-evren sınırları, yayın-ağırlıklı, reçete-tanımı duyarlılığı
+python scripts/18_group_conformal.py        # v0.4.0 (1-C): group-conformal (DOI değişebilirlik birimi) + yayın-ağırlıklı kapsama
 python scripts/thesis_data_analysis.py data/processed/model_ready_dataset.csv
                                             # betimsel istatistik: DOI grup dağılımı, gürültü tabanı (Tablo 5.1), band gap (ML yok)
 python scripts/thesis_figures.py            # tez veri şekillerinin (4.1-4.7, 4.12, 4.13) repo içinden yeniden üretimi -> outputs/figures/

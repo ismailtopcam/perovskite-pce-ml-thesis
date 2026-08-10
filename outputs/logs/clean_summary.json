@@ -13,7 +13,9 @@
   "pce_mean": 12.0347,
   "pce_median": 12.77,
   "pce_std": 5.2411,
-  "n_unique_doi": 7396,
+  "n_unique_doi": 7352,
+  "doi_normalized": true,
+  "doi_variants_merged": 44,
   "vectorized_columns": [
     "A_FA",
     "A_MA",

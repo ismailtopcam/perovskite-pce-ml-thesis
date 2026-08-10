@@ -54,4 +54,17 @@ def clean_rows(df: pd.DataFrame, cfg: dict):
     df = df.loc[keep]
 
     removed_log = pd.DataFrame(removed, columns=["row_index", "reason"])
+
+    # v0.4.0 (1-C): grup anahtarini kanonik DOI'ye normalize et. Burada (tek
+    # doğruluk kaynaginda) yapilir ki ham CSV'den yeniden kuran her tuketici
+    # (orn. Stage 4 / Deney B) ayni gruplamayi alsin. Sayac df.attrs ile tasinir.
+    if cfg.get("grouping", {}).get("normalize_doi", False):
+        from perovskite_ml.utils.doi import normalize_doi
+        gc = cfg.get("group_col")
+        if gc and gc in df.columns:
+            mask = df[gc].notna()
+            before = df.loc[mask, gc].astype(str)
+            df.loc[mask, gc] = before.map(normalize_doi)
+            df.attrs["doi_variants_merged"] = int(before.nunique() - df.loc[mask, gc].nunique())
+
     return df, removed_log

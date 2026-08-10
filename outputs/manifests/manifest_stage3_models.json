@@ -1,6 +1,6 @@
 {
   "stage": "stage3_models",
-  "timestamp_utc": "2026-07-13T03:18:34+00:00",
+  "timestamp_utc": "2026-08-10T07:56:32+00:00",
   "seed": 42,
   "target": "JV_default_PCE",
   "group_col": "Ref_DOI_number",
@@ -17,14 +17,23 @@
     "catboost": "1.2.10",
     "shap": "0.51.0"
   },
+  "git": {
+    "commit": "d6ce55f6a6f710ec2bf86a173ac825ab48cbeda1",
+    "dirty": true
+  },
   "metrics": {
     "best_model": "CatBoost",
-    "best_cv_r2": 0.4129,
-    "best_holdout_r2": 0.3924
+    "best_cv_r2": 0.4101,
+    "best_holdout_r2": 0.3936
   },
   "outputs": [
     "outputs/v4/model_comparison_holdout.csv",
     "outputs/v4/model_comparison_groupkfold.csv",
     "outputs/v4/best_model_holdout_predictions.csv"
-  ]
+  ],
+  "output_hashes": {
+    "outputs/v4/model_comparison_holdout.csv": "95bd4812e3924390231fddff1bf2068729babfbeb80d727015eee8183479c48f",
+    "outputs/v4/model_comparison_groupkfold.csv": "f76225d36df9204bbe098e9d3e5e3cdd18ee7ce8f95a8975b53e65b2c6003cae",
+    "outputs/v4/best_model_holdout_predictions.csv": "94679ff14f8f3930f2de6ac958535cc1c987d82f2b3b1fdb2349626717243d1c"
+  }
 }

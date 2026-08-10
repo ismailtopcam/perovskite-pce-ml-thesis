@@ -1,6 +1,7 @@
 {
+  "primary": "normalized_groups",
   "raw_groups": {
-    "label": "HAM gruplar — mevcut pipeline",
+    "label": "HAM gruplar — duyarlilik (v0.3.x davranisi)",
     "holdout": {
       "MAE": 3.1506,
       "RMSE": 4.0755,
@@ -23,7 +24,7 @@
     "n_groups": 7397
   },
   "normalized_groups": {
-    "label": "NORMALIZE gruplar — normalize_doi() eklenmis",
+    "label": "NORMALIZE gruplar — ana hat (v0.4.0)",
     "holdout": {
       "MAE": 3.1503,
       "RMSE": 4.1029,

@@ -66,3 +66,22 @@ kk = ["A", "B", "X", "arch", "ETL", "HTL"]
 ortak = pd.merge(top30_f[kk], div[kk], on=kk).shape[0]
 print(f"\n[C] Filtreli ilk-30 mimari dagilimi: {top30_f['arch'].value_counts().to_dict()}")
 print(f"[C] Filtreli tavan: {F['Predicted_PCE'].max():.2f} | cesitlendirilmis ilk-30 ile ortak: {ortak}")
+
+# --- [D] v0.4.0 (1-C): birincil liste atamasi ---
+# Birincil aday listesi, egitim verisinde en az N=5 kez birlikte gorulen
+# (mimari, ETL, HTL) uclulerine dayanan filtreli listedir; filtresiz tam
+# enumerasyon duyarlilik/ek katmani olarak korunur (tez 4.5'teki gerekce).
+import json as _json
+_desig = {
+    "primary_candidate_list": "candidates_compat_N5.csv",
+    "primary_top30": "top30_compat_N5.csv",
+    "sensitivity_layers": ["candidate_predictions.csv (filtresiz tam enumerasyon)",
+                            "top30_diverse.csv (cesitlendirilmis, filtresiz)"],
+    "support_threshold_N": int(Np),
+    "n_primary_candidates": int(len(F)),
+    "primary_top_predicted_pce": round(float(F["Predicted_PCE"].max()), 2),
+    "rationale": "1-C: sifir-destekli mimari-katman ucluleri birincil siralamadan cikarildi",
+}
+with open("outputs/candidates_full/primary_designation.json", "w", encoding="utf-8") as fh:
+    _json.dump(_desig, fh, indent=2, ensure_ascii=False)
+print(f"[D] Birincil liste atamasi yazildi: primary_designation.json (N>={Np}, {len(F)} aday)")

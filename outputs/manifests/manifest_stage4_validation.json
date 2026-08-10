@@ -1,6 +1,6 @@
 {
   "stage": "stage4_validation",
-  "timestamp_utc": "2026-07-13T03:20:09+00:00",
+  "timestamp_utc": "2026-08-10T08:26:10+00:00",
   "seed": 42,
   "target": "JV_default_PCE",
   "group_col": "Ref_DOI_number",
@@ -17,13 +17,20 @@
     "catboost": "1.2.10",
     "shap": "0.51.0"
   },
+  "git": {
+    "commit": "d6ce55f6a6f710ec2bf86a173ac825ab48cbeda1",
+    "dirty": true
+  },
   "metrics": {
     "random_kfold_r2": 0.4812,
-    "group_kfold_r2": 0.4129,
-    "inflation_r2": 0.0683,
+    "group_kfold_r2": 0.4101,
+    "inflation_r2": 0.0711,
     "experiment_b_done": true
   },
   "outputs": [
     "outputs/v4/validation_experiments.csv"
-  ]
+  ],
+  "output_hashes": {
+    "outputs/v4/validation_experiments.csv": "8afad86904e225066227a115a537ed73d086f5dd6a7e094a9fed61743eb92719"
+  }
 }

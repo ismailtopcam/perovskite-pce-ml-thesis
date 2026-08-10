@@ -35,8 +35,12 @@ def test_compat_filter_consistent_with_sources():
     rhs = beklenen[KEY + ["A", "B", "X"]].sort_values(KEY + ["A", "B", "X"]).reset_index(drop=True)
     assert lhs.equals(rhs)
 
-    # filtre tahmin tavanini degistirmez (tez Bolum 4.5)
-    assert abs(compat["Predicted_PCE"].max() - cand["Predicted_PCE"].max()) < 1e-9
+    # v0.4.0 (kanonik DOI gruplamasi): en yuksek tahminli aday sifir-destekli
+    # bir (mimari, ETL, HTL) uclusune dusebildiginden filtre tavani dusurebilir
+    # (bu kosumda 17,95 -> 17,93); filtreli tavan tam listeyi asamaz ve tam
+    # listenin destekli en iyi adayina esit olmalidir.
+    assert compat["Predicted_PCE"].max() <= cand["Predicted_PCE"].max() + 1e-9
+    assert abs(compat["Predicted_PCE"].max() - beklenen["Predicted_PCE"].max()) < 1e-9
 
 
 def test_top30_compat_subset():

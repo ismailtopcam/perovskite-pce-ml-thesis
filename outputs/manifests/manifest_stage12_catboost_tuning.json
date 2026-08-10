@@ -1,6 +1,6 @@
 {
   "stage": "stage12_catboost_tuning",
-  "timestamp_utc": "2026-06-24T22:17:43+00:00",
+  "timestamp_utc": "2026-08-10T08:15:04+00:00",
   "seed": 42,
   "target": "JV_default_PCE",
   "group_col": "Ref_DOI_number",
@@ -17,11 +17,18 @@
     "catboost": "1.2.10",
     "shap": "0.51.0"
   },
+  "git": {
+    "commit": "d6ce55f6a6f710ec2bf86a173ac825ab48cbeda1",
+    "dirty": true
+  },
   "metrics": {
-    "default_cv_r2": 0.4129,
-    "tuned_cv_r2": 0.4129
+    "default_cv_r2": 0.4101,
+    "tuned_cv_r2": 0.4101
   },
   "outputs": [
     "outputs/tuning_catboost/best_params.json"
-  ]
+  ],
+  "output_hashes": {
+    "outputs/tuning_catboost/best_params.json": "595129c90750c6dde7a1131966255cf7d1e5d32377d43fd95369fe82f9c77707"
+  }
 }

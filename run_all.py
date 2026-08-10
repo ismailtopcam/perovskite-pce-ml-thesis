@@ -39,6 +39,10 @@ SUPP = [
     "13_preprocessing_and_bandgap.py",
     "14_pipeline_cv.py",
     "15_ek_denetimler.py",
+    # v0.4.0 (1-C) yeniden-dogrulama betikleri
+    "16_nested_dogrulama.py",
+    "17_gurultu_tabani_v2.py",
+    "18_group_conformal.py",
 ]
 
 

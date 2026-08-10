@@ -1,6 +1,6 @@
 {
   "stage": "stage10_conformal",
-  "timestamp_utc": "2026-06-28T22:04:55+00:00",
+  "timestamp_utc": "2026-08-10T08:09:03+00:00",
   "seed": 42,
   "target": "JV_default_PCE",
   "group_col": "Ref_DOI_number",
@@ -17,10 +17,15 @@
     "catboost": "1.2.10",
     "shap": "0.51.0"
   },
-  "metrics": {
-    "marginal90_half_width": 6.4186,
-    "marginal90_coverage": 0.8818,
-    "ad_frac_inside": 0.8014
+  "git": {
+    "commit": "d6ce55f6a6f710ec2bf86a173ac825ab48cbeda1",
+    "dirty": true
   },
-  "outputs": []
+  "metrics": {
+    "marginal90_half_width": 6.6618,
+    "marginal90_coverage": 0.8991,
+    "ad_frac_inside": 0.8409
+  },
+  "outputs": [],
+  "output_hashes": {}
 }

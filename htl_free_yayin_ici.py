@@ -58,8 +58,8 @@ res = {
     "wilcoxon_p": float(w.pvalue),
 }
 print(f"\nKarma yayin: {res['n_karma_yayin']} (beklenen 222)")
-print(f"Yayin-ici medyan fark (HTL-free − HTL'li): {res['yayin_ici_medyan_fark']} PCE puani (beklenen −3,74)")
-print(f"Ceyrekler: {res['ceyrekler']} (beklenen [−6,90, −1,50])")
+print(f"Yayin-ici medyan fark (HTL-free - HTL'li): {res['yayin_ici_medyan_fark']} PCE puani (beklenen -3,74)")
+print(f"Ceyrekler: {res['ceyrekler']} (beklenen [-6,90, -1,50])")
 print(f"Negatif fark orani: %{100*res['negatif_fark_yayin_orani']:.1f} (beklenen %89,2) | Wilcoxon p = {w.pvalue:.2e}")
 
 out = Path("outputs/robustness"); out.mkdir(parents=True, exist_ok=True)

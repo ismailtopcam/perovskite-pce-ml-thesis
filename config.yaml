@@ -9,6 +9,11 @@ paths:
 target: "JV_default_PCE"
 group_col: "Ref_DOI_number"
 
+grouping:
+  # v0.4.0 (1-C): grup anahtari kanonik DOI'ye normalize edilir (kucuk harf,
+  # protokol/on-ek ve sondaki noktalama temizligi). v0.3.x davranisi icin false.
+  normalize_doi: true
+
 cleaning:
   pce_min: 0.0
   pce_max: 35.0      # >35 tek-eklemli icin fiziksel disi; aykiri/hatali sayilir

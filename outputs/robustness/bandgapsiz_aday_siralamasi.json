@@ -5,10 +5,10 @@
     "band_gap"
   ],
   "n_aday": 756,
-  "spearman_rho": 0.9761,
-  "ilk30_ortusme": 23,
-  "cesitlendirilmis_ilk30_ortusme": 15,
-  "tavan_bandgapli": 17.78,
-  "tavan_bandgapsiz": 17.4,
-  "ortalama_mutlak_puan_farki": 0.491
+  "spearman_rho": 0.9758,
+  "ilk30_ortusme": 24,
+  "cesitlendirilmis_ilk30_ortusme": 21,
+  "tavan_bandgapli": 17.95,
+  "tavan_bandgapsiz": 17.98,
+  "ortalama_mutlak_puan_farki": 0.448
 }

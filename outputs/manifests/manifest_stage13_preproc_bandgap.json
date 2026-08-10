@@ -1,6 +1,6 @@
 {
   "stage": "stage13_preproc_bandgap",
-  "timestamp_utc": "2026-06-24T22:25:06+00:00",
+  "timestamp_utc": "2026-08-10T08:17:00+00:00",
   "seed": 42,
   "target": "JV_default_PCE",
   "group_col": "Ref_DOI_number",
@@ -17,11 +17,19 @@
     "catboost": "1.2.10",
     "shap": "0.51.0"
   },
+  "git": {
+    "commit": "d6ce55f6a6f710ec2bf86a173ac825ab48cbeda1",
+    "dirty": true
+  },
   "metrics": {
     "band_gap_global_median": 1.6
   },
   "outputs": [
     "outputs/robustness/fold_invariance.csv",
     "outputs/robustness/band_gap_ablation.csv"
-  ]
+  ],
+  "output_hashes": {
+    "outputs/robustness/fold_invariance.csv": "1b87461af4a4479fe91e32295195a1dccc7e2c20b0c7e02ff6724c601ea8e88d",
+    "outputs/robustness/band_gap_ablation.csv": "5eb452169d1e2b6031b53cd20f4bb7c91a02e7d49c520f4456541ef0f16711d1"
+  }
 }

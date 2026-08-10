@@ -1,23 +1,23 @@
 {
   "aciklama": "Uclu (mimari, ETL, HTL) basina egitim bolmesi destegi: kayit sayisi, benzersiz DOI sayisi ve en buyuk tek yayinin payi",
-  "egitim_kayit": 33338,
-  "egitim_doi": 5917,
+  "egitim_kayit": 33130,
+  "egitim_doi": 5882,
   "ucluler": [
     {
       "arch": "nip",
       "ETL": "TiO2_c___TiO2_mp",
       "HTL": "Spiro_MeOTAD",
-      "egitim_kayit_sayisi": 5986,
-      "benzersiz_doi_sayisi": 1437,
+      "egitim_kayit_sayisi": 6101,
+      "benzersiz_doi_sayisi": 1423,
       "en_buyuk_tek_yayin_payi": 0.016
     },
     {
       "arch": "nip",
       "ETL": "TiO2_c___TiO2_mp",
       "HTL": "PTAA",
-      "egitim_kayit_sayisi": 263,
-      "benzersiz_doi_sayisi": 69,
-      "en_buyuk_tek_yayin_payi": 0.228
+      "egitim_kayit_sayisi": 266,
+      "benzersiz_doi_sayisi": 72,
+      "en_buyuk_tek_yayin_payi": 0.226
     },
     {
       "arch": "nip",
@@ -31,17 +31,17 @@
       "arch": "nip",
       "ETL": "SnO2_np",
       "HTL": "Spiro_MeOTAD",
-      "egitim_kayit_sayisi": 916,
-      "benzersiz_doi_sayisi": 208,
-      "en_buyuk_tek_yayin_payi": 0.04
+      "egitim_kayit_sayisi": 968,
+      "benzersiz_doi_sayisi": 204,
+      "en_buyuk_tek_yayin_payi": 0.038
     },
     {
       "arch": "nip",
       "ETL": "SnO2_np",
       "HTL": "PTAA",
-      "egitim_kayit_sayisi": 51,
-      "benzersiz_doi_sayisi": 13,
-      "en_buyuk_tek_yayin_payi": 0.294
+      "egitim_kayit_sayisi": 31,
+      "benzersiz_doi_sayisi": 12,
+      "en_buyuk_tek_yayin_payi": 0.258
     },
     {
       "arch": "nip",
@@ -55,25 +55,25 @@
       "arch": "nip",
       "ETL": "PCBM_60",
       "HTL": "Spiro_MeOTAD",
-      "egitim_kayit_sayisi": 68,
-      "benzersiz_doi_sayisi": 29,
-      "en_buyuk_tek_yayin_payi": 0.235
+      "egitim_kayit_sayisi": 50,
+      "benzersiz_doi_sayisi": 24,
+      "en_buyuk_tek_yayin_payi": 0.32
     },
     {
       "arch": "nip",
       "ETL": "PCBM_60",
       "HTL": "PTAA",
-      "egitim_kayit_sayisi": 6,
-      "benzersiz_doi_sayisi": 1,
-      "en_buyuk_tek_yayin_payi": 1.0
+      "egitim_kayit_sayisi": 15,
+      "benzersiz_doi_sayisi": 2,
+      "en_buyuk_tek_yayin_payi": 0.6
     },
     {
       "arch": "nip",
       "ETL": "PCBM_60",
       "HTL": "PEDOT_PSS",
-      "egitim_kayit_sayisi": 22,
+      "egitim_kayit_sayisi": 39,
       "benzersiz_doi_sayisi": 8,
-      "en_buyuk_tek_yayin_payi": 0.318
+      "en_buyuk_tek_yayin_payi": 0.462
     },
     {
       "arch": "pin",
@@ -127,25 +127,25 @@
       "arch": "pin",
       "ETL": "PCBM_60",
       "HTL": "Spiro_MeOTAD",
-      "egitim_kayit_sayisi": 0,
-      "benzersiz_doi_sayisi": 0,
-      "en_buyuk_tek_yayin_payi": null
+      "egitim_kayit_sayisi": 2,
+      "benzersiz_doi_sayisi": 1,
+      "en_buyuk_tek_yayin_payi": 1.0
     },
     {
       "arch": "pin",
       "ETL": "PCBM_60",
       "HTL": "PTAA",
-      "egitim_kayit_sayisi": 61,
-      "benzersiz_doi_sayisi": 23,
-      "en_buyuk_tek_yayin_payi": 0.098
+      "egitim_kayit_sayisi": 37,
+      "benzersiz_doi_sayisi": 17,
+      "en_buyuk_tek_yayin_payi": 0.162
     },
     {
       "arch": "pin",
       "ETL": "PCBM_60",
       "HTL": "PEDOT_PSS",
-      "egitim_kayit_sayisi": 1630,
-      "benzersiz_doi_sayisi": 408,
-      "en_buyuk_tek_yayin_payi": 0.018
+      "egitim_kayit_sayisi": 1615,
+      "benzersiz_doi_sayisi": 398,
+      "en_buyuk_tek_yayin_payi": 0.019
     }
   ]
 }

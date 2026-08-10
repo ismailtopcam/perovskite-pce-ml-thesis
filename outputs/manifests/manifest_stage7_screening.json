@@ -1,6 +1,6 @@
 {
   "stage": "stage7_screening",
-  "timestamp_utc": "2026-07-27T08:42:27+00:00",
+  "timestamp_utc": "2026-08-10T08:00:23+00:00",
   "seed": 42,
   "target": "JV_default_PCE",
   "group_col": "Ref_DOI_number",
@@ -18,18 +18,18 @@
     "shap": "0.51.0"
   },
   "git": {
-    "commit": "cec6adb4a000f8fa89616880e20c00e0d240ad27",
+    "commit": "d6ce55f6a6f710ec2bf86a173ac825ab48cbeda1",
     "dirty": true
   },
   "metrics": {
-    "n_test": 8147,
-    "spearman": 0.6148,
+    "n_test": 8355,
+    "spearman": 0.6096,
     "gains_threshold": 18
   },
   "outputs": [
     "outputs/screening/enrichment.csv"
   ],
   "output_hashes": {
-    "outputs/screening/enrichment.csv": "a082dee28501ab86005d0435fae1f8d994365baad9d43c94503b6951ede3d725"
+    "outputs/screening/enrichment.csv": "62970ec1904ef67400967623842abcb8db5b2ba4b290c7327e7fd1f062b4a4a8"
   }
 }

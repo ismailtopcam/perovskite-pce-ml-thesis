@@ -1,6 +1,6 @@
 {
   "stage": "15_ek_denetimler",
-  "timestamp_utc": "2026-07-20T13:33:36+00:00",
+  "timestamp_utc": "2026-08-10T08:19:11+00:00",
   "seed": 42,
   "target": "JV_default_PCE",
   "group_col": "Ref_DOI_number",
@@ -18,16 +18,16 @@
     "shap": "0.51.0"
   },
   "git": {
-    "commit": "eb5b8bcc0440866beb397b67c818793acb104401",
+    "commit": "d6ce55f6a6f710ec2bf86a173ac825ab48cbeda1",
     "dirty": true
   },
   "metrics": {
-    "paired_t_p": 0.49544358694716795,
-    "mean_diff_R2": 0.0006939966690631127,
-    "train_R2": 0.5136214156759209,
-    "holdout_R2": 0.39235320659818107,
-    "dummy_R2_mean": -0.00033209868208388115,
-    "dummy_MAE_mean": 4.3205476533407
+    "paired_t_p": 0.006193103627883366,
+    "mean_diff_R2": 0.0023942362159111497,
+    "train_R2": 0.5130707330902067,
+    "holdout_R2": 0.3936119908292972,
+    "dummy_R2_mean": -0.0017225980963537335,
+    "dummy_MAE_mean": 4.321659557716774
   },
   "outputs": [
     "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\paired_model_comparison.json",
@@ -35,8 +35,8 @@
     "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\dummy_baseline.json"
   ],
   "output_hashes": {
-    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\paired_model_comparison.json": "b9d07c2e0fb8846e323918847de2d89ef54798848b7bebb2782ff786dbcadbda",
-    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\train_test_gap.json": "7ab1eaa5ccddaaa8dc909e683e4e6efdf995b55fb1a22a8aabf0969106cfef33",
-    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\dummy_baseline.json": "7135dc3c0bc89490ad0f116c4ea690ef36817cd6ca37aed226fa4ad2d9b1e27b"
+    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\paired_model_comparison.json": "fd00dfec470cb25f2bbc414c89d6a30ef5615d4735589c2f19d42e3825074044",
+    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\train_test_gap.json": "c574d33a527ab3b3f3e5639423e085aee2a79266d49e77022eeda19083573806",
+    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\dummy_baseline.json": "c6319f11396f4b9feab589776b7e5d65574b03f42825f0ce9d56a60eee537d5a"
   }
 }

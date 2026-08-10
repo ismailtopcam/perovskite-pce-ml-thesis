@@ -1,8 +1,12 @@
 """Duyarlilik analizi: DOI normalizasyonunun basari metriklerine etkisi.
-1) Ham gruplar (pipeline'in mevcut hali) -> commit'li sonuclarla karsilastirma (reprodüksiyon kontrolu)
-2) Normalize gruplar (normalize_doi eklenmis hali) -> ayni CatBoost, ayni seed
+
+v0.4.0 (1-C) itibariyla YON TERSINE DONDU: ana hat kanonik (normalize) DOI
+gruplariyla calisir; bu betik HAM (v0.3.x) gruplamayi ham CSV'den yeniden
+kurarak duyarlilik katmani olarak raporlar.
+1) Normalize gruplar (ana hat, model_ready'deki anahtar)
+2) Ham gruplar (ham CSV'den, normalize_doi=False ile yeniden kurulur)
 Model: CatBoost, registry ile birebir ayni hiperparametreler.
-Cikti: outputs/robustness/doi_normalizasyon_duyarlilik.json (tez Bolum 5.7'de atif yapilan degerler)
+Cikti: outputs/robustness/doi_normalizasyon_duyarlilik.json (tez Bolum 5.7)
 """
 import json, re, time
 from pathlib import Path
@@ -23,8 +27,22 @@ def normalize_doi(s: str) -> str:
     s = re.sub(r"^doi:\s*", "", s)
     return s.rstrip("/.")
 
-g_raw = M["Ref_DOI_number"].fillna("unknown_doi").astype(str).values
-g_norm = np.array([g if g == "unknown_doi" else normalize_doi(g) for g in g_raw])
+# Ana hat (v0.4.0): model_ready'deki anahtar zaten kanonik
+g_norm = M["Ref_DOI_number"].fillna("unknown_doi").astype(str).values
+
+# HAM gruplar: ham CSV'den, normalizasyon KAPALI cfg ile yeniden kur
+import sys as _sys, copy as _copy
+_sys.path.insert(0, str(ROOT / "src"))
+from perovskite_ml.config import load_config as _load_config
+from perovskite_ml.data.load_data import load_raw as _load_raw
+from perovskite_ml.data.clean_data import clean_rows as _clean_rows
+_cfg = _load_config(str(ROOT / "config.yaml"))
+_cfg_raw = _copy.deepcopy(_cfg); _cfg_raw.setdefault("grouping", {})["normalize_doi"] = False
+_cleaned_raw, _ = _clean_rows(_load_raw(_cfg_raw), _cfg_raw)
+g_raw = _cleaned_raw["Ref_DOI_number"].fillna("unknown_doi").astype(str).values
+assert len(g_raw) == len(M), "Ham yeniden-kurulum satir sayisi model_ready ile uyusmuyor"
+_chk = np.array([g if g == "unknown_doi" else normalize_doi(g) for g in g_raw])
+assert (_chk == g_norm).all(), "Hizalama kontrolu: normalize(ham) != ana hat anahtari"
 
 def make_model():
     return CatBoostRegressor(iterations=500, depth=6, learning_rate=0.05,
@@ -64,13 +82,13 @@ def run(groups, label):
         "n_groups": int(len(pd.unique(groups))),
     }
 
-print("Referans (commit'li): Holdout R2=0.3924 MAE=3.1506 RMSE=4.0755 | GKF R2=0.4129±0.0065 MAE=3.1197")
-res_raw = run(g_raw, "HAM gruplar — mevcut pipeline")
-res_norm = run(g_norm, "NORMALIZE gruplar — normalize_doi() eklenmis")
+print("Referans (v0.3.5 arsiv): HAM Holdout R2=0.3924 | HAM GKF R2=0.4129±0.0065")
+res_norm = run(g_norm, "NORMALIZE gruplar — ana hat (v0.4.0)")
+res_raw = run(g_raw, "HAM gruplar — duyarlilik (v0.3.x davranisi)")
 
 outdir = ROOT / "outputs" / "robustness"
 outdir.mkdir(parents=True, exist_ok=True)
-payload = {"raw_groups": res_raw, "normalized_groups": res_norm,
+payload = {"primary": "normalized_groups", "raw_groups": res_raw, "normalized_groups": res_norm,
            "delta_gkf_r2": round(res_raw["gkf5"]["R2_mean"] - res_norm["gkf5"]["R2_mean"], 4),
            "delta_holdout_r2": round(res_raw["holdout"]["R2"] - res_norm["holdout"]["R2"], 4)}
 with open(outdir / "doi_normalizasyon_duyarlilik.json", "w", encoding="utf-8") as fh:

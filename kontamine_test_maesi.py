@@ -59,13 +59,22 @@ p = m.predict(X.iloc[te])
 ae = np.abs(y[te] - p)
 
 contam_set = set(contam_test_idx.tolist())
-mask_contam = np.array([j for j, idx in enumerate(te) if idx in contam_set])
-mask_clean  = np.array([j for j, idx in enumerate(te) if idx not in contam_set])
+mask_contam = np.array([j for j, idx in enumerate(te) if idx in contam_set], dtype=int)
+mask_clean  = np.array([j for j, idx in enumerate(te) if idx not in contam_set], dtype=int)
 
-print(f"\nKontamine test kayitlari (n={len(mask_contam)}): MAE = {ae[mask_contam].mean():.3f}")
-print(f"Temiz test kayitlari     (n={len(mask_clean)}): MAE = {ae[mask_clean].mean():.3f}")
-print("\nYorum: kontamine MAE, temiz MAE'den YUKSEK ise sizinti bu kayitlarda")
-print("olculebilir bir skor sisirmesi yaratmamis demektir.")
+# v0.4.0 (1-C): kanonik DOI anahtariyla sinir asimi beklenen deger 0'dir;
+# bos kume denetimin BASARILI sonucudur (varyant kaynakli kontaminasyon yok).
+mae_contam = float(ae[mask_contam].mean()) if len(mask_contam) else None
+mae_clean = float(ae[mask_clean].mean()) if len(mask_clean) else None
+if len(mask_contam) == 0:
+    print("\nKontamine test kaydi YOK (kanonik DOI anahtari) — varyant kaynakli")
+    print("sinir asimi sifir; denetim gecti. (Ham-anahtar karsilastirmasi icin")
+    print("v0.3.5 arsiv ciktisina bakiniz.)")
+else:
+    print(f"\nKontamine test kayitlari (n={len(mask_contam)}): MAE = {mae_contam:.3f}")
+    print(f"Temiz test kayitlari     (n={len(mask_clean)}): MAE = {mae_clean:.3f}")
+    print("\nYorum: kontamine MAE, temiz MAE'den YUKSEK ise sizinti bu kayitlarda")
+    print("olculebilir bir skor sisirmesi yaratmamis demektir.")
 
 # Ozet JSON (tez 5.7'deki 35 kayit / MAE 3,36-3,15 degerleri commit'li dosyadan izlenebilsin)
 import json
@@ -74,8 +83,8 @@ from pathlib import Path
 summary = {
     "n_contaminated_test": int(len(mask_contam)),
     "n_clean_test": int(len(mask_clean)),
-    "mae_contaminated": round(float(ae[mask_contam].mean()), 3),
-    "mae_clean": round(float(ae[mask_clean].mean()), 3),
+    "mae_contaminated": round(mae_contam, 3) if mae_contam is not None else None,
+    "mae_clean": round(mae_clean, 3) if mae_clean is not None else None,
     "n_train_side_records": int(train_side_n),
 }
 outp = Path("outputs/robustness/kontamine_test_maesi.json")

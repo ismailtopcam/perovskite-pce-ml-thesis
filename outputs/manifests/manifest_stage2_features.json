@@ -1,6 +1,6 @@
 {
   "stage": "stage2_features",
-  "timestamp_utc": "2026-06-28T21:54:04+00:00",
+  "timestamp_utc": "2026-08-10T07:53:12+00:00",
   "seed": 42,
   "target": "JV_default_PCE",
   "group_col": "Ref_DOI_number",
@@ -17,11 +17,18 @@
     "catboost": "1.2.10",
     "shap": "0.51.0"
   },
+  "git": {
+    "commit": "d6ce55f6a6f710ec2bf86a173ac825ab48cbeda1",
+    "dirty": true
+  },
   "metrics": {
     "n_rows": 41485,
     "n_features": 77
   },
   "outputs": [
     "data/processed/model_ready_dataset.csv"
-  ]
+  ],
+  "output_hashes": {
+    "data/processed/model_ready_dataset.csv": "3c42a5433261ecdd5ba3701eba2fb0889025069f6ec0ed359c3f1706ca9c82c9"
+  }
 }

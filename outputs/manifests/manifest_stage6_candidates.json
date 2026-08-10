@@ -1,6 +1,6 @@
 {
   "stage": "stage6_candidates",
-  "timestamp_utc": "2026-07-13T03:20:17+00:00",
+  "timestamp_utc": "2026-08-10T08:00:18+00:00",
   "seed": 42,
   "target": "JV_default_PCE",
   "group_col": "Ref_DOI_number",
@@ -17,13 +17,21 @@
     "catboost": "1.2.10",
     "shap": "0.51.0"
   },
+  "git": {
+    "commit": "d6ce55f6a6f710ec2bf86a173ac825ab48cbeda1",
+    "dirty": true
+  },
   "metrics": {
     "model": "CatBoost",
     "n_candidates": 756,
-    "pred_max": 17.7776
+    "pred_max": 17.946
   },
   "outputs": [
     "outputs/candidates_full/candidate_predictions.csv",
     "outputs/candidates_full/top30_diverse.csv"
-  ]
+  ],
+  "output_hashes": {
+    "outputs/candidates_full/candidate_predictions.csv": "e932c05e9a6a852fc939f233c26caf13f37562c2b3006bbc8d087b7ffc2bcb5e",
+    "outputs/candidates_full/top30_diverse.csv": "2712a1df0843a9b2a2142551c05d5279123fad9bf3ad36c5f26fba1eb0a90d01"
+  }
 }
