@@ -23,7 +23,7 @@
 ## Özellikler
 
 - **77 özellik:** A/B/X kompozisyon oranları (14), band gap + eksiklik bayrağı, esnek/yarı-saydam, tavlama sıcaklığı/süresi + bayraklar (8), mimari (7), ETL (16), HTL (16), çözücü (16) one-hot kodları.
-- **Bilinçli olarak DIŞLANANLAR:** ölçüm-sonrası tüm kolonlar (`JV_*` — Voc, Jsc, FF dahil —, `EQE_*`, `Stabilised_*`, `Outdoor_*` vb.). Bu kolonlar hedefin dolaylı kopyasıdır; dahil edilmeleri R²'yi 0,938'e şişirir (tez Deney B). Şema katmanı (`validation/schema.py`) model-hazır veride bu kolonları görürse hattı durdurur.
+- **Bilinçli olarak DIŞLANANLAR:** ölçüm-sonrası tüm kolonlar (`JV_*` — Voc, Jsc, FF dâhil —, `EQE_*`, `Stabilised_*`, `Outdoor_*` vb.). Bu kolonlar hedefin dolaylı kopyasıdır; dâhil edilmeleri R²'yi 0,938'e şişirir (tez Deney B). Şema katmanı (`validation/schema.py`) model-hazır veride bu kolonları görürse hattı durdurur.
 
 ## Başarım (hedef-sızıntısı denetimli, DOI-grup-ayrık protokol)
 
@@ -39,18 +39,18 @@
 - %90 hedef: yarı-genişlik ±6,66; **ampirik kapsama %89,9 (kayıt) / %91,5 (yayın-ağırlıklı)**.
 - %80 hedef: yarı-genişlik ±4,86; **ampirik kapsama %79,6 (kayıt) / %81,1 (yayın-ağırlıklı)** — v0.3.x'teki eksik kapsama kanonik gruplamayla büyük ölçüde kapanmıştır.
 - Mondrian (tahmin-çeyreği koşullu): kapsama %89,8; çeyrek yarı-genişlikleri ±6,54 / ±6,66 / ±7,41 / ±6,06.
-- Group-conformal duyarlılık (DOI değişebilirlik birimi; betik 18): tek-temsilci ±6,48 ve DOI-ağırlıklı ±6,51 varyantları marginal ile uyumludur (kapsama %89,1–%89,2 kayıt / %90,6–%90,7 yayın).
+- Group-conformal duyarlılık (DOI değişebilirlik birimi; betik 18): tek-temsilci ±6,48 ve DOI-ağırlıklı ±6,51 varyantları marjinal aralıklarla uyumludur (kapsama %89,1–%89,2 kayıt / %90,6–%90,7 yayın).
 - Bu aralıklar **görülmemiş DOI gruplarındaki ampirik kapsama aralıkları** olarak okunmalıdır; kesin kapsama garantisi sunmaz (tez Bölüm 4.10).
 
 ## Bilinen sınırlılıklar
 
 1. **Ekstrapolasyon yapamaz:** ağaç tabanlı model; aday tavanı 17,95 < eğitim maksimumu 34,8. Rekor kompozisyon öneremez (tez Bölüm 5.4). Birincil aday listesi v0.4.0'dan itibaren eğitim desteği N≥5 olan (mimari, ETL, HTL) üçlüleriyle sınırlı filtreli listedir (`outputs/candidates_full/primary_designation.json`).
 2. **Etiket gürültüsü tabanı (yaklaşık):** tekrar eden reçetelerdeki yayınlar-arası saçılım, hesap varsayımına göre 2,3–3,6 puan aralığında bir taban RMSE ve 0,52–0,81 aralığında bir tavan R² ima eder (homoskedastik kestirim: 3,6 / 0,52; yayın-ağırlıklı: 3,3 / 0,58; kapsam: kayıtların ~%42'si — betik 17, tez Tablo 5.1). Taban kesin bir sınır değil yaklaşık bir kıyas noktasıdır.
-3. **Uygulanabilirlik alanı ayrıştırmıyor:** özellik-uzayı kNN mesafesi holdout hatasını ayırt etmedi (MAE iç 3,23 vs dış 2,89) — mesafe bir güven skoru değildir (tez Bölüm 4.10).
+3. **Uygulanabilirlik alanı ayrıştırmıyor:** özellik-uzayı kNN mesafesi holdout hatasını ayırt etmedi (MAE iç 3,23, dış 2,89) — mesafe bir güven skoru değildir (tez Bölüm 4.10).
 4. **Tek-eklemli rejim:** eğitim verisi tek-eklemli hücre ağırlıklıdır; gözlemli band gap değerlerinin yalnızca %6,2'si ≥1,70 eV. Tandem üst-hücre bölgesi kapsam dışıdır.
-5. **DOI anahtarı (v0.4.0'da çözüldü):** v0.3.x'teki 44 büyük/küçük-harf varyantı ana hatta kanonik anahtara birleştirilmiştir; kat/holdout sınırı aşan kayıt kalmamıştır. Ham-anahtar (v0.3.x) davranışı duyarlılık katmanında korunur: GKF R² ham 0,413 ± 0,006 vs kanonik 0,410 ± 0,016 (tez Bölüm 5.7).
-6. **Karşılaştırma modellerinde LightGBM parametre davranışı:** `subsample=0.8` yapılandırılmış olsa da `bagging_freq` verilmediğinden satır alt-örneklemesi LightGBM'de fiilen devre dışıdır; yalnızca sütun alt-örneklemesi (`colsample_bytree=0.8`) etkindir. Arşivlenmiş koşumların tekrar üretilebilirliği için parametre bilerek değiştirilmemiştir (`src/perovskite_ml/models/registry.py` içinde belgelidir; tez Bölüm 3.9). Nihai model (CatBoost) bu durumdan etkilenmez.
-7. **CatBoost kurulum notu:** adil karşılaştırma için tüm modeller ortak one-hot sayısal matrisle eğitilir; CatBoost'a `cat_features` verilmez, dolayısıyla yerleşik kategorik hedef istatistikleri devrede değildir. `boosting_type` belirtilmediğinden bu veri boyutunda CPU varsayılanı `Plain` olarak çözümlenir (ampirik olarak doğrulandı); koşumda Ordered boosting kullanılmaz. Bu kurulumda CatBoost'un ayırt edici yönleri simetrik ağaç yapısı ve varsayılan düzenlileştirmedir (tez Bölüm 3.9).
+5. **DOI anahtarı (v0.4.0'da çözüldü):** v0.3.x'teki 44 büyük/küçük-harf varyantı ana hatta kanonik anahtara birleştirilmiştir; kat/holdout sınırı aşan kayıt kalmamıştır. Ham-anahtar (v0.3.x) davranışı duyarlılık katmanında korunur: GKF R² ham 0,413 ± 0,006; kanonik 0,410 ± 0,016 (tez Bölüm 5.7).
+6. **Karşılaştırma modellerinde LightGBM parametre davranışı:** `subsample=0.8` yapılandırılmış olsa da `bagging_freq` verilmediğinden satır alt-örneklemesi LightGBM'de fiilen devre dışıdır; yalnızca kolon alt-örneklemesi (`colsample_bytree=0.8`) etkindir. Arşivlenmiş koşuların tekrar üretilebilirliği için parametre bilerek değiştirilmemiştir (`src/perovskite_ml/models/registry.py` içinde belgelidir; tez Bölüm 3.9). Nihai model (CatBoost) bu durumdan etkilenmez.
+7. **CatBoost kurulum notu:** adil karşılaştırma için tüm modeller ortak one-hot sayısal matrisle eğitilir; CatBoost'a `cat_features` verilmez, dolayısıyla yerleşik kategorik hedef istatistikleri devrede değildir. `boosting_type` belirtilmediğinden bu veri boyutunda CPU varsayılanı `Plain` olarak çözümlenir (ampirik olarak doğrulandı); koşuda Ordered boosting kullanılmaz. Bu kurulumda CatBoost'un ayırt edici yönleri simetrik ağaç yapısı ve varsayılan düzenlileştirmedir (tez Bölüm 3.9).
 
 ## Kullanım amacı ve kapsam dışı kullanım
 

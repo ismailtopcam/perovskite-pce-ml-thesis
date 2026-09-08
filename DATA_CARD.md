@@ -13,7 +13,7 @@
 - **Yeniden dağıtım kararı:** ham CSV bu depoda yeniden dağıtılmaz (`.gitignore`);
   kullanıcı özgün kaynaktan indirir, README'deki SHA-256 ile doğrular. Web
   uygulamasında gösterilen kayıt-düzeyi alanlar CC BY 4.0 atfıyla sunulur.
-- **Önemli ayrım:** bu deponun MIT lisansı **yalnızca kodu** kapsar; veri setinin
+- **Önemli ayrım:** bu deponun MIT lisansı **yalnızca kodu** kapsar; veri kümesinin
   lisans ve kullanım koşullarını kapsamaz.
 
 ## Anlık görüntü kimliği
@@ -22,7 +22,7 @@
 |---|---|
 | Boyut | 43.398 kayıt × 410 kolon (~87 MB) |
 | SHA-256 | `da66a634e9106e58ce4d012558d468bc2f19b95987f149fb9c5d208d363ea67a` |
-| Not | Veritabanı yaşayan bir kaynaktır; farklı bir anlık görüntü kayıt sayılarını ve türetilen tüm sonuçları değiştirebilir. Tezdeki her sayı yukarıdaki görüntüye aittir. |
+| Not | Veri tabanı yaşayan bir kaynaktır; farklı bir anlık görüntü kayıt sayılarını ve türetilen tüm sonuçları değiştirebilir. Tezdeki her sayı yukarıdaki görüntüye aittir. |
 
 ## Temizleme kararları (tez Bölüm 3.4; kayıt-düzeyi log: `outputs/logs/removed_records_log.csv`)
 
@@ -33,7 +33,7 @@
 | Katsayı sayısal değil | 291 |
 | İyon–katsayı sayısı uyuşmuyor | 141 |
 | İyon/katsayı bilgisi eksik | 130 |
-| PCE aralık dışı (0–35; sınırlar dahil) | 5 |
+| PCE aralık dışı (0–35; sınırlar dâhil) | 5 |
 | **Toplam elenen** | **1.913** → temiz küme **41.485** |
 
 ## Eksiklik ve doldurma (medyan + eksiklik bayrağı)
@@ -48,7 +48,7 @@
   uç kayıtlar (tandem izi yok — `pce30_ustu_stack_incelemesi.py`). Dışlanmaları ana
   sonucu değiştirmez (tez Bölüm 4.2).
 - **DOI anahtarı:** 44 yayın büyük/küçük-harf varyantıyla çift kayıtlı (362 kayıt,
-  %0,87 kat-sınırı aşımı). Ölçülmüş kalıntı risk; duyarlılık koşumu farkı kat
+  %0,87 kat-sınırı aşımı). Ölçülmüş kalıntı risk; duyarlılık koşusu farkı kat
   gürültüsü içinde (`outputs/robustness/doi_grup_dogrulama.json`).
 - **Çözücü 'unknown' / 'Unknown':** boş bırakılan 279 kayıt ile 'Unknown' yazılmış
   1.044 kayıt iki ayrı kategoridir — belgelenmiş bilinçli karar (tez Bölüm 5.7).
