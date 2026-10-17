@@ -180,8 +180,10 @@ küçük sayısal farklar oluşabilir.
 
 **Manifest commit notu:** v0.4.0 ile arşivlenmiş 15 koşu-manifestindeki (`outputs/manifests/` altındaki
 13 dosya ile `outputs/pipeline_cv/manifest_14_pipeline_cv.json` ve
-`outputs/ek_denetimler/manifest_15_ek_denetimler.json`) `git.commit` alanı `d6ce55f` ve `dirty: true`
-gösterir: çıktılar 10 Ağustos 2026'da (07:53–08:34 UTC), v0.4.0 commit'ine (f65ed93, 08:45 UTC) giren
+`outputs/ek_denetimler/manifest_15_ek_denetimler.json`) `git.commit` alanı `6eba260` ve `dirty: true`
+
+Not: Depo geçmişi 17 Ekim 2026'da yalnızca commit üst verisi (yazar kimliği, mesaj sonundaki araç satırları) için yeniden yazılmıştır; ağaç içerikleri ve dosya özetleri değişmemiştir. Manifestler yeniden yazımdan önceki commit kimliğini (d6ce55f) kaydeder; bunun yeni karşılığı 6eba260, tezin atıf yaptığı v0.4.0 sürümünün eski kimliği f65ed93, yeni kimliği f2bf182'dir.
+gösterir: çıktılar 10 Ağustos 2026'da (07:53–08:34 UTC), v0.4.0 commit'ine (f2bf182, 08:45 UTC) giren
 değişikliklerle birlikte o commit oluşturulmadan hemen önce üretilmiş ve aynı commit'le eklenmiştir.
 Aynı koşuya ait `manifest_stage17_gurultu_tabani_v2.json` (betik 17; alanları aynı) sürüm kontrolüne
 sonradan alınmıştır.
