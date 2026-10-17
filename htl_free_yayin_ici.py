@@ -30,7 +30,7 @@ free = M[HTL_FREE].astype(int) == 1
 
 # Tutarlilik kontrolleri (tez Bolum 4.1/5.3'teki degerlerle)
 n_free, n_free_doi = int(free.sum()), int(doi[free].nunique())
-print(f"HTL-free kayit: {n_free} (beklenen 2494) | HTL-free iceren yayin: {n_free_doi} (beklenen 647)")
+print(f"HTL-free kayit: {n_free} (beklenen 2494) | HTL-free iceren yayin: {n_free_doi} (beklenen 645)")
 print(f"HTL-free medyan PCE: {pce[free].median():.2f} (beklenen 8,0) | genel medyan: {pce.median():.2f} (beklenen 12,77)")
 
 # Karma yayinlar: ayni DOI icinde hem HTL-free hem HTL'li kayit

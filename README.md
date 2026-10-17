@@ -5,7 +5,7 @@
 
 Perovskite Database kayıtlarından PCE tahmini için **doğrulama-metodolojisi odaklı**
 bir makine öğrenmesi / yazılım mühendisliği çalışması. Vurgu, en yüksek skoru kovalamak yerine
-**hedef sızıntısı denetlenmiş, ham DOI anahtarı düzeyinde grup-ayrık, tekrar üretilebilir** bir hat kurmak ve
+**hedef sızıntısı denetlenmiş, kanonik DOI anahtarı düzeyinde grup-ayrık, tekrar üretilebilir** bir hat kurmak ve
 mühendislik kararlarının sonuç geçerliliğini nasıl değiştirdiğini ölçmektir.
 
 ## Sonuçlar (bir bakışta)
@@ -26,7 +26,8 @@ Düşük görünen 0,410 bilinçli bir tercihtir: eğitimden kanonik DOI anahtar
 tutulan yayınlara genellemeyi ölçer; v0.4.0'da DOI yazım varyantları ana hatta
 normalize edilmiştir (44 varyant grubu birleşti; sınır aşımı: 0 kayıt) ve ham-anahtar
 davranışı duyarlılık katmanına taşınmıştır (tez Bölüm 5.7).
-Tüm değerler `outputs/` altındaki commit'li dosyalardan izlenebilir.
+Tezde atıf yapılan sayısal değerler `outputs/` altındaki commit'li dosyalardan ya da Ek A'da adı geçen
+betiklerin çıktılarından izlenebilir.
 Model ve veri özeti: [MODEL_CARD.md](MODEL_CARD.md) · [DATA_CARD.md](DATA_CARD.md)
 
 ## Etkileşimli web uygulaması
@@ -108,30 +109,40 @@ python scripts/15_ek_denetimler.py          # eşleştirilmiş CatBoost-HistGBM 
 python scripts/16_nested_dogrulama.py       # v0.4.0 (1-C): iç-içe (nested) grup-CV + mühürlü holdout protokolü
 python scripts/17_gurultu_tabani_v2.py      # v0.4.0 (1-C): gürültü tabanı — aynı-evren sınırları, yayın-ağırlıklı, reçete-tanımı duyarlılığı
 python scripts/18_group_conformal.py        # v0.4.0 (1-C): group-conformal (DOI değişebilirlik birimi) + yayın-ağırlıklı kapsama
-python scripts/thesis_data_analysis.py data/processed/model_ready_dataset.csv
-                                            # betimsel istatistik: DOI-grup dağılımı, gürültü tabanı (Tablo 5.1), band gap (ML yok)
+python scripts/thesis_data_analysis.py data/processed/model_ready_dataset.csv --out outputs/robustness/thesis_data_analysis.json
+                                            # betimsel istatistik: DOI-grup dağılımı, gürültü tabanı (Tablo 5.1; taban RMSE hem √(SS_w/n) hem dof-düzeltmeli), band gap (ML yok); --out ile JSON
 python scripts/thesis_figures.py            # tez veri şekillerinin (4.1-4.7, 4.12, 4.13) repo içinden yeniden üretimi -> outputs/figures/
 ```
 
-Tezde atıf yapılan üç ek denetim betiği (repo kökünde; çıktıları sürüm kontrolünde):
+Tez gövdesinde anılan kök-dizin denetim betikleri (tamamı: `python run_thesis_audits.py`; sıra tez Ek A ile aynı; çıktıları sürüm kontrolünde):
 ```bash
-python pce30_ustu_stack_incelemesi.py    # PCE>30 kayıtların hücre yığını denetimi (tandem izi var mı?) -> outputs/robustness/pce30_ustu_stack.csv
-python aday_uyumluluk_filtresi.py        # (mimari,ETL,HTL) üçlülerinin eğitimde birlikte-görülme denetimi -> outputs/candidates_full/*_compat_N5.csv, triple_cooccurrence.csv
-python htl_free_yayin_ici.py             # HTL-free ile HTL'li hücrelerin yayın-içi (paired) PCE farkı (tez Bölüm 5.3) -> outputs/robustness/htl_free_yayin_ici.json
+python pce30_ustu_stack_incelemesi.py    # PCE > %30 uç kayıtların yığın dizilimi — tandem izi var mı? (Bölüm 3.4) -> outputs/robustness/pce30_ustu_stack.csv
+python doi_grup_dogrulama_v2.py          # kanonik anahtarın kat/holdout sınır aşımı denetimi (beklenen: 0) ve ham-anahtar yazım-varyantı duyarlılığı (Bölüm 5.7) -> outputs/robustness/doi_grup_dogrulama.json
+python doi_normalizasyon_duyarlilik.py   # DOI normalizasyonu duyarlılık koşusu: ham ve kanonik gruplarla aynı CatBoost, ~40 sn (Bölüm 5.7) -> outputs/robustness/doi_normalizasyon_duyarlilik.json
+python kontamine_test_maesi.py           # sınır aşan kayıtlarda ek skor-şişme denetimi, ~15 sn (Bölüm 5.7) -> outputs/robustness/kontamine_test_maesi.json
+python doi_makro_mae.py                  # DOI başına makro MAE özeti (Bölüm 4.7) -> outputs/robustness/doi_makro_mae.json
+python htl_free_yayin_ici.py             # HTL-free etkisinin yayın-içi (paired) sınaması (Bölüm 5.3) -> outputs/robustness/htl_free_yayin_ici.json
+python aday_uyumluluk_filtresi.py        # (mimari, ETL, HTL) üçlülerinin eğitim bölmesinde birlikte-görülme denetimi (Bölüm 4.5) -> outputs/candidates_full/triple_cooccurrence.csv, *_compat_N5.csv, primary_designation.json
+python aday_destek_doi_sayilari.py       # aday desteğinin yayın çeşitliliği (Bölüm 4.5) -> outputs/robustness/aday_destek_doi_sayilari.json, outputs/candidates_full/triple_doi_support.csv
+python aday_esik_duyarliligi.py          # destek eşiği duyarlılığı N>=1/3/10 (Bölüm 4.5) -> outputs/robustness/aday_esik_duyarliligi.json
+python final_refit_aday_siralamasi.py    # tüm-veri refit ile aday sıralaması denetimi (Bölüm 4.5) -> outputs/robustness/final_refit_aday_siralamasi.json
+python bandgapsiz_aday_siralamasi.py     # band gap'siz modelle aday sıralaması (Bölüm 5.4) -> outputs/robustness/bandgapsiz_aday_siralamasi.json
+python aday_mimari_yigin_tutarliligi.py  # 'pin' etiketli kayıtlarda yığın dizilimi (n-i-p/p-i-n) tutarlılığı ve tezde anılan iki üçlünün ham kayıtları (Bölüm 4.5) -> outputs/robustness/aday_mimari_yigin_tutarliligi.json
 ```
 
 ## DOI-grup denetim betikleri
-Gruplama anahtarının (ham DOI dizgileri) kalitesini ve olası kalıntı sızıntıyı ölçen bağımsız denetim betikleri (repo kökünde):
+Gruplama anahtarının (kanonik DOI) kalitesini ve v0.3.x ham-anahtar davranışına duyarlılığı ölçen bağımsız denetim betikleri (repo kökünde):
 ```bash
 python doi_grup_dogrulama_v2.py          # DOI'siz kayıt sayımı, normalizasyon çarpışmaları, holdout/CV kat-sınırı aşımları -> outputs/robustness/doi_grup_dogrulama.json
 python doi_normalizasyon_duyarlilik.py   # normalize_doi() uygulanmış gruplarla aynı CatBoost'un duyarlılık koşusu (~40 sn) -> outputs/robustness/doi_normalizasyon_duyarlilik.json
 python kontamine_test_maesi.py           # sınır aşan yayınların holdout-test kayıtlarında hata analizi (~15 sn) -> outputs/robustness/kontamine_test_maesi.json
 ```
-Bulgu özeti: 44 yayın büyük/küçük harf varyantıyla çift kayıtlı; kat-sınırı aşan 362 kayıt (%0,87).
-Normalizasyonla fark |dR2| <= 0,003 (kat gürültüsü içinde); ek skor şişmesi izi yok. Ana sonuçlar bu nedenle
-özgün koşudan raporlanır; kusur, etkisi ölçülmüş kalıntı risk olarak belgelenmiştir. Üç koşunun sayısal çıktıları
-`outputs/robustness/` altında commit'lidir: `doi_grup_dogrulama.json` (44/362 denetimi),
-`doi_normalizasyon_duyarlilik.json` ve `kontamine_test_maesi.json` (tez Bölüm 5.7'deki değerler).
+Bulgu özeti (v0.4.0): kanonik anahtarla kat/holdout sınırını aşan kayıt 0/41.485
+(`outputs/robustness/doi_grup_dogrulama.json`). Ham anahtar (v0.3.x) duyarlılık katmanı: 44 yayın yazım
+varyantıyla çift kayıtlıydı, 362 kayıt (%0,87) kat sınırını aşıyordu; GroupKFold R² ham 0,413 ± 0,006 /
+kanonik 0,410 ± 0,016 (`doi_normalizasyon_duyarlilik.json`); ham koşuda sınır aşan holdout kayıtlarında ek
+skor şişmesi izi yoktu (`kontamine_test_maesi.json`; kanonik anahtarla boş küme). Ana sonuçlar kanonik
+gruplamayla raporlanır (tez Bölüm 3.8, 5.7).
 
 ## Testler
 ```bash
@@ -166,6 +177,14 @@ geniş uyumluluk için alt-sınır bildirir; birebir tekrar üretim için `requi
 Seed sabitleme aynı ortam içinde determinizmi garanti eder; farklı işletim sistemi / derleyici /
 kütüphane sürümü kombinasyonlarında (özellikle boosting kütüphanelerinde) binde-bir düzeyinde
 küçük sayısal farklar oluşabilir.
+
+**Manifest commit notu:** v0.4.0 ile arşivlenmiş 15 koşu-manifestindeki (`outputs/manifests/` altındaki
+13 dosya ile `outputs/pipeline_cv/manifest_14_pipeline_cv.json` ve
+`outputs/ek_denetimler/manifest_15_ek_denetimler.json`) `git.commit` alanı `d6ce55f` ve `dirty: true`
+gösterir: çıktılar 10 Ağustos 2026'da (07:53–08:34 UTC), v0.4.0 commit'ine (f65ed93, 08:45 UTC) giren
+değişikliklerle birlikte o commit oluşturulmadan hemen önce üretilmiş ve aynı commit'le eklenmiştir.
+Aynı koşuya ait `manifest_stage17_gurultu_tabani_v2.json` (betik 17; alanları aynı) sürüm kontrolüne
+sonradan alınmıştır.
 
 ## Lisans ve atıf
 

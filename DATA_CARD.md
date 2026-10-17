@@ -1,7 +1,7 @@
 # Veri Kartı — Perovskite Database Anlık Görüntüsü
 
 *Biçim: Gebru vd. (2021) "Datasheets for Datasets" uyarlaması.*
-*Son güncelleme: Temmuz 2026 · İsmailTopçam_Tez_2026 ile uyumlu.*
+*Son güncelleme: Ekim 2026 (v0.4.0 / kanonik DOI gruplamasıyla hizalandı) · İsmailTopçam_Tez_2026 ile uyumlu.*
 
 ## Kaynak ve lisans
 
@@ -47,18 +47,22 @@
   rekorlarıyla ve bildirilen cihaz yapılarıyla uyumsuz görünen, güvenilirliği şüpheli
   uç kayıtlar (tandem izi yok — `pce30_ustu_stack_incelemesi.py`). Dışlanmaları ana
   sonucu değiştirmez (tez Bölüm 4.2).
-- **DOI anahtarı:** 44 yayın büyük/küçük-harf varyantıyla çift kayıtlı (362 kayıt,
-  %0,87 kat-sınırı aşımı). Ölçülmüş kalıntı risk; duyarlılık koşusu farkı kat
-  gürültüsü içinde (`outputs/robustness/doi_grup_dogrulama.json`).
+- **DOI anahtarı (v0.4.0'da çözüldü):** grup anahtarı kanonik DOI'dir (küçük harf,
+  ön ek/sondaki noktalama temizliği). v0.3.x ham anahtarında 44 yayın büyük/küçük-harf
+  varyantıyla çift kayıtlıydı (362 kayıt, %0,87 kat-sınırı aşımı; tez Bölüm 5.7);
+  kanonik anahtarla kat/holdout sınırını aşan kayıt 0/41.485
+  (`outputs/robustness/doi_grup_dogrulama.json`). Ham-anahtar davranışı duyarlılık
+  katmanında korunur (`outputs/robustness/doi_normalizasyon_duyarlilik.json`:
+  raw_groups 7.397 / normalized_groups 7.353).
 - **Çözücü 'unknown' / 'Unknown':** boş bırakılan 279 kayıt ile 'Unknown' yazılmış
   1.044 kayıt iki ayrı kategoridir — belgelenmiş bilinçli karar (tez Bölüm 5.7).
 
 ## Temsil yanlılıkları (modelin öğrendiği dağılım)
 
 - Yayın başına kayıt sağa çarpık: medyan 4, p95 14, maks 127; DOI'siz 201 kayıt tek
-  yapay grupta (7.397 grup) — DOI-grup-güvenli bölmenin gerekçesi.
+  yapay grupta (7.353 grup: 7.352 kanonik DOI + 1 bilinmeyen-DOI grubu) — DOI-grup-güvenli bölmenin gerekçesi.
 - Cihaz yığını yoğunlaşması: n-i-p mimari, TiO₂ tabanlı ETL ve Spiro-MeOTAD baskın;
-  HTL-free 2.494 kayıt (647 yayın; medyan PCE 8,0 — genel 12,77).
+  HTL-free 2.494 kayıt (645 yayın; medyan PCE 8,0 — genel 12,77).
 - Tek-eklemli rejim baskın; gözlemli band gap p95 = 1,75 eV, ≥1,70 eV payı %6,2.
 - Özdeş reçeteler yayınlar arasında ~2,6–3,0 puanlık PCE saçılımı taşır (etiket
   gürültüsü; tez Tablo 5.1) — her modelin pratik başarım tavanını sınırlar.
