@@ -10,7 +10,7 @@ temizlenmis veri kumesine dayanir.
 
 Kapsam (tez bolum referanslariyla):
   - pce30_ustu_stack_incelemesi.py   : PCE > %30 uc kayitlarin yigin dizilimi (Bolum 3.4)
-  - doi_grup_dogrulama_v2.py         : ham DOI anahtarinda yazim-varyanti denetimi (Bolum 5.7)
+  - doi_grup_dogrulama_v2.py         : kanonik anahtarin kat/holdout sinir asimi denetimi (beklenen: 0) ve ham-anahtar yazim-varyanti duyarliligi (Bolum 5.7)
   - doi_normalizasyon_duyarlilik.py  : DOI normalizasyonu duyarlilik kosumu (Bolum 5.7)
   - kontamine_test_maesi.py          : sinir asan kayitlarda ek skor-sisme denetimi (Bolum 5.7)
   - doi_makro_mae.py                 : DOI basina makro MAE ozeti (Bolum 4.7)
@@ -20,6 +20,7 @@ Kapsam (tez bolum referanslariyla):
   - aday_esik_duyarliligi.py         : destek esigi duyarliligi N>=1/3/10 (Bolum 4.5)
   - final_refit_aday_siralamasi.py   : tum-veri refit ile aday siralamasi denetimi (Bolum 4.5)
   - bandgapsiz_aday_siralamasi.py    : band gap'siz modelle aday siralamasi (Bolum 5.4)
+  - aday_mimari_yigin_tutarliligi.py : 'pin' etiketli kayitlarda yigin dizilimi (n-i-p/p-i-n) tutarliligi ve tezde anilan iki uclunun ham kayitlari (Bolum 4.5)
 
 Bir denetim basarisiz olursa (cikis kodu != 0) calisma durur.
 """
@@ -44,6 +45,7 @@ AUDITS = [
     "aday_esik_duyarliligi.py",
     "final_refit_aday_siralamasi.py",
     "bandgapsiz_aday_siralamasi.py",
+    "aday_mimari_yigin_tutarliligi.py",
 ]
 
 

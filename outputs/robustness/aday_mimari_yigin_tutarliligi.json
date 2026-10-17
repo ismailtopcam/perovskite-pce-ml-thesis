@@ -1,0 +1,254 @@
+{
+ "girdi": {
+  "dosya": "data/raw/Perovskite_database_content_all_data.csv",
+  "n_kayit": 43398,
+  "n_pce_dolu": 42396,
+  "n_yigin_tam_genislik_ayirici": 11,
+  "n_perovskite_yazim_varyanti_katman": 142
+ },
+ "siniflandirma_kurali": "Cell_stack_sequence '|' (ve tam-genislik '｜') ile bolunur; ilk 'Perovskite' katmani bulunur (yazim hatalari — Perovskte, Preovskite vb., edit mesafesi <= 2 — perovskit sayilir). (1) Hemen onceki katman ETL_stack_sequence malzemesiyse 'nip_sirali', HTL_stack_sequence malzemesiyse 'pin_sirali'. (2) Degilse perovskitten onceki blokta ETL/HTL malzemesi aranir. (3) Onceki katmanlar ne ETL ne HTL ise (ornegin HTL-free) perovskitten hemen sonraki katmana bakilir (ETL sonra -> pin_sirali, HTL sonra -> nip_sirali). Kalanlar 'belirsiz'. 'none'/'Unknown' malzeme sayilmaz.",
+ "mimari_etiketi_dagilimi": {
+  "nip": 29897,
+  "pin": 13342,
+  "Unknown": 103,
+  "Back contacted": 33,
+  "nan": 10,
+  "Front contacted": 7,
+  "Schottky": 5,
+  "Pn-Heterojunction": 1
+ },
+ "pin": {
+  "tum_kayitlar": {
+   "n_kayit": 13342,
+   "n_nip_sirali": 275,
+   "n_pin_sirali": 12852,
+   "n_belirsiz": 215,
+   "etiketle_celisen_sinif": "nip_sirali",
+   "n_etiketle_celisen": 275,
+   "pct_etiketle_celisen": 2.06,
+   "n_etiketle_celisen_yalniz_onceki_katman_kurali": 264,
+   "pct_etiketle_celisen_yalniz_onceki_katman_kurali": 1.98,
+   "kural_dagilimi": {
+    "onceki_katman_HTL": 12440,
+    "sonraki_katman_ETL": 350,
+    "onceki_katman_ETL": 264,
+    "yigin_bos": 161,
+    "onceki_blok_HTL": 62,
+    "onceki_katman_hem_ETL_hem_HTL": 24,
+    "perovskite_katmani_yok": 17,
+    "eslesme_yok": 13,
+    "sonraki_katman_HTL": 11
+   }
+  },
+  "pce_dolu_kayitlar": {
+   "n_kayit": 13062,
+   "n_nip_sirali": 273,
+   "n_pin_sirali": 12578,
+   "n_belirsiz": 211,
+   "etiketle_celisen_sinif": "nip_sirali",
+   "n_etiketle_celisen": 273,
+   "pct_etiketle_celisen": 2.09,
+   "n_etiketle_celisen_yalniz_onceki_katman_kurali": 262,
+   "pct_etiketle_celisen_yalniz_onceki_katman_kurali": 2.01,
+   "kural_dagilimi": {
+    "onceki_katman_HTL": 12172,
+    "sonraki_katman_ETL": 350,
+    "onceki_katman_ETL": 262,
+    "yigin_bos": 159,
+    "onceki_blok_HTL": 56,
+    "onceki_katman_hem_ETL_hem_HTL": 22,
+    "perovskite_katmani_yok": 17,
+    "eslesme_yok": 13,
+    "sonraki_katman_HTL": 11
+   }
+  },
+  "etiketle_celisen_ornek_yiginlar_top15": {
+   "SLG | FTO | TiO2-c | Perovskite | Spiro-MeOTAD | Au": 35,
+   "SLG | ITO | PEDOT:PSS | Perovskite | PCBM-60 | Al": 10,
+   "SLG | FTO | NiO-c | Perovskite | PCBM-60 | bis-C60 | Ag": 9,
+   "SLG | FTO | TiO2-c | TiO2-mp | Perovskite | Spiro-MeOTAD | Ag": 9,
+   "SLG | FTO | SnO2-np | Perovskite | Spiro-MeOTAD | Au": 8,
+   "PES | Ti | Graphene | NiO-c | Perovskite | PCBM-60 | AZO | Ag | AZO": 8,
+   "SLG | FTO | TiO2-np | Perovskite | Spiro-MeOTAD | Au": 7,
+   "SLG | ITO | TiO2-c | Perovskite | Spiro-MeOTAD | Au": 7,
+   "SLG | AZO | PCBM-60 | Perovskite | P3HT | Au": 7,
+   "SLG | ITO | ZnO-c | 1,2-ethanedithiol | Perovskite | Spiro-MeOTAD | Au": 7,
+   "SLG | FTO | TiO2-c | TiO2-mp | Perovskite | CuPc‐OTPAtBu | Carbon": 6,
+   "SLG | FTO | TiO2-c | TiO2-mp | ZrO2-mp | Perovskite | Carbon": 6,
+   "SLG | FTO | TiO2-c | TiO2-mp | Perovskite | CuCrO2-np | Carbon": 6,
+   "SLG | FTO | TiO2-c | TiO2-mp | Perovskite | Spiro-MeOTAD | Au": 6,
+   "SLG | FTO | ZnO-c | ZnO-nw | Perovskite | P3HT | Ag": 6
+  },
+  "etiketle_celisen_n_doi_kanonik": 62
+ },
+ "nip": {
+  "tum_kayitlar": {
+   "n_kayit": 29897,
+   "n_nip_sirali": 29410,
+   "n_pin_sirali": 283,
+   "n_belirsiz": 204,
+   "etiketle_celisen_sinif": "pin_sirali",
+   "n_etiketle_celisen": 283,
+   "pct_etiketle_celisen": 0.95,
+   "n_etiketle_celisen_yalniz_onceki_katman_kurali": 282,
+   "pct_etiketle_celisen_yalniz_onceki_katman_kurali": 0.94,
+   "kural_dagilimi": {
+    "onceki_katman_ETL": 28751,
+    "sonraki_katman_HTL": 334,
+    "onceki_blok_ETL": 325,
+    "onceki_katman_HTL": 282,
+    "yigin_bos": 136,
+    "eslesme_yok": 29,
+    "perovskite_katmani_yok": 24,
+    "onceki_katman_hem_ETL_hem_HTL": 15,
+    "sonraki_katman_ETL": 1
+   }
+  },
+  "pce_dolu_kayitlar": {
+   "n_kayit": 29233,
+   "n_nip_sirali": 28750,
+   "n_pin_sirali": 279,
+   "n_belirsiz": 204,
+   "etiketle_celisen_sinif": "pin_sirali",
+   "n_etiketle_celisen": 279,
+   "pct_etiketle_celisen": 0.95,
+   "n_etiketle_celisen_yalniz_onceki_katman_kurali": 278,
+   "pct_etiketle_celisen_yalniz_onceki_katman_kurali": 0.95,
+   "kural_dagilimi": {
+    "onceki_katman_ETL": 28093,
+    "sonraki_katman_HTL": 333,
+    "onceki_blok_ETL": 324,
+    "onceki_katman_HTL": 278,
+    "yigin_bos": 136,
+    "eslesme_yok": 29,
+    "perovskite_katmani_yok": 24,
+    "onceki_katman_hem_ETL_hem_HTL": 15,
+    "sonraki_katman_ETL": 1
+   }
+  },
+  "etiketle_celisen_ornek_yiginlar_top15": {
+   "SLG | ITO | PEDOT:PSS | Perovskite | PCBM-60 | Al": 29,
+   "SLG | FTO | TiO2-c | TiO2-mp | ZrO2-mp | NiO-mp | Perovskite | Carbon": 26,
+   "SLG | ITO | NiO-c | Perovskite | PCBM-60 | Ag": 23,
+   "SLG | FTO | TiO2-c | TiO2-mp | Al2O3-mp | NiO-mp | Perovskite | Carbon": 21,
+   "SLG | FTO | TiO2-c | Al2O3-mp | NiO-mp | Perovskite | Carbon": 12,
+   "SLG | FTO | NiO-c | Perovskite | PCBM-60 | PEI | Ag": 11,
+   "SLG | FTO | NiO-np | Perovskite | PCBM-60 | Ag": 10,
+   "SLG | FTO | PolyTPD | Perovskite | PCBM-60 | BCP | Ag": 8,
+   "SLG | ITO | P3CT-N | Perovskite | PCBM-60 | BCP | Ag": 8,
+   "SLG | FTO | MgO | TiO2-mp | NiO-mp | Perovskite | Carbon": 7,
+   "SLG | FTO | MoS2 | Perovskite | C60 | BCP | Ag": 7,
+   "SLG | ITO | PTAA | Perovskite | C60 | BCP | Cu": 7,
+   "SLG | ITO | PEDOT:PSS | Perovskite | PCBM-60 | Ag": 6,
+   "SLG | ITO | PT | Perovskite | C60 | BCP | Ag": 6,
+   "SLG | ITO | PTAA | Perovskite | PCBM-60 | C60 | BCP | Cu": 6
+  },
+  "etiketle_celisen_n_doi_kanonik": 63
+ },
+ "ucluler": [
+  {
+   "uclu": "pin / SnO2-np / Spiro-MeOTAD",
+   "ham": {
+    "n_kayit": 14,
+    "n_pce_dolu": 14,
+    "n_doi_ham": 5,
+    "n_doi_kanonik": 5,
+    "doi_listesi": [
+     "10.1002/adfm.201910561",
+     "10.1002/solr.201900191",
+     "10.1007/s40820-020-0379-5",
+     "10.1016/j.joule.2018.10.025",
+     "10.1039/c9ra06363c"
+    ],
+    "yigin_dizilimleri": {
+     "SLG | FTO | SnO2-np | Perovskite | Spiro-MeOTAD | Au": 8,
+     "SLG | FTO | SnO2-np | Preovskite | Spiro-MeOTAD | Au": 4,
+     "SLG | ITO | SnO2-np | Perovskite | Spiro-MeOTAD | Au": 2
+    },
+    "sinif_dagilimi": {
+     "nip_sirali": 14
+    },
+    "kural_dagilimi": {
+     "onceki_katman_ETL": 14
+    },
+    "pct_nip_sirali": 100.0
+   },
+   "model_hazir": {
+    "n_kayit": 11,
+    "n_doi": 5,
+    "doi_listesi": [
+     "10.1002/adfm.201910561",
+     "10.1002/solr.201900191",
+     "10.1007/s40820-020-0379-5",
+     "10.1016/j.joule.2018.10.025",
+     "10.1039/c9ra06363c"
+    ]
+   },
+   "egitim_bolmesi": {
+    "n_kayit": 10,
+    "n_doi": 4,
+    "doi_listesi": [
+     "10.1002/solr.201900191",
+     "10.1007/s40820-020-0379-5",
+     "10.1016/j.joule.2018.10.025",
+     "10.1039/c9ra06363c"
+    ]
+   }
+  },
+  {
+   "uclu": "pin / TiO2-c | TiO2-mp / Spiro-MeOTAD",
+   "ham": {
+    "n_kayit": 24,
+    "n_pce_dolu": 24,
+    "n_doi_ham": 7,
+    "n_doi_kanonik": 7,
+    "doi_listesi": [
+     "10.1002/adfm.201910561",
+     "10.1002/cptc.201900245",
+     "10.1002/cssc.201700150",
+     "10.1021/acsaem.9b01692",
+     "10.1038/nnano.2014.181",
+     "10.1039/c5ra11771b",
+     "10.1134/s1063782619040213"
+    ],
+    "yigin_dizilimleri": {
+     "SLG | FTO | TiO2-c | TiO2-mp | Perovskite | Spiro-MeOTAD | Ag": 9,
+     "SLG | FTO | TiO2-c | TiO2-mp | Perovskite | Spiro-MeOTAD | Au": 6,
+     "SLG | FTO | TiO2-c | TiO2-mp | Preovskite | Spiro-MeOTAD | Au": 4,
+     "SLG | FTO | TiO2-c | TiO2-mp | Perovskite | Spiro-MeOTAD | Ag-nw": 3,
+     "SLG | FTO | TiO2-c | TiO2-mp | Perovskite | Spiro-MeOTAD | Carbon": 2
+    },
+    "sinif_dagilimi": {
+     "nip_sirali": 24
+    },
+    "kural_dagilimi": {
+     "onceki_katman_ETL": 24
+    },
+    "pct_nip_sirali": 100.0
+   },
+   "model_hazir": {
+    "n_kayit": 19,
+    "n_doi": 7,
+    "doi_listesi": [
+     "10.1002/adfm.201910561",
+     "10.1002/cptc.201900245",
+     "10.1002/cssc.201700150",
+     "10.1021/acsaem.9b01692",
+     "10.1038/nnano.2014.181",
+     "10.1039/c5ra11771b",
+     "10.1134/s1063782619040213"
+    ]
+   },
+   "egitim_bolmesi": {
+    "n_kayit": 15,
+    "n_doi": 4,
+    "doi_listesi": [
+     "10.1002/cptc.201900245",
+     "10.1021/acsaem.9b01692",
+     "10.1038/nnano.2014.181",
+     "10.1039/c5ra11771b"
+    ]
+   }
+  }
+ ]
+}

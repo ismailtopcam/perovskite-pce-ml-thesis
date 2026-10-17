@@ -1,0 +1,68 @@
+Yuklendi: data/processed/model_ready_dataset.csv  ->  41,485 satir x 79 kolon
+Kullanilan kolonlar: PCE='JV_default_PCE', DOI='Ref_DOI_number', band_gap='band_gap', kompozisyon=14 kolon (['A_FA', 'A_MA', 'A_Cs', 'A_Rb', 'A_K', 'A_other']...)
+
+================================================================
+D7 — DOI GRUP-BOYUTU DAGILIMI
+================================================================
+Kayit sayisi              : 41,485
+Benzersiz DOI (grup)      : 7,352
+Grup basina ort. kayit    : 5.64
+Medyan grup boyutu        : 4
+Ceyreklikler (50/75/90/95/99): {0.5: 4.0, 0.75: 7.0, 0.9: 11.0, 0.95: 14.0, 0.99: 26.0}
+En buyuk grup             : 127 kayit
+Tek-kayitlik grup (singleton): 681  (%9.3)
+En buyuk %1 grubun kapsadigi kayit payi: %7.1
+
+-> Teze (4.1) cumle: 41.485 kayit 7.396 DOI'ye dagilmistir; medyan grup boyutu ~4, ortalama 5.6, en buyuk grup 127 kayit. (yukaridaki gercek sayilarla degistir)
+
+================================================================
+D1 — INDIRGENEMEZ GURULTU TABANI -> TAVAN R2 / TABAN RMSE
+================================================================
+PCE toplam varyansi (sigma^2_tot): 27.469  (std 5.241)
+
+[Kompozisyon-kosullu (tavan ALT siniri)]  (multi-DOI=True)
+  Tekrar eden recete sayisi   : 366  (39,156 kayit)
+  Recete-ici PCE std (medyan)  : 3.030
+  Recete-ici PCE std (ortalama): 3.140
+  Pooled gurultu varyansi      : 19.815
+  ==> Taban RMSE (indirgenemez): 4.431 PCE puani
+  ==> Taban RMSE (dof-duzeltmeli, tavan R2 ile tutarli): 4.451 PCE puani
+  ==> Tavan R2 (homoskedastik varsayim): 0.279
+      (Tezdeki sonuc: RMSE 4.02, R2 0.413 — karsilastir.)
+
+[Kompozisyon+band gap]  (multi-DOI=True)
+  Tekrar eden recete sayisi   : 460  (37,105 kayit)
+  Recete-ici PCE std (medyan)  : 2.807
+  Recete-ici PCE std (ortalama): 3.016
+  Pooled gurultu varyansi      : 20.005
+  ==> Taban RMSE (indirgenemez): 4.445 PCE puani
+  ==> Taban RMSE (dof-duzeltmeli, tavan R2 ile tutarli): 4.473 PCE puani
+  ==> Tavan R2 (homoskedastik varsayim): 0.272
+      (Tezdeki sonuc: RMSE 4.02, R2 0.413 — karsilastir.)
+
+[TUM ozellikler (74) = gercek tavan kestirimi]  (multi-DOI=True)
+  Tekrar eden recete sayisi   : 1,248  (17,409 kayit)
+  Recete-ici PCE std (medyan)  : 2.659
+  Recete-ici PCE std (ortalama): 2.856
+  Pooled gurultu varyansi      : 13.264
+  ==> Taban RMSE (indirgenemez): 3.509 PCE puani
+  ==> Taban RMSE (dof-duzeltmeli, tavan R2 ile tutarli): 3.642 PCE puani
+  ==> Tavan R2 (homoskedastik varsayim): 0.517
+      (Tezdeki sonuc: RMSE 4.02, R2 0.413 — karsilastir.)
+
+NOT: 'Tavan R2', gurultunun veri genelinde sabit oldugu varsayimi altinda bir kestirimdir; recete tanimina ve multi-DOI sartina duyarlidir. Birden cok tanimi raporlamak en durust yaklasimdir.
+
+================================================================
+C1 (opsiyon) — BAND-GAP DAGILIM QUANTILE'LARI
+================================================================
+Doldurulmus (imputed) kayit: 9,931 (%23.9) — asagidaki istatistikler yalnizca gozlemli degerler uzerindendir.
+n (band_gap gozlemli)     : 31,554
+Quantile 5/25/50/75/95    : {0.05: 1.5, 0.25: 1.6, 0.5: 1.6, 0.75: 1.6, 0.95: 1.75}
+Ortalama / std            : 1.611 / 0.124
+1.70-1.80 eV (tandem penceresi) payi : %2.0
+>=1.70 eV (genis-bant) payi          : %6.2
+>=1.70 eV payi (imputed dahil, referans): %4.7
+
+-> 5.4 icin: 75. persentil 1.60 / 95. persentil 1.75 ise, egitim kutlesinin ~1.6 eV'de yogunlastigi ve tandem bolgesinin (>=1.70) yalnizca %6.2'unu kapsadigi yazilabilir.
+
+JSON yazildi: outputs/robustness/thesis_data_analysis.json

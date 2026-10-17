@@ -1,0 +1,120 @@
+{
+ "girdi": {
+  "dosya": "data/processed/model_ready_dataset.csv",
+  "n_satir": 41485,
+  "n_kolon": 79,
+  "pce_kolonu": "JV_default_PCE",
+  "doi_kolonu": "Ref_DOI_number",
+  "band_gap_kolonu": "band_gap",
+  "kompozisyon_kolonlari": [
+   "A_FA",
+   "A_MA",
+   "A_Cs",
+   "A_Rb",
+   "A_K",
+   "A_other",
+   "B_Pb",
+   "B_Sn",
+   "B_Ge",
+   "B_other",
+   "X_I",
+   "X_Br",
+   "X_Cl",
+   "X_other"
+  ]
+ },
+ "D7": {
+  "doi_kolonu": "Ref_DOI_number",
+  "n_kayit": 41485,
+  "n_grup": 7352,
+  "ortalama_grup_boyutu": 5.643,
+  "medyan_grup_boyutu": 4.0,
+  "ceyreklikler": {
+   "p50": 4.0,
+   "p75": 7.0,
+   "p90": 11.0,
+   "p95": 14.0,
+   "p99": 26.0
+  },
+  "maks_grup_boyutu": 127,
+  "n_singleton": 681,
+  "pct_singleton": 9.26,
+  "en_buyuk_pct1_grup_kayit_payi_pct": 7.07
+ },
+ "D1": {
+  "pce_kolonu": "JV_default_PCE",
+  "var_total": 27.4693,
+  "std_total": 5.2411,
+  "receteler": [
+   {
+    "id": "kompozisyon",
+    "etiket": "Kompozisyon-kosullu (tavan ALT siniri)",
+    "multi_doi_sarti": true,
+    "n_ozellik": 14,
+    "n_recete": 366,
+    "n_kayit": 39156,
+    "within_std_medyan": 3.0301,
+    "within_std_ortalama": 3.1402,
+    "ss_w": 768641.9887,
+    "dof": 38790,
+    "pooled_var": 19.8155,
+    "rmse_floor_n": 4.4306,
+    "rmse_floor_dof": 4.4515,
+    "r2_ceiling": 0.2786,
+    "var_total": 27.4693
+   },
+   {
+    "id": "kompozisyon_band_gap",
+    "etiket": "Kompozisyon+band gap",
+    "multi_doi_sarti": true,
+    "n_ozellik": 15,
+    "n_recete": 460,
+    "n_kayit": 37105,
+    "within_std_medyan": 2.807,
+    "within_std_ortalama": 3.0158,
+    "ss_w": 733090.2882,
+    "dof": 36645,
+    "pooled_var": 20.0052,
+    "rmse_floor_n": 4.4449,
+    "rmse_floor_dof": 4.4727,
+    "r2_ceiling": 0.2717,
+    "var_total": 27.4693
+   },
+   {
+    "id": "tum_ozellikler",
+    "etiket": "TUM ozellikler (74) = gercek tavan kestirimi",
+    "multi_doi_sarti": true,
+    "n_ozellik": 74,
+    "n_recete": 1248,
+    "n_kayit": 17409,
+    "within_std_medyan": 2.6586,
+    "within_std_ortalama": 2.8557,
+    "ss_w": 214354.4312,
+    "dof": 16161,
+    "pooled_var": 13.2637,
+    "rmse_floor_n": 3.509,
+    "rmse_floor_dof": 3.6419,
+    "r2_ceiling": 0.5171,
+    "var_total": 27.4693
+   }
+  ]
+ },
+ "C1": {
+  "band_gap_kolonu": "band_gap",
+  "n_gozlemli": 31554,
+  "n_imputed": 9931,
+  "pct_imputed": 23.94,
+  "ceyreklikler": {
+   "p5": 1.5,
+   "p25": 1.6,
+   "p50": 1.6,
+   "p75": 1.6,
+   "p95": 1.75
+  },
+  "ortalama": 1.6105,
+  "std": 0.1238,
+  "pct_1_70_1_80_eV": 2.02,
+  "pct_ge_1_70_eV": 6.16,
+  "pct_ge_1_70_eV_imputed_dahil": 4.68
+ }
+}

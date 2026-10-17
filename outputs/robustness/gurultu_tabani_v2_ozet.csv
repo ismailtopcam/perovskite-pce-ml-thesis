@@ -1,0 +1,4 @@
+tanim,kapsanan,pay,taban_rmse_alt,taban_rmse_homosked,tavan_r2_homosked,tavan_r2_ust,yayin_agirlikli_taban,yayin_agirlikli_tavan
+"K1: bayraksiz, 2-ondalik (v0.3.x tanimi)",17409,0.4196,2.2731,3.6419,0.5171,0.8119,3.3455,0.5841
+"K2: bayraklar dahil, 2-ondalik",16623,0.4007,2.1976,3.609,0.5258,0.8242,3.3233,0.5895
+"K3: bayraksiz, yuvarlamasiz (tam esitlik)",17006,0.4099,2.2512,3.6488,0.5153,0.8155,3.3524,0.5824

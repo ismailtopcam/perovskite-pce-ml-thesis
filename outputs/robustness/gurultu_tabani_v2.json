@@ -1,0 +1,77 @@
+[
+  {
+    "label": "K1: bayraksiz, 2-ondalik (v0.3.x tanimi)",
+    "key_cols": 74,
+    "round_dec": 2,
+    "n_records_all": 41485,
+    "n_records_covered": 17409,
+    "n_recipes_multi_doi": 1248,
+    "coverage_share": 0.4196,
+    "var_total_record_weighted": 27.4693,
+    "record_weighted": {
+      "pooled_noise_var": 13.2637,
+      "within_recipe_std_median": 2.6586,
+      "floor_rmse_lower": 2.2731,
+      "floor_rmse_homosked": 3.6419,
+      "ceiling_r2_homosked": 0.5171,
+      "ceiling_r2_upper": 0.8119
+    },
+    "publication_weighted": {
+      "n_publication_recipe_cells": 5291,
+      "pooled_noise_var": 11.1922,
+      "var_total_cell_level": 26.9082,
+      "floor_rmse_homosked": 3.3455,
+      "ceiling_r2_homosked": 0.5841
+    }
+  },
+  {
+    "label": "K2: bayraklar dahil, 2-ondalik",
+    "key_cols": 77,
+    "round_dec": 2,
+    "n_records_all": 41485,
+    "n_records_covered": 16623,
+    "n_recipes_multi_doi": 1241,
+    "coverage_share": 0.4007,
+    "var_total_record_weighted": 27.4693,
+    "record_weighted": {
+      "pooled_noise_var": 13.0251,
+      "within_recipe_std_median": 2.6388,
+      "floor_rmse_lower": 2.1976,
+      "floor_rmse_homosked": 3.609,
+      "ceiling_r2_homosked": 0.5258,
+      "ceiling_r2_upper": 0.8242
+    },
+    "publication_weighted": {
+      "n_publication_recipe_cells": 5045,
+      "pooled_noise_var": 11.0443,
+      "var_total_cell_level": 26.9028,
+      "floor_rmse_homosked": 3.3233,
+      "ceiling_r2_homosked": 0.5895
+    }
+  },
+  {
+    "label": "K3: bayraksiz, yuvarlamasiz (tam esitlik)",
+    "key_cols": 74,
+    "round_dec": null,
+    "n_records_all": 41485,
+    "n_records_covered": 17006,
+    "n_recipes_multi_doi": 1215,
+    "coverage_share": 0.4099,
+    "var_total_record_weighted": 27.4693,
+    "record_weighted": {
+      "pooled_noise_var": 13.3138,
+      "within_recipe_std_median": 2.6826,
+      "floor_rmse_lower": 2.2512,
+      "floor_rmse_homosked": 3.6488,
+      "ceiling_r2_homosked": 0.5153,
+      "ceiling_r2_upper": 0.8155
+    },
+    "publication_weighted": {
+      "n_publication_recipe_cells": 5171,
+      "pooled_noise_var": 11.2383,
+      "var_total_cell_level": 26.9098,
+      "floor_rmse_homosked": 3.3524,
+      "ceiling_r2_homosked": 0.5824
+    }
+  }
+]

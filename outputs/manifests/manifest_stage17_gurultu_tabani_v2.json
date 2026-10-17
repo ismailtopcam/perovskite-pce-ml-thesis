@@ -1,0 +1,31 @@
+{
+  "stage": "stage17_gurultu_tabani_v2",
+  "timestamp_utc": "2026-08-10T08:21:29+00:00",
+  "seed": 42,
+  "target": "JV_default_PCE",
+  "group_col": "Ref_DOI_number",
+  "onehot_top_n": 15,
+  "versions": {
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  },
+  "git": {
+    "commit": "d6ce55f6a6f710ec2bf86a173ac825ab48cbeda1",
+    "dirty": true
+  },
+  "metrics": {},
+  "outputs": [
+    "outputs/robustness/gurultu_tabani_v2.json"
+  ],
+  "output_hashes": {
+    "outputs/robustness/gurultu_tabani_v2.json": "100c59de69826dcc4de2f4a690b9c3c9c637fa5ad7332d91be57027165ac62e0"
+  }
+}
