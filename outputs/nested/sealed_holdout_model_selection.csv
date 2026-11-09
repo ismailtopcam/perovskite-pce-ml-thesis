@@ -1,0 +1,7 @@
+model,train_cv_r2_mean,train_cv_r2_std
+CatBoost,0.4145,0.0257
+XGBoost,0.4136,0.0285
+HistGBM,0.4113,0.0289
+LightGBM,0.4005,0.0312
+Ridge,0.3596,0.031
+RandomForest,0.3286,0.0352

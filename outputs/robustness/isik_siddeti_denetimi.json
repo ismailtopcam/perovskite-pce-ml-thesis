@@ -1,0 +1,164 @@
+{
+ "kapsam": "temiz veri kumesi; ham CSV ile clean_rows satir indeksinden eslendi",
+ "eslesme": {
+  "n": 41485,
+  "model_hazir_PCE_esit": true,
+  "model_hazir_DOI_esit_orani": 1.0
+ },
+ "isik_siddeti_mWcm2": {
+  "dolu": 41462,
+  "esit_100": 41068,
+  "lt_50": 114,
+  "50_ile_100_arasi": 219,
+  "gt_100": 61,
+  "bos": 23
+ },
+ "isik_kaynagi": {
+  "(boş)": 39367,
+  "Solar simulator": 1858,
+  "Solar Simulator": 146,
+  "Xenon": 39,
+  "Fluorescent lamp": 36,
+  "solar simulator": 18,
+  "Unknown": 12,
+  "White LED": 8
+ },
+ "spektrum": {
+  "AM 1.5": 38773,
+  "(boş)": 2621,
+  "Am 1.5": 43,
+  "Indoor light": 36,
+  "AM1.5": 11,
+  "Monochromatic": 1
+ },
+ "ust_kuyruk": {
+  "PCE_gt_25": {
+   "n": 20,
+   "isik_lt_50": 19,
+   "yayin": 10
+  },
+  "PCE_gt_28": {
+   "n": 11,
+   "isik_lt_50": 11,
+   "yayin": 6
+  },
+  "PCE_gt_30": {
+   "n": 8,
+   "isik_lt_50": 8,
+   "yayin": 4
+  }
+ },
+ "PCE_gt_30_kayitlari": {
+  "n": 8,
+  "yayin": 4,
+  "isik_siddeti_min": 0.03,
+  "isik_siddeti_max": 0.309,
+  "kaynak": {
+   "Fluorescent lamp": 5,
+   "White LED": 3
+  },
+  "spektrum": {
+   "Indoor light": 5,
+   "(boş)": 3
+  },
+  "kayitlar": [
+   {
+    "doi": "10.1039/d0ta04721j",
+    "PCE": 34.8,
+    "isik_mWcm2": 0.309,
+    "kaynak": "White LED",
+    "spektrum": "nan"
+   },
+   {
+    "doi": "10.1039/d0ta04721j",
+    "PCE": 33.4,
+    "isik_mWcm2": 0.1516,
+    "kaynak": "White LED",
+    "spektrum": "nan"
+   },
+   {
+    "doi": "10.1002/aenm.201901980",
+    "PCE": 33.0,
+    "isik_mWcm2": 0.2754,
+    "kaynak": "Fluorescent lamp",
+    "spektrum": "Indoor light"
+   },
+   {
+    "doi": "10.1039/d0ta04721j",
+    "PCE": 32.3,
+    "isik_mWcm2": 0.1516,
+    "kaynak": "White LED",
+    "spektrum": "nan"
+   },
+   {
+    "doi": "10.1002/aenm.201901980",
+    "PCE": 31.4,
+    "isik_mWcm2": 0.2754,
+    "kaynak": "Fluorescent lamp",
+    "spektrum": "Indoor light"
+   },
+   {
+    "doi": "10.1002/aenm.201901980",
+    "PCE": 30.6,
+    "isik_mWcm2": 0.2754,
+    "kaynak": "Fluorescent lamp",
+    "spektrum": "Indoor light"
+   },
+   {
+    "doi": "10.1039/c9ra05323a",
+    "PCE": 30.3,
+    "isik_mWcm2": 0.03,
+    "kaynak": "Fluorescent lamp",
+    "spektrum": "Indoor light"
+   },
+   {
+    "doi": "10.1002/aelm.201900884",
+    "PCE": 30.01,
+    "isik_mWcm2": 0.146,
+    "kaynak": "Fluorescent lamp",
+    "spektrum": "Indoor light"
+   }
+  ]
+ },
+ "temizlikte_dislanan": {
+  "n_aralik_disi": 5,
+  "n_gt_35": 5,
+  "yayin": 3,
+  "isik_siddeti_min": 0.146,
+  "isik_siddeti_max": 0.309,
+  "kaynak": {
+   "Fluorescent lamp": 4,
+   "White LED": 1
+  },
+  "spektrum": {
+   "Indoor light": 4,
+   "(boş)": 1
+  }
+ },
+ "duyarlilik_groupkfold": [
+  {
+   "alt_kume": "tam",
+   "n": 41485,
+   "dislanan": 0,
+   "model": "CatBoost",
+   "R2_mean": 0.4101,
+   "R2_std": 0.0165
+  },
+  {
+   "alt_kume": "isik_lt_50_dislandi",
+   "n": 41371,
+   "dislanan": 114,
+   "model": "CatBoost",
+   "R2_mean": 0.4193,
+   "R2_std": 0.0153
+  },
+  {
+   "alt_kume": "isik_100_disi_dislandi",
+   "n": 41091,
+   "dislanan": 394,
+   "model": "CatBoost",
+   "R2_mean": 0.4162,
+   "R2_std": 0.0151
+  }
+ ]
+}

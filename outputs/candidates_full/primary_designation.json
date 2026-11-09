@@ -1,0 +1,12 @@
+{
+  "primary_candidate_list": "candidates_compat_N5.csv",
+  "primary_top30": "top30_compat_N5.csv",
+  "sensitivity_layers": [
+    "candidate_predictions.csv (filtresiz tam enumerasyon)",
+    "top30_diverse.csv (cesitlendirilmis, filtresiz)"
+  ],
+  "support_threshold_N": 5,
+  "n_primary_candidates": 504,
+  "primary_top_predicted_pce": 17.93,
+  "rationale": "1-C: sifir-destekli mimari-katman ucluleri birincil siralamadan cikarildi"
+}

@@ -10,6 +10,7 @@ temizlenmis veri kumesine dayanir.
 
 Kapsam (tez bolum referanslariyla):
   - pce30_ustu_stack_incelemesi.py   : PCE > %30 uc kayitlarin yigin dizilimi (Bolum 3.4)
+  - isik_siddeti_denetimi.py         : olcum aydinlatma kosulu; 100 mW/cm2 disi kayitlar ve duyarlilik CV'si (Bolum 3.4, 4.2, 4.7, 5.7)
   - doi_grup_dogrulama_v2.py         : kanonik anahtarin kat/holdout sinir asimi denetimi (beklenen: 0) ve ham-anahtar yazim-varyanti duyarliligi (Bolum 5.7)
   - doi_normalizasyon_duyarlilik.py  : DOI normalizasyonu duyarlilik kosumu (Bolum 5.7)
   - kontamine_test_maesi.py          : sinir asan kayitlarda ek skor-sisme denetimi (Bolum 5.7)
@@ -35,6 +36,7 @@ ROOT = Path(__file__).resolve().parent
 
 AUDITS = [
     "pce30_ustu_stack_incelemesi.py",
+    "isik_siddeti_denetimi.py",
     "doi_grup_dogrulama_v2.py",
     "doi_normalizasyon_duyarlilik.py",
     "kontamine_test_maesi.py",

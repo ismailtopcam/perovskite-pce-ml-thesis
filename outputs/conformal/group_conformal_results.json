@@ -1,0 +1,59 @@
+{
+  "n_calibration": 4144,
+  "n_conformal_test": 4211,
+  "n_calibration_dois": 735,
+  "n_test_dois": 736,
+  "sub_reps": 500,
+  "methods": {
+    "M0_marginal": [
+      {
+        "coverage_target": 0.9,
+        "half_width": 6.662,
+        "coverage_record_weighted": 0.8991,
+        "coverage_publication_weighted": 0.9149
+      },
+      {
+        "coverage_target": 0.8,
+        "half_width": 4.864,
+        "coverage_record_weighted": 0.796,
+        "coverage_publication_weighted": 0.8113
+      }
+    ],
+    "V1_tek_temsilci": [
+      {
+        "coverage_target": 0.9,
+        "half_width": 6.484,
+        "coverage_record_weighted": 0.8908,
+        "coverage_publication_weighted": 0.9065,
+        "quantile_iqr": [
+          6.315,
+          6.642
+        ]
+      },
+      {
+        "coverage_target": 0.8,
+        "half_width": 4.923,
+        "coverage_record_weighted": 0.7989,
+        "coverage_publication_weighted": 0.8152,
+        "quantile_iqr": [
+          4.829,
+          5.008
+        ]
+      }
+    ],
+    "V2_doi_agirlikli": [
+      {
+        "coverage_target": 0.9,
+        "half_width": 6.514,
+        "coverage_record_weighted": 0.8917,
+        "coverage_publication_weighted": 0.9071
+      },
+      {
+        "coverage_target": 0.8,
+        "half_width": 4.923,
+        "coverage_record_weighted": 0.7989,
+        "coverage_publication_weighted": 0.8152
+      }
+    ]
+  }
+}

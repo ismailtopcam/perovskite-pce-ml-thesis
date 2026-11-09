@@ -23,7 +23,7 @@
 ## Özellikler
 
 - **77 özellik:** A/B/X kompozisyon oranları (14), band gap + eksiklik bayrağı, esnek/yarı-saydam, tavlama sıcaklığı/süresi + bayraklar (8), mimari (7), ETL (16), HTL (16), çözücü (16) one-hot kodları.
-- **Bilinçli olarak DIŞLANANLAR:** ölçüm-sonrası tüm kolonlar (`JV_*` — Voc, Jsc, FF dâhil —, `EQE_*`, `Stabilised_*`, `Outdoor_*` vb.). Bu kolonlar hedefin dolaylı kopyasıdır; dâhil edilmeleri R²'yi 0,938'e şişirir (tez Deney B). Şema katmanı (`validation/schema.py`) model-hazır veride bu kolonları görürse hattı durdurur.
+- **Bilinçli olarak DIŞLANANLAR:** ölçüm-sonrası tüm kolonlar (`JV_*` — Voc, Jsc, FF dâhil —, `EQE_*`, `Stabilised_*`, `Outdoor_*` vb.). Bu kolonlar hedefin dolaylı kopyasıdır; dâhil edilmeleri R²'yi 0,937'ye şişirir (tez Deney B, Tablo 4.4; `outputs/v4/validation_experiments.csv`). Şema katmanı (`validation/schema.py`) model-hazır veride bu kolonları görürse hattı durdurur.
 
 ## Başarım (hedef-sızıntısı denetimli, DOI-grup-ayrık protokol)
 

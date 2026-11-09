@@ -1,0 +1,102 @@
+{
+  "protocol_a_sealed_holdout": {
+    "selection": [
+      {
+        "model": "Ridge",
+        "train_cv_r2_mean": 0.3596,
+        "train_cv_r2_std": 0.031
+      },
+      {
+        "model": "RandomForest",
+        "train_cv_r2_mean": 0.3286,
+        "train_cv_r2_std": 0.0352
+      },
+      {
+        "model": "HistGBM",
+        "train_cv_r2_mean": 0.4113,
+        "train_cv_r2_std": 0.0289
+      },
+      {
+        "model": "XGBoost",
+        "train_cv_r2_mean": 0.4136,
+        "train_cv_r2_std": 0.0285
+      },
+      {
+        "model": "LightGBM",
+        "train_cv_r2_mean": 0.4005,
+        "train_cv_r2_std": 0.0312
+      },
+      {
+        "model": "CatBoost",
+        "train_cv_r2_mean": 0.4145,
+        "train_cv_r2_std": 0.0257
+      }
+    ],
+    "selected_model": "CatBoost",
+    "holdout": {
+      "R2": 0.3936,
+      "MAE": 3.1503,
+      "RMSE": 4.1029
+    },
+    "n_train": 33130,
+    "n_holdout": 8355
+  },
+  "protocol_b_nested_cv": {
+    "outer_splits": 5,
+    "inner_splits": 3,
+    "outer_folds": [
+      {
+        "fold": 1,
+        "selected": "CatBoost",
+        "inner_r2": 0.4056,
+        "R2": 0.4211,
+        "MAE": 3.0997,
+        "RMSE": 4.003
+      },
+      {
+        "fold": 2,
+        "selected": "XGBoost",
+        "inner_r2": 0.4019,
+        "R2": 0.4038,
+        "MAE": 3.1251,
+        "RMSE": 4.0636
+      },
+      {
+        "fold": 3,
+        "selected": "CatBoost",
+        "inner_r2": 0.4062,
+        "R2": 0.4199,
+        "MAE": 3.1067,
+        "RMSE": 3.908
+      },
+      {
+        "fold": 4,
+        "selected": "CatBoost",
+        "inner_r2": 0.4152,
+        "R2": 0.3775,
+        "MAE": 3.1331,
+        "RMSE": 4.0618
+      },
+      {
+        "fold": 5,
+        "selected": "CatBoost",
+        "inner_r2": 0.4085,
+        "R2": 0.4182,
+        "MAE": 3.158,
+        "RMSE": 4.1067
+      }
+    ],
+    "R2_mean": 0.4081,
+    "R2_std": 0.0165,
+    "MAE_mean": 3.1245,
+    "RMSE_mean": 4.0286,
+    "selected_per_fold": [
+      "CatBoost",
+      "XGBoost",
+      "CatBoost",
+      "CatBoost",
+      "CatBoost"
+    ]
+  },
+  "elapsed_sec": 471.5
+}

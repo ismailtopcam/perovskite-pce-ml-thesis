@@ -1,0 +1,34 @@
+{
+  "stage": "stage16_nested",
+  "timestamp_utc": "2026-08-10T08:34:05+00:00",
+  "seed": 42,
+  "target": "JV_default_PCE",
+  "group_col": "Ref_DOI_number",
+  "onehot_top_n": 15,
+  "versions": {
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  },
+  "git": {
+    "commit": "d6ce55f6a6f710ec2bf86a173ac825ab48cbeda1",
+    "dirty": true
+  },
+  "metrics": {
+    "sealed_holdout_R2": 0.3936,
+    "nested_R2_mean": 0.4081
+  },
+  "outputs": [
+    "outputs/nested/nested_results.json"
+  ],
+  "output_hashes": {
+    "outputs/nested/nested_results.json": "f18863453f27ff18acc598d4371de5d00378e312776df85d6cac2a3abb214afb"
+  }
+}

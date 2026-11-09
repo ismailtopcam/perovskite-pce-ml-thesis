@@ -18,7 +18,7 @@ mühendislik kararlarının sonuç geçerliliğini nasıl değiştirdiğini öl�
 | Ana doğrulama | Kanonik-DOI-grup 5-kat GroupKFold CV (v0.4.0: grup anahtarı normalize DOI) |
 | **R2 (grup-güvenli)** | **0,410 ± 0,016** |
 | R2 (rastgele bölme — sızıntı şişmesi) | 0,481 (+0,071) |
-| R2 (+Voc/Jsc/FF — hedef sızıntısı) | 0,938 (bu yüzden dışlandı) |
+| R2 (+Voc/Jsc/FF — hedef sızıntısı) | 0,937 (bu yüzden dışlandı) |
 | MAE / RMSE | 3,12 / 4,02 PCE puanı |
 | Aday uzayı / eğitimde desteklenen | 756 / 504 |
 
@@ -117,6 +117,7 @@ python scripts/thesis_figures.py            # tez veri şekillerinin (4.1-4.7, 4
 Tez gövdesinde anılan kök-dizin denetim betikleri (tamamı: `python run_thesis_audits.py`; sıra tez Ek A ile aynı; çıktıları sürüm kontrolünde):
 ```bash
 python pce30_ustu_stack_incelemesi.py    # PCE > %30 uç kayıtların yığın dizilimi — tandem izi var mı? (Bölüm 3.4) -> outputs/robustness/pce30_ustu_stack.csv
+python isik_siddeti_denetimi.py          # ölçüm aydınlatma koşulu: PCE > %30 kayıtların ışık şiddeti/kaynağı, temiz kümede 100 mW/cm² dışı ölçümler ve bunlar dışlandığında GroupKFold R² (Bölüm 3.4, 4.2, 4.7, 5.7) -> outputs/robustness/isik_siddeti_denetimi.json
 python doi_grup_dogrulama_v2.py          # kanonik anahtarın kat/holdout sınır aşımı denetimi (beklenen: 0) ve ham-anahtar yazım-varyantı duyarlılığı (Bölüm 5.7) -> outputs/robustness/doi_grup_dogrulama.json
 python doi_normalizasyon_duyarlilik.py   # DOI normalizasyonu duyarlılık koşusu: ham ve kanonik gruplarla aynı CatBoost, ~40 sn (Bölüm 5.7) -> outputs/robustness/doi_normalizasyon_duyarlilik.json
 python kontamine_test_maesi.py           # sınır aşan kayıtlarda ek skor-şişme denetimi, ~15 sn (Bölüm 5.7) -> outputs/robustness/kontamine_test_maesi.json
@@ -181,12 +182,20 @@ küçük sayısal farklar oluşabilir.
 **Manifest commit notu:** v0.4.0 ile arşivlenmiş 15 koşu-manifestindeki (`outputs/manifests/` altındaki
 13 dosya ile `outputs/pipeline_cv/manifest_14_pipeline_cv.json` ve
 `outputs/ek_denetimler/manifest_15_ek_denetimler.json`) `git.commit` alanı `d6ce55f` (yeniden yazım sonrası karşılığı 6eba260) ve `dirty: true`
-
-Not: Depo geçmişi 17 Ekim 2026'da yalnızca commit üst verisi (yazar kimliği, mesaj sonundaki araç satırları) için yeniden yazılmıştır; ağaç içerikleri ve dosya özetleri değişmemiştir. Manifestler yeniden yazımdan önceki commit kimliğini (d6ce55f) kaydeder; bunun yeni karşılığı 6eba260, tezin atıf yaptığı v0.4.0 sürümünün eski kimliği f65ed93, yeni kimliği f2bf182'dir.
 gösterir: çıktılar 10 Ağustos 2026'da (07:53–08:34 UTC), v0.4.0 commit'ine (f2bf182, 08:45 UTC) giren
 değişikliklerle birlikte o commit oluşturulmadan hemen önce üretilmiş ve aynı commit'le eklenmiştir.
-Aynı koşuya ait `manifest_stage17_gurultu_tabani_v2.json` (betik 17; alanları aynı) sürüm kontrolüne
-sonradan alınmıştır.
+Aynı koşuya ait şu çıktılar ise sürüm kontrolüne **sonradan** alınmıştır; v0.4.0 etiketinde ve onun Zenodo
+arşivinde (10.5281/zenodo.21870009) bulunmazlar, ana dalda bulunurlar:
+- `manifest_stage17_gurultu_tabani_v2.json` ve `outputs/robustness/gurultu_tabani_v2.*` (betik 17) — 17 Ekim 2026 (e2fb870);
+- `manifest_stage16_nested.json`, `manifest_stage18_group_conformal.json`, `outputs/nested/*` ve
+  `outputs/conformal/group_conformal_*` (betik 16 ve 18), `outputs/candidates_full/primary_designation.json`
+  ve `outputs/logs/removed_records_log.csv` — 9 Kasım 2026 (o güne dek `.gitignore`'daki `outputs/*` kuralına takılmışlardı).
+
+v0.4.0'dan sonra eklenen kök denetim betikleri ve çıktıları da yalnızca ana daldadır:
+`aday_mimari_yigin_tutarliligi.py` ve `scripts/thesis_data_analysis.py --out` (17 Ekim 2026; Tablo 5.1'in
+serbestlik derecesi düzeltmeli taban RMSE sütunu bu sürümden gelir) ile `isik_siddeti_denetimi.py` (9 Kasım 2026).
+
+Not: Depo geçmişi 17 Ekim 2026'da yalnızca commit üst verisi (yazar kimliği, mesaj sonundaki araç satırları) için yeniden yazılmıştır; ağaç içerikleri ve dosya özetleri değişmemiştir. Manifestler yeniden yazımdan önceki commit kimliğini (d6ce55f) kaydeder; bunun yeni karşılığı 6eba260, tezin atıf yaptığı v0.4.0 sürümünün eski kimliği f65ed93, yeni kimliği f2bf182'dir.
 
 ## Lisans ve atıf
 
