@@ -21,7 +21,10 @@ Kapsam (tez bolum referanslariyla):
   - aday_esik_duyarliligi.py         : destek esigi duyarliligi N>=1/3/10 (Bolum 4.5)
   - final_refit_aday_siralamasi.py   : tum-veri refit ile aday siralamasi denetimi (Bolum 4.5)
   - bandgapsiz_aday_siralamasi.py    : band gap'siz modelle aday siralamasi (Bolum 5.4)
+  - bandgap_kestirim_temeli.py       : band gap kestirim temeli (olcum / kompozisyondan atama) dagilimi (Bolum 3.2, 4.9)
   - aday_mimari_yigin_tutarliligi.py : 'pin' etiketli kayitlarda yigin dizilimi (n-i-p/p-i-n) tutarliligi ve tezde anilan iki uclunun ham kayitlari (Bolum 4.5)
+  - tarama_bootstrap.py              : Spearman ve ilk-k zenginlestirme icin DOI-kumeli bootstrap araliklari (Bolum 4.6)
+  - aday_izgara_destegi.py           : aday A-site izgara noktalarinin veri destegi; Saliba recetesi (Bolum 3.12, 4.5)
 
 Bir denetim basarisiz olursa (cikis kodu != 0) calisma durur.
 """
@@ -47,7 +50,10 @@ AUDITS = [
     "aday_esik_duyarliligi.py",
     "final_refit_aday_siralamasi.py",
     "bandgapsiz_aday_siralamasi.py",
+    "bandgap_kestirim_temeli.py",
     "aday_mimari_yigin_tutarliligi.py",
+    "tarama_bootstrap.py",
+    "aday_izgara_destegi.py",
 ]
 
 

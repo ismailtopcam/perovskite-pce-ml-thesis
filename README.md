@@ -128,7 +128,10 @@ python aday_destek_doi_sayilari.py       # aday desteğinin yayın çeşitliliğ
 python aday_esik_duyarliligi.py          # destek eşiği duyarlılığı N>=1/3/10 (Bölüm 4.5) -> outputs/robustness/aday_esik_duyarliligi.json
 python final_refit_aday_siralamasi.py    # tüm-veri refit ile aday sıralaması denetimi (Bölüm 4.5) -> outputs/robustness/final_refit_aday_siralamasi.json
 python bandgapsiz_aday_siralamasi.py     # band gap'siz modelle aday sıralaması (Bölüm 5.4) -> outputs/robustness/bandgapsiz_aday_siralamasi.json
+python bandgap_kestirim_temeli.py        # temiz kümede band gap değerlerinin kestirim temeli (ölçüm / kompozisyondan atama) dağılımı (Bölüm 3.2, 4.9) -> outputs/robustness/bandgap_kestirim_temeli.json
 python aday_mimari_yigin_tutarliligi.py  # 'pin' etiketli kayıtlarda yığın dizilimi (n-i-p/p-i-n) tutarlılığı ve tezde anılan iki üçlünün ham kayıtları (Bölüm 4.5) -> outputs/robustness/aday_mimari_yigin_tutarliligi.json
+python tarama_bootstrap.py               # Spearman ve ilk-k zenginleştirme için DOI-kümeli bootstrap %95 aralıkları (Bölüm 4.6) -> outputs/robustness/tarama_bootstrap.json
+python aday_izgara_destegi.py            # aday A-site ızgara noktalarının model-hazır/eğitim kümesinde temsil sayıları; Saliba vd. (2016) reçetesi (Bölüm 3.12, 4.5) -> outputs/robustness/aday_izgara_destegi.json
 ```
 
 ## DOI-grup denetim betikleri
@@ -193,7 +196,7 @@ arşivinde (10.5281/zenodo.21870009) bulunmazlar, ana dalda bulunurlar:
 
 v0.4.0'dan sonra eklenen kök denetim betikleri ve çıktıları da yalnızca ana daldadır:
 `aday_mimari_yigin_tutarliligi.py` ve `scripts/thesis_data_analysis.py --out` (17 Ekim 2026; Tablo 5.1'in
-serbestlik derecesi düzeltmeli taban RMSE sütunu bu sürümden gelir) ile `isik_siddeti_denetimi.py` (9 Kasım 2026).
+serbestlik derecesi düzeltmeli taban RMSE sütunu bu sürümden gelir) ile `isik_siddeti_denetimi.py`, `bandgap_kestirim_temeli.py`, `tarama_bootstrap.py` ve `aday_izgara_destegi.py` (9 Kasım 2026).
 
 Not: Depo geçmişi 17 Ekim 2026'da yalnızca commit üst verisi (yazar kimliği, mesaj sonundaki araç satırları) için yeniden yazılmıştır; ağaç içerikleri ve dosya özetleri değişmemiştir. Manifestler yeniden yazımdan önceki commit kimliğini (d6ce55f) kaydeder; bunun yeni karşılığı 6eba260, tezin atıf yaptığı v0.4.0 sürümünün eski kimliği f65ed93, yeni kimliği f2bf182'dir.
 

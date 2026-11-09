@@ -1,0 +1,73 @@
+{
+ "yontem": "DOI-kumeli bootstrap (B=1000, tohum 42); zenginlestirme tanimi scripts/07 ile ayni",
+ "kumelenme": {
+  "n_kayit": 8355,
+  "n_yayin": 1471,
+  "ilk5_kayit": 417,
+  "ilk5_yayin": 62,
+  "ilk5_isabet_yayin_PCE18": 48,
+  "pozitif_PCE18": {
+   "kayit": 923,
+   "yayin": 352
+  },
+  "pozitif_PCE20": {
+   "kayit": 203,
+   "yayin": 99
+  },
+  "pozitif_PCE22": {
+   "kayit": 21,
+   "yayin": 12
+  }
+ },
+ "istatistikler": {
+  "spearman": {
+   "nokta": 0.6096,
+   "ci95": [
+    0.565,
+    0.653
+   ]
+  },
+  "E18_top5": {
+   "nokta": 4.2112,
+   "ci95": [
+    3.207,
+    5.033
+   ]
+  },
+  "E18_top10": {
+   "nokta": 3.4907,
+   "ci95": [
+    2.834,
+    4.424
+   ]
+  },
+  "E20_top5": {
+   "nokta": 6.6129,
+   "ci95": [
+    3.575,
+    8.949
+   ]
+  },
+  "E20_top10": {
+   "nokta": 5.2248,
+   "ci95": [
+    3.77,
+    6.308
+   ]
+  },
+  "E22_top5": {
+   "nokta": 3.8164,
+   "ci95": [
+    0.0,
+    9.235
+   ]
+  },
+  "E22_top10": {
+   "nokta": 4.7648,
+   "ci95": [
+    1.05,
+    7.621
+   ]
+  }
+ }
+}

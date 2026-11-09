@@ -1,0 +1,34 @@
+{
+ "temiz_n": 41485,
+ "band_gap_dolu": 31554,
+ "band_gap_bos": 9931,
+ "gruplar": {
+  "kompozisyondan_atama": {
+   "n": 21305,
+   "yuzde": 67.5
+  },
+  "belirtilmemis": {
+   "n": 8495,
+   "yuzde": 26.9
+  },
+  "olcum": {
+   "n": 1381,
+   "yuzde": 4.4
+  },
+  "literatur": {
+   "n": 373,
+   "yuzde": 1.2
+  }
+ },
+ "ham_kategoriler": {
+  "Composition": 21305,
+  "(boş)": 8495,
+  "Absorption": 789,
+  "Literature": 373,
+  "EQE": 327,
+  "Absorption Tauc-plot": 247,
+  "UPS": 10,
+  "absorption": 4,
+  "Absorption Tauc-plot | UPS": 4
+ }
+}
