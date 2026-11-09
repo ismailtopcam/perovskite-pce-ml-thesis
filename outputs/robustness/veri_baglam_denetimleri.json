@@ -1,0 +1,151 @@
+{
+ "temiz_n": 41485,
+ "ham_n": 43398,
+ "yil_kapsami": {
+  "yil_bilinen": 41485,
+  "en_eski": 2009,
+  "en_yeni": 2024,
+  "le_2019": 39419,
+  "y2020": 1413,
+  "ge_2021": 653,
+  "le_2020_yuzde": 98.4,
+  "le_2019_yuzde": 95.0
+ },
+ "tarama_yonu": {
+  "ham_dagilim": {
+   "Reversed": 38231,
+   "Stabilised": 3451,
+   "(bos)": 984,
+   "Forward": 732
+  },
+  "ters_eksi_ileri": {
+   "n": 8338,
+   "medyan": 0.66,
+   "ortalama": 1.14,
+   "ters_yuksek_yuzde": 81.7
+  },
+  "ters_eksi_stabilize": {
+   "n": 3253,
+   "medyan": 0.38,
+   "ortalama": 0.47,
+   "ters_yuksek_yuzde": 75.9
+  }
+ },
+ "boyutluluk_yapi": {
+  "dusuk_boyutlu_0D_2D_2D3D": 1240,
+  "dusuk_boyutlu_yuzde": 3.0,
+  "ABC3_disi": 1084,
+  "ABC3_disi_yuzde": 2.6,
+  "ABC3_disi_perovskit_esinli": 345,
+  "birlikte": 2200,
+  "birlikte_yuzde": 5.3,
+  "3D_capping": 49
+ },
+ "kursunsuz": {
+  "n": 1124,
+  "Sn_iceren": 658,
+  "Sn_icermeyen_diger_B": 466,
+  "medyan_PCE_Sn_iceren": 3.42,
+  "medyan_PCE_Sn_icermeyen": 0.47,
+  "medyan_PCE_tum": 12.77,
+  "ham_kursunsuz_n": 1121,
+  "ham_Sn_iceren": 657,
+  "ham_Sn_icermeyen": 464,
+  "ham_Sn_icermeyen_ilk_iyonlar": {
+   "Bi": 323,
+   "Sb": 96,
+   "Ag": 18,
+   "Te": 11,
+   "Cu": 10,
+   "Ge": 10,
+   "Fe": 10,
+   "Pt": 7
+  },
+  "ham_Sn_icermeyen_Bi_veya_Sb_yuzde": 89.2,
+  "ABC3_disi_yuzde_Sn_icermeyen": 75.4,
+  "ABC3_disi_yuzde_Sn_iceren": 3.3
+ },
+ "bandgap_medyanlari": {
+  "tum": {
+   "n": 31554,
+   "medyan": 1.6,
+   "p10": 1.55,
+   "p90": 1.61
+  },
+  "Pb": {
+   "n": 30474,
+   "medyan": 1.6,
+   "p10": 1.55,
+   "p90": 1.61
+  },
+  "Pb_I": {
+   "n": 27323,
+   "medyan": 1.6,
+   "p10": 1.55,
+   "p90": 1.6
+  },
+  "Pb_I0.83_Br0.17": {
+   "n": 1354,
+   "medyan": 1.61,
+   "p10": 1.57,
+   "p90": 1.66
+  },
+  "Pb_I0.6_Br0.4": {
+   "n": 66,
+   "medyan": 1.778,
+   "p10": 1.725,
+   "p90": 1.82
+  },
+  "Pb0.5_Sn0.5": {
+   "n": 126,
+   "medyan": 1.25,
+   "p10": 1.19,
+   "p90": 1.315
+  }
+ },
+ "tavlama_baglami": {
+  "etl_kolonu": "ETL_SnO2_np",
+  "tum": {
+   "sicaklik": {
+    "n": 37789,
+    "medyan": 100.0,
+    "p10": 80.0,
+    "p90": 150.0
+   },
+   "sure": {
+    "n": 36720,
+    "medyan": 20.0,
+    "p10": 5.0,
+    "p90": 60.0
+   }
+  },
+  "MA": {
+   "sicaklik": {
+    "n": 25310,
+    "medyan": 100.0,
+    "p10": 70.0,
+    "p90": 115.0
+   },
+   "sure": {
+    "n": 24513,
+    "medyan": 15.0,
+    "p10": 5.0,
+    "p90": 60.0
+   }
+  },
+  "FA_ge_0.75_SnO2np": {
+   "sicaklik": {
+    "n": 693,
+    "medyan": 120.0,
+    "p10": 100.0,
+    "p90": 150.0
+   },
+   "sure": {
+    "n": 686,
+    "medyan": 20.0,
+    "p10": 10.0,
+    "p90": 60.0
+   }
+  }
+ }
+}
