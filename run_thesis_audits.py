@@ -27,6 +27,7 @@ Kapsam (tez bolum referanslariyla):
   - aday_izgara_destegi.py           : aday A-site izgara noktalarinin veri destegi; Saliba recetesi (Bolum 3.12, 4.5)
   - veri_baglam_denetimleri.py       : yil kapsami, tarama yonu, boyutluluk, kursunsuz B-site, band gap/tavlama baglami (Bolum 3.1-5.7)
   - tarama_yonu_denetimi.py          : hedefin tarama yonu heterojenliginin basarima etkisi (yalnizca ters tarama; tarama yonu kovaryati) (Bolum 5.7)
+  - birincil_r2_bootstrap.py         : holdout R2/MAE/RMSE icin DOI-kumeli bootstrap %95 araliklari (Bolum 4.2)
 
 Bir denetim basarisiz olursa (cikis kodu != 0) calisma durur.
 """
@@ -58,6 +59,7 @@ AUDITS = [
     "aday_izgara_destegi.py",
     "veri_baglam_denetimleri.py",
     "tarama_yonu_denetimi.py",
+    "birincil_r2_bootstrap.py",
 ]
 
 

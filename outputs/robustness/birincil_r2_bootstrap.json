@@ -1,0 +1,44 @@
+{
+ "yontem": "DOI-kumeli bootstrap (B=1000, tohum 42); yuzdelik %95 araligi; yeniden ornekleme tarama_bootstrap.py ile ayni",
+ "n_kayit": 8355,
+ "n_yayin": 1471,
+ "istatistikler": {
+  "R2": {
+   "nokta": 0.393612,
+   "ci95_doi_kumeli": [
+    0.335656,
+    0.45104
+   ],
+   "ci95_kayit_duzeyi": [
+    0.373002,
+    0.412756
+   ],
+   "bootstrap_std_doi_kumeli": 0.029614
+  },
+  "MAE": {
+   "nokta": 3.15033,
+   "ci95_doi_kumeli": [
+    3.021359,
+    3.281605
+   ],
+   "ci95_kayit_duzeyi": [
+    3.092978,
+    3.207479
+   ],
+   "bootstrap_std_doi_kumeli": 0.06527
+  },
+  "RMSE": {
+   "nokta": 4.102896,
+   "ci95_doi_kumeli": [
+    3.921094,
+    4.281787
+   ],
+   "ci95_kayit_duzeyi": [
+    4.024383,
+    4.182049
+   ],
+   "bootstrap_std_doi_kumeli": 0.091583
+  }
+ },
+ "not_": "Aralik yalnizca test orneklemesinden gelen belirsizligi yansitir (model sabit); CV kat sapmasi egitim kumesi degiskenligini de icerir, bu aralik onun yerine gecmez."
+}
