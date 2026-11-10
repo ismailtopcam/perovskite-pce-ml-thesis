@@ -1,0 +1,76 @@
+{
+  "ff_median_raw": 0.68,
+  "carpim_pce_korelasyon": 0.960201,
+  "cv": [
+    {
+      "kurulum": "1. sizinti-guvenli (taban)",
+      "ozellik": 77,
+      "R2_mean": 0.411983,
+      "R2_std": 0.013147
+    },
+    {
+      "kurulum": "2. + Voc, Jsc, FF ayri ayri",
+      "ozellik": 80,
+      "R2_mean": 0.93871,
+      "R2_std": 0.005251
+    },
+    {
+      "kurulum": "3. + yalnizca carpim",
+      "ozellik": 78,
+      "R2_mean": 0.920901,
+      "R2_std": 0.012393
+    },
+    {
+      "kurulum": "4. + carpim ve uc degisken",
+      "ozellik": 81,
+      "R2_mean": 0.939312,
+      "R2_std": 0.005602
+    }
+  ],
+  "ozdeslik_tarama_yonune_gore": {
+    "Reversed": {
+      "n": 36135,
+      "r": 0.963549,
+      "bagil_fark_medyan": 0.002952,
+      "yuzde1_icinde_pay": 0.780462
+    },
+    "Stabilised": {
+      "n": 3215,
+      "r": 0.907475,
+      "bagil_fark_medyan": 0.037761,
+      "yuzde1_icinde_pay": 0.161742
+    },
+    "Forward": {
+      "n": 695,
+      "r": 0.946135,
+      "bagil_fark_medyan": 0.004017,
+      "yuzde1_icinde_pay": 0.707914
+    }
+  },
+  "ozdeslik_alt_kume_cv": [
+    {
+      "alt_kume": "tum kayitlar",
+      "n": 41485,
+      "R2_mean": 0.93871,
+      "R2_std": 0.005251
+    },
+    {
+      "alt_kume": "stabilize haric",
+      "n": 38152,
+      "R2_mean": 0.943304,
+      "R2_std": 0.007659
+    },
+    {
+      "alt_kume": "stabilize + eksik JV haric",
+      "n": 36848,
+      "R2_mean": 0.967125,
+      "R2_std": 0.01198
+    },
+    {
+      "alt_kume": "ozdeslik %1 icinde",
+      "n": 29214,
+      "R2_mean": 0.999236,
+      "R2_std": 8.8e-05
+    }
+  ]
+}

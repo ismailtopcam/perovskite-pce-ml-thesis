@@ -1,0 +1,56 @@
+{
+ "dagilim": {
+  "Reversed": 37424,
+  "Stabilised": 3333,
+  "Forward": 728
+ },
+ "pay": {
+  "Reversed": 0.9021,
+  "Stabilised": 0.0803,
+  "Forward": 0.0175
+ },
+ "pce_protokole_gore": {
+  "count": {
+   "Forward": 728,
+   "Reversed": 37424,
+   "Stabilised": 3333
+  },
+  "mean": {
+   "Forward": 10.041,
+   "Reversed": 11.84,
+   "Stabilised": 14.662
+  },
+  "median": {
+   "Forward": 10.6,
+   "Reversed": 12.5,
+   "Stabilised": 15.7
+  }
+ },
+ "cv": [
+  {
+   "kurulum": "tam kume (taban cizgisi)",
+   "n": 41485,
+   "R2_mean": 0.411983,
+   "R2_std": 0.013147
+  },
+  {
+   "kurulum": "yalnizca ters tarama",
+   "n": 37424,
+   "R2_mean": 0.402059,
+   "R2_std": 0.027025
+  },
+  {
+   "kurulum": "ters + stabilize (ileri haric)",
+   "n": 40757,
+   "R2_mean": 0.410241,
+   "R2_std": 0.017458
+  },
+  {
+   "kurulum": "tam kume + tarama yonu kovaryati (+3)",
+   "n": 41485,
+   "R2_mean": 0.42153,
+   "R2_std": 0.012578
+  }
+ ],
+ "not_": "Protokol: 5 kat DOI-grup CV, CatBoost; isik_siddeti_denetimi.py ile ayni."
+}

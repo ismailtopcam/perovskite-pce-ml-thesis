@@ -1,0 +1,189 @@
+{
+  "n_sample": 3000,
+  "seed": 42,
+  "sutun_ilk10": [
+    {
+      "ozellik": "A_FA",
+      "mean_abs_shap": 0.8898699728747601,
+      "blok": "A-site kompozisyon"
+    },
+    {
+      "ozellik": "solv_DMF__DMSO",
+      "mean_abs_shap": 0.7058677524559406,
+      "blok": "Cozucu sistemi"
+    },
+    {
+      "ozellik": "B_Pb",
+      "mean_abs_shap": 0.42563218837211697,
+      "blok": "B-site kompozisyon"
+    },
+    {
+      "ozellik": "HTL_none",
+      "mean_abs_shap": 0.36740764206547327,
+      "blok": "HTL"
+    },
+    {
+      "ozellik": "anneal_time",
+      "mean_abs_shap": 0.27891604215269605,
+      "blok": "Tavlama suresi (+eksiklik)"
+    },
+    {
+      "ozellik": "A_MA",
+      "mean_abs_shap": 0.27357445324169993,
+      "blok": "A-site kompozisyon"
+    },
+    {
+      "ozellik": "HTL_PEDOT_PSS",
+      "mean_abs_shap": 0.27085278964582643,
+      "blok": "HTL"
+    },
+    {
+      "ozellik": "HTL_Spiro_MeOTAD",
+      "mean_abs_shap": 0.2682932915425377,
+      "blok": "HTL"
+    },
+    {
+      "ozellik": "solv_DMF____IPA",
+      "mean_abs_shap": 0.18699670384349282,
+      "blok": "Cozucu sistemi"
+    },
+    {
+      "ozellik": "solv_DMF",
+      "mean_abs_shap": 0.18489451358201703,
+      "blok": "Cozucu sistemi"
+    }
+  ],
+  "blok": [
+    {
+      "blok": "Cozucu sistemi",
+      "sutun_ort_toplami": 1.49225631742897,
+      "sutun_sayisi": 16,
+      "en_buyuk_sutun": 0.7058677524559406,
+      "grup_mean_abs_shap": 0.9791669984294754,
+      "pay_grup": 0.2044,
+      "pay_sutun_toplami": 0.2273,
+      "sisme_orani": 1.524
+    },
+    {
+      "blok": "HTL",
+      "sutun_ort_toplami": 1.2989062071183768,
+      "sutun_sayisi": 16,
+      "en_buyuk_sutun": 0.36740764206547327,
+      "grup_mean_abs_shap": 0.8899956444327263,
+      "pay_grup": 0.1858,
+      "pay_sutun_toplami": 0.1979,
+      "sisme_orani": 1.459
+    },
+    {
+      "blok": "A-site kompozisyon",
+      "sutun_ort_toplami": 1.34512122833817,
+      "sutun_sayisi": 6,
+      "en_buyuk_sutun": 0.8898699728747601,
+      "grup_mean_abs_shap": 0.86889454245396,
+      "pay_grup": 0.1814,
+      "pay_sutun_toplami": 0.2049,
+      "sisme_orani": 1.548
+    },
+    {
+      "blok": "B-site kompozisyon",
+      "sutun_ort_toplami": 0.45124950016949883,
+      "sutun_sayisi": 4,
+      "en_buyuk_sutun": 0.42563218837211697,
+      "grup_mean_abs_shap": 0.4423825974766035,
+      "pay_grup": 0.0923,
+      "pay_sutun_toplami": 0.0687,
+      "sisme_orani": 1.02
+    },
+    {
+      "blok": "ETL",
+      "sutun_ort_toplami": 0.6890582918451493,
+      "sutun_sayisi": 16,
+      "en_buyuk_sutun": 0.1734664920543016,
+      "grup_mean_abs_shap": 0.39585283502476976,
+      "pay_grup": 0.0826,
+      "pay_sutun_toplami": 0.105,
+      "sisme_orani": 1.741
+    },
+    {
+      "blok": "Tavlama suresi (+eksiklik)",
+      "sutun_ort_toplami": 0.33119458735629187,
+      "sutun_sayisi": 2,
+      "en_buyuk_sutun": 0.27891604215269605,
+      "grup_mean_abs_shap": 0.3043716960466677,
+      "pay_grup": 0.0635,
+      "pay_sutun_toplami": 0.0505,
+      "sisme_orani": 1.088
+    },
+    {
+      "blok": "X-site kompozisyon",
+      "sutun_ort_toplami": 0.27286847291037325,
+      "sutun_sayisi": 4,
+      "en_buyuk_sutun": 0.17976647937969747,
+      "grup_mean_abs_shap": 0.2686312716499762,
+      "pay_grup": 0.0561,
+      "pay_sutun_toplami": 0.0416,
+      "sisme_orani": 1.016
+    },
+    {
+      "blok": "Band gap (+eksiklik)",
+      "sutun_ort_toplami": 0.19614394387368134,
+      "sutun_sayisi": 2,
+      "en_buyuk_sutun": 0.1626649894859304,
+      "grup_mean_abs_shap": 0.17714278225262767,
+      "pay_grup": 0.037,
+      "pay_sutun_toplami": 0.0299,
+      "sisme_orani": 1.107
+    },
+    {
+      "blok": "Tavlama sicakligi (+eksiklik)",
+      "sutun_ort_toplami": 0.19150696916982385,
+      "sutun_sayisi": 2,
+      "en_buyuk_sutun": 0.16913639567959707,
+      "grup_mean_abs_shap": 0.17384768771007092,
+      "pay_grup": 0.0363,
+      "pay_sutun_toplami": 0.0292,
+      "sisme_orani": 1.102
+    },
+    {
+      "blok": "Hucre mimarisi",
+      "sutun_ort_toplami": 0.12033554208764391,
+      "sutun_sayisi": 7,
+      "en_buyuk_sutun": 0.0807005217559105,
+      "grup_mean_abs_shap": 0.11399961470813004,
+      "pay_grup": 0.0238,
+      "pay_sutun_toplami": 0.0183,
+      "sisme_orani": 1.056
+    },
+    {
+      "blok": "Yari saydamlik",
+      "sutun_ort_toplami": 0.1031337280581901,
+      "sutun_sayisi": 1,
+      "en_buyuk_sutun": 0.1031337280581901,
+      "grup_mean_abs_shap": 0.10313372805819011,
+      "pay_grup": 0.0215,
+      "pay_sutun_toplami": 0.0157,
+      "sisme_orani": 1.0
+    },
+    {
+      "blok": "Esneklik",
+      "sutun_ort_toplami": 0.0729507726541654,
+      "sutun_sayisi": 1,
+      "en_buyuk_sutun": 0.0729507726541654,
+      "grup_mean_abs_shap": 0.07295077265416547,
+      "pay_grup": 0.0152,
+      "pay_sutun_toplami": 0.0111,
+      "sisme_orani": 1.0
+    }
+  ],
+  "deney_c_grup_mean_abs_shap": {
+    "kompozisyon": 1.094969,
+    "cihaz": 1.146088,
+    "surec": 1.122096
+  },
+  "deney_c_pay": {
+    "kompozisyon": 0.3256,
+    "cihaz": 0.3408,
+    "surec": 0.3336
+  },
+  "olcut_notu": "Birincil olcut: ornek bazinda blok-ici SHAP toplaminin mutlak deger ortalamasi; sutun_ort_toplami cok sutunlu bloklari sisirdigi icin yalnizca karsilastirma icindir."
+}

@@ -1,0 +1,187 @@
+{
+  "D0_DOI_grup": {
+    "r2_mean": 0.4119825290369234,
+    "r2_std": 0.013146571401179788,
+    "mae_mean": 3.1205922506285733,
+    "rmse_mean": 4.017186401528514,
+    "fold_r2": [
+      0.3914,
+      0.42,
+      0.4257,
+      0.4211,
+      0.4017
+    ],
+    "n_groups": 7353
+  },
+  "D1_recete_grup": {
+    "r2_mean": 0.4342903409999323,
+    "r2_std": 0.02342506010979282,
+    "mae_mean": 3.058120218312446,
+    "rmse_mean": 3.9397419201354382,
+    "fold_r2": [
+      0.4497,
+      0.4531,
+      0.4289,
+      0.449,
+      0.3907
+    ],
+    "n_groups": 10310
+  },
+  "D2_recete_DOI_bilesen": {
+    "r2_mean": 0.4231251195674611,
+    "r2_std": 0.09086818062763767,
+    "mae_mean": 3.1078116316307423,
+    "rmse_mean": 3.9993353370145748,
+    "fold_r2": [
+      0.2517,
+      0.4082,
+      0.4869,
+      0.4772,
+      0.4916
+    ],
+    "n_groups": 4044
+  },
+  "M3_ayni_evren": {
+    "n_covered": 17409,
+    "n_recipes": 1248,
+    "model_rmse_all_records": 4.0174,
+    "model_rmse_covered": 4.0534,
+    "model_mae_covered": 3.1706,
+    "floor_rmse_covered": 3.6419,
+    "gap_same_universe": 0.4115,
+    "gap_thesis_style": 0.3755,
+    "var_covered": 22.9882,
+    "ceiling_r2_within_covered": 0.423,
+    "model_r2_covered": 0.2853
+  },
+  "D0_gorulmemis_recete": {
+    "test_payi_min": 0.5921,
+    "test_payi_max": 0.6149,
+    "ozet": {
+      "gorulmemis_recete": {
+        "n": 24894.0,
+        "MAE": 3.0942,
+        "RMSE": 4.0023,
+        "varyans": 30.3756,
+        "R2": 0.4718
+      },
+      "gorulmus_recete": {
+        "n": 16591.0,
+        "MAE": 3.1617,
+        "RMSE": 4.0402,
+        "varyans": 22.9099,
+        "R2": 0.2869
+      }
+    },
+    "kat_bazinda": [
+      {
+        "kat": 0,
+        "alt_kume": "gorulmemis_recete",
+        "n": 5000,
+        "test_n": 8297,
+        "MAE": 3.1418,
+        "RMSE": 4.0514,
+        "varyans": 28.8398,
+        "R2": 0.4307
+      },
+      {
+        "kat": 0,
+        "alt_kume": "gorulmus_recete",
+        "n": 3297,
+        "test_n": 8297,
+        "MAE": 3.16,
+        "RMSE": 3.9774,
+        "varyans": 23.1558,
+        "R2": 0.3166
+      },
+      {
+        "kat": 1,
+        "alt_kume": "gorulmemis_recete",
+        "n": 4948,
+        "test_n": 8297,
+        "MAE": 3.0837,
+        "RMSE": 3.9805,
+        "varyans": 31.1561,
+        "R2": 0.4914
+      },
+      {
+        "kat": 1,
+        "alt_kume": "gorulmus_recete",
+        "n": 3349,
+        "test_n": 8297,
+        "MAE": 3.1044,
+        "RMSE": 4.0284,
+        "varyans": 22.0737,
+        "R2": 0.2646
+      },
+      {
+        "kat": 2,
+        "alt_kume": "gorulmemis_recete",
+        "n": 4913,
+        "test_n": 8297,
+        "MAE": 3.0958,
+        "RMSE": 3.9944,
+        "varyans": 31.3559,
+        "R2": 0.4911
+      },
+      {
+        "kat": 2,
+        "alt_kume": "gorulmus_recete",
+        "n": 3384,
+        "test_n": 8297,
+        "MAE": 3.1435,
+        "RMSE": 3.9761,
+        "varyans": 22.3507,
+        "R2": 0.2925
+      },
+      {
+        "kat": 3,
+        "alt_kume": "gorulmemis_recete",
+        "n": 5102,
+        "test_n": 8297,
+        "MAE": 2.9801,
+        "RMSE": 3.8952,
+        "varyans": 29.0513,
+        "R2": 0.4776
+      },
+      {
+        "kat": 3,
+        "alt_kume": "gorulmus_recete",
+        "n": 3195,
+        "test_n": 8297,
+        "MAE": 3.2219,
+        "RMSE": 4.1014,
+        "varyans": 23.7839,
+        "R2": 0.2925
+      },
+      {
+        "kat": 4,
+        "alt_kume": "gorulmemis_recete",
+        "n": 4931,
+        "test_n": 8297,
+        "MAE": 3.1697,
+        "RMSE": 4.0898,
+        "varyans": 31.475,
+        "R2": 0.4685
+      },
+      {
+        "kat": 4,
+        "alt_kume": "gorulmus_recete",
+        "n": 3366,
+        "test_n": 8297,
+        "MAE": 3.1787,
+        "RMSE": 4.1175,
+        "varyans": 23.1853,
+        "R2": 0.2685
+      }
+    ]
+  },
+  "D2_bilesen_yapisi": {
+    "bilesen_sayisi": 4044,
+    "en_buyuk_bilesen": 13269,
+    "en_buyuk_pay": 0.3199,
+    "tek_kayitlik_bilesen": 392,
+    "kat_r2_min": 0.2517,
+    "kat_r2_max": 0.4916
+  }
+}

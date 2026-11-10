@@ -1,0 +1,36 @@
+{
+  "stage": "stage23_deney_b_carpim",
+  "timestamp_utc": "2026-11-10T00:20:10+00:00",
+  "seed": 42,
+  "target": "JV_default_PCE",
+  "group_col": "Ref_DOI_number",
+  "onehot_top_n": 15,
+  "versions": {
+    "python": "3.13.18",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  },
+  "git": {
+    "commit": "438c2c46aae0dbb06bde015f4690e3f94c35a9fc",
+    "dirty": true
+  },
+  "metrics": {
+    "1. sizinti-guvenli (taban)": 0.411983,
+    "2. + Voc, Jsc, FF ayri ayri": 0.93871,
+    "3. + yalnizca carpim": 0.920901,
+    "4. + carpim ve uc degisken": 0.939312
+  },
+  "outputs": [
+    "outputs/robustness/deney_b_carpim.json"
+  ],
+  "output_hashes": {
+    "outputs/robustness/deney_b_carpim.json": "09320c736981013a2fd3eca82f4abb238a541f77bc9056709abd5d34e0ba8307"
+  }
+}

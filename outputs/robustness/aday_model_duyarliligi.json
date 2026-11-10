@@ -1,0 +1,65 @@
+{
+  "holdout_performance": {
+    "CatBoost": {
+      "holdout_r2": 0.3936,
+      "holdout_mae": 3.1503
+    },
+    "HistGBM": {
+      "holdout_r2": 0.3909,
+      "holdout_mae": 3.1476
+    },
+    "XGBoost": {
+      "holdout_r2": 0.3834,
+      "holdout_mae": 3.1468
+    },
+    "LightGBM": {
+      "holdout_r2": 0.3884,
+      "holdout_mae": 3.1223
+    }
+  },
+  "spearman_rho": {
+    "CatBoost": {
+      "CatBoost": 1.0,
+      "HistGBM": 0.9269,
+      "XGBoost": 0.9485,
+      "LightGBM": 0.8833
+    },
+    "HistGBM": {
+      "CatBoost": 0.9269,
+      "HistGBM": 1.0,
+      "XGBoost": 0.9482,
+      "LightGBM": 0.9311
+    },
+    "XGBoost": {
+      "CatBoost": 0.9485,
+      "HistGBM": 0.9482,
+      "XGBoost": 1.0,
+      "LightGBM": 0.9221
+    },
+    "LightGBM": {
+      "CatBoost": 0.8833,
+      "HistGBM": 0.9311,
+      "XGBoost": 0.9221,
+      "LightGBM": 1.0
+    }
+  },
+  "topk_overlap": {
+    "CatBoost_vs_HistGBM_top10": 7,
+    "CatBoost_vs_XGBoost_top10": 6,
+    "CatBoost_vs_LightGBM_top10": 6,
+    "CatBoost_vs_ortalama_top10": 7,
+    "CatBoost_vs_HistGBM_top30": 23,
+    "CatBoost_vs_XGBoost_top30": 20,
+    "CatBoost_vs_LightGBM_top30": 20,
+    "CatBoost_vs_ortalama_top30": 24
+  },
+  "candidate_ceiling": {
+    "CatBoost": 17.946,
+    "HistGBM": 17.9992,
+    "XGBoost": 18.7422,
+    "LightGBM": 18.6559
+  },
+  "ensemble_ceiling": 18.2912,
+  "max_disagreement_points": 1.657,
+  "mean_disagreement_points": 0.5909
+}

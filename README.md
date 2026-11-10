@@ -109,6 +109,11 @@ python scripts/15_ek_denetimler.py          # eşleştirilmiş CatBoost-HistGBM 
 python scripts/16_nested_dogrulama.py       # v0.4.0 (1-C): iç-içe (nested) grup-CV + mühürlü holdout protokolü
 python scripts/17_gurultu_tabani_v2.py      # v0.4.0 (1-C): gürültü tabanı — aynı-evren sınırları, yayın-ağırlıklı, reçete-tanımı duyarlılığı
 python scripts/18_group_conformal.py        # v0.4.0 (1-C): group-conformal (DOI değişebilirlik birimi) + yayın-ağırlıklı kapsama
+python scripts/19_recete_grup_ve_taban.py   # tez v118: reçete-grup bölmesi, D0 katlarında görülmemiş reçete hatası, reçete+DOI bileşen yapısı, gürültü tabanının aynı evrende kıyası (Bölüm 5.1, 5.2)
+python scripts/20_aday_model_duyarliligi.py # tez v118: 756 adayın dört GBM ile puanlanması; Spearman ρ, ilk-k örtüşmesi, 4-model ortalaması (Bölüm 5.7, Tablo 4.8)
+python scripts/21_blok_shap.py              # tez v118: değişken düzeyinde toplanmış SHAP (örnek bazında blok toplamı) + Deney C grup payları (Bölüm 4.4)
+python scripts/22_lab_grup_denetimi.py      # tez v118: baş yazar vekiliyle laboratuvar düzeyi gruplama (Bölüm 5.7; üst sınır DEĞİL)
+python scripts/23_deney_b_carpim.py         # tez v118: Deney B — çarpım özelliği ve cebirsel özdeşliğin kırılma kaynakları (Bölüm 4.3)
 python scripts/thesis_data_analysis.py data/processed/model_ready_dataset.csv --out outputs/robustness/thesis_data_analysis.json
                                             # betimsel istatistik: DOI-grup dağılımı, gürültü tabanı (Tablo 5.1; taban RMSE hem √(SS_w/n) hem dof-düzeltmeli), band gap (ML yok); --out ile JSON
 python scripts/thesis_figures.py            # tez veri şekillerinin (4.1-4.7, 4.12, 4.13) repo içinden yeniden üretimi -> outputs/figures/
@@ -133,6 +138,7 @@ python aday_mimari_yigin_tutarliligi.py  # 'pin' etiketli kayıtlarda yığın d
 python tarama_bootstrap.py               # Spearman ve ilk-k zenginleştirme için DOI-kümeli bootstrap %95 aralıkları (Bölüm 4.6) -> outputs/robustness/tarama_bootstrap.json
 python aday_izgara_destegi.py            # aday A-site ızgara noktalarının model-hazır/eğitim kümesinde temsil sayıları; Saliba vd. (2016) reçetesi (Bölüm 3.12, 4.5) -> outputs/robustness/aday_izgara_destegi.json
 python veri_baglam_denetimleri.py        # temiz kümenin yıl kapsamı, tarama yönü farkları, boyutluluk/ABX3 bayrakları, kurşunsuz B-site dağılımı, band gap ve tavlama bağlam medyanları (Bölüm 3.1, 3.3, 3.5, 3.12, 4.4, 5.4, 5.6, 5.7) -> outputs/robustness/veri_baglam_denetimleri.json
+python tarama_yonu_denetimi.py           # hedefin tarama yönü heterojenliğinin başarıma etkisi: yalnızca ters tarama ve tarama yönü kovaryatı ile DOI-grup CV (Bölüm 5.7) -> outputs/robustness/tarama_yonu_denetimi.json
 ```
 
 ## DOI-grup denetim betikleri
@@ -198,6 +204,8 @@ arşivinde (10.5281/zenodo.21870009) bulunmazlar, ana dalda bulunurlar:
 v0.4.0'dan sonra eklenen kök denetim betikleri ve çıktıları da yalnızca ana daldadır:
 `aday_mimari_yigin_tutarliligi.py` ve `scripts/thesis_data_analysis.py --out` (17 Ekim 2026; Tablo 5.1'in
 serbestlik derecesi düzeltmeli taban RMSE sütunu bu sürümden gelir) ile `isik_siddeti_denetimi.py`, `bandgap_kestirim_temeli.py`, `tarama_bootstrap.py`, `aday_izgara_destegi.py` ve `veri_baglam_denetimleri.py` (9 Kasım 2026).
+
+Tez v118 ek denetimleri — `scripts/19_recete_grup_ve_taban.py`, `scripts/20_aday_model_duyarliligi.py`, `scripts/21_blok_shap.py`, `scripts/22_lab_grup_denetimi.py`, `scripts/23_deney_b_carpim.py` ve kök denetimi `tarama_yonu_denetimi.py` — özet çıktıları (`outputs/robustness/`) ve manifestleriyle (`outputs/manifests/manifest_stage19`–`23_*.json`) birlikte 10 Kasım 2026'da ana dala girmiştir. Bu betikler Python 3.13.18 ortamında koşulmuştur (numpy 2.5.4, pandas 3.1.1, scikit-learn 1.9.1, scipy 1.18.1, CatBoost 1.2.10, XGBoost 3.2.0, LightGBM 4.6.0, SHAP 0.51.0); bu ortamda DOI-grup CV taban çizgisi R² = 0,412 ± 0,013'tür (tezde raporlanan 0,410 ± 0,016 ile kat gürültüsü içinde; tez Bölüm 3.15). Manifestlerin `git.commit` alanı, betikler henüz commit'lenmemişken çalışılan ağacın üst commit'ini (`438c2c4`, `dirty: true`) gösterir. Kat dışı tahmin dosyası `outputs/robustness/d0_oof_tahminler.csv` (~1,6 MB) sürüm kontrolüne alınmaz; `scripts/19_recete_grup_ve_taban.py` ile yeniden üretilir.
 
 Not: Depo geçmişi 17 Ekim 2026'da yalnızca commit üst verisi (yazar kimliği, mesaj sonundaki araç satırları) için yeniden yazılmıştır; ağaç içerikleri ve dosya özetleri değişmemiştir. Manifestler yeniden yazımdan önceki commit kimliğini (d6ce55f) kaydeder; bunun yeni karşılığı 6eba260, tezin atıf yaptığı v0.4.0 sürümünün eski kimliği f65ed93, yeni kimliği f2bf182'dir.
 

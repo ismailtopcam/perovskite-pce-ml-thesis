@@ -1,0 +1,37 @@
+{
+  "stage": "stage19_recete_grup_ve_taban",
+  "timestamp_utc": "2026-11-10T00:08:57+00:00",
+  "seed": 42,
+  "target": "JV_default_PCE",
+  "group_col": "Ref_DOI_number",
+  "onehot_top_n": 15,
+  "versions": {
+    "python": "3.13.18",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  },
+  "git": {
+    "commit": "438c2c46aae0dbb06bde015f4690e3f94c35a9fc",
+    "dirty": true
+  },
+  "metrics": {
+    "D0_DOI_grup": 0.412,
+    "D1_recete_grup": 0.4343,
+    "D2_recete_DOI_bilesen": 0.4231,
+    "M3_gap_same_universe": 0.4115,
+    "D2_en_buyuk_bilesen_payi": 0.3199
+  },
+  "outputs": [
+    "outputs/robustness/recete_grup_ve_taban.json"
+  ],
+  "output_hashes": {
+    "outputs/robustness/recete_grup_ve_taban.json": "fe49e0b58b9131de514203aac31950b75f483a7821804a4ebc428773c7e248de"
+  }
+}

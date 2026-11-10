@@ -1,0 +1,26 @@
+{
+  "n_author_groups": 1484,
+  "n_doi_groups": 7353,
+  "n_missing_author": 0,
+  "largest_author_group": 1944,
+  "largest_author_share": 0.0469,
+  "dois_per_author_median": 1.0,
+  "dois_per_author_max": 345,
+  "multi_pub_authors": 639,
+  "cv": [
+    {
+      "kurulum": "DOI-grup (taban cizgisi)",
+      "grup_sayisi": 7353,
+      "R2_mean": 0.411983,
+      "R2_std": 0.013147
+    },
+    {
+      "kurulum": "bas yazar grubu (lab vekili)",
+      "grup_sayisi": 1484,
+      "R2_mean": 0.405323,
+      "R2_std": 0.026493
+    }
+  ],
+  "lab_doi_r2_farki": 0.0067,
+  "not_": "Fark bir ust sinir degildir; bas yazar vekili iki yonde de kusurludur."
+}

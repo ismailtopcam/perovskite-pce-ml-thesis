@@ -43,6 +43,12 @@ SUPP = [
     "16_nested_dogrulama.py",
     "17_gurultu_tabani_v2.py",
     "18_group_conformal.py",
+    # tez v118 ek denetimleri (Bolum 4.3, 4.4, 5.1, 5.2, 5.7)
+    "19_recete_grup_ve_taban.py",
+    "20_aday_model_duyarliligi.py",
+    "21_blok_shap.py",
+    "22_lab_grup_denetimi.py",
+    "23_deney_b_carpim.py",
 ]
 
 

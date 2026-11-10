@@ -26,6 +26,7 @@ Kapsam (tez bolum referanslariyla):
   - tarama_bootstrap.py              : Spearman ve ilk-k zenginlestirme icin DOI-kumeli bootstrap araliklari (Bolum 4.6)
   - aday_izgara_destegi.py           : aday A-site izgara noktalarinin veri destegi; Saliba recetesi (Bolum 3.12, 4.5)
   - veri_baglam_denetimleri.py       : yil kapsami, tarama yonu, boyutluluk, kursunsuz B-site, band gap/tavlama baglami (Bolum 3.1-5.7)
+  - tarama_yonu_denetimi.py          : hedefin tarama yonu heterojenliginin basarima etkisi (yalnizca ters tarama; tarama yonu kovaryati) (Bolum 5.7)
 
 Bir denetim basarisiz olursa (cikis kodu != 0) calisma durur.
 """
@@ -56,6 +57,7 @@ AUDITS = [
     "tarama_bootstrap.py",
     "aday_izgara_destegi.py",
     "veri_baglam_denetimleri.py",
+    "tarama_yonu_denetimi.py",
 ]
 
 

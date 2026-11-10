@@ -1,0 +1,33 @@
+{
+  "stage": "stage22_lab_grup",
+  "timestamp_utc": "2026-11-10T00:10:01+00:00",
+  "seed": 42,
+  "target": "JV_default_PCE",
+  "group_col": "Ref_DOI_number",
+  "onehot_top_n": 15,
+  "versions": {
+    "python": "3.13.18",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  },
+  "git": {
+    "commit": "438c2c46aae0dbb06bde015f4690e3f94c35a9fc",
+    "dirty": true
+  },
+  "metrics": {
+    "lab_doi_r2_farki": 0.0067
+  },
+  "outputs": [
+    "outputs/robustness/lab_grup_denetimi.json"
+  ],
+  "output_hashes": {
+    "outputs/robustness/lab_grup_denetimi.json": "d4b8b32a1dcf8f4acb4de2b395464710367b5377bce0425e007a7444d3898530"
+  }
+}
