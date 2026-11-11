@@ -3,6 +3,9 @@
 Tezdeki 13 sekilden dordu zaten hat betiklerince uretilir (4.8/4.9 SHAP -> scripts/05,
 4.10 kazanc egrisi -> scripts/07, 4.11 sacilim -> scripts/03). Bu betik geri kalan
 VERI sekillerinin esdegerlerini uretir; Sekil 3.1 (mimari semasi) veri sekli degildir.
+Sekil 3.1 ile 4.8/4.9'un tezdeki Turkce surumleri scripts/tez_sekilleri_ek.py'dedir.
+Sayilar Turkce gosterimle yazilir (tez v120): ondalik virgul, binlik nokta (_save ->
+_tr_eksenler; metin icindeki sayilar _ondalik / _tr ile).
 
   Sekil 4.1  PCE dagilimi                      <- data/processed/model_ready_dataset.csv
   Sekil 4.2  A-site katyon oranlari            <- model_ready
@@ -25,6 +28,7 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib import ticker
 
 # Sekil ici yazilar tez kilavuzu geregi Times New Roman (mathtext: STIX serif eslenigi)
 plt.rcParams["font.family"] = "Times New Roman"
@@ -44,7 +48,50 @@ def _tr(n):
     return f"{n:,}".replace(",", ".")
 
 
+def _ondalik(x, basamak):
+    """Ondalik ayirici olarak virgul (Turkce gosterim): 12.031 -> '12,03'."""
+    return f"{x:.{basamak}f}".replace(".", ",")
+
+
+def _tr_sayi_metni(s):
+    """Eksen etiketini Turkce gosterime cevirir: '0.2' -> '0,2', '25000' -> '25.000'."""
+    isaret = ""
+    if s[:1] in ("\u2212", "-"):
+        isaret, s = s[0], s[1:]
+    tam, _, kesir = s.partition(".")
+    if tam.isdigit() and len(tam) >= 4:
+        tam = _tr(int(tam))
+    return isaret + tam + ("," + kesir if kesir else "")
+
+
+class _TrFormatter(ticker.ScalarFormatter):
+    """ScalarFormatter'in sectigi basamak sayisini korur, yalnizca ayiricilari Turkcelestirir."""
+
+    def __call__(self, x, pos=None):
+        return _tr_sayi_metni(super().__call__(x, pos))
+
+
+def _tr_eksenler(fig):
+    """Dogrusal sayisal eksenlere Turkce bicim uygular; log ve elle etiketlenmis eksenlere dokunmaz."""
+    for ax in fig.axes:
+        for eksen in (ax.xaxis, ax.yaxis):
+            if type(eksen.get_major_formatter()) is ticker.ScalarFormatter:
+                eksen.set_major_formatter(_TrFormatter())
+
+
+# Sekil 4.4: veri tabani kategori adlarinin tezdeki yazimi (Tablo 4.6, Sekil 4.8 ile ayni)
+_KATEGORI_TR = {"nip": "n-i-p", "pin": "p-i-n", "Back contacted": "Arka kontakl\u0131",
+                "Front contacted": "\u00d6n kontakl\u0131", "Unknown": "Bilinmiyor", "none": "Yok"}
+
+
+def _kategori_adi(t):
+    if t in _KATEGORI_TR:
+        return _KATEGORI_TR[t]
+    return t.replace("TiO2", "TiO\u2082").replace(" | ", "|")
+
+
 def _save(fig, outdir, name, made):
+    _tr_eksenler(fig)
     fig.tight_layout()
     path = outdir / name
     fig.savefig(path, dpi=DPI)
@@ -74,9 +121,9 @@ def main():
         ax.hist(pce, bins=np.arange(0, 36, 0.5), color=MAVI,
                 edgecolor="white", linewidth=0.4)
         ax.axvline(pce.mean(), color=TURUNCU, linestyle="--", linewidth=2.2,
-                   label=f"Ortalama = {pce.mean():.2f}")
+                   label=f"Ortalama = {_ondalik(pce.mean(), 2)}")
         ax.axvline(pce.median(), color="black", linestyle=":", linewidth=2.2,
-                   label=f"Medyan = {pce.median():.2f}")
+                   label=f"Medyan = {_ondalik(pce.median(), 2)}")
         ax.set_xlabel("PCE (%)"); ax.set_ylabel("H\u00fccre say\u0131s\u0131")
         ax.legend()
         _save(fig, outdir, "sekil_4_01_pce_dagilimi.png", made)
@@ -101,7 +148,7 @@ def main():
                      edgecolor="white", linewidth=0.4)
         axes[0].set_xlabel("Band gap (eV)")
         axes[0].set_ylabel("Kay\u0131t say\u0131s\u0131")
-        axes[0].set_title(f"Band gap da\u011f\u0131l\u0131m\u0131 (doldurmas\u0131z, n={len(obs)})")
+        axes[0].set_title(f"Band gap da\u011f\u0131l\u0131m\u0131 (doldurmas\u0131z, n = {_tr(len(obs))})")
         axes[0].set_xlim(1.0, 2.5)
         bins = np.arange(1.1, 2.5 + 1e-9, 0.1)
         grp = obs.groupby(pd.cut(bg, bins), observed=False)[tgt].agg(["mean", "count"])
@@ -111,7 +158,7 @@ def main():
                      linewidth=3, markersize=9)
         axes[1].set_xlabel("Band gap (eV)")
         axes[1].set_ylabel("Ortalama PCE (%)")
-        axes[1].set_title("Band gap'e g\u00f6re ortalama PCE")
+        axes[1].set_title("Band gap\u2019e g\u00f6re ortalama PCE")
         axes[1].set_xlim(1.0, 2.5)
         _save(fig, outdir, "sekil_4_03_bandgap.png", made)
 
@@ -143,7 +190,7 @@ def main():
         fig, ax = plt.subplots(figsize=(6.37, 2.47))
         bars = ax.barh([n for _, n in satirlar], vals, color=MAVI)
         for b, v in zip(bars, vals):
-            ax.text(v + 0.5, b.get_y() + b.get_height() / 2, f"%{v:.1f}", va="center")
+            ax.text(v + 0.5, b.get_y() + b.get_height() / 2, f"%{_ondalik(v, 1)}", va="center")
         ax.set_xlabel("Doldurma (imputation) uygulanan kay\u0131t oran\u0131 (%)")
         ax.set_xlim(0, max(vals) * 1.2)
         _save(fig, outdir, "sekil_4_06_eksik_oranlar.png", made)
@@ -163,12 +210,12 @@ def main():
             vc = C[col].fillna("Unknown").astype(str).value_counts()
             top = vc.head(5)
             other = int(vc.iloc[5:].sum())
-            etiket = [t.replace("-", " ").replace(":", " ") for t in top.index]
+            etiket = [_kategori_adi(t) for t in top.index]
             deger = list(top.values)
             if len(vc) > 6 and other > 0:
-                etiket.append(f"{kisa} other"); deger.append(other)
+                etiket.append("Di\u011fer"); deger.append(other)
             elif len(vc) == 6:
-                etiket.append(vc.index[5].replace("-", " ").replace(":", " "))
+                etiket.append(_kategori_adi(vc.index[5]))
                 deger.append(int(vc.iloc[5]))
             sirali = sorted(zip(deger, etiket))
             ax.barh([e for _, e in sirali], [v for v, _ in sirali], color=MAVI)
@@ -186,11 +233,12 @@ def main():
     if cmp_path.exists():
         cmp = pd.read_csv(cmp_path).sort_values("R2_mean")
         fig, ax = plt.subplots(figsize=(7.0, 4.2))
-        ax.barh(cmp["model"], cmp["R2_mean"], xerr=cmp["R2_std"],
+        model_adi = cmp["model"].replace({"RandomForest": "Random Forest"})
+        ax.barh(model_adi, cmp["R2_mean"], xerr=cmp["R2_std"],
                 color=MAVI, capsize=4)
         for y, (r2, sd) in enumerate(zip(cmp["R2_mean"], cmp["R2_std"])):
-            ax.text(r2 + sd + 0.012, y, f"{r2:.3f}", va="center")
-        ax.set_xlabel("GroupKFold CV R\u00b2 (5-kat, ortalama \u00b1 std)")
+            ax.text(r2 + sd + 0.012, y, _ondalik(r2, 3), va="center")
+        ax.set_xlabel("GroupKFold CV R\u00b2 (5 katl\u0131; ortalama \u00b1 standart sapma)")
         ax.set_xlim(0, 0.5)
         _save(fig, outdir, "sekil_4_07_model_karsilastirma.png", made)
     else:
@@ -210,7 +258,7 @@ def main():
     else:
         skipped.append("4.12")
 
-    # Sekil 4.13 — hedeflenen vs gozlenen kapsama (sol) + 60 orneklik aralik (sag)
+    # Sekil 4.13 — hedeflenen ve gozlenen kapsama (sol) + 60 orneklik aralik (sag)
     conf_path = outputs / "conformal" / "conformal_summary.csv"
     hold_path = outputs / "v4" / "best_model_holdout_predictions.csv"
     if conf_path.exists() and hold_path.exists():
@@ -227,7 +275,7 @@ def main():
                     label="G\u00f6zlenen", color=TURUNCU)
         axes[0].set_xticks(xs); axes[0].set_xticklabels(etik)
         axes[0].set_ylabel("Kapsama (%)"); axes[0].set_ylim(60, 100)
-        axes[0].set_title("Hedeflenen vs g\u00f6zlenen kapsama")
+        axes[0].set_title("Hedeflenen ve g\u00f6zlenen kapsama")
         axes[0].legend()
         hw90 = hw.get(90, list(hw.values())[0])
         H = pd.read_csv(hold_path)
