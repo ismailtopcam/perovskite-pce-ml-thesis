@@ -117,6 +117,7 @@ python scripts/23_deney_b_carpim.py         # tez v118: Deney B — çarpım öz
 python scripts/thesis_data_analysis.py data/processed/model_ready_dataset.csv --out outputs/robustness/thesis_data_analysis.json
                                             # betimsel istatistik: DOI-grup dağılımı, gürültü tabanı (Tablo 5.1; taban RMSE hem √(SS_w/n) hem dof-düzeltmeli), band gap (ML yok); --out ile JSON
 python scripts/thesis_figures.py            # tez veri şekillerinin (4.1-4.7, 4.12, 4.13) repo içinden yeniden üretimi -> outputs/figures/
+python scripts/tez_sekilleri_ek.py          # tez v119: Şekil 3.1 (hat şeması), 4.8 ve 4.9 (SHAP; özellik adları Tablo 4.6 ile aynı) -> outputs/figures/
 ```
 
 Tez gövdesinde anılan kök-dizin denetim betikleri (tamamı: `python run_thesis_audits.py`; sıra tez Ek A ile aynı; çıktıları sürüm kontrolünde):
