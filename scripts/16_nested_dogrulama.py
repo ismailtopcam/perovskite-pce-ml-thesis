@@ -31,7 +31,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from perovskite_ml.config import load_config
 from perovskite_ml.models.registry import build_models
-from perovskite_ml.validation.splits import holdout_split
+from perovskite_ml.validation.splits import holdout_split, group_kfold
 from perovskite_ml.utils.manifest import write_manifest
 
 INNER_SPLITS = 3
@@ -47,7 +47,7 @@ def scores(y_true, y_pred):
 
 def cv_r2(model, X, y, groups, n_splits):
     vals = []
-    for tri, vai in GroupKFold(n_splits=n_splits).split(X, y, groups):
+    for tri, vai in group_kfold(X, y, groups, n_splits):
         m = clone(model)
         m.fit(X.iloc[tri], y[tri])
         vals.append(r2_score(y[vai], m.predict(X.iloc[vai])))
@@ -90,7 +90,7 @@ def main():
 
     # ---------- (b) Nested CV ----------
     outer_rows = []
-    for k, (otr, ote) in enumerate(GroupKFold(n_splits=OUTER_SPLITS).split(X, y, groups), 1):
+    for k, (otr, ote) in enumerate(group_kfold(X, y, groups, OUTER_SPLITS), 1):
         Xo, yo, go = X.iloc[otr], y[otr], groups[otr]
         best_name, best_r2 = None, -np.inf
         for name, model in build_models(seed).items():

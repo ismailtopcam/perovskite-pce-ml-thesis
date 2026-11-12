@@ -21,6 +21,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from perovskite_ml.config import load_config
 from perovskite_ml.models.registry import build_models
 from perovskite_ml.models.tuning import grouped_cv_r2
+from perovskite_ml.validation.splits import group_kfold
 from perovskite_ml.utils.manifest import write_manifest
 
 
@@ -39,11 +40,10 @@ def main():
                             "Perovskite_deposition_solvents"] if c in C.columns]
     bg = pd.to_numeric(C[bg_col], errors="coerce")
     grp = C[gcol].fillna("nan").astype(str).values
-    gkf = GroupKFold(5)
     gmed = float(bg.median())
     global_top = {c: set(C[c].fillna("unknown").astype(str).value_counts().head(top_n).index) for c in cat_cols}
     inv_rows = []
-    for i, (tr, _) in enumerate(gkf.split(C, groups=grp), 1):
+    for i, (tr, _) in enumerate(group_kfold(C, None, grp, 5), 1):
         row = {"fold": i, "band_gap_train_median": round(float(bg.iloc[tr].median()), 4),
                "band_gap_delta_vs_global": round(float(bg.iloc[tr].median() - gmed), 4)}
         for c in cat_cols:

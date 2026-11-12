@@ -80,7 +80,7 @@ def main():
     model = build_models(seed)["CatBoost"]
     rows = []
     for label, g in [("DOI-grup (taban cizgisi)", doi), ("bas yazar grubu (lab vekili)", author)]:
-        m, s = grouped_cv_r2(model, X, y, g, 5)
+        m, s = grouped_cv_r2(model, X, y, g, 5, atama="kararli")
         rows.append(dict(kurulum=label, grup_sayisi=int(pd.Series(g).nunique()),
                          R2_mean=round(m, 6), R2_std=round(s, 6)))
         print(f"[CV] {label:32s} R2={m:.4f} ± {s:.4f}", flush=True)

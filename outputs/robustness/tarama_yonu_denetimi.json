@@ -31,26 +31,70 @@
    "kurulum": "tam kume (taban cizgisi)",
    "n": 41485,
    "R2_mean": 0.411983,
-   "R2_std": 0.013147
+   "R2_std": 0.013147,
+   "kat_R2": [
+    0.391419,
+    0.420042,
+    0.425684,
+    0.421077,
+    0.401691
+   ]
   },
   {
    "kurulum": "yalnizca ters tarama",
    "n": 37424,
    "R2_mean": 0.402059,
-   "R2_std": 0.027025
+   "R2_std": 0.027025,
+   "kat_R2": [
+    0.388755,
+    0.448319,
+    0.416113,
+    0.374539,
+    0.382568
+   ]
   },
   {
    "kurulum": "ters + stabilize (ileri haric)",
    "n": 40757,
    "R2_mean": 0.410241,
-   "R2_std": 0.017458
+   "R2_std": 0.017458,
+   "kat_R2": [
+    0.40069,
+    0.440524,
+    0.401329,
+    0.390797,
+    0.417867
+   ]
   },
   {
    "kurulum": "tam kume + tarama yonu kovaryati (+3)",
    "n": 41485,
    "R2_mean": 0.42153,
-   "R2_std": 0.012578
+   "R2_std": 0.012578,
+   "kat_R2": [
+    0.401177,
+    0.430861,
+    0.434943,
+    0.427648,
+    0.41302
+   ]
   }
  ],
+ "eslestirilmis": {
+  "karsilastirma": "tam kume + tarama yonu kovaryati − tam kume (ayni katlar)",
+  "kat_farklari": [
+   0.009758,
+   0.010819,
+   0.009259,
+   0.006571,
+   0.011329
+  ],
+  "fark_ortalama": 0.009547,
+  "fark_std": 0.001856,
+  "kovaryat_onde": 5,
+  "kat_sayisi": 5,
+  "eslestirilmis_t_p": 0.000326,
+  "wilcoxon_p": 0.0625
+ },
  "not_": "Protokol: 5 kat DOI-grup CV, CatBoost; isik_siddeti_denetimi.py ile ayni."
 }

@@ -29,7 +29,7 @@ from perovskite_ml.config import load_config
 from perovskite_ml.data.load_data import load_raw, _resolve_raw_path
 from perovskite_ml.data.clean_data import clean_rows
 from perovskite_ml.models.registry import build_models
-from perovskite_ml.models.tuning import grouped_cv_r2
+from perovskite_ml.models.tuning import grouped_cv_r2_katlar
 
 SCAN = "JV_default_PCE_scan_direction"
 
@@ -67,8 +67,10 @@ def main():
         Xs = (X if X is not None else X_all)[mask] if mask is not None else (X if X is not None else X_all)
         ys = y_all[mask] if mask is not None else y_all
         gs = g_all[mask] if mask is not None else g_all
-        m, s = grouped_cv_r2(model, Xs, ys, gs, 5)
-        rows.append(dict(kurulum=label, n=int(len(ys)), R2_mean=round(m, 6), R2_std=round(s, 6)))
+        katlar = grouped_cv_r2_katlar(model, Xs, ys, gs, 5, atama="kararli")   # tez v118 denetimi: kararli atama
+        m, s = float(np.mean(katlar)), float(np.std(katlar))
+        rows.append(dict(kurulum=label, n=int(len(ys)), R2_mean=round(m, 6), R2_std=round(s, 6),
+                         kat_R2=[round(v, 6) for v in katlar]))
         print(f"[CV] {label:38s} n={len(ys):6,} R2={m:.4f} ± {s:.4f}", flush=True)
 
     rev = (sd.str.lower() == "reversed").values
@@ -84,9 +86,21 @@ def main():
     X_cov = pd.concat([X_all, dummies], axis=1)
     run(f"tam kume + tarama yonu kovaryati (+{dummies.shape[1]})", None, X=X_cov)
 
+    # Eslestirilmis kat karsilastirmasi: taban ile kovaryatli kosu AYNI katlarda (ayni gruplar, tam kume)
+    from scipy import stats as _st
+    taban, kov = np.array(rows[0]["kat_R2"]), np.array(rows[-1]["kat_R2"])
+    fark = kov - taban
+    eslestirilmis = dict(karsilastirma="tam kume + tarama yonu kovaryati − tam kume (ayni katlar)",
+                         kat_farklari=[round(float(v), 6) for v in fark],
+                         fark_ortalama=round(float(fark.mean()), 6), fark_std=round(float(fark.std(ddof=1)), 6),
+                         kovaryat_onde=int((fark > 0).sum()), kat_sayisi=int(len(fark)),
+                         eslestirilmis_t_p=round(float(_st.ttest_rel(kov, taban).pvalue), 6),
+                         wilcoxon_p=round(float(_st.wilcoxon(kov, taban).pvalue), 6))
+    print("[eslestirilmis]", eslestirilmis)
+
     res = dict(dagilim=dagilim, pay=pay,
                pce_protokole_gore=pce_by.to_dict(),
-               cv=rows,
+               cv=rows, eslestirilmis=eslestirilmis,
                not_="Protokol: 5 kat DOI-grup CV, CatBoost; isik_siddeti_denetimi.py ile ayni.")
     out = ROOT / cfg["paths"]["outputs_dir"] / "robustness" / "tarama_yonu_denetimi.json"
     out.parent.mkdir(parents=True, exist_ok=True)

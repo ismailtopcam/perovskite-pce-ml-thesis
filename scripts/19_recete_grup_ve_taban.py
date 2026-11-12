@@ -43,6 +43,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from perovskite_ml.config import load_config
 from perovskite_ml.models.registry import build_models
+from perovskite_ml.validation.splits import group_kfold
 from perovskite_ml.utils.manifest import write_manifest
 
 ROUND_DEC = 2
@@ -81,7 +82,7 @@ def union_find_components(keys_a, keys_b):
 
 def cv_eval(model, X, y, groups, n_splits=N_SPLITS, collect_oof=False):
     """GroupKFold; kat basina R2 ve istenirse kat-disi (OOF) tahminler."""
-    splits = list(GroupKFold(n_splits=n_splits).split(X, y, groups))
+    splits = group_kfold(X, y, groups, n_splits, atama="kararli")   # tez v118 denetimleri: kararli atama
     r2s, maes, rmses = [], [], []
     oof = np.full(len(y), np.nan)
     fold_id = np.full(len(y), -1)

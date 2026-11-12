@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from perovskite_ml.config import load_config
 from perovskite_ml.features.feature_builder import _first_number
 from perovskite_ml.models.registry import build_models
+from perovskite_ml.validation.splits import group_kfold
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
@@ -66,8 +67,8 @@ def main():
 
     base = build_models(seed)["CatBoost"]
     Xg = M.drop(columns=[tgt, gc])
-    gkf = GroupKFold(n_splits=5); rA, rB = [], []
-    for k, (tr, te) in enumerate(gkf.split(X, y, groups)):
+    rA, rB = [], []
+    for k, (tr, te) in enumerate(group_kfold(X, y, groups, 5)):
         mg = clone(base); mg.fit(Xg.iloc[tr], y[tr]); rA.append(r2_score(y[te], mg.predict(Xg.iloc[te])))
         pl = Pipeline([("prep", make_ct()), ("model", clone(base))])
         pl.fit(X.iloc[tr], y[tr]); rB.append(r2_score(y[te], pl.predict(X.iloc[te])))

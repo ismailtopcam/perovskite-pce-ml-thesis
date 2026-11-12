@@ -120,7 +120,7 @@ python scripts/thesis_figures.py            # tez veri şekillerinin (4.1-4.7, 4
 python scripts/tez_sekilleri_ek.py          # tez v119: Şekil 3.1 (hat şeması), 4.8 ve 4.9 (SHAP; özellik adları Tablo 4.6 ile aynı) -> outputs/figures/
 ```
 
-Tez gövdesinde anılan kök-dizin denetim betikleri (tamamı: `python run_thesis_audits.py`; sıra tez Ek A ile aynı; çıktıları sürüm kontrolünde):
+Tez gövdesinde anılan kök-dizin denetim betikleri (tamamı: `python run_thesis_audits.py`, aşağıdaki sırayla; tez Ek A aynı betikleri listeler ama sırası farklıdır; çıktıları sürüm kontrolünde):
 ```bash
 python pce30_ustu_stack_incelemesi.py    # PCE > %30 uç kayıtların yığın dizilimi — tandem izi var mı? (Bölüm 3.4) -> outputs/robustness/pce30_ustu_stack.csv
 python isik_siddeti_denetimi.py          # ölçüm aydınlatma koşulu: PCE > %30 kayıtların ışık şiddeti/kaynağı, temiz kümede 100 mW/cm² dışı ölçümler ve bunlar dışlandığında GroupKFold R² (Bölüm 3.4, 4.2, 4.7, 5.7) -> outputs/robustness/isik_siddeti_denetimi.json
@@ -141,7 +141,37 @@ python aday_izgara_destegi.py            # aday A-site ızgara noktalarının mo
 python veri_baglam_denetimleri.py        # temiz kümenin yıl kapsamı, tarama yönü farkları, boyutluluk/ABX3 bayrakları, kurşunsuz B-site dağılımı, band gap ve tavlama bağlam medyanları (Bölüm 3.1, 3.3, 3.5, 3.12, 4.4, 5.4, 5.6, 5.7) -> outputs/robustness/veri_baglam_denetimleri.json
 python tarama_yonu_denetimi.py           # hedefin tarama yönü heterojenliğinin başarıma etkisi: yalnızca ters tarama ve tarama yönü kovaryatı ile DOI-grup CV (Bölüm 5.7) -> outputs/robustness/tarama_yonu_denetimi.json
 python birincil_r2_bootstrap.py          # holdout R², MAE ve RMSE için DOI-kümeli bootstrap %95 aralıkları; karşılaştırma için kayıt düzeyi aralık (Bölüm 4.2) -> outputs/robustness/birincil_r2_bootstrap.json
+python kat_atamasi_denetimi.py           # GroupKFold kat atamasının ortama duyarlılığı: arşiv ve kararlı atama, kat değiştiren kayıt payı, CatBoost–HistGBM farkının atamaya ve sürüme bağlılığı, zenginleştirmenin bağ duyarlılığı (Bölüm 3.15, 4.2, 4.6) -> outputs/robustness/kat_atamasi_denetimi.json
 ```
+
+## Kat atamaları (GroupKFold'un ortama duyarlılığı)
+scikit-learn `GroupKFold`, grupları katlara dağıtırken boyuta göre sıralar. scikit-learn < 1.9 bu sıralamayı
+kararsız yapar: eşit boyutlu grupların sırası kütüphane sürümüne ve işlemcinin komut setine göre değişir.
+Bu veride 7.353 DOI grubunun 7.338'i boyutunu başka bir grupla paylaştığından, aynı kod ve aynı tohum farklı
+ortamlarda **farklı katlar** üretir (kayıtların %76,8'i kat değiştirir). Tezdeki arşiv değeri (R² 0,410 ± 0,016;
+scikit-learn 1.8.0) ile ikinci ortam değeri (0,412 ± 0,013; scikit-learn 1.9.1) arasındaki farkın tamamı buradan
+gelir; arşiv ataması verildiğinde CatBoost kat skorları ikinci ortamda aynen yeniden üretilir
+(`outputs/robustness/kat_atamasi_denetimi.json`).
+
+Depo bu nedenle kat atamasını ortamdan bağımsız kılar (`src/perovskite_ml/validation/splits.py`):
+
+- **Kayıtlı atama** (`group_kfold(...)`, varsayılan): tezde raporlanan arşiv koşularının kat ataması
+  `kat_atamalari/` altında kayıtlıdır (`kayit.json` + her yapılandırma için bir `<kimlik>.txt`; sha256 denetimli).
+  Betikler aynı gruplar ve kat sayısı için bu kaydı kullanır. Kayıt yoksa `GroupKFold`'a düşülür ve uyarı verilir.
+- **Kararlı atama** (`group_kfold(..., atama="kararli")`): gruplar kararlı sıralanır; her ortamda aynı sonucu
+  verir (scikit-learn ≥ 1.9 `GroupKFold` ile aynıdır). Tez v118 denetimleri (`scripts/19`, `22`, `23`,
+  `tarama_yonu_denetimi.py`) bunu kullanır.
+
+Arşiv ortamında (bkz. "Tam çalışma ortamı") kayıt üretme ve doğrulama:
+```bash
+PEROVSKITE_KAT_DOGRULA=1 python scripts/04_validation_experiments.py   # kayıtlı atama = bu ortamın GroupKFold ataması mı? Değilse durur
+PEROVSKITE_KAT_KAYIT=1   python scripts/12_catboost_tuning.py          # kaydı olmayan yapılandırmanın atamasını kat_atamalari/ altına yazar
+```
+(PowerShell: `$env:PEROVSKITE_KAT_DOGRULA = "1"; python ...`.) Şu an kayıtlı olan: birincil yapılandırma
+(41.485 kayıt, kanonik DOI, 5 kat). Bu kayıt ikinci ortamda scikit-learn < 1.9 sıralama kuralı uygulanarak
+üretilmiş, arşivdeki CatBoost kat skorlarını ve Dummy tabanını aynen verdiği doğrulanmıştır; arşiv ortamında
+`PEROVSKITE_KAT_DOGRULA=1` ile teyidi beklemektedir. Diğer arşiv yapılandırmaları (3 katlı ayar araması, iç-içe doğrulamanın iç
+katları, ışık şiddeti ve PCE ≤ 30 / ≤ 28 alt kümeleri, ham DOI anahtarı) kaydedilene kadar eski davranışla çalışır ve uyarı verir.
 
 ## DOI-grup denetim betikleri
 Gruplama anahtarının (kanonik DOI) kalitesini ve v0.3.x ham-anahtar davranışına duyarlılığı ölçen bağımsız denetim betikleri (repo kökünde):
@@ -159,9 +189,9 @@ gruplamayla raporlanır (tez Bölüm 3.8, 5.7).
 
 ## Testler
 ```bash
-pytest -q     # 33 test; ham veri gerektirmez (sentetik veriyle çalışır)
+pytest -q     # 40 test; ham veri gerektirmez (sentetik veriyle çalışır)
 ```
-CI (`.github/workflows/ci.yml`) her push/PR'da testleri **Python 3.10 ve 3.13** üzerinde koşar;
+CI (`.github/workflows/ci.yml`) her push/PR'da testleri **Python 3.10, 3.13 ve 3.14** üzerinde koşar;
 güncel durum yukarıdaki CI rozetinde görünür. Kapsam: kompozisyon dönüşümü, özellik inşası
 (medyan+bayrak, top-N one-hot), şema/sızıntı kontrolü, DOI-grup ayrım ayrıklığı, veri temizleme
 nedenleri ve sınır dahilliği, aday uzayı kodlama sözleşmesi (756) ve **uçtan uca duman testi**
@@ -207,7 +237,9 @@ v0.4.0'dan sonra eklenen kök denetim betikleri ve çıktıları da yalnızca an
 `aday_mimari_yigin_tutarliligi.py` ve `scripts/thesis_data_analysis.py --out` (17 Ekim 2026; Tablo 5.1'in
 serbestlik derecesi düzeltmeli taban RMSE sütunu bu sürümden gelir) ile `isik_siddeti_denetimi.py`, `bandgap_kestirim_temeli.py`, `tarama_bootstrap.py`, `aday_izgara_destegi.py` ve `veri_baglam_denetimleri.py` (9 Kasım 2026).
 
-Tez v118 ek denetimleri — `scripts/19_recete_grup_ve_taban.py`, `scripts/20_aday_model_duyarliligi.py`, `scripts/21_blok_shap.py`, `scripts/22_lab_grup_denetimi.py`, `scripts/23_deney_b_carpim.py` ve kök denetimi `tarama_yonu_denetimi.py` — özet çıktıları (`outputs/robustness/`) ve manifestleriyle (`outputs/manifests/manifest_stage19`–`23_*.json`) birlikte 10 Kasım 2026'da ana dala girmiştir. Bu betikler Python 3.13.18 ortamında koşulmuştur (numpy 2.5.4, pandas 3.1.1, scikit-learn 1.9.1, scipy 1.18.1, CatBoost 1.2.10, XGBoost 3.2.0, LightGBM 4.6.0, SHAP 0.51.0); bu ortamda DOI-grup CV taban çizgisi R² = 0,412 ± 0,013'tür (tezde raporlanan 0,410 ± 0,016 ile kat gürültüsü içinde; tez Bölüm 3.15). Manifestlerin `git.commit` alanı, betikler henüz commit'lenmemişken çalışılan ağacın üst commit'ini (`438c2c4`, `dirty: true`) gösterir. Kat dışı tahmin dosyası `outputs/robustness/d0_oof_tahminler.csv` (~1,6 MB) sürüm kontrolüne alınmaz; `scripts/19_recete_grup_ve_taban.py` ile yeniden üretilir. Aynı gün eklenen `birincil_r2_bootstrap.py` (holdout R², MAE ve RMSE için DOI-kümeli %95 aralıkları) model yeniden eğitmez: sürüm kontrolündeki holdout tahminlerini (`outputs/v4/best_model_holdout_predictions.csv`) kullandığı için değerleri ortam farkından etkilenmez ve nokta değeri tezdeki 0,394 ile birebir örtüşür.
+Tez v118 ek denetimleri — `scripts/19_recete_grup_ve_taban.py`, `scripts/20_aday_model_duyarliligi.py`, `scripts/21_blok_shap.py`, `scripts/22_lab_grup_denetimi.py`, `scripts/23_deney_b_carpim.py` ve kök denetimi `tarama_yonu_denetimi.py` — özet çıktıları (`outputs/robustness/`) ve manifestleriyle (`outputs/manifests/manifest_stage19`–`23_*.json`) birlikte 10 Kasım 2026'da ana dala girmiştir. Bu betikler Python 3.13.18 ortamında koşulmuştur (numpy 2.5.4, pandas 3.1.1, scikit-learn 1.9.1, scipy 1.18.1, CatBoost 1.2.10, XGBoost 3.2.0, LightGBM 4.6.0, SHAP 0.51.0); bu ortamda DOI-grup CV taban çizgisi R² = 0,412 ± 0,013'tür (tezde raporlanan 0,410 ± 0,016'dan farkın tamamı kat atamasından gelir; bkz. "Kat atamaları"). Manifestlerin `git.commit` alanı, betikler henüz commit'lenmemişken çalışılan ağacın üst commit'ini (`438c2c4`, `dirty: true`) gösterir. Kat dışı tahmin dosyası `outputs/robustness/d0_oof_tahminler.csv` (~1,6 MB) sürüm kontrolüne alınmaz; `scripts/19_recete_grup_ve_taban.py` ile yeniden üretilir. Aynı gün eklenen `birincil_r2_bootstrap.py` (holdout R², MAE ve RMSE için DOI-kümeli %95 aralıkları) model yeniden eğitmez: sürüm kontrolündeki holdout tahminlerini (`outputs/v4/best_model_holdout_predictions.csv`) kullandığı için değerleri ortam farkından etkilenmez ve nokta değeri tezdeki 0,394 ile birebir örtüşür.
+
+Kat ataması kaydı (12 Kasım 2026): `kat_atamalari/` (birincil yapılandırmanın arşiv ataması), `src/perovskite_ml/validation/splits.py` içindeki kayıt/kararlı atama mekanizması ve kök denetimi `kat_atamasi_denetimi.py` eklenmiştir. Çekirdek ve ek doğrulama betikleri (`scripts/04`, `13`, `14`, `16`) ile `doi_normalizasyon_duyarlilik.py` artık `GroupKFold`'u doğrudan çağırmaz; tez v118 denetimleri kararlı atamayı açıkça ister. Raporlanan hiçbir sayı değişmemiştir: `scripts/04` ikinci ortamda (scikit-learn 1.9.1) kayıtlı atamayla `outputs/v4/validation_experiments.csv` dosyasını bayt düzeyinde aynen üretir. `tarama_yonu_denetimi.py` çıktısına kat skorları ve taban–kovaryat eşleştirilmiş karşılaştırması eklenmiştir (eski alanlar aynıdır). `kat_atamasi_denetimi.py` Python 3.13.18 ortamında koşulmuştur; HistGBM kat skorları scikit-learn sürümüne duyarlı olduğundan CatBoost–HistGBM eşleştirilmiş farkı arşivde 0,0024 (5/5 kat, p = 0,006), bu ortamda 0,0013'tür (4/5 kat, p = 0,24).
 
 Not: Depo geçmişi 17 Ekim 2026'da yalnızca commit üst verisi (yazar kimliği, mesaj sonundaki araç satırları) için yeniden yazılmıştır; ağaç içerikleri ve dosya özetleri değişmemiştir. Manifestler yeniden yazımdan önceki commit kimliğini (d6ce55f) kaydeder; bunun yeni karşılığı 6eba260, tezin atıf yaptığı v0.4.0 sürümünün eski kimliği f65ed93, yeni kimliği f2bf182'dir.
 

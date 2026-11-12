@@ -1,0 +1,21 @@
+{
+ "kayitlar": {
+  "177507b245b27964d87a": {
+   "dosya": "177507b245b27964d87a.txt",
+   "n_kayit": 41485,
+   "n_grup": 7353,
+   "n_splits": 5,
+   "kat_boyutlari": [
+    8297,
+    8297,
+    8297,
+    8297,
+    8297
+   ],
+   "sha256": "9b6c629da4a17dc6288840e4114c47d27e854b9b96114ba48a8dc8e899cad4f9",
+   "aciklama": "Birincil atama: tam veri (41.485 kayit), kanonik DOI gruplari, 5 kat. Tezdeki 0,410 ± 0,016 ve Tablo 4.2 bu atamayla uretildi.",
+   "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: arsivdeki CatBoost kat R2 degerleri (outputs/ek_denetimler/paired_model_comparison.json) ve Dummy tabani (dummy_baseline.json) bu atamayla bire bir yeniden uretildi."
+  }
+ },
+ "aciklama": "Tezde raporlanan kat atamalari. Uretim ve dogrulama: README, 'Kat atamalari'."
+}

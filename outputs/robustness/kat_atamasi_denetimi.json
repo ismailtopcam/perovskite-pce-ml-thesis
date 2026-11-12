@@ -1,0 +1,231 @@
+{
+ "yapi": {
+  "n_kayit": 41485,
+  "n_grup": 7353,
+  "boyutunu_paylasan_grup": 7338,
+  "farkli_boyut_sayisi": 55,
+  "kimlik": "177507b245b27964d87a"
+ },
+ "atamalar": {
+  "arsiv_kayitli": {
+   "ozet": "9b6c629da4a1",
+   "kat_boyutlari": [
+    8297,
+    8297,
+    8297,
+    8297,
+    8297
+   ]
+  },
+  "kararli": {
+   "ozet": "08b1c3fafa13",
+   "kat_boyutlari": [
+    8297,
+    8297,
+    8297,
+    8297,
+    8297
+   ]
+  },
+  "arsiv_kararli_kat_degistiren_pay": 0.768037,
+  "arsiv_kararli_kat_degistiren_pay_en_iyi_eslesme": 0.768037,
+  "bu_ortam_sklearn": {
+   "ozet": "08b1c3fafa13",
+   "arsivle_ayni": false,
+   "kararliyla_ayni": true
+  },
+  "bu_islemci_varsayilan_siralama": {
+   "ozet": "9b6c629da4a1",
+   "arsivle_ayni": true
+  },
+  "avx2_yolu_kapali": {
+   "calisti": true,
+   "varsayilan_siralama": "0c617ebe94f9",
+   "kararli": "08b1c3fafa13",
+   "arsivle_ayni": false,
+   "kararli_degismedi": true
+  }
+ },
+ "catboost": {
+  "arsiv_katlari": {
+   "kat_R2": [
+    0.421129,
+    0.413774,
+    0.419874,
+    0.377528,
+    0.418157
+   ],
+   "ortalama": 0.410093,
+   "std": 0.016471,
+   "arsiv_degerlerinden_en_buyuk_sapma": 0.0
+  },
+  "kararli_katlar": {
+   "kat_R2": [
+    0.391419,
+    0.420042,
+    0.425684,
+    0.421077,
+    0.401691
+   ],
+   "ortalama": 0.411983,
+   "std": 0.013147
+  }
+ },
+ "catboost_histgbm": {
+  "histgbm_kat_R2": [
+   0.423032,
+   0.410158,
+   0.418531,
+   0.374976,
+   0.417265
+  ],
+  "histgbm_arsiv_degerlerinden_en_buyuk_sapma": 0.004713,
+  "bu_ortam": {
+   "kat_farklari": [
+    -0.001902,
+    0.003616,
+    0.001343,
+    0.002552,
+    0.000891
+   ],
+   "fark_ortalama": 0.0013,
+   "fark_std": 0.002083,
+   "ilk_onde": 4,
+   "kat_sayisi": 5,
+   "eslestirilmis_t_p": 0.235351,
+   "wilcoxon_p": 0.3125
+  },
+  "arsiv": {
+   "fark_ortalama": 0.002394,
+   "fark_std": 0.001015,
+   "ilk_onde": 5,
+   "kat_sayisi": 5,
+   "eslestirilmis_t_p": 0.006193,
+   "wilcoxon_p": 0.0625
+  },
+  "not_": "fark = CatBoost − HistGBM (ayni katlar). Arsiv satiri outputs/ek_denetimler/paired_model_comparison.json."
+ },
+ "zenginlestirme_bag_duyarliligi": {
+  "n_test": 8355,
+  "benzersiz_tahmin": 2515,
+  "satirlar": [
+   {
+    "esik": 18,
+    "k_oran": 0.05,
+    "k": 417,
+    "sinirdaki_esit_tahmin": 4,
+    "bunlardan_alinan": 3,
+    "isabet_en_az": 194,
+    "isabet_en_cok": 194,
+    "zenginlestirme_en_az": 4.211244,
+    "zenginlestirme_en_cok": 4.211244,
+    "raporlanan": 4.211244
+   },
+   {
+    "esik": 18,
+    "k_oran": 0.1,
+    "k": 835,
+    "sinirdaki_esit_tahmin": 30,
+    "bunlardan_alinan": 19,
+    "isabet_en_az": 322,
+    "isabet_en_cok": 322,
+    "zenginlestirme_en_az": 3.490713,
+    "zenginlestirme_en_cok": 3.490713,
+    "raporlanan": 3.490713
+   },
+   {
+    "esik": 18,
+    "k_oran": 0.2,
+    "k": 1671,
+    "sinirdaki_esit_tahmin": 16,
+    "bunlardan_alinan": 4,
+    "isabet_en_az": 561,
+    "isabet_en_cok": 563,
+    "zenginlestirme_en_az": 3.039003,
+    "zenginlestirme_en_cok": 3.049837,
+    "raporlanan": 3.04442
+   },
+   {
+    "esik": 20,
+    "k_oran": 0.05,
+    "k": 417,
+    "sinirdaki_esit_tahmin": 4,
+    "bunlardan_alinan": 3,
+    "isabet_en_az": 67,
+    "isabet_en_cok": 68,
+    "zenginlestirme_en_az": 6.612857,
+    "zenginlestirme_en_cok": 6.711557,
+    "raporlanan": 6.612857
+   },
+   {
+    "esik": 20,
+    "k_oran": 0.1,
+    "k": 835,
+    "sinirdaki_esit_tahmin": 30,
+    "bunlardan_alinan": 19,
+    "isabet_en_az": 106,
+    "isabet_en_cok": 106,
+    "zenginlestirme_en_az": 5.224802,
+    "zenginlestirme_en_cok": 5.224802,
+    "raporlanan": 5.224802
+   },
+   {
+    "esik": 20,
+    "k_oran": 0.2,
+    "k": 1671,
+    "sinirdaki_esit_tahmin": 16,
+    "bunlardan_alinan": 4,
+    "isabet_en_az": 150,
+    "isabet_en_cok": 150,
+    "zenginlestirme_en_az": 3.694581,
+    "zenginlestirme_en_cok": 3.694581,
+    "raporlanan": 3.694581
+   },
+   {
+    "esik": 22,
+    "k_oran": 0.05,
+    "k": 417,
+    "sinirdaki_esit_tahmin": 4,
+    "bunlardan_alinan": 3,
+    "isabet_en_az": 4,
+    "isabet_en_cok": 4,
+    "zenginlestirme_en_az": 3.816375,
+    "zenginlestirme_en_cok": 3.816375,
+    "raporlanan": 3.816375
+   },
+   {
+    "esik": 22,
+    "k_oran": 0.1,
+    "k": 835,
+    "sinirdaki_esit_tahmin": 30,
+    "bunlardan_alinan": 19,
+    "isabet_en_az": 10,
+    "isabet_en_cok": 10,
+    "zenginlestirme_en_az": 4.764756,
+    "zenginlestirme_en_cok": 4.764756,
+    "raporlanan": 4.764756
+   },
+   {
+    "esik": 22,
+    "k_oran": 0.2,
+    "k": 1671,
+    "sinirdaki_esit_tahmin": 16,
+    "bunlardan_alinan": 4,
+    "isabet_en_az": 13,
+    "isabet_en_cok": 13,
+    "zenginlestirme_en_az": 3.095238,
+    "zenginlestirme_en_cok": 3.095238,
+    "raporlanan": 3.095238
+   }
+  ]
+ },
+ "ortam": {
+  "python": "3.13.18",
+  "numpy": "2.5.4",
+  "pandas": "3.1.1",
+  "scikit_learn": "1.9.1",
+  "scipy": "1.18.1",
+  "catboost": "1.2.10"
+ },
+ "not_": "Atama blogundaki 'bu_ortam', 'bu_islemci' ve 'avx2_yolu_kapali' alanlari kosulan makineye baglidir; digerleri kayitli atamaya ve kararli siralamaya dayanir."
+}

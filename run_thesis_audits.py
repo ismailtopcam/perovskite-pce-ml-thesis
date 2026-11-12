@@ -28,6 +28,7 @@ Kapsam (tez bolum referanslariyla):
   - veri_baglam_denetimleri.py       : yil kapsami, tarama yonu, boyutluluk, kursunsuz B-site, band gap/tavlama baglami (Bolum 3.1-5.7)
   - tarama_yonu_denetimi.py          : hedefin tarama yonu heterojenliginin basarima etkisi (yalnizca ters tarama; tarama yonu kovaryati) (Bolum 5.7)
   - birincil_r2_bootstrap.py         : holdout R2/MAE/RMSE icin DOI-kumeli bootstrap %95 araliklari (Bolum 4.2)
+  - kat_atamasi_denetimi.py          : GroupKFold kat atamasinin ortama duyarliligi; arsiv/kararli atama, CatBoost-HistGBM farkinin atamaya ve surume bagliligi, zenginlestirmenin bag duyarliligi (Bolum 3.15, 4.2, 4.6)
 
 Bir denetim basarisiz olursa (cikis kodu != 0) calisma durur.
 """
@@ -60,6 +61,7 @@ AUDITS = [
     "veri_baglam_denetimleri.py",
     "tarama_yonu_denetimi.py",
     "birincil_r2_bootstrap.py",
+    "kat_atamasi_denetimi.py",
 ]
 
 

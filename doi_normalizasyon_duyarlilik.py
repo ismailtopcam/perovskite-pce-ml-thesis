@@ -36,6 +36,7 @@ _sys.path.insert(0, str(ROOT / "src"))
 from perovskite_ml.config import load_config as _load_config
 from perovskite_ml.data.load_data import load_raw as _load_raw
 from perovskite_ml.data.clean_data import clean_rows as _clean_rows
+from perovskite_ml.validation.splits import group_kfold as _group_kfold
 _cfg = _load_config(str(ROOT / "config.yaml"))
 _cfg_raw = _copy.deepcopy(_cfg); _cfg_raw.setdefault("grouping", {})["normalize_doi"] = False
 _cleaned_raw, _ = _clean_rows(_load_raw(_cfg_raw), _cfg_raw)
@@ -62,7 +63,7 @@ def run(groups, label):
                 n_test=len(te))
     # GroupKFold(5)
     r2s, maes, rmses = [], [], []
-    for tri, vai in GroupKFold(n_splits=5).split(X, y, groups):
+    for tri, vai in _group_kfold(X, y, groups, 5):   # kanonik anahtar: kayitli (arsiv) atama
         m = make_model(); m.fit(X.iloc[tri], y[tri])
         p = m.predict(X.iloc[vai])
         r2s.append(r2_score(y[vai], p))

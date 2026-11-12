@@ -82,7 +82,7 @@ def main():
     ]
     rows = []
     for label, Xi in setups:
-        m, s = grouped_cv_r2(model, Xi, y, g, 5)
+        m, s = grouped_cv_r2(model, Xi, y, g, 5, atama="kararli")
         rows.append(dict(kurulum=label, ozellik=int(Xi.shape[1]),
                          R2_mean=round(m, 6), R2_std=round(s, 6)))
         print(f"[CV] {label:32s} ({Xi.shape[1]:3d} oz.) R2={m:.4f} ± {s:.4f}", flush=True)
@@ -113,7 +113,7 @@ def main():
                ("ozdeslik %1 icinde", (rel < 0.01).fillna(False).values)]
     ozd_rows = []
     for label, msk in subsets:
-        m_, s_ = grouped_cv_r2(model, X_leak[msk], y[msk], g[msk], 5)
+        m_, s_ = grouped_cv_r2(model, X_leak[msk], y[msk], g[msk], 5, atama="kararli")
         ozd_rows.append(dict(alt_kume=label, n=int(msk.sum()), R2_mean=round(m_, 6), R2_std=round(s_, 6)))
         print(f"[ozdeslik] {label:28s} n={msk.sum():6,} R2={m_:.4f} ± {s_:.4f}", flush=True)
 

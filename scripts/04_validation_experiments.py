@@ -22,6 +22,7 @@ from perovskite_ml.data.clean_data import clean_rows
 from perovskite_ml.features.composition import vectorize_dataframe
 from perovskite_ml.features.feature_builder import build_features
 from perovskite_ml.utils.manifest import write_manifest
+from perovskite_ml.validation.splits import group_kfold
 
 LEAK_COLS = ["JV_default_Voc", "JV_default_Jsc", "JV_default_FF"]
 
@@ -55,7 +56,7 @@ def main():
 
     # --- Deney A: bolme stratejisi ---
     rand = list(KFold(5, shuffle=True, random_state=seed).split(X))
-    grp = list(GroupKFold(5).split(X, y, groups))
+    grp = group_kfold(X, y, groups, 5)          # kayitli (arsiv) atama; bkz. validation/splits.py
     r_mean, r_std = cv_r2(model, X, y, rand)
     g_mean, g_std = cv_r2(model, X, y, grp)
     rows.append({"deney": "A_bolme", "ayar": "rastgele_KFold", "R2_mean": r_mean, "R2_std": r_std})
@@ -76,7 +77,7 @@ def main():
             Xb_safe = Mb.drop(columns=[cfg["target"], cfg["group_col"]])
             leak = cleaned_b.loc[vec_b.index, have].apply(pd.to_numeric, errors="coerce").fillna(0).reset_index(drop=True)
             Xb_leak = pd.concat([Xb_safe.reset_index(drop=True), leak], axis=1)
-            grp_b = list(GroupKFold(5).split(Xb_safe, yb, gb))
+            grp_b = group_kfold(Xb_safe, yb, gb, 5)
             safe_mean, safe_std = cv_r2(model, Xb_safe, yb, grp_b)
             leak_mean, leak_std = cv_r2(model, Xb_leak, yb, grp_b)
             rows.append({"deney": "B_olcum_sonrasi", "ayar": "leakage_safe", "R2_mean": safe_mean, "R2_std": safe_std})
