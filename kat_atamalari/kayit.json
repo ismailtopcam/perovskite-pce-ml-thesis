@@ -1,5 +1,35 @@
 {
  "kayitlar": {
+  "08c0cc4c717f4d45a5a0": {
+   "dosya": "08c0cc4c717f4d45a5a0.txt",
+   "n_kayit": 41485,
+   "n_grup": 7397,
+   "n_splits": 5,
+   "kat_boyutlari": [
+    8297,
+    8297,
+    8297,
+    8297,
+    8297
+   ],
+   "sha256": "544956b8d6f3adc6fc8c633ac30475680afeedcc80f7a18882bb98e7d682fbd1",
+   "aciklama": "Ham (normalize edilmemis) DOI anahtari, tam veri (41.485 kayit, 7.397 grup), 5 kat. doi_normalizasyon_duyarlilik.py",
+   "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: outputs/robustness/doi_normalizasyon_duyarlilik.json bu atamayla bayt duzeyinde ayni uretildi (CatBoost)."
+  },
+  "0a2c1824561bbbac751b": {
+   "dosya": "0a2c1824561bbbac751b.txt",
+   "n_kayit": 33188,
+   "n_grup": 5881,
+   "n_splits": 3,
+   "kat_boyutlari": [
+    11063,
+    11063,
+    11062
+   ],
+   "sha256": "23066c64223f87d653469851df9eee342b654305f3a068034289a471f0d00487",
+   "aciklama": "Ic ice dogrulama: dis kat 5'in egitim kumesi (33.188 kayit), kanonik DOI, 3 ic kat. scripts/16_nested_dogrulama.py",
+   "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: outputs/nested/nested_outer_folds.csv dis kat 5: secilen CatBoost'un ic R2 degeri (0,4085) ayni."
+  },
   "177507b245b27964d87a": {
    "dosya": "177507b245b27964d87a.txt",
    "n_kayit": 41485,
@@ -15,6 +45,142 @@
    "sha256": "9b6c629da4a17dc6288840e4114c47d27e854b9b96114ba48a8dc8e899cad4f9",
    "aciklama": "Birincil atama: tam veri (41.485 kayit), kanonik DOI gruplari, 5 kat. Tezdeki 0,410 ± 0,016 ve Tablo 4.2 bu atamayla uretildi.",
    "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: arsivdeki CatBoost kat R2 degerleri (outputs/ek_denetimler/paired_model_comparison.json) ve Dummy tabani (dummy_baseline.json) bu atamayla bire bir yeniden uretildi."
+  },
+  "1856b43ca5affc4edf12": {
+   "dosya": "1856b43ca5affc4edf12.txt",
+   "n_kayit": 33188,
+   "n_grup": 5884,
+   "n_splits": 3,
+   "kat_boyutlari": [
+    11063,
+    11063,
+    11062
+   ],
+   "sha256": "51b1b3cdef1c61ee868fcebc7ee01be732d8e0b4f0c03cb04dfcd824e3d5d94f",
+   "aciklama": "Ic ice dogrulama: dis kat 1'in egitim kumesi (33.188 kayit), kanonik DOI, 3 ic kat. scripts/16_nested_dogrulama.py",
+   "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: outputs/nested/nested_outer_folds.csv dis kat 1: secilen CatBoost'un ic R2 degeri (0,4056) ayni."
+  },
+  "31b5107ff0bc00d77848": {
+   "dosya": "31b5107ff0bc00d77848.txt",
+   "n_kayit": 41474,
+   "n_grup": 7353,
+   "n_splits": 5,
+   "kat_boyutlari": [
+    8295,
+    8295,
+    8295,
+    8295,
+    8294
+   ],
+   "sha256": "94b5fbe0074d353064196652759afe8c7829f2932dbeebc9d030100caccfd05a",
+   "aciklama": "PCE <= 28 alt kumesi (41.474 kayit), kanonik DOI, 5 kat. scripts/11_pce_outlier_audit.py",
+   "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: outputs/robustness/robustness_cv.csv CatBoost satiri (4 ondalik) ayni; HistGBM satirlari sklearn surumune duyarlidir."
+  },
+  "33454a8a6ed5c90055b5": {
+   "dosya": "33454a8a6ed5c90055b5.txt",
+   "n_kayit": 33130,
+   "n_grup": 5882,
+   "n_splits": 5,
+   "kat_boyutlari": [
+    6626,
+    6626,
+    6626,
+    6626,
+    6626
+   ],
+   "sha256": "ae08b85c2622cfd6a57a4886a837707395afb8c517f0f8919a3d05987a79a0e4",
+   "aciklama": "Holdout egitim bolmesi (33.130 kayit), kanonik DOI, 5 kat: muhurlu holdout protokolunde egitim-ici model secimi. scripts/16_nested_dogrulama.py",
+   "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: outputs/nested/sealed_holdout_model_selection.csv CatBoost satiri (0,4145 ± 0,0257) ayni."
+  },
+  "78ea447587795162a114": {
+   "dosya": "78ea447587795162a114.txt",
+   "n_kayit": 33188,
+   "n_grup": 5883,
+   "n_splits": 3,
+   "kat_boyutlari": [
+    11063,
+    11063,
+    11062
+   ],
+   "sha256": "750c755c06d914884de165d70741892e548b0877bbbaa130552bea05cc155d41",
+   "aciklama": "Ic ice dogrulama: dis kat 3'in egitim kumesi (33.188 kayit), kanonik DOI, 3 ic kat. scripts/16_nested_dogrulama.py",
+   "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: outputs/nested/nested_outer_folds.csv dis kat 3: secilen CatBoost'un ic R2 degeri (0,4062) ayni."
+  },
+  "881475912ee965b57fff": {
+   "dosya": "881475912ee965b57fff.txt",
+   "n_kayit": 41371,
+   "n_grup": 7347,
+   "n_splits": 5,
+   "kat_boyutlari": [
+    8275,
+    8274,
+    8274,
+    8274,
+    8274
+   ],
+   "sha256": "9fb0b18464d7bb7d173b32d5aacf493be8edb069b70e6d580392f35db28025bd",
+   "aciklama": "Isik siddeti denetimi: isik < 50 mW/cm2 kayitlari dislanmis alt kume (41.371 kayit), kanonik DOI, 5 kat. isik_siddeti_denetimi.py",
+   "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: outputs/robustness/isik_siddeti_denetimi.json bu atamayla bayt duzeyinde ayni uretildi (CatBoost)."
+  },
+  "a5d1c2a33efc2f15598f": {
+   "dosya": "a5d1c2a33efc2f15598f.txt",
+   "n_kayit": 41485,
+   "n_grup": 7353,
+   "n_splits": 3,
+   "kat_boyutlari": [
+    13829,
+    13828,
+    13828
+   ],
+   "sha256": "868db25e479ed2f26fbf3943099d3ff85360f846eae21f5c241e62e3943b15d2",
+   "aciklama": "Tam veri (41.485 kayit), kanonik DOI, 3 kat: hiperparametre aramasi. scripts/08_hyperparameter_tuning.py, scripts/12_catboost_tuning.py",
+   "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: outputs/tuning_catboost/search_results.csv ve best_params.json bu atamayla bayt duzeyinde ayni uretildi."
+  },
+  "e14c5894eff0762384cb": {
+   "dosya": "e14c5894eff0762384cb.txt",
+   "n_kayit": 41091,
+   "n_grup": 7302,
+   "n_splits": 5,
+   "kat_boyutlari": [
+    8219,
+    8218,
+    8218,
+    8218,
+    8218
+   ],
+   "sha256": "91165545a50b244815b1d978edb7e2e655c28a4d79a1dcb5ee43779eece438b7",
+   "aciklama": "Isik siddeti denetimi: 100 mW/cm2 disi olcumler dislanmis alt kume (41.091 kayit), kanonik DOI, 5 kat. isik_siddeti_denetimi.py",
+   "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: outputs/robustness/isik_siddeti_denetimi.json bu atamayla bayt duzeyinde ayni uretildi (CatBoost)."
+  },
+  "e67c4757f71f08703634": {
+   "dosya": "e67c4757f71f08703634.txt",
+   "n_kayit": 33188,
+   "n_grup": 5881,
+   "n_splits": 3,
+   "kat_boyutlari": [
+    11063,
+    11063,
+    11062
+   ],
+   "sha256": "e36bdbee15eed176382064cd4da51f28135c57889fb5aac8291313183af5388c",
+   "aciklama": "Ic ice dogrulama: dis kat 4'in egitim kumesi (33.188 kayit), kanonik DOI, 3 ic kat. scripts/16_nested_dogrulama.py",
+   "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: outputs/nested/nested_outer_folds.csv dis kat 4: secilen CatBoost'un ic R2 degeri (0,4152) ayni."
+  },
+  "eaa3ce673b361cc5a16b": {
+   "dosya": "eaa3ce673b361cc5a16b.txt",
+   "n_kayit": 41477,
+   "n_grup": 7353,
+   "n_splits": 5,
+   "kat_boyutlari": [
+    8296,
+    8296,
+    8295,
+    8295,
+    8295
+   ],
+   "sha256": "4a5e4c6ce37d6ea86dbc3e50714c19e9f4570f19c11d51e0ea21fe80245162e2",
+   "aciklama": "PCE <= 30 alt kumesi (41.477 kayit), kanonik DOI, 5 kat. scripts/11_pce_outlier_audit.py",
+   "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: outputs/robustness/robustness_cv.csv CatBoost satiri (4 ondalik) ayni; HistGBM satirlari sklearn surumune duyarlidir."
   }
  },
  "aciklama": "Tezde raporlanan kat atamalari. Uretim ve dogrulama: README, 'Kat atamalari'."
