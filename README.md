@@ -167,7 +167,7 @@ Arşiv ortamında (bkz. "Tam çalışma ortamı") kayıt üretme ve doğrulama:
 PEROVSKITE_KAT_DOGRULA=1 python scripts/04_validation_experiments.py   # kayıtlı atama = bu ortamın GroupKFold ataması mı? Değilse durur
 PEROVSKITE_KAT_KAYIT=1   python scripts/16_nested_dogrulama.py         # kaydı olmayan yapılandırmanın atamasını kat_atamalari/ altına yazar
 ```
-(PowerShell: `$env:PEROVSKITE_KAT_DOGRULA = "1"; python ...`.) Kayıtlı 12 yapılandırma (`kat_atamalari/kayit.json`):
+(PowerShell: `$env:PEROVSKITE_KAT_DOGRULA = "1"; python ...`.) Kayıtlı 13 yapılandırma (`kat_atamalari/kayit.json`):
 
 | Yapılandırma | Kullanan betikler | Doğrulama (arşiv çıktısı) |
 |---|---|---|
@@ -178,13 +178,21 @@ PEROVSKITE_KAT_KAYIT=1   python scripts/16_nested_dogrulama.py         # kaydı 
 | Ham DOI anahtarı, 5 kat | `doi_normalizasyon_duyarlilik.py` | `doi_normalizasyon_duyarlilik.json` bayt düzeyinde aynı |
 | Holdout eğitim bölmesi, 5 kat | `scripts/16` (mühürlü holdout) | CatBoost 0,4145 ± 0,0257 aynı |
 | Dış kat 1, 3, 4, 5'in eğitim kümeleri, 3 iç kat (4) | `scripts/16` (iç içe) | seçilen CatBoost'un iç R² değeri aynı |
+| Dış kat 2'nin eğitim kümesi, 3 iç kat | `scripts/16` (iç içe) | arşiv ortamında kaydedildi; `nested_outer_folds.csv` bayt düzeyinde aynı (seçilen XGBoost, iç R² 0,4019) |
 
-Bu kayıtlar ikinci ortamda (Python 3.13.18) scikit-learn < 1.9 sıralama kuralı uygulanarak üretilmiş ve her biri
-yukarıdaki arşiv çıktısını aynen verdiği için depoya alınmıştır; arşiv ortamında `PEROVSKITE_KAT_DOGRULA=1` ile
-teyitleri beklemektedir. **Kayıtlı olmayan tek arşiv yapılandırması** iç içe doğrulamada dış kat 2'nin iç katlarıdır:
-arşivde o kat için yalnızca seçilen XGBoost'un skoru vardır ve XGBoost iki ortam arasında aynen yeniden üretilmediğinden
-(aynı katlarda 0,4125 ↔ 0,4136) atama burada doğrulanamamıştır. Bu yapılandırma arşiv ortamında
-`PEROVSKITE_KAT_KAYIT=1 python scripts/16_nested_dogrulama.py` ile kaydedilene kadar `GroupKFold`'a düşer ve uyarı verir.
+İlk on iki kayıt ikinci ortamda (Python 3.13.18) scikit-learn < 1.9 sıralama kuralı uygulanarak üretilmiş ve her biri
+yukarıdaki arşiv çıktısını aynen verdiği için depoya alınmıştır. On üçüncü kayıt (dış kat 2'nin iç katları) ikinci
+ortamda doğrulanamamıştı: arşivde o kat için yalnızca seçilen XGBoost'un skoru vardır ve XGBoost iki ortam arasında
+aynen yeniden üretilmez (aynı katlarda 0,4125 ↔ 0,4136). Bu kayıt 12 Kasım 2026'da arşiv ortamında
+`PEROVSKITE_KAT_KAYIT=1 python scripts/16_nested_dogrulama.py` ile yazılmıştır.
+
+**Arşiv ortamında teyit (12 Kasım 2026).** `scripts/04`, `11`, `12`, `16`, `isik_siddeti_denetimi.py` ve
+`doi_normalizasyon_duyarlilik.py` arşiv ortamında (Python 3.14.4, scikit-learn 1.8.0, NumPy 2.4.6)
+`PEROVSKITE_KAT_DOGRULA=1` ile koşulmuştur: kayıtların tamamı o ortamın `GroupKFold` atamasıyla aynıdır ve betiklerin
+çıktıları, manifestler ile `nested_results.json`'daki `elapsed_sec` alanı dışında, bayt düzeyinde aynen yeniden
+üretilmiştir. `kayit.json`'daki `kaynak` alanları kayıtların üretildiği andaki durumu yazar; teyit notu aynı dosyanın
+`dogrulama` alanındadır.
+
 HistGBM ve XGBoost skorları kat ataması aynı olsa da ortama duyarlıdır (LightGBM ve Random Forest bu açıdan
 sınanmamıştır); CatBoost dışındaki modellerde sayı düzeyinde yeniden üretim için "Tam çalışma ortamı" gerekir.
 
@@ -254,7 +262,7 @@ serbestlik derecesi düzeltmeli taban RMSE sütunu bu sürümden gelir) ile `isi
 
 Tez v118 ek denetimleri — `scripts/19_recete_grup_ve_taban.py`, `scripts/20_aday_model_duyarliligi.py`, `scripts/21_blok_shap.py`, `scripts/22_lab_grup_denetimi.py`, `scripts/23_deney_b_carpim.py` ve kök denetimi `tarama_yonu_denetimi.py` — özet çıktıları (`outputs/robustness/`) ve manifestleriyle (`outputs/manifests/manifest_stage19`–`23_*.json`) birlikte 10 Kasım 2026'da ana dala girmiştir. Bu betikler Python 3.13.18 ortamında koşulmuştur (numpy 2.5.4, pandas 3.1.1, scikit-learn 1.9.1, scipy 1.18.1, CatBoost 1.2.10, XGBoost 3.2.0, LightGBM 4.6.0, SHAP 0.51.0); bu ortamda DOI-grup CV taban çizgisi R² = 0,412 ± 0,013'tür (tezde raporlanan 0,410 ± 0,016'dan farkın tamamı kat atamasından gelir; bkz. "Kat atamaları"). Manifestlerin `git.commit` alanı, betikler henüz commit'lenmemişken çalışılan ağacın üst commit'ini (`438c2c4`, `dirty: true`) gösterir. Kat dışı tahmin dosyası `outputs/robustness/d0_oof_tahminler.csv` (~1,6 MB) sürüm kontrolüne alınmaz; `scripts/19_recete_grup_ve_taban.py` ile yeniden üretilir. Aynı gün eklenen `birincil_r2_bootstrap.py` (holdout R², MAE ve RMSE için DOI-kümeli %95 aralıkları) model yeniden eğitmez: sürüm kontrolündeki holdout tahminlerini (`outputs/v4/best_model_holdout_predictions.csv`) kullandığı için değerleri ortam farkından etkilenmez ve nokta değeri tezdeki 0,394 ile birebir örtüşür.
 
-Kat ataması kaydı (12 Kasım 2026): `kat_atamalari/` (12 arşiv yapılandırmasının kat ataması; bkz. "Kat atamaları"), `src/perovskite_ml/validation/splits.py` içindeki kayıt/kararlı atama mekanizması ve kök denetimi `kat_atamasi_denetimi.py` eklenmiştir. Çekirdek ve ek doğrulama betikleri (`scripts/04`, `13`, `14`, `16`) ile `doi_normalizasyon_duyarlilik.py` artık `GroupKFold`'u doğrudan çağırmaz; tez v118 denetimleri kararlı atamayı açıkça ister. Raporlanan hiçbir sayı değişmemiştir: `scripts/04` ikinci ortamda (scikit-learn 1.9.1) kayıtlı atamayla `outputs/v4/validation_experiments.csv` dosyasını bayt düzeyinde aynen üretir. `tarama_yonu_denetimi.py` çıktısına kat skorları ve taban–kovaryat eşleştirilmiş karşılaştırması eklenmiştir (eski alanlar aynıdır). `kat_atamasi_denetimi.py` Python 3.13.18 ortamında koşulmuştur; HistGBM kat skorları scikit-learn sürümüne duyarlı olduğundan CatBoost–HistGBM eşleştirilmiş farkı arşivde 0,0024 (5/5 kat, p = 0,006), bu ortamda 0,0013'tür (4/5 kat, p = 0,24).
+Kat ataması kaydı (12 Kasım 2026): `kat_atamalari/` (13 arşiv yapılandırmasının kat ataması; on üçüncüsü ve kayıtların arşiv ortamındaki teyidi aynı gün eklenmiştir; bkz. "Kat atamaları"), `src/perovskite_ml/validation/splits.py` içindeki kayıt/kararlı atama mekanizması ve kök denetimi `kat_atamasi_denetimi.py` eklenmiştir. Çekirdek ve ek doğrulama betikleri (`scripts/04`, `13`, `14`, `16`) ile `doi_normalizasyon_duyarlilik.py` artık `GroupKFold`'u doğrudan çağırmaz; tez v118 denetimleri kararlı atamayı açıkça ister. Raporlanan hiçbir sayı değişmemiştir: `scripts/04` ikinci ortamda (scikit-learn 1.9.1) kayıtlı atamayla `outputs/v4/validation_experiments.csv` dosyasını bayt düzeyinde aynen üretir. `tarama_yonu_denetimi.py` çıktısına kat skorları ve taban–kovaryat eşleştirilmiş karşılaştırması eklenmiştir (eski alanlar aynıdır). `kat_atamasi_denetimi.py` Python 3.13.18 ortamında koşulmuştur; HistGBM kat skorları scikit-learn sürümüne duyarlı olduğundan CatBoost–HistGBM eşleştirilmiş farkı arşivde 0,0024 (5/5 kat, p = 0,006), bu ortamda 0,0013'tür (4/5 kat, p = 0,24).
 
 Not: Depo geçmişi 17 Ekim 2026'da yalnızca commit üst verisi (yazar kimliği, mesaj sonundaki araç satırları) için yeniden yazılmıştır; ağaç içerikleri ve dosya özetleri değişmemiştir. Manifestler yeniden yazımdan önceki commit kimliğini (d6ce55f) kaydeder; bunun yeni karşılığı 6eba260, tezin atıf yaptığı v0.4.0 sürümünün eski kimliği f65ed93, yeni kimliği f2bf182'dir.
 

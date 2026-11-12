@@ -106,6 +106,20 @@
    "aciklama": "Ic ice dogrulama: dis kat 3'in egitim kumesi (33.188 kayit), kanonik DOI, 3 ic kat. scripts/16_nested_dogrulama.py",
    "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: outputs/nested/nested_outer_folds.csv dis kat 3: secilen CatBoost'un ic R2 degeri (0,4062) ayni."
   },
+  "795366ef8dcffbe1031b": {
+   "dosya": "795366ef8dcffbe1031b.txt",
+   "n_kayit": 33188,
+   "n_grup": 5883,
+   "n_splits": 3,
+   "kat_boyutlari": [
+    11063,
+    11063,
+    11062
+   ],
+   "sha256": "bb02ffb6deea2390ef4772b2e9cc6bb4891442480f1eaf0d9a857168a4931889",
+   "aciklama": "Ic ice dogrulama: dis kat 2'nin egitim kumesi (33.188 kayit), kanonik DOI, 3 ic kat. scripts/16_nested_dogrulama.py",
+   "kaynak": "PEROVSKITE_KAT_KAYIT: sklearn 1.8.0, numpy 2.4.6"
+  },
   "881475912ee965b57fff": {
    "dosya": "881475912ee965b57fff.txt",
    "n_kayit": 41371,
@@ -183,5 +197,6 @@
    "kaynak": "12 Kasim 2026'da ikinci ortamda (Python 3.13.18, NumPy 2.5.4) sklearn < 1.9 GroupKFold kuralinin (varsayilan, kararsiz siralama) uygulanmasiyla uretildi; arsiv ortaminda PEROVSKITE_KAT_DOGRULA=1 ile dogrulanmasi bekleniyor. Dogrulama: outputs/robustness/robustness_cv.csv CatBoost satiri (4 ondalik) ayni; HistGBM satirlari sklearn surumune duyarlidir."
   }
  },
- "aciklama": "Tezde raporlanan kat atamalari. Uretim ve dogrulama: README, 'Kat atamalari'."
+ "aciklama": "Tezde raporlanan kat atamalari. Uretim ve dogrulama: README, 'Kat atamalari'.",
+ "dogrulama": "12 Kasim 2026'da arsiv ortaminda (Python 3.14.4, scikit-learn 1.8.0, NumPy 2.4.6) PEROVSKITE_KAT_DOGRULA=1 ile scripts/04, 11, 12, 16, isik_siddeti_denetimi.py ve doi_normalizasyon_duyarlilik.py kosuldu: kayitlarin tamami bu ortamin GroupKFold atamasiyla ayni; betik ciktilari manifestler ve nested_results.json'daki elapsed_sec disinda bayt duzeyinde ayni uretildi. 795366ef8dcffbe1031b (dis kat 2'nin ic katlari) ayni kosuda PEROVSKITE_KAT_KAYIT=1 ile yazildi; nested_outer_folds.csv ayni (dis kat 2: XGBoost, ic R2 0,4019). 'kaynak' alanlari kayitlarin uretildigi andaki durumu yazar."
 }
