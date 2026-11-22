@@ -1,0 +1,46 @@
+{
+  "stage": "stage24_tarama_tabanlari",
+  "timestamp_utc": "2026-11-22T23:23:22+00:00",
+  "seed": 42,
+  "target": "JV_default_PCE",
+  "group_col": "Ref_DOI_number",
+  "onehot_top_n": 15,
+  "versions": {
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  },
+  "git": {
+    "commit": "cd64fda6b9f46b656ada225d3b0ceb45709af79c",
+    "dirty": true
+  },
+  "metrics": {
+    "bootstrap_B": 1000,
+    "bootstrap_tohumu": 42,
+    "birincil_catboost_77_spearman": 0.609562,
+    "taban1_ridge_77_spearman": 0.569945,
+    "taban2_catboost_kompozisyon_14_spearman": 0.487879,
+    "taban3_uclu_ortalamasi_spearman": 0.335135,
+    "birincil_catboost_77_E18_top5": 4.211244,
+    "taban1_ridge_77_E18_top5": 3.538313,
+    "taban2_catboost_kompozisyon_14_E18_top5": 3.581728,
+    "taban3_uclu_ortalamasi_E18_top5": 1.801718,
+    "girdi_sha256": {
+      "data/processed/model_ready_dataset.csv": "3c42a5433261ecdd5ba3701eba2fb0889025069f6ec0ed359c3f1706ca9c82c9",
+      "outputs/v4/best_model_holdout_predictions.csv": "94679ff14f8f3930f2de6ac958535cc1c987d82f2b3b1fdb2349626717243d1c"
+    }
+  },
+  "outputs": [
+    "outputs/robustness/tarama_tabanlari.json"
+  ],
+  "output_hashes": {
+    "outputs/robustness/tarama_tabanlari.json": "e4823bdb510ee5f5ab87a59d25c0dbcf854cc384c0653ead708f3f565be8dd7c"
+  }
+}
