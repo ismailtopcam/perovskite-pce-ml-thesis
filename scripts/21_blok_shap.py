@@ -1,6 +1,6 @@
 """Stage 21 — Blok toplamli (grouped) SHAP: one-hot kodlamanin onem siralamasina etkisi.
 
-Tez Tablo 4.6 / Sekil 4.8 tek bir surekli degiskeni (A-site FA orani) tek tek one-hot
+Tez Tablo 4.6 / Sekil 4.9 tek bir surekli degiskeni (A-site FA orani) tek tek one-hot
 sutunlariyla (HTL: PTAA, ETL: TiO2-c|TiO2-mp ...) ayni eksende siralar. 16 kategoriye
 bolunmus bir degiskenin toplam katkisi 16 sutuna dagildigi icin her biri tek basina
 kucuk gorunur; bu, "A-site FA orani en etkili degisken" sonucunu kismen kodlama

@@ -56,7 +56,7 @@ def save_shap_plots(sv, Xs: pd.DataFrame, imp: pd.DataFrame, outdir, dpi: int = 
     plt.savefig(outdir / "shap_top20_bar.png", dpi=dpi); plt.close()
 
 
-# --- Tez Sekil 4.8 / 4.9 (tez v119): Turkce etiketler, Tablo 4.6 adlari, ondalik virgul ---
+# --- Tez Sekil 4.9 / 4.10 (tez v126 numaralari): Turkce etiketler, Tablo 4.6 adlari, ondalik virgul ---
 # Ilk 15 ad Tablo 4.6 ile birebir; 16-20. siradakiler ayni kalipla adlandirildi.
 TEZ_OZELLIK_ADLARI = {
     "A_FA": "A-site FA oranı", "A_MA": "A-site MA oranı", "A_other": "A-site diğer katyon oranı",
@@ -84,11 +84,11 @@ def _virgul(v, _pos=None):
 
 def save_shap_plots_tez(sv, Xs: pd.DataFrame, imp: pd.DataFrame, bar_path, swarm_path,
                         bar_size=(8.0, 6.316), swarm_size=(8.0, 8.0), dpi: int = 300):
-    """Tez Sekil 4.8 (ilk 20 ortalama |SHAP|) ve Sekil 4.9 (beeswarm).
+    """Tez Sekil 4.9 (ilk 20 ortalama |SHAP|) ve Sekil 4.10 (beeswarm).
 
     Etiketler Turkce, ozellik adlari Tablo 4.6 ile ayni, ondaliklar virgullu, yazi tipi
     Times New Roman. Kanvas oranlari tez belgesindeki yerlesim olculeriyle ayni secilir
-    (4.8: 1,267; 4.9: 1,0), boylece gorsel belgede bozulmadan gorunur.
+    (4.9: 1,267; 4.10: 1,0), boylece gorsel belgede bozulmadan gorunur.
     """
     import matplotlib
     matplotlib.use("Agg")

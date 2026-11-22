@@ -1,14 +1,14 @@
 """Tez sekillerinin repo icinden yeniden uretimi (ML yok, yalnizca gorsellestirme).
 
-Tezdeki sekillerden ucu hat betiklerince uretilir (4.8/4.9 SHAP -> scripts/05,
-4.11 sacilim -> scripts/03). Bu betik geri kalan VERI sekillerini uretir; Sekil 3.1
-(mimari semasi) veri sekli degildir. Sekil 3.1 ile 4.8/4.9'un tezdeki Turkce surumleri
+Sekil numaralari tez v126'ya goredir; v125 ve oncesinde 4.9-4.14 birer kucuktu.
+Tezdeki sekillerden ucu hat betiklerince uretilir (4.9/4.10 SHAP -> scripts/05,
+4.12 sacilim -> scripts/03). Bu betik geri kalan VERI sekillerini uretir; Sekil 3.1
+(mimari semasi) veri sekli degildir. Sekil 3.1 ile 4.9/4.10'un tezdeki Turkce surumleri
 scripts/tez_sekilleri_ek.py'dedir.
-Sekil 4.10 (kazanc egrisi) tez v126'dan itibaren bu betikte cizilir. scripts/07'nin
+Sekil 4.11 (kazanc egrisi) tez v126'dan itibaren bu betikte cizilir. scripts/07'nin
 urettigi outputs/screening/gains_curve.png arsiv ciktisi olarak kalir; tezde kullanilan
-surum buradaki sekil_4_10_kazanc_egrisi.png dosyasidir (egri (0, 0) noktasindan baslar).
-Uc dogrulama deneyinin (A, B, C) ozet sekli de buradadir; tezdeki numarasi belirlenmedigi
-icin dosya adinda numara yoktur.
+surum buradaki sekil_4_11_kazanc_egrisi.png dosyasidir (egri (0, 0) noktasindan baslar).
+Uc dogrulama deneyinin (A, B, C) ozet sekli (Sekil 4.8) de buradadir.
 Sayilar Turkce gosterimle yazilir (tez v120): ondalik virgul, binlik nokta (_save ->
 _tr_eksenler; metin icindeki sayilar _ondalik / _tr ile).
 
@@ -19,10 +19,10 @@ _tr_eksenler; metin icindeki sayilar _ondalik / _tr ile).
   Sekil 4.5  Yayin (DOI) basina kayit sayisi   <- model_ready
   Sekil 4.6  Medyanla doldurulan oranlar       <- model_ready (*_missing bayraklari)
   Sekil 4.7  Model GroupKFold karsilastirmasi  <- outputs/v4/model_comparison_groupkfold.csv
-  Sekil 4.10 Kazanc egrisi (PCE >= 18)         <- outputs/v4/best_model_holdout_predictions.csv
-  Sekil 4.12 Isaretli hata dagilimi            <- outputs/v4/actual_vs_predicted.csv
-  Sekil 4.13 Conformal kapsama/genislik        <- outputs/conformal/* + holdout tahminleri
-  Deney A/B/C dogrulama deneyleri ozeti        <- outputs/v4/validation_experiments.csv
+  Sekil 4.8  Deney A/B/C dogrulama ozeti       <- outputs/v4/validation_experiments.csv
+  Sekil 4.11 Kazanc egrisi (PCE >= 18)         <- outputs/v4/best_model_holdout_predictions.csv
+  Sekil 4.13 Isaretli hata dagilimi            <- outputs/v4/actual_vs_predicted.csv
+  Sekil 4.14 Conformal kapsama/genislik        <- outputs/conformal/* + holdout tahminleri
 
 data/processed dosyalari yoksa (once scripts/01-02 kosulmali) ilgili sekiller atlanir;
 commit'li outputs/ dosyalarindan uretilenler her ortamda calisir.
@@ -88,7 +88,7 @@ def _tr_eksenler(fig):
                 eksen.set_major_formatter(_TrFormatter())
 
 
-# Sekil 4.4: veri tabani kategori adlarinin tezdeki yazimi (Tablo 4.6, Sekil 4.8 ile ayni)
+# Sekil 4.4: veri tabani kategori adlarinin tezdeki yazimi (Tablo 4.6, Sekil 4.9 ile ayni)
 _KATEGORI_TR = {"nip": "n-i-p", "pin": "p-i-n", "Back contacted": "Arka kontakl\u0131",
                 "Front contacted": "\u00d6n kontakl\u0131", "Unknown": "Bilinmiyor", "none": "Yok"}
 
@@ -261,7 +261,7 @@ def main():
     else:
         skipped.append("4.7")
 
-    # Sekil 4.10 — kazanc egrisi: model sirasiyla incelenen oran ve yakalanan PCE >= 18 orani
+    # Sekil 4.11 — kazanc egrisi: model sirasiyla incelenen oran ve yakalanan PCE >= 18 orani
     hold_path = outputs / "v4" / "best_model_holdout_predictions.csv"
     if hold_path.exists():
         G = pd.read_csv(hold_path)
@@ -275,11 +275,11 @@ def main():
         ax.set_xlabel("\u0130ncelenen kay\u0131t oran\u0131 (%)")
         ax.set_ylabel("Yakalanan y\u00fcksek verimli kay\u0131t (PCE \u2265 18) oran\u0131 (%)")
         ax.legend()
-        _save(fig, outdir, "sekil_4_10_kazanc_egrisi.png", made)
+        _save(fig, outdir, "sekil_4_11_kazanc_egrisi.png", made)
     else:
-        skipped.append("4.10")
+        skipped.append("4.11")
 
-    # Sekil 4.12 — isaretli hata dagilimi (tahmin - gercek)
+    # Sekil 4.13 — isaretli hata dagilimi (tahmin - gercek)
     avp_path = outputs / "v4" / "actual_vs_predicted.csv"
     if avp_path.exists():
         avp = pd.read_csv(avp_path)
@@ -289,11 +289,11 @@ def main():
         ax.axvline(0, color="black", linewidth=1.6)
         ax.set_xlabel("Tahmin hatas\u0131 (tahmin \u2212 ger\u00e7ek, PCE puan\u0131)")
         ax.set_ylabel("Kay\u0131t say\u0131s\u0131")
-        _save(fig, outdir, "sekil_4_12_hata_dagilimi.png", made)
+        _save(fig, outdir, "sekil_4_13_hata_dagilimi.png", made)
     else:
-        skipped.append("4.12")
+        skipped.append("4.13")
 
-    # Sekil 4.13 — hedeflenen ve gozlenen kapsama (sol) + 60 orneklik aralik (sag)
+    # Sekil 4.14 — hedeflenen ve gozlenen kapsama (sol) + 60 orneklik aralik (sag)
     conf_path = outputs / "conformal" / "conformal_summary.csv"
     if conf_path.exists() and hold_path.exists():
         conf = pd.read_csv(conf_path)
@@ -334,12 +334,12 @@ def main():
         # gosterge hicbir isaretin ustune gelmesin: ust sinir yukari, tek satir, cercevesiz
         axes[1].set_ylim(top=32)
         axes[1].legend(loc="upper left", ncol=3, frameon=False)
-        print(f"  [4.13] 60 kayit: {int(icinde.sum())} aralikta, {int((~icinde).sum())} disinda")
-        _save(fig, outdir, "sekil_4_13_conformal.png", made)
+        print(f"  [4.14] 60 kayit: {int(icinde.sum())} aralikta, {int((~icinde).sum())} disinda")
+        _save(fig, outdir, "sekil_4_14_conformal.png", made)
     else:
-        skipped.append("4.13")
+        skipped.append("4.14")
 
-    # Uc dogrulama deneyi (A: bolme stratejisi, B: olcum sonrasi girdi, C: ozellik kapsami)
+    # Sekil 4.8 — uc dogrulama deneyi (A: bolme stratejisi, B: olcum sonrasi girdi, C: ozellik kapsami)
     den_path = outputs / "v4" / "validation_experiments.csv"
     if den_path.exists():
         D = pd.read_csv(den_path).set_index(["deney", "ayar"])
@@ -376,9 +376,9 @@ def main():
         axes[2].legend(handles=[Patch(color=MAVI, label="Tezin birincil kurulumu"),
                                 Patch(color=GRI, label="Kar\u015f\u0131la\u015ft\u0131rma kurulumu")],
                        loc="upper left", frameon=False)
-        _save(fig, outdir, "sekil_deney_abc_dogrulama.png", made)
+        _save(fig, outdir, "sekil_4_08_deney_abc_dogrulama.png", made)
     else:
-        skipped.append("deney A/B/C")
+        skipped.append("4.8")
 
     print(f"\n[thesis_figures] uretilen: {len(made)} sekil -> {outdir}")
     if skipped:

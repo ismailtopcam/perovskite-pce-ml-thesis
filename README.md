@@ -116,8 +116,9 @@ python scripts/22_lab_grup_denetimi.py      # tez v118: baş yazar vekiliyle lab
 python scripts/23_deney_b_carpim.py         # tez v118: Deney B — çarpım özelliği ve cebirsel özdeşliğin kırılma kaynakları (Bölüm 4.3)
 python scripts/thesis_data_analysis.py data/processed/model_ready_dataset.csv --out outputs/robustness/thesis_data_analysis.json
                                             # betimsel istatistik: DOI-grup dağılımı, gürültü tabanı (Tablo 5.1; taban RMSE hem √(SS_w/n) hem dof-düzeltmeli), band gap (ML yok); --out ile JSON
-python scripts/thesis_figures.py            # tez veri şekillerinin (4.1-4.7, 4.10, 4.12, 4.13 ve üç doğrulama deneyinin özet şekli) repo içinden yeniden üretimi -> outputs/figures/ (4.10 tez v126'dan itibaren burada; scripts/07'nin gains_curve.png dosyası arşiv çıktısıdır)
-python scripts/tez_sekilleri_ek.py          # tez v119: Şekil 3.1 (hat şeması), 4.8 ve 4.9 (SHAP; özellik adları Tablo 4.6 ile aynı) -> outputs/figures/
+python scripts/thesis_figures.py            # tez veri şekillerinin (4.1-4.8, 4.11, 4.13, 4.14) repo içinden yeniden üretimi -> outputs/figures/ (4.8 üç doğrulama deneyinin özeti; 4.11 kazanç eğrisi tez v126'dan itibaren burada, scripts/07'nin gains_curve.png dosyası arşiv çıktısıdır)
+python scripts/tez_sekilleri_ek.py          # tez v119: Şekil 3.1 (hat şeması), 4.9 ve 4.10 (SHAP; özellik adları Tablo 4.6 ile aynı) -> outputs/figures/
+                                            # Şekil numaraları tez v126'ya göredir; v125 ve öncesinde 4.9–4.14 birer küçüktü.
 ```
 
 Tez gövdesinde anılan kök-dizin denetim betikleri (tamamı: `python run_thesis_audits.py`, aşağıdaki sırayla; tez Ek A aynı betikleri listeler ama sırası farklıdır; çıktıları sürüm kontrolünde):

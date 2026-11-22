@@ -1,16 +1,17 @@
-"""Tez sekilleri (tez v119): Sekil 3.1 hat semasi ile Sekil 4.8 / 4.9 SHAP grafiklerinin Turkce surumleri.
+"""Tez sekilleri (tez v119): Sekil 3.1 hat semasi ile Sekil 4.9 / 4.10 SHAP grafiklerinin Turkce surumleri.
+Sekil numaralari tez v126'ya goredir; v125 ve oncesinde bu iki sekil 4.8 ve 4.9 idi.
 
 Sekil 3.1 : yazilim hattinin veri-akis semasi (veri gerektirmez). Ozgun gorselin kaynak dosyasi
             depoda yoktu; bu betik onun yerine gecer (sayilar Turkce gosterimle, alti model).
-Sekil 4.8 : en etkili 20 ozelligin ortalama |SHAP| cubuk grafigi
-Sekil 4.9 : SHAP beeswarm ozet grafigi
-4.8/4.9 icin SHAP degerleri scripts/05_shap_analysis.py ile ayni model (outputs/v4/best_model.joblib)
+Sekil 4.9 : en etkili 20 ozelligin ortalama |SHAP| cubuk grafigi
+Sekil 4.10: SHAP beeswarm ozet grafigi
+4.9/4.10 icin SHAP degerleri scripts/05_shap_analysis.py ile ayni model (outputs/v4/best_model.joblib)
 ve ayni orneklemle (sample_for_shap, config tohumu) yeniden hesaplanir; ortalama |SHAP| degerleri
 commit'li outputs/shap_full/shap_top_features.csv ile karsilastirilir, fark 1e-9'u asarsa betik durur.
 Etiketler Turkce, ozellik adlari Tablo 4.6 ile ayni, ondaliklar virgullu, yazi tipi Times New Roman
 (tez kilavuzu). Kanvas olculeri tez belgesindeki yerlesim olculeriyle aynidir.
-Girdi : data/processed/model_ready_dataset.csv, outputs/v4/best_model.joblib (yalnizca 4.8/4.9)
-Cikti : outputs/figures/sekil_3_1_hat_semasi.png, sekil_4_8_shap_ilk20.png, sekil_4_9_shap_beeswarm.png
+Girdi : data/processed/model_ready_dataset.csv, outputs/v4/best_model.joblib (yalnizca 4.9/4.10)
+Cikti : outputs/figures/sekil_3_1_hat_semasi.png, sekil_4_9_shap_ilk20.png, sekil_4_10_shap_beeswarm.png
 Calistirma (repo kokunden): python scripts/tez_sekilleri_ek.py
 """
 import sys
@@ -121,7 +122,7 @@ def sekil_3_1(path):
     plt.close(fig)
 
 
-def sekil_4_8_4_9(cfg, bar_path, swarm_path):
+def sekil_4_9_4_10(cfg, bar_path, swarm_path):
     import joblib
     from perovskite_ml.explain.shap_analysis import (
         sample_for_shap, compute_shap_values, shap_importance, save_shap_plots_tez)
@@ -151,8 +152,8 @@ def main():
     print("  [ok] sekil_3_1_hat_semasi.png")
     if "--yalniz-3-1" in sys.argv:
         return
-    sekil_4_8_4_9(cfg, outdir / "sekil_4_8_shap_ilk20.png", outdir / "sekil_4_9_shap_beeswarm.png")
-    print("  [ok] sekil_4_8_shap_ilk20.png, sekil_4_9_shap_beeswarm.png")
+    sekil_4_9_4_10(cfg, outdir / "sekil_4_9_shap_ilk20.png", outdir / "sekil_4_10_shap_beeswarm.png")
+    print("  [ok] sekil_4_9_shap_ilk20.png, sekil_4_10_shap_beeswarm.png")
 
 
 if __name__ == "__main__":
