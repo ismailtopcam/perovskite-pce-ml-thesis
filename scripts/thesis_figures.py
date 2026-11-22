@@ -1,9 +1,14 @@
 """Tez sekillerinin repo icinden yeniden uretimi (ML yok, yalnizca gorsellestirme).
 
-Tezdeki 13 sekilden dordu zaten hat betiklerince uretilir (4.8/4.9 SHAP -> scripts/05,
-4.10 kazanc egrisi -> scripts/07, 4.11 sacilim -> scripts/03). Bu betik geri kalan
-VERI sekillerinin esdegerlerini uretir; Sekil 3.1 (mimari semasi) veri sekli degildir.
-Sekil 3.1 ile 4.8/4.9'un tezdeki Turkce surumleri scripts/tez_sekilleri_ek.py'dedir.
+Tezdeki sekillerden ucu hat betiklerince uretilir (4.8/4.9 SHAP -> scripts/05,
+4.11 sacilim -> scripts/03). Bu betik geri kalan VERI sekillerini uretir; Sekil 3.1
+(mimari semasi) veri sekli degildir. Sekil 3.1 ile 4.8/4.9'un tezdeki Turkce surumleri
+scripts/tez_sekilleri_ek.py'dedir.
+Sekil 4.10 (kazanc egrisi) tez v126'dan itibaren bu betikte cizilir. scripts/07'nin
+urettigi outputs/screening/gains_curve.png arsiv ciktisi olarak kalir; tezde kullanilan
+surum buradaki sekil_4_10_kazanc_egrisi.png dosyasidir (egri (0, 0) noktasindan baslar).
+Uc dogrulama deneyinin (A, B, C) ozet sekli de buradadir; tezdeki numarasi belirlenmedigi
+icin dosya adinda numara yoktur.
 Sayilar Turkce gosterimle yazilir (tez v120): ondalik virgul, binlik nokta (_save ->
 _tr_eksenler; metin icindeki sayilar _ondalik / _tr ile).
 
@@ -14,8 +19,10 @@ _tr_eksenler; metin icindeki sayilar _ondalik / _tr ile).
   Sekil 4.5  Yayin (DOI) basina kayit sayisi   <- model_ready
   Sekil 4.6  Medyanla doldurulan oranlar       <- model_ready (*_missing bayraklari)
   Sekil 4.7  Model GroupKFold karsilastirmasi  <- outputs/v4/model_comparison_groupkfold.csv
+  Sekil 4.10 Kazanc egrisi (PCE >= 18)         <- outputs/v4/best_model_holdout_predictions.csv
   Sekil 4.12 Isaretli hata dagilimi            <- outputs/v4/actual_vs_predicted.csv
   Sekil 4.13 Conformal kapsama/genislik        <- outputs/conformal/* + holdout tahminleri
+  Deney A/B/C dogrulama deneyleri ozeti        <- outputs/v4/validation_experiments.csv
 
 data/processed dosyalari yoksa (once scripts/01-02 kosulmali) ilgili sekiller atlanir;
 commit'li outputs/ dosyalarindan uretilenler her ortamda calisir.
@@ -29,6 +36,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib import ticker
+from matplotlib.patches import Patch
 
 # Sekil ici yazilar tez kilavuzu geregi Times New Roman (mathtext: STIX serif eslenigi)
 plt.rcParams["font.family"] = "Times New Roman"
@@ -39,6 +47,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from perovskite_ml.config import load_config
+from perovskite_ml.simulation.screening import gains_curve
 
 DPI = 300  # tez yerlesimindeki ozgun kanvaslarla birebir
 
@@ -109,6 +118,7 @@ def main():
     outdir.mkdir(parents=True, exist_ok=True)
     made, skipped = [], []
     MAVI, TURUNCU, YESIL = "#2E7A9C", "#D9622B", "#17A589"
+    GRI = "#9AA0A6"
 
     # ---- islenmis veri gerektiren sekiller (4.1-4.6) ----
     mr_path = proc / "model_ready_dataset.csv"
@@ -124,7 +134,7 @@ def main():
                    label=f"Ortalama = {_ondalik(pce.mean(), 2)}")
         ax.axvline(pce.median(), color="black", linestyle=":", linewidth=2.2,
                    label=f"Medyan = {_ondalik(pce.median(), 2)}")
-        ax.set_xlabel("PCE (%)"); ax.set_ylabel("H\u00fccre say\u0131s\u0131")
+        ax.set_xlabel("PCE (%)"); ax.set_ylabel("Kay\u0131t say\u0131s\u0131")
         ax.legend()
         _save(fig, outdir, "sekil_4_01_pce_dagilimi.png", made)
 
@@ -198,13 +208,15 @@ def main():
         skipped += ["4.1", "4.2", "4.3", "4.5", "4.6"]
         print(f"  [atlandi] model_ready_dataset.csv yok ({mr_path}) -> once scripts/01-02")
 
-    # Sekil 4.4 — cihaz-yigini en sik kategoriler (ilk 5 + '<panel> other')
+    # Sekil 4.4 — cihaz-yigini en sik kategoriler (ilk 5 + '<panel> other');
+    # her cubugun ucunda kayit sayisi (kucuk kategorilerin cubugu gorunmedigi icin)
     cl_path = proc / "cleaned_dataset.csv"
     if cl_path.exists():
         C = pd.read_csv(cl_path, low_memory=False)
         panels = [("Cell_architecture", "H\u00fccre mimarisi", "Mimari"),
                   ("ETL_stack_sequence", "ETL", "ETL"),
                   ("HTL_stack_sequence", "HTL", "HTL")]
+        X_PAY_4_4 = 1.30  # sayi etiketi cerceveye degmesin
         fig, axes = plt.subplots(1, 3, figsize=(10.88, 3.07))
         for ax, (col, baslik, kisa) in zip(axes, panels):
             vc = C[col].fillna("Unknown").astype(str).value_counts()
@@ -218,7 +230,12 @@ def main():
                 etiket.append(_kategori_adi(vc.index[5]))
                 deger.append(int(vc.iloc[5]))
             sirali = sorted(zip(deger, etiket))
-            ax.barh([e for _, e in sirali], [v for v, _ in sirali], color=MAVI)
+            bars = ax.barh([e for _, e in sirali], [v for v, _ in sirali], color=MAVI)
+            en_buyuk = max(deger)
+            for b, (v, _) in zip(bars, sirali):
+                ax.text(v + 0.015 * en_buyuk, b.get_y() + b.get_height() / 2,
+                        _tr(int(v)), va="center", ha="left")
+            ax.set_xlim(0, en_buyuk * X_PAY_4_4)
             ax.set_title(baslik)
             ax.set_xlabel("Kay\u0131t say\u0131s\u0131")
         _save(fig, outdir, "sekil_4_04_cihaz_kategorileri.png", made)
@@ -244,6 +261,24 @@ def main():
     else:
         skipped.append("4.7")
 
+    # Sekil 4.10 — kazanc egrisi: model sirasiyla incelenen oran ve yakalanan PCE >= 18 orani
+    hold_path = outputs / "v4" / "best_model_holdout_predictions.csv"
+    if hold_path.exists():
+        G = pd.read_csv(hold_path)
+        oran, yakalanan = gains_curve(G["y_true"].values, G["y_pred"].values, 18)
+        oran = np.concatenate([[0.0], oran])            # egri (0, 0) noktasindan baslar
+        yakalanan = np.concatenate([[0.0], yakalanan])
+        fig, ax = plt.subplots(figsize=(6.5, 5))
+        ax.plot(oran * 100, yakalanan * 100, color=MAVI, linewidth=2,
+                label="Model y\u00f6nlendirmeli se\u00e7im")
+        ax.plot([0, 100], [0, 100], "--", color="gray", label="Rastgele se\u00e7im")
+        ax.set_xlabel("\u0130ncelenen kay\u0131t oran\u0131 (%)")
+        ax.set_ylabel("Yakalanan y\u00fcksek verimli kay\u0131t (PCE \u2265 18) oran\u0131 (%)")
+        ax.legend()
+        _save(fig, outdir, "sekil_4_10_kazanc_egrisi.png", made)
+    else:
+        skipped.append("4.10")
+
     # Sekil 4.12 — isaretli hata dagilimi (tahmin - gercek)
     avp_path = outputs / "v4" / "actual_vs_predicted.csv"
     if avp_path.exists():
@@ -253,14 +288,13 @@ def main():
         ax.hist(err, bins=90, color=YESIL, edgecolor="white", linewidth=0.4)
         ax.axvline(0, color="black", linewidth=1.6)
         ax.set_xlabel("Tahmin hatas\u0131 (tahmin \u2212 ger\u00e7ek, PCE puan\u0131)")
-        ax.set_ylabel("H\u00fccre say\u0131s\u0131")
+        ax.set_ylabel("Kay\u0131t say\u0131s\u0131")
         _save(fig, outdir, "sekil_4_12_hata_dagilimi.png", made)
     else:
         skipped.append("4.12")
 
     # Sekil 4.13 — hedeflenen ve gozlenen kapsama (sol) + 60 orneklik aralik (sag)
     conf_path = outputs / "conformal" / "conformal_summary.csv"
-    hold_path = outputs / "v4" / "best_model_holdout_predictions.csv"
     if conf_path.exists() and hold_path.exists():
         conf = pd.read_csv(conf_path)
         marg = conf[conf["yontem"].str.startswith("Marginal")].copy()
@@ -271,12 +305,15 @@ def main():
         etik = [("%" + str(int(h)) + " (\u00b1" + f"{hw[int(h)]:.2f}" + ")").replace(".", ",")
                 for h in hedef]
         axes[0].bar(xs - 0.2, hedef, width=0.4, label="Hedeflenen", color=MAVI)
-        axes[0].bar(xs + 0.2, 100 * marg["ampirik_kapsama"], width=0.4,
+        gozlenen = 100 * marg["ampirik_kapsama"].to_numpy()
+        axes[0].bar(xs + 0.2, gozlenen, width=0.4,
                     label="G\u00f6zlenen", color=TURUNCU)
+        for x, g in zip(xs, gozlenen):
+            axes[0].text(x + 0.2, g + 1.2, "%" + _ondalik(g, 1), ha="center", va="bottom")
         axes[0].set_xticks(xs); axes[0].set_xticklabels(etik)
-        axes[0].set_ylabel("Kapsama (%)"); axes[0].set_ylim(60, 100)
+        axes[0].set_ylabel("Kapsama (%)"); axes[0].set_ylim(0, 105)
         axes[0].set_title("Hedeflenen ve g\u00f6zlenen kapsama")
-        axes[0].legend()
+        axes[0].legend(loc="upper right", ncol=2, frameon=False)
         hw90 = hw.get(90, list(hw.values())[0])
         H = pd.read_csv(hold_path)
         rng = np.random.default_rng(42)
@@ -291,13 +328,57 @@ def main():
                         zorder=3, label="aral\u0131kta")
         axes[1].scatter(xs2[~icinde], sec["y_true"][~icinde], s=60, marker="x",
                         color=TURUNCU, linewidths=2.5, zorder=3, label="d\u0131\u015f\u0131nda")
-        axes[1].set_xlabel("Holdout \u00f6rnekleri (tahmine g\u00f6re s\u0131ral\u0131, n=60)")
+        axes[1].set_xlabel("Rastgele se\u00e7ilen 60 holdout kayd\u0131 (tahmine g\u00f6re s\u0131ral\u0131)")
         axes[1].set_ylabel("PCE (%)")
         axes[1].set_title("Conformal aral\u0131k ve ger\u00e7ek de\u011ferler")
-        axes[1].legend(loc="upper left")
+        # gosterge hicbir isaretin ustune gelmesin: ust sinir yukari, tek satir, cercevesiz
+        axes[1].set_ylim(top=32)
+        axes[1].legend(loc="upper left", ncol=3, frameon=False)
+        print(f"  [4.13] 60 kayit: {int(icinde.sum())} aralikta, {int((~icinde).sum())} disinda")
         _save(fig, outdir, "sekil_4_13_conformal.png", made)
     else:
         skipped.append("4.13")
+
+    # Uc dogrulama deneyi (A: bolme stratejisi, B: olcum sonrasi girdi, C: ozellik kapsami)
+    den_path = outputs / "v4" / "validation_experiments.csv"
+    if den_path.exists():
+        D = pd.read_csv(den_path).set_index(["deney", "ayar"])
+        # (deney, ayar, eksen etiketi, tezin birincil kurulumu mu)
+        paneller = [
+            ("Deney A: b\u00f6lme stratejisi", [
+                ("A_bolme", "rastgele_KFold", "Rastgele\nKFold", False),
+                ("A_bolme", "DOI_grup_KFold", "DOI-grup\nKFold", True)]),
+            ("Deney B: \u00f6l\u00e7\u00fcm sonras\u0131 girdi", [
+                ("B_olcum_sonrasi", "leakage_safe",
+                 "S\u0131z\u0131nt\u0131-g\u00fcvenli\n(77 \u00f6zellik)", True),
+                ("B_olcum_sonrasi", "leakage_ON (+Voc,Jsc,FF)", "+ Voc, Jsc, FF", False)]),
+            ("Deney C: \u00f6zellik kapsam\u0131", [
+                ("C_kapsam", "kompozisyon (14 ozellik)", "Kompozisyon\n(14)", False),
+                ("C_kapsam", "+cihaz (57 ozellik)", "+ cihaz\n(57)", False),
+                ("C_kapsam", "+surec_tam (77 ozellik)", "+ s\u00fcre\u00e7\n(77)", True)]),
+        ]
+        fig, axes = plt.subplots(1, 3, figsize=(10.366667, 4.2), sharey=True,
+                                 gridspec_kw={"width_ratios": [2, 2, 3]})
+        for ax, (baslik, cubuklar) in zip(axes, paneller):
+            xs3 = np.arange(len(cubuklar))
+            ort = np.array([D.loc[(d, a), "R2_mean"] for d, a, _, _ in cubuklar])
+            ss = np.array([D.loc[(d, a), "R2_std"] for d, a, _, _ in cubuklar])
+            ax.bar(xs3, ort, yerr=ss, width=0.62, capsize=4,
+                   color=[MAVI if birincil else GRI for *_, birincil in cubuklar])
+            for x, m, sd in zip(xs3, ort, ss):
+                ax.text(x, m + sd + 0.015, _ondalik(m, 3), ha="center", va="bottom")
+            ax.set_xticks(xs3)
+            ax.set_xticklabels([e for _, _, e, _ in cubuklar])
+            ax.set_xlim(-0.6, len(cubuklar) - 0.4)
+            ax.set_title(baslik)
+        axes[0].set_ylim(0, 1.08)
+        axes[0].set_ylabel("\u00c7apraz do\u011frulama R\u00b2\n(5 katl\u0131; ortalama \u00b1 ss)")
+        axes[2].legend(handles=[Patch(color=MAVI, label="Tezin birincil kurulumu"),
+                                Patch(color=GRI, label="Kar\u015f\u0131la\u015ft\u0131rma kurulumu")],
+                       loc="upper left", frameon=False)
+        _save(fig, outdir, "sekil_deney_abc_dogrulama.png", made)
+    else:
+        skipped.append("deney A/B/C")
 
     print(f"\n[thesis_figures] uretilen: {len(made)} sekil -> {outdir}")
     if skipped:
