@@ -1,0 +1,37 @@
+{
+  "stage": "alan_doluluk_denetimi",
+  "timestamp_utc": "2026-11-22T23:23:43+00:00",
+  "seed": 42,
+  "target": "JV_default_PCE",
+  "group_col": "Ref_DOI_number",
+  "onehot_top_n": 15,
+  "versions": {
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  },
+  "git": {
+    "commit": "cd64fda6b9f46b656ada225d3b0ceb45709af79c",
+    "dirty": true
+  },
+  "metrics": {
+    "n_ham": 43398,
+    "n_temiz": 41485,
+    "girdi_sha256": {
+      "data/raw/Perovskite_database_content_all_data.csv": "da66a634e9106e58ce4d012558d468bc2f19b95987f149fb9c5d208d363ea67a"
+    }
+  },
+  "outputs": [
+    "outputs/robustness/alan_doluluk_denetimi.json"
+  ],
+  "output_hashes": {
+    "outputs/robustness/alan_doluluk_denetimi.json": "81fea64e2a0d64f8322436c60ffa93dcf84fd72bac55199cec2c34d6c416ab4a"
+  }
+}

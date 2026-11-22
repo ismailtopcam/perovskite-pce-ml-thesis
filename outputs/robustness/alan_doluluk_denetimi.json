@@ -1,0 +1,309 @@
+{
+ "yontem": {
+  "n_ham": 43398,
+  "n_temiz": 41485,
+  "temiz_kume": "clean_rows + vectorize_dataframe (hat kodu); ham satirlar bu indeksle secilir",
+  "dolu": "NaN degil ve kirpildiktan sonra bos degil",
+  "bilinen": "dolu ve degerin tamami (kirpilmis, kucuk harf) 'unknown' ya da 'none' degil",
+  "bilinen_parca": "dolu ve '|', ';', '>>' ile ayrilan parcalarin hepsi 'unknown' / 'none' / 'nan' / bos degil",
+  "farkli_deger": "kirpilmis metin uzerinde; buyuk-kucuk harf ayrimi korunur"
+ },
+ "alanlar": {
+  "Perovskite_thickness": {
+   "ham": {
+    "n": 43398,
+    "dolu_kayit": 13710,
+    "dolu_oran": 0.31591317572238353,
+    "bilinen_kayit": 13710,
+    "bilinen_oran": 0.31591317572238353,
+    "bilinen_parca_kayit": 13705,
+    "bilinen_parca_oran": 0.3157979630397714,
+    "farkli_deger_dolu": 369,
+    "farkli_deger_bilinen": 369,
+    "unknown_kayit": 0,
+    "none_kayit": 0
+   },
+   "temiz": {
+    "n": 41485,
+    "dolu_kayit": 13189,
+    "dolu_oran": 0.31792214053272266,
+    "bilinen_kayit": 13189,
+    "bilinen_oran": 0.31792214053272266,
+    "bilinen_parca_kayit": 13189,
+    "bilinen_parca_oran": 0.31792214053272266,
+    "farkli_deger_dolu": 354,
+    "farkli_deger_bilinen": 354,
+    "unknown_kayit": 0,
+    "none_kayit": 0
+   },
+   "gecici_hesap_ham": {
+    "bilinen_oran_yuzde": 31.6,
+    "farkli_deger": 369
+   },
+   "gecici_ile_fark": {
+    "bilinen_oran_yuzde_puan": 0.0,
+    "farkli_deger_bilinen": 0,
+    "farkli_deger_dolu": 0
+   }
+  },
+  "Perovskite_deposition_procedure": {
+   "ham": {
+    "n": 43398,
+    "dolu_kayit": 43055,
+    "dolu_oran": 0.9920964099728098,
+    "bilinen_kayit": 42851,
+    "bilinen_oran": 0.987395732522236,
+    "bilinen_parca_kayit": 42845,
+    "bilinen_parca_oran": 0.9872574773031015,
+    "farkli_deger_dolu": 199,
+    "farkli_deger_bilinen": 198,
+    "unknown_kayit": 204,
+    "none_kayit": 0
+   },
+   "temiz": {
+    "n": 41485,
+    "dolu_kayit": 41206,
+    "dolu_oran": 0.9932746775943112,
+    "bilinen_kayit": 41062,
+    "bilinen_oran": 0.9898035434494395,
+    "bilinen_parca_kayit": 41056,
+    "bilinen_parca_oran": 0.9896589128600699,
+    "farkli_deger_dolu": 185,
+    "farkli_deger_bilinen": 184,
+    "unknown_kayit": 144,
+    "none_kayit": 0
+   },
+   "gecici_hesap_ham": {
+    "bilinen_oran_yuzde": 98.7,
+    "farkli_deger": 199
+   },
+   "gecici_ile_fark": {
+    "bilinen_oran_yuzde_puan": 0.0,
+    "farkli_deger_bilinen": -1,
+    "farkli_deger_dolu": 0
+   }
+  },
+  "Perovskite_deposition_quenching_media": {
+   "ham": {
+    "n": 43398,
+    "dolu_kayit": 43055,
+    "dolu_oran": 0.9920964099728098,
+    "bilinen_kayit": 20560,
+    "bilinen_oran": 0.4737545509009632,
+    "bilinen_parca_kayit": 20560,
+    "bilinen_parca_oran": 0.4737545509009632,
+    "farkli_deger_dolu": 94,
+    "farkli_deger_bilinen": 93,
+    "unknown_kayit": 22495,
+    "none_kayit": 0
+   },
+   "temiz": {
+    "n": 41485,
+    "dolu_kayit": 41206,
+    "dolu_oran": 0.9932746775943112,
+    "bilinen_kayit": 19629,
+    "bilinen_oran": 0.47315897312281546,
+    "bilinen_parca_kayit": 19629,
+    "bilinen_parca_oran": 0.47315897312281546,
+    "farkli_deger_dolu": 94,
+    "farkli_deger_bilinen": 93,
+    "unknown_kayit": 21577,
+    "none_kayit": 0
+   },
+   "gecici_hesap_ham": {
+    "bilinen_oran_yuzde": 47.4,
+    "farkli_deger": 94
+   },
+   "gecici_ile_fark": {
+    "bilinen_oran_yuzde_puan": 0.0,
+    "farkli_deger_bilinen": -1,
+    "farkli_deger_dolu": 0
+   }
+  },
+  "Perovskite_additives_compounds": {
+   "ham": {
+    "n": 43398,
+    "dolu_kayit": 14448,
+    "dolu_oran": 0.33291856767592976,
+    "bilinen_kayit": 13890,
+    "bilinen_oran": 0.3200608322964192,
+    "bilinen_parca_kayit": 13890,
+    "bilinen_parca_oran": 0.3200608322964192,
+    "farkli_deger_dolu": 1016,
+    "farkli_deger_bilinen": 1015,
+    "unknown_kayit": 558,
+    "none_kayit": 0
+   },
+   "temiz": {
+    "n": 41485,
+    "dolu_kayit": 13777,
+    "dolu_oran": 0.3320959382909485,
+    "bilinen_kayit": 13253,
+    "bilinen_oran": 0.3194648668193323,
+    "bilinen_parca_kayit": 13253,
+    "bilinen_parca_oran": 0.3194648668193323,
+    "farkli_deger_dolu": 997,
+    "farkli_deger_bilinen": 996,
+    "unknown_kayit": 524,
+    "none_kayit": 0
+   },
+   "gecici_hesap_ham": {
+    "bilinen_oran_yuzde": 32.0,
+    "farkli_deger": 1016
+   },
+   "gecici_ile_fark": {
+    "bilinen_oran_yuzde_puan": 0.0,
+    "farkli_deger_bilinen": -1,
+    "farkli_deger_dolu": 0
+   }
+  },
+  "Backcontact_stack_sequence": {
+   "ham": {
+    "n": 43398,
+    "dolu_kayit": 43055,
+    "dolu_oran": 0.9920964099728098,
+    "bilinen_kayit": 43010,
+    "bilinen_oran": 0.9910594958293009,
+    "bilinen_parca_kayit": 43010,
+    "bilinen_parca_oran": 0.9910594958293009,
+    "farkli_deger_dolu": 290,
+    "farkli_deger_bilinen": 288,
+    "unknown_kayit": 28,
+    "none_kayit": 17
+   },
+   "temiz": {
+    "n": 41485,
+    "dolu_kayit": 41206,
+    "dolu_oran": 0.9932746775943112,
+    "bilinen_kayit": 41184,
+    "bilinen_oran": 0.9927443654332891,
+    "bilinen_parca_kayit": 41184,
+    "bilinen_parca_oran": 0.9927443654332891,
+    "farkli_deger_dolu": 286,
+    "farkli_deger_bilinen": 284,
+    "unknown_kayit": 5,
+    "none_kayit": 17
+   },
+   "gecici_hesap_ham": {
+    "bilinen_oran_yuzde": 99.1,
+    "farkli_deger": 290
+   },
+   "gecici_ile_fark": {
+    "bilinen_oran_yuzde_puan": 0.0,
+    "farkli_deger_bilinen": -2,
+    "farkli_deger_dolu": 0
+   }
+  },
+  "Substrate_stack_sequence": {
+   "ham": {
+    "n": 43398,
+    "dolu_kayit": 43055,
+    "dolu_oran": 0.9920964099728098,
+    "bilinen_kayit": 42987,
+    "bilinen_oran": 0.9905295174892852,
+    "bilinen_parca_kayit": 42987,
+    "bilinen_parca_oran": 0.9905295174892852,
+    "farkli_deger_dolu": 194,
+    "farkli_deger_bilinen": 192,
+    "unknown_kayit": 63,
+    "none_kayit": 5
+   },
+   "temiz": {
+    "n": 41485,
+    "dolu_kayit": 41206,
+    "dolu_oran": 0.9932746775943112,
+    "bilinen_kayit": 41197,
+    "bilinen_oran": 0.9930577317102567,
+    "bilinen_parca_kayit": 41197,
+    "bilinen_parca_oran": 0.9930577317102567,
+    "farkli_deger_dolu": 187,
+    "farkli_deger_bilinen": 185,
+    "unknown_kayit": 5,
+    "none_kayit": 4
+   },
+   "gecici_hesap_ham": {
+    "bilinen_oran_yuzde": 99.1,
+    "farkli_deger": 194
+   },
+   "gecici_ile_fark": {
+    "bilinen_oran_yuzde_puan": 0.0,
+    "farkli_deger_bilinen": -2,
+    "farkli_deger_dolu": 0
+   }
+  },
+  "ETL_thickness": {
+   "ham": {
+    "n": 43398,
+    "dolu_kayit": 18879,
+    "dolu_oran": 0.4350200470067745,
+    "bilinen_kayit": 18879,
+    "bilinen_oran": 0.4350200470067745,
+    "bilinen_parca_kayit": 18749,
+    "bilinen_parca_oran": 0.4320245172588599,
+    "farkli_deger_dolu": 1420,
+    "farkli_deger_bilinen": 1420,
+    "unknown_kayit": 0,
+    "none_kayit": 0
+   },
+   "temiz": {
+    "n": 41485,
+    "dolu_kayit": 18002,
+    "dolu_oran": 0.4339399783054116,
+    "bilinen_kayit": 18002,
+    "bilinen_oran": 0.4339399783054116,
+    "bilinen_parca_kayit": 17891,
+    "bilinen_parca_oran": 0.431264312402073,
+    "farkli_deger_dolu": 1404,
+    "farkli_deger_bilinen": 1404,
+    "unknown_kayit": 0,
+    "none_kayit": 0
+   },
+   "gecici_hesap_ham": {
+    "bilinen_oran_yuzde": 43.5,
+    "farkli_deger": 1420
+   },
+   "gecici_ile_fark": {
+    "bilinen_oran_yuzde_puan": 0.0,
+    "farkli_deger_bilinen": 0,
+    "farkli_deger_dolu": 0
+   }
+  },
+  "HTL_thickness_list": {
+   "ham": {
+    "n": 43398,
+    "dolu_kayit": 10171,
+    "dolu_oran": 0.23436563896953777,
+    "bilinen_kayit": 10171,
+    "bilinen_oran": 0.23436563896953777,
+    "bilinen_parca_kayit": 10073,
+    "bilinen_parca_oran": 0.23210747039034058,
+    "farkli_deger_dolu": 439,
+    "farkli_deger_bilinen": 439,
+    "unknown_kayit": 0,
+    "none_kayit": 0
+   },
+   "temiz": {
+    "n": 41485,
+    "dolu_kayit": 9796,
+    "dolu_oran": 0.23613354224418465,
+    "bilinen_kayit": 9796,
+    "bilinen_oran": 0.23613354224418465,
+    "bilinen_parca_kayit": 9698,
+    "bilinen_parca_oran": 0.23377124261781368,
+    "farkli_deger_dolu": 434,
+    "farkli_deger_bilinen": 434,
+    "unknown_kayit": 0,
+    "none_kayit": 0
+   },
+   "gecici_hesap_ham": {
+    "bilinen_oran_yuzde": 23.4,
+    "farkli_deger": 439
+   },
+   "gecici_ile_fark": {
+    "bilinen_oran_yuzde_puan": 0.0,
+    "farkli_deger_bilinen": 0,
+    "farkli_deger_dolu": 0
+   }
+  }
+ }
+}
