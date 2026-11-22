@@ -44,7 +44,7 @@
 
 ## Bilinen sınırlılıklar
 
-1. **Ekstrapolasyon yapamaz:** ağaç tabanlı model; aday tavanı 17,95 < eğitim maksimumu 34,8. Rekor kompozisyon öneremez (tez Bölüm 5.4). Birincil aday listesi v0.4.0'dan itibaren eğitim desteği N≥5 olan (mimari, ETL, HTL) üçlüleriyle sınırlı filtreli listedir (`outputs/candidates_full/primary_designation.json`).
+1. **Ekstrapolasyon yapamaz:** ağaç tabanlı model; aday tavanı 17,95 < eğitim bölmesi maksimumu 33,0 (veri kümesi maksimumu 34,8 holdout'taki bir kayda aittir). Rekor kompozisyon öneremez (tez Bölüm 5.4). Birincil aday listesi v0.4.0'dan itibaren eğitim desteği N≥5 olan (mimari, ETL, HTL) üçlüleriyle sınırlı filtreli listedir (`outputs/candidates_full/primary_designation.json`).
 2. **Etiket gürültüsü tabanı (yaklaşık):** tekrar eden reçetelerdeki yayınlar-arası saçılım, hesap varsayımına göre 2,3–3,6 puan aralığında bir taban RMSE ve 0,52–0,81 aralığında bir tavan R² ima eder (homoskedastik kestirim: 3,6 / 0,52; yayın-ağırlıklı: 3,3 / 0,58; kapsam: kayıtların ~%42'si — betik 17, tez Tablo 5.1). Taban kesin bir sınır değil yaklaşık bir kıyas noktasıdır.
 3. **Uygulanabilirlik alanı ayrıştırmıyor:** özellik-uzayı kNN mesafesi holdout hatasını ayırt etmedi (MAE iç 3,23, dış 2,89) — mesafe bir güven skoru değildir (tez Bölüm 4.10).
 4. **Tek-eklemli rejim:** eğitim verisi tek-eklemli hücre ağırlıklıdır; gözlemli band gap değerlerinin yalnızca %6,2'si ≥1,70 eV. Tandem üst-hücre bölgesi kapsam dışıdır.
