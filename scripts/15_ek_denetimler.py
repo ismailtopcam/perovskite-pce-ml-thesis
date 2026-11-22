@@ -104,9 +104,9 @@ def main():
                             "train_R2": egitim["R2"], "holdout_R2": holdout["R2"],
                             "dummy_R2_mean": dummy["R2_mean"],
                             "dummy_MAE_mean": dummy["MAE_mean"]},
-                   outputs=[str(outdir / "paired_model_comparison.json"),
-                            str(outdir / "train_test_gap.json"),
-                            str(outdir / "dummy_baseline.json")])
+                   outputs=["outputs/ek_denetimler/paired_model_comparison.json",
+                            "outputs/ek_denetimler/train_test_gap.json",
+                            "outputs/ek_denetimler/dummy_baseline.json"])
     print("[stage15] TAMAM ->", outdir)
 
 

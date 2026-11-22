@@ -82,11 +82,8 @@ def main():
     print(f"\nGLOBAL     R² = {res['global_mean']:.4f} ± {res['global_std']:.4f}")
     print(f"FOLD-LOCAL R² = {res['foldlocal_mean']:.4f} ± {res['foldlocal_std']:.4f}")
     print(f"Fark = {res['delta']:+.4f}")
-    try:
-        from perovskite_ml.utils.manifest import write_manifest
-        write_manifest(outdir, "14_pipeline_cv", cfg, res, ["results.json"])
-    except Exception:
-        pass
+    from perovskite_ml.utils.manifest import write_manifest
+    write_manifest(outdir, "14_pipeline_cv", cfg, res, ["outputs/pipeline_cv/results.json"])
 
 if __name__ == "__main__":
     main()

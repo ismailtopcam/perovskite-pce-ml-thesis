@@ -31,7 +31,8 @@ def main():
            "descriptor_var": {"r2": round(r_w,4), "std": round(s_w,4), "n_feat": Xwith.shape[1]},
            "delta_r2": round(r_w - r_wo, 4)}
     json.dump(res, open(outdir / "descriptor_ablation.json","w"), indent=2)
-    write_manifest(ROOT / cfg["paths"]["outputs_dir"] / "manifests", "stage9_ablation", cfg, metrics=res)
+    write_manifest(ROOT / cfg["paths"]["outputs_dir"] / "manifests", "stage9_ablation", cfg, metrics=res,
+                   outputs=["outputs/ablation/descriptor_ablation.json"])
     print("\n================= STAGE 9 RESULTS =================")
     print(f"  Descriptor YOK : R2 = {r_wo:.4f} +/- {s_wo:.4f}  ({Xwo.shape[1]} ozellik)")
     print(f"  Descriptor VAR : R2 = {r_w:.4f} +/- {s_w:.4f}  ({Xwith.shape[1]} ozellik)")

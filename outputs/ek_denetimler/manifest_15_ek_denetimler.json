@@ -30,13 +30,13 @@
     "dummy_MAE_mean": 4.321659557716774
   },
   "outputs": [
-    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\paired_model_comparison.json",
-    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\train_test_gap.json",
-    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\dummy_baseline.json"
+    "outputs/ek_denetimler/paired_model_comparison.json",
+    "outputs/ek_denetimler/train_test_gap.json",
+    "outputs/ek_denetimler/dummy_baseline.json"
   ],
   "output_hashes": {
-    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\paired_model_comparison.json": "fd00dfec470cb25f2bbc414c89d6a30ef5615d4735589c2f19d42e3825074044",
-    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\train_test_gap.json": "c574d33a527ab3b3f3e5639423e085aee2a79266d49e77022eeda19083573806",
-    "C:\\Users\\nadir.karatay\\Desktop\\Ismail\\İKÇU\\Tez\\perovskite-pce-ml\\outputs\\ek_denetimler\\dummy_baseline.json": "c6319f11396f4b9feab589776b7e5d65574b03f42825f0ce9d56a60eee537d5a"
+    "outputs/ek_denetimler/paired_model_comparison.json": "fd00dfec470cb25f2bbc414c89d6a30ef5615d4735589c2f19d42e3825074044",
+    "outputs/ek_denetimler/train_test_gap.json": "c574d33a527ab3b3f3e5639423e085aee2a79266d49e77022eeda19083573806",
+    "outputs/ek_denetimler/dummy_baseline.json": "c6319f11396f4b9feab589776b7e5d65574b03f42825f0ce9d56a60eee537d5a"
   }
 }

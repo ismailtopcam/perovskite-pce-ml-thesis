@@ -156,7 +156,9 @@ def main():
         "marginal90_half_width": results["marginal"]["90"]["half_width"],
         "marginal90_coverage": results["marginal"]["90"]["empirical_coverage"],
         "ad_frac_inside": results["applicability_domain"]["frac_inside"],
-    })
+    }, outputs=["outputs/conformal/conformal_results.json",
+                "outputs/conformal/conformal_summary.csv"]
+               + (["outputs/conformal/candidate_intervals.csv"] if cand_path.exists() else []))
 
     m = results["marginal"]; mo = results["mondrian_90"]; ad = results["applicability_domain"]
     print("\n================= STAGE 10 RESULTS =================")
