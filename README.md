@@ -19,7 +19,7 @@ mühendislik kararlarının sonuç geçerliliğini nasıl değiştirdiğini öl�
 | **R2 (grup-güvenli)** | **0,410 ± 0,016** |
 | R2 (rastgele bölme — sızıntı şişmesi) | 0,481 (+0,071) |
 | R2 (+Voc/Jsc/FF — hedef sızıntısı) | 0,937 (bu yüzden dışlandı) |
-| MAE / RMSE | 3,12 / 4,02 PCE puanı |
+| MAE / RMSE (5 katlı GroupKFold ortalaması) | 3,12 / 4,02 PCE puanı (holdout: 3,15 / 4,10) |
 | Aday uzayı / eğitimde desteklenen | 756 / 504 |
 
 Düşük görünen 0,410 bilinçli bir tercihtir: eğitimden kanonik DOI anahtarı düzeyinde ayrık
@@ -80,7 +80,7 @@ görüntüye aittir; farklı bir kopya kullanıyorsanız önce satır sayısı v
 Tek komut (tüm çekirdek hat):
 ```bash
 python run_all.py               # çekirdek hat (01-10)
-python run_all.py --all         # 01-15 + tez istatistikleri (thesis_data_analysis) + tez şekilleri (thesis_figures)
+python run_all.py --all         # 01-23 + tez istatistikleri (thesis_data_analysis) + tez şekilleri (thesis_figures)
 python run_thesis_audits.py     # kök-dizin sağlamlık ve provenans denetimleri (çekirdek hat çıktılarını gerektirir)
 ```
 

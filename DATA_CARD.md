@@ -43,10 +43,12 @@
 
 ## Bilinen aykırılıklar ve tuhaflıklar
 
-- **PCE > 30 olan 8 kayıt** (4 yayından; sertifikasız; medyan alan 0,1 cm²): alan
-  rekorlarıyla ve bildirilen cihaz yapılarıyla uyumsuz görünen, güvenilirliği şüpheli
-  uç kayıtlar (tandem izi yok — `pce30_ustu_stack_incelemesi.py`). Dışlanmaları ana
-  sonucu değiştirmez (tez Bölüm 4.2).
+- **PCE > 30 olan 8 kayıt** (4 yayından; sertifikasız; medyan alan 0,1 cm²): düşük
+  ışık şiddetinde, iç mekân aydınlatması altında ölçülmüştür (0,03–0,31 mW/cm²;
+  floresan lamba ya da beyaz LED). Ölçüm hatası değildir; standart test koşulunun
+  dışındadır (tez Bölüm 3.4; `isik_siddeti_denetimi.py`). Yığın dizilimlerinde tandem
+  izi yoktur (`pce30_ustu_stack_incelemesi.py`). Dışlanmaları ana sonucu değiştirmez
+  (tez Bölüm 4.2).
 - **DOI anahtarı (v0.4.0'da çözüldü):** grup anahtarı kanonik DOI'dir (küçük harf,
   ön ek/sondaki noktalama temizliği). v0.3.x ham anahtarında 44 yayın büyük/küçük-harf
   varyantıyla çift kayıtlıydı (362 kayıt, %0,87 kat-sınırı aşımı; tez Bölüm 5.7);

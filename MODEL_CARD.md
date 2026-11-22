@@ -31,7 +31,7 @@
 |---|---|
 | DOI-grup 5-kat CV R² | **0,410 ± 0,016** (birincil ölçüt) |
 | Holdout R² (8.355 kayıt) | 0,394 (mühürlü protokol: model seçimi yalnızca eğitim-içi CV ile yapıldığında da aynı model seçilir ve değer değişmez; nested CV: 0,408 ± 0,017) |
-| MAE / RMSE | 3,12 / 4,02 PCE puanı |
+| MAE / RMSE (5 katlı GroupKFold ortalaması) | 3,12 / 4,02 PCE puanı (holdout: 3,15 / 4,10) |
 | Karşılaştırma | Rastgele bölme aynı modeli 0,481 gösterir (+0,071 iyimserlik; yayın grupları göz ardı edildiğinde) |
 
 ## Belirsizlik (conformal, DOI-grup-güvenli kalibrasyon)
