@@ -1,0 +1,54 @@
+{
+  "stage": "stage25_deney_a_tohum",
+  "timestamp_utc": "2026-11-22T23:22:24+00:00",
+  "seed": 42,
+  "target": "JV_default_PCE",
+  "group_col": "Ref_DOI_number",
+  "onehot_top_n": 15,
+  "versions": {
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  },
+  "git": {
+    "commit": "cd64fda6b9f46b656ada225d3b0ceb45709af79c",
+    "dirty": true
+  },
+  "metrics": {
+    "bolme_tohumlari": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "fark_R2_ortalama": 0.068195,
+    "fark_R2_ss_ddof1": 0.002188,
+    "fark_R2_en_kucuk": 0.06516,
+    "fark_R2_en_buyuk": 0.070966,
+    "girdi_sha256": {
+      "data/processed/model_ready_dataset.csv": "3c42a5433261ecdd5ba3701eba2fb0889025069f6ec0ed359c3f1706ca9c82c9",
+      "outputs/v4/validation_experiments.csv": "8afad86904e225066227a115a537ed73d086f5dd6a7e094a9fed61743eb92719"
+    }
+  },
+  "outputs": [
+    "outputs/robustness/deney_a_tohum_duyarliligi.json",
+    "outputs/robustness/deney_a_tohum_duyarliligi.csv"
+  ],
+  "output_hashes": {
+    "outputs/robustness/deney_a_tohum_duyarliligi.json": "18e0f6c68ad7e7c6214acb3ad96e52f26a85ca08d3d7af73a4d90e2ed0b0e145",
+    "outputs/robustness/deney_a_tohum_duyarliligi.csv": "df4e0d9bafa33c58c569f9d87c46d99cce50e2bd1d8746660c805107712298f7"
+  }
+}
