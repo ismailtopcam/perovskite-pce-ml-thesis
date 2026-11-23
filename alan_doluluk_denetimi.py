@@ -23,7 +23,7 @@ Girdi : data/raw/Perovskite_database_content_all_data.csv
 Cikti : outputs/robustness/alan_doluluk_denetimi.json
         outputs/manifests/manifest_alan_doluluk_denetimi.json
 Calistirma (repo kokunden): python alan_doluluk_denetimi.py
-Not   : run_thesis_audits.py listesinde degildir.
+Not   : run_thesis_audits.py listesindedir (veri_baglam_denetimleri.py'den sonra).
 """
 import hashlib
 import json

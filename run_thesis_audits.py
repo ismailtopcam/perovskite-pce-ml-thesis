@@ -26,6 +26,7 @@ Kapsam (tez bolum referanslariyla):
   - tarama_bootstrap.py              : Spearman ve ilk-k zenginlestirme icin DOI-kumeli bootstrap araliklari (Bolum 4.6)
   - aday_izgara_destegi.py           : aday A-site izgara noktalarinin veri destegi; Saliba recetesi (Bolum 3.12, 4.5)
   - veri_baglam_denetimleri.py       : yil kapsami, tarama yonu, boyutluluk, kursunsuz B-site, band gap/tavlama baglami (Bolum 3.1-5.7)
+  - alan_doluluk_denetimi.py         : modele alinmayan sekiz alanin ham ve temiz kumedeki dolulugu (Bolum 3.2)
   - tarama_yonu_denetimi.py          : hedefin tarama yonu heterojenliginin basarima etkisi (yalnizca ters tarama; tarama yonu kovaryati) (Bolum 5.7)
   - birincil_r2_bootstrap.py         : holdout R2/MAE/RMSE icin DOI-kumeli bootstrap %95 araliklari (Bolum 4.2)
   - kat_atamasi_denetimi.py          : GroupKFold kat atamasinin ortama duyarliligi; arsiv/kararli atama, CatBoost-HistGBM farkinin atamaya ve surume bagliligi, zenginlestirmenin bag duyarliligi (Bolum 3.15, 4.2, 4.6)
@@ -59,6 +60,7 @@ AUDITS = [
     "tarama_bootstrap.py",
     "aday_izgara_destegi.py",
     "veri_baglam_denetimleri.py",
+    "alan_doluluk_denetimi.py",
     "tarama_yonu_denetimi.py",
     "birincil_r2_bootstrap.py",
     "kat_atamasi_denetimi.py",
