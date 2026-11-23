@@ -1,0 +1,1023 @@
+{
+ "yontem": {
+  "amac": "duyarlilik analizi; birincil model ve 77 ozellik degismez",
+  "model": "CatBoost (registry.build_models; model tohumu config tohumu)",
+  "n_kayit": 41485,
+  "n_grup": 7353,
+  "n_kat": 5,
+  "kat_atamasi": "kat_atamasi(groups, 5, atama='kayit'); depoda kayitli arsiv atamasi",
+  "kat_atamasi_kimligi": "177507b245b27964d87a",
+  "kat_boyutlari": [
+   8297,
+   8297,
+   8297,
+   8297,
+   8297
+  ],
+  "on_isleme": "medyan ve en sik kategoriler temiz kumenin tamamindan hesaplanir (hattaki gibi); hedef kullanilmaz",
+  "kategorik_kural": "kirp; bos / 'unknown' / 'none' -> bilinmiyor; bilinen degerlerin en sik 15'i ayri sutun, kalani diger; esit sayida deger metnine gore sira",
+  "onehot_top_n": 15,
+  "fark_tanimi": "varyant - V0, kat bazinda eslestirilmis; ss ddof = 0; p degeri hesaplanmaz"
+ },
+ "denetimler": {
+  "hizalama": {
+   "tuttu": true,
+   "n_satir": 41485,
+   "en_buyuk_PCE_farki": 0.0
+  },
+  "taban": {
+   "tuttu": true,
+   "arsiv_dosyasi": "outputs/v4/model_comparison_groupkfold.csv",
+   "arsiv": {
+    "R2_mean": 0.4100925038413473,
+    "R2_std": 0.0164713576361596,
+    "MAE_mean": 3.121480385596434,
+    "MAE_std": 0.0214379777275281,
+    "RMSE_mean": 4.021775399205616,
+    "RMSE_std": 0.066577036026413
+   },
+   "bu_kosu": {
+    "R2_mean": 0.4100925038413473,
+    "R2_std": 0.01647135763615967,
+    "MAE_mean": 3.121480385596434,
+    "MAE_std": 0.021437977727528198,
+    "RMSE_mean": 4.021775399205616,
+    "RMSE_std": 0.06657703602641302
+   },
+   "en_buyuk_mutlak_sapma": 9.71445146547012e-17
+  }
+ },
+ "kodlama": {
+  "Perovskite_thickness": {
+   "kural": "metindeki sayilarin en buyugu (feature_builder._first_number); eksik -> medyan",
+   "n_sayisal": 13189,
+   "n_eksik": 28296,
+   "medyan": 360.0,
+   "sutunlar": [
+    "kalinlik",
+    "kalinlik_eksik"
+   ]
+  },
+  "Perovskite_additives_compounds": {
+   "grup": "dusuk doluluklu",
+   "on_ek": "katki",
+   "n_bilinmiyor": 28232,
+   "n_bilinen": 13253,
+   "bilinen_farkli_deger": 996,
+   "ust_sutunlar": [
+    {
+     "sutun": "katki_Cl",
+     "deger": "Cl",
+     "kayit": 5004
+    },
+    {
+     "sutun": "katki_Undoped",
+     "deger": "Undoped",
+     "kayit": 1607
+    },
+    {
+     "sutun": "katki_5_AVAI",
+     "deger": "5-AVAI",
+     "kayit": 330
+    },
+    {
+     "sutun": "katki_SnF2",
+     "deger": "SnF2",
+     "kayit": 230
+    },
+    {
+     "sutun": "katki_HI",
+     "deger": "HI",
+     "kayit": 215
+    },
+    {
+     "sutun": "katki_Rb",
+     "deger": "Rb",
+     "kayit": 173
+    },
+    {
+     "sutun": "katki_Pb_SCN_2",
+     "deger": "Pb(SCN)2",
+     "kayit": 170
+    },
+    {
+     "sutun": "katki_Acetate",
+     "deger": "Acetate",
+     "kayit": 112
+    },
+    {
+     "sutun": "katki_KI",
+     "deger": "KI",
+     "kayit": 99
+    },
+    {
+     "sutun": "katki_RbI",
+     "deger": "RbI",
+     "kayit": 87
+    },
+    {
+     "sutun": "katki_PbCl2",
+     "deger": "PbCl2",
+     "kayit": 85
+    },
+    {
+     "sutun": "katki_Acetate__Cl",
+     "deger": "Acetate; Cl",
+     "kayit": 84
+    },
+    {
+     "sutun": "katki_NH4Cl",
+     "deger": "NH4Cl",
+     "kayit": 84
+    },
+    {
+     "sutun": "katki_HCl",
+     "deger": "HCl",
+     "kayit": 79
+    },
+    {
+     "sutun": "katki_MACl",
+     "deger": "MACl",
+     "kayit": 79
+    }
+   ],
+   "diger_kayit": 4815,
+   "diger_farkli_deger": 981,
+   "sinirda_esit_sayi": false,
+   "sutun_sayisi": 17
+  },
+  "Perovskite_deposition_quenching_media": {
+   "grup": "dusuk doluluklu",
+   "on_ek": "antisolvent",
+   "n_bilinmiyor": 21856,
+   "n_bilinen": 19629,
+   "bilinen_farkli_deger": 93,
+   "ust_sutunlar": [
+    {
+     "sutun": "antisolvent_Chlorobenzene",
+     "deger": "Chlorobenzene",
+     "kayit": 10031
+    },
+    {
+     "sutun": "antisolvent_Toluene",
+     "deger": "Toluene",
+     "kayit": 3703
+    },
+    {
+     "sutun": "antisolvent_Diethyl_ether",
+     "deger": "Diethyl ether",
+     "kayit": 2625
+    },
+    {
+     "sutun": "antisolvent_Ethyl_acetate",
+     "deger": "Ethyl acetate",
+     "kayit": 939
+    },
+    {
+     "sutun": "antisolvent_N2",
+     "deger": "N2",
+     "kayit": 343
+    },
+    {
+     "sutun": "antisolvent_Vacuum",
+     "deger": "Vacuum",
+     "kayit": 267
+    },
+    {
+     "sutun": "antisolvent_Anisole",
+     "deger": "Anisole",
+     "kayit": 240
+    },
+    {
+     "sutun": "antisolvent_Ar",
+     "deger": "Ar",
+     "kayit": 163
+    },
+    {
+     "sutun": "antisolvent_2_Butanol",
+     "deger": "2-Butanol",
+     "kayit": 148
+    },
+    {
+     "sutun": "antisolvent_Ethyl_ether",
+     "deger": "Ethyl ether",
+     "kayit": 129
+    },
+    {
+     "sutun": "antisolvent_IPA",
+     "deger": "IPA",
+     "kayit": 107
+    },
+    {
+     "sutun": "antisolvent_Trifluorotoluene",
+     "deger": "Trifluorotoluene",
+     "kayit": 94
+    },
+    {
+     "sutun": "antisolvent_Ether",
+     "deger": "Ether",
+     "kayit": 77
+    },
+    {
+     "sutun": "antisolvent_Gas",
+     "deger": "Gas",
+     "kayit": 67
+    },
+    {
+     "sutun": "antisolvent_Air",
+     "deger": "Air",
+     "kayit": 65
+    }
+   ],
+   "diger_kayit": 631,
+   "diger_farkli_deger": 78,
+   "sinirda_esit_sayi": false,
+   "sutun_sayisi": 17
+  },
+  "Perovskite_deposition_procedure": {
+   "grup": "yuksek doluluklu",
+   "on_ek": "yontem",
+   "n_bilinmiyor": 423,
+   "n_bilinen": 41062,
+   "bilinen_farkli_deger": 184,
+   "ust_sutunlar": [
+    {
+     "sutun": "yontem_Spin_coating",
+     "deger": "Spin-coating",
+     "kayit": 28567
+    },
+    {
+     "sutun": "yontem_Spin_coating____Spin_coating",
+     "deger": "Spin-coating >> Spin-coating",
+     "kayit": 5100
+    },
+    {
+     "sutun": "yontem_Spin_coating____CBD",
+     "deger": "Spin-coating >> CBD",
+     "kayit": 3127
+    },
+    {
+     "sutun": "yontem_Drop_infiltration",
+     "deger": "Drop-infiltration",
+     "kayit": 575
+    },
+    {
+     "sutun": "yontem_Spin_coating____Gas_reaction",
+     "deger": "Spin-coating >> Gas reaction",
+     "kayit": 518
+    },
+    {
+     "sutun": "yontem_Co_evaporation",
+     "deger": "Co-evaporation",
+     "kayit": 389
+    },
+    {
+     "sutun": "yontem_Doctor_blading",
+     "deger": "Doctor blading",
+     "kayit": 246
+    },
+    {
+     "sutun": "yontem_Evaporation____Evaporation",
+     "deger": "Evaporation >> Evaporation",
+     "kayit": 131
+    },
+    {
+     "sutun": "yontem_Slot_die_coating",
+     "deger": "Slot-die coating",
+     "kayit": 130
+    },
+    {
+     "sutun": "yontem_Evaporation____Gas_reaction",
+     "deger": "Evaporation >> Gas reaction",
+     "kayit": 128
+    },
+    {
+     "sutun": "yontem_Evaporation____Spin_coating",
+     "deger": "Evaporation >> Spin-coating",
+     "kayit": 119
+    },
+    {
+     "sutun": "yontem_Spray_coating",
+     "deger": "Spray-coating",
+     "kayit": 116
+    },
+    {
+     "sutun": "yontem_Drop_infiltration____CBD",
+     "deger": "Drop-infiltration >> CBD",
+     "kayit": 81
+    },
+    {
+     "sutun": "yontem_Ultrasonic_spray",
+     "deger": "Ultrasonic spray",
+     "kayit": 79
+    },
+    {
+     "sutun": "yontem_Spin_coating____Spin_coating____Spin_coating",
+     "deger": "Spin-coating >> Spin-coating >> Spin-coating",
+     "kayit": 77
+    }
+   ],
+   "diger_kayit": 1679,
+   "diger_farkli_deger": 169,
+   "sinirda_esit_sayi": false,
+   "sutun_sayisi": 17
+  },
+  "Backcontact_stack_sequence": {
+   "grup": "yuksek doluluklu",
+   "on_ek": "arkakontak",
+   "n_bilinmiyor": 301,
+   "n_bilinen": 41184,
+   "bilinen_farkli_deger": 284,
+   "ust_sutunlar": [
+    {
+     "sutun": "arkakontak_Au",
+     "deger": "Au",
+     "kayit": 19628
+    },
+    {
+     "sutun": "arkakontak_Ag",
+     "deger": "Ag",
+     "kayit": 12820
+    },
+    {
+     "sutun": "arkakontak_Al",
+     "deger": "Al",
+     "kayit": 3063
+    },
+    {
+     "sutun": "arkakontak_Carbon",
+     "deger": "Carbon",
+     "kayit": 2023
+    },
+    {
+     "sutun": "arkakontak_Cu",
+     "deger": "Cu",
+     "kayit": 675
+    },
+    {
+     "sutun": "arkakontak_MoO3___Ag",
+     "deger": "MoO3 | Ag",
+     "kayit": 641
+    },
+    {
+     "sutun": "arkakontak_Ca___Al",
+     "deger": "Ca | Al",
+     "kayit": 300
+    },
+    {
+     "sutun": "arkakontak_MoO3___Au",
+     "deger": "MoO3 | Au",
+     "kayit": 115
+    },
+    {
+     "sutun": "arkakontak_MoO3___Al",
+     "deger": "MoO3 | Al",
+     "kayit": 109
+    },
+    {
+     "sutun": "arkakontak_AgAl",
+     "deger": "AgAl",
+     "kayit": 77
+    },
+    {
+     "sutun": "arkakontak_Ag_nw",
+     "deger": "Ag-nw",
+     "kayit": 66
+    },
+    {
+     "sutun": "arkakontak_ITO",
+     "deger": "ITO",
+     "kayit": 55
+    },
+    {
+     "sutun": "arkakontak_MoOx___Ag",
+     "deger": "MoOx | Ag",
+     "kayit": 55
+    },
+    {
+     "sutun": "arkakontak_MoOx___Al",
+     "deger": "MoOx | Al",
+     "kayit": 49
+    },
+    {
+     "sutun": "arkakontak_Pt___FTO",
+     "deger": "Pt | FTO",
+     "kayit": 48
+    }
+   ],
+   "diger_kayit": 1460,
+   "diger_farkli_deger": 269,
+   "sinirda_esit_sayi": false,
+   "sutun_sayisi": 17
+  },
+  "Substrate_stack_sequence": {
+   "grup": "yuksek doluluklu",
+   "on_ek": "alttas",
+   "n_bilinmiyor": 288,
+   "n_bilinen": 41197,
+   "bilinen_farkli_deger": 185,
+   "ust_sutunlar": [
+    {
+     "sutun": "alttas_SLG___FTO",
+     "deger": "SLG | FTO",
+     "kayit": 25226
+    },
+    {
+     "sutun": "alttas_SLG___ITO",
+     "deger": "SLG | ITO",
+     "kayit": 14677
+    },
+    {
+     "sutun": "alttas_PET___ITO",
+     "deger": "PET | ITO",
+     "kayit": 361
+    },
+    {
+     "sutun": "alttas_PEN___ITO",
+     "deger": "PEN | ITO",
+     "kayit": 217
+    },
+    {
+     "sutun": "alttas_PET___IZO",
+     "deger": "PET | IZO",
+     "kayit": 62
+    },
+    {
+     "sutun": "alttas_SLG___AZO",
+     "deger": "SLG | AZO",
+     "kayit": 45
+    },
+    {
+     "sutun": "alttas_SLG",
+     "deger": "SLG",
+     "kayit": 39
+    },
+    {
+     "sutun": "alttas_Ti_foil",
+     "deger": "Ti-foil",
+     "kayit": 30
+    },
+    {
+     "sutun": "alttas_PET",
+     "deger": "PET",
+     "kayit": 29
+    },
+    {
+     "sutun": "alttas_PET___Ag_grid",
+     "deger": "PET | Ag-grid",
+     "kayit": 27
+    },
+    {
+     "sutun": "alttas_Ti",
+     "deger": "Ti",
+     "kayit": 27
+    },
+    {
+     "sutun": "alttas_SLG___Graphene",
+     "deger": "SLG | Graphene",
+     "kayit": 20
+    },
+    {
+     "sutun": "alttas_PET___Graphene",
+     "deger": "PET | Graphene",
+     "kayit": 14
+    },
+    {
+     "sutun": "alttas_SLG___rGO",
+     "deger": "SLG | rGO",
+     "kayit": 14
+    },
+    {
+     "sutun": "alttas_ITO___PEN",
+     "deger": "ITO | PEN",
+     "kayit": 12
+    }
+   ],
+   "diger_kayit": 397,
+   "diger_farkli_deger": 170,
+   "sinirda_esit_sayi": false,
+   "sutun_sayisi": 17
+  }
+ },
+ "varyantlar": {
+  "V0": {
+   "aciklama": "taban: 77 ozellik",
+   "n_ozellik": 77,
+   "eklenen_sutun_sayisi": 0,
+   "eklenen_sutunlar": [],
+   "katlar": {
+    "R2": [
+     0.4211294198622966,
+     0.4137743707916117,
+     0.4198741553100739,
+     0.3775279800485467,
+     0.41815659319420817
+    ],
+    "MAE": [
+     3.099654133837175,
+     3.1099771304072834,
+     3.1066552246226817,
+     3.133107762124251,
+     3.158007676990779
+    ],
+    "RMSE": [
+     4.002956914030295,
+     4.029411375905673,
+     3.9080226620434506,
+     4.061815671615436,
+     4.106670372433226
+    ]
+   },
+   "ozet": {
+    "R2_ortalama": 0.4100925038413473,
+    "R2_ss_ddof0": 0.01647135763615967,
+    "MAE_ortalama": 3.121480385596434,
+    "MAE_ss_ddof0": 0.021437977727528198,
+    "RMSE_ortalama": 4.021775399205616,
+    "RMSE_ss_ddof0": 0.06657703602641302
+   }
+  },
+  "V1": {
+   "aciklama": "V0 + kalinlik (deger ve eksiklik bayragi)",
+   "n_ozellik": 79,
+   "eklenen_sutun_sayisi": 2,
+   "eklenen_sutunlar": [
+    "kalinlik",
+    "kalinlik_eksik"
+   ],
+   "katlar": {
+    "R2": [
+     0.4149064399896887,
+     0.41383284991851177,
+     0.42844002349025023,
+     0.3852925455627453,
+     0.42663093019864107
+    ],
+    "MAE": [
+     3.1160628882803736,
+     3.100646411211902,
+     3.07736448565778,
+     3.1125757036823036,
+     3.137324974069338
+    ],
+    "RMSE": [
+     4.024415708812725,
+     4.029210393276943,
+     3.8790633427952668,
+     4.036403121996206,
+     4.076654601294119
+    ]
+   },
+   "ozet": {
+    "R2_ortalama": 0.4138205578319674,
+    "R2_ss_ddof0": 0.015445783835696291,
+    "MAE_ortalama": 3.1087948925803395,
+    "MAE_ss_ddof0": 0.019674105172956646,
+    "RMSE_ortalama": 4.009149433635052,
+    "RMSE_ss_ddof0": 0.06761302164449765
+   },
+   "v0_farki": {
+    "R2_kat_farklari": [
+     -0.006222979872607892,
+     5.84791269000462e-05,
+     0.00856586818017635,
+     0.007764565514198574,
+     0.008474337004432897
+    ],
+    "R2_fark_ortalama": 0.003728053990619995,
+    "R2_pozitif_kat": 4,
+    "R2_negatif_kat": 1,
+    "MAE_kat_farklari": [
+     0.01640875444319878,
+     -0.00933071919538131,
+     -0.029290738964901752,
+     -0.0205320584419475,
+     -0.02068270292144092
+    ],
+    "MAE_fark_ortalama": -0.01268549301609454,
+    "MAE_pozitif_kat": 1,
+    "MAE_negatif_kat": 4
+   }
+  },
+  "V2": {
+   "aciklama": "V0 + dusuk doluluklu uc alan: kalinlik, katki maddeleri, antisolvent",
+   "n_ozellik": 113,
+   "eklenen_sutun_sayisi": 36,
+   "eklenen_sutunlar": [
+    "kalinlik",
+    "kalinlik_eksik",
+    "katki_Cl",
+    "katki_Undoped",
+    "katki_5_AVAI",
+    "katki_SnF2",
+    "katki_HI",
+    "katki_Rb",
+    "katki_Pb_SCN_2",
+    "katki_Acetate",
+    "katki_KI",
+    "katki_RbI",
+    "katki_PbCl2",
+    "katki_Acetate__Cl",
+    "katki_NH4Cl",
+    "katki_HCl",
+    "katki_MACl",
+    "katki_diger",
+    "katki_bilinmiyor",
+    "antisolvent_Chlorobenzene",
+    "antisolvent_Toluene",
+    "antisolvent_Diethyl_ether",
+    "antisolvent_Ethyl_acetate",
+    "antisolvent_N2",
+    "antisolvent_Vacuum",
+    "antisolvent_Anisole",
+    "antisolvent_Ar",
+    "antisolvent_2_Butanol",
+    "antisolvent_Ethyl_ether",
+    "antisolvent_IPA",
+    "antisolvent_Trifluorotoluene",
+    "antisolvent_Ether",
+    "antisolvent_Gas",
+    "antisolvent_Air",
+    "antisolvent_diger",
+    "antisolvent_bilinmiyor"
+   ],
+   "katlar": {
+    "R2": [
+     0.4373914135254886,
+     0.43216055213841775,
+     0.45135031558319394,
+     0.4072177946122284,
+     0.4392026984875279
+    ],
+    "MAE": [
+     3.0452640928402688,
+     3.0417804989642283,
+     2.984707366811776,
+     3.0478460483374823,
+     3.092808726653363
+    ],
+    "RMSE": [
+     3.9463295963594147,
+     3.9657194502190034,
+     3.8005244727880343,
+     3.9637647634789426,
+     4.031714251984497
+    ]
+   },
+   "ozet": {
+    "R2_ortalama": 0.4334645548693713,
+    "R2_ss_ddof0": 0.01455224927300317,
+    "MAE_ortalama": 3.0424813467214236,
+    "MAE_ss_ddof0": 0.03437351542215088,
+    "RMSE_ortalama": 3.9416105069659784,
+    "RMSE_ss_ddof0": 0.07631287694425537
+   },
+   "v0_farki": {
+    "R2_kat_farklari": [
+     0.01626199366319203,
+     0.01838618134680603,
+     0.03147616027312006,
+     0.029689814563681693,
+     0.02104610529331974
+    ],
+    "R2_fark_ortalama": 0.02337205102802391,
+    "R2_pozitif_kat": 5,
+    "R2_negatif_kat": 0,
+    "MAE_kat_farklari": [
+     -0.05439004099690603,
+     -0.0681966314430551,
+     -0.12194785781090589,
+     -0.08526171378676883,
+     -0.06519895033741596
+    ],
+    "MAE_fark_ortalama": -0.07899903887501036,
+    "MAE_pozitif_kat": 0,
+    "MAE_negatif_kat": 5
+   }
+  },
+  "V3": {
+   "aciklama": "V0 + yuksek doluluklu uc alan: biriktirme yontemi, arka kontak, alttas",
+   "n_ozellik": 128,
+   "eklenen_sutun_sayisi": 51,
+   "eklenen_sutunlar": [
+    "yontem_Spin_coating",
+    "yontem_Spin_coating____Spin_coating",
+    "yontem_Spin_coating____CBD",
+    "yontem_Drop_infiltration",
+    "yontem_Spin_coating____Gas_reaction",
+    "yontem_Co_evaporation",
+    "yontem_Doctor_blading",
+    "yontem_Evaporation____Evaporation",
+    "yontem_Slot_die_coating",
+    "yontem_Evaporation____Gas_reaction",
+    "yontem_Evaporation____Spin_coating",
+    "yontem_Spray_coating",
+    "yontem_Drop_infiltration____CBD",
+    "yontem_Ultrasonic_spray",
+    "yontem_Spin_coating____Spin_coating____Spin_coating",
+    "yontem_diger",
+    "yontem_bilinmiyor",
+    "arkakontak_Au",
+    "arkakontak_Ag",
+    "arkakontak_Al",
+    "arkakontak_Carbon",
+    "arkakontak_Cu",
+    "arkakontak_MoO3___Ag",
+    "arkakontak_Ca___Al",
+    "arkakontak_MoO3___Au",
+    "arkakontak_MoO3___Al",
+    "arkakontak_AgAl",
+    "arkakontak_Ag_nw",
+    "arkakontak_ITO",
+    "arkakontak_MoOx___Ag",
+    "arkakontak_MoOx___Al",
+    "arkakontak_Pt___FTO",
+    "arkakontak_diger",
+    "arkakontak_bilinmiyor",
+    "alttas_SLG___FTO",
+    "alttas_SLG___ITO",
+    "alttas_PET___ITO",
+    "alttas_PEN___ITO",
+    "alttas_PET___IZO",
+    "alttas_SLG___AZO",
+    "alttas_SLG",
+    "alttas_Ti_foil",
+    "alttas_PET",
+    "alttas_PET___Ag_grid",
+    "alttas_Ti",
+    "alttas_SLG___Graphene",
+    "alttas_PET___Graphene",
+    "alttas_SLG___rGO",
+    "alttas_ITO___PEN",
+    "alttas_diger",
+    "alttas_bilinmiyor"
+   ],
+   "katlar": {
+    "R2": [
+     0.4237409443003892,
+     0.4159718223703549,
+     0.4264086714630603,
+     0.38354464664513277,
+     0.41838989228752477
+    ],
+    "MAE": [
+     3.0873137132040966,
+     3.1008932244613465,
+     3.0822073750461856,
+     3.1152691757141917,
+     3.153735338679176
+    ],
+    "RMSE": [
+     3.993917210501544,
+     4.021852213364454,
+     3.88595041910789,
+     4.042137733146937,
+     4.1058469734551
+    ]
+   },
+   "ozet": {
+    "R2_ortalama": 0.41361119541329233,
+    "R2_ss_ddof0": 0.015484140686743655,
+    "MAE_ortalama": 3.1078837654209996,
+    "MAE_ss_ddof0": 0.025644425473163743,
+    "RMSE_ortalama": 4.009940909915185,
+    "RMSE_ss_ddof0": 0.07212057730402906
+   },
+   "v0_farki": {
+    "R2_kat_farklari": [
+     0.0026115244380926494,
+     0.0021974515787431814,
+     0.0065345161529863915,
+     0.006016666596586062,
+     0.00023329909331659682
+    ],
+    "R2_fark_ortalama": 0.003518691571944976,
+    "R2_pozitif_kat": 5,
+    "R2_negatif_kat": 0,
+    "MAE_kat_farklari": [
+     -0.012340420633078164,
+     -0.009083905945936888,
+     -0.02444784957649615,
+     -0.01783858641005942,
+     -0.004272338311603008
+    ],
+    "MAE_fark_ortalama": -0.013596620175434726,
+    "MAE_pozitif_kat": 0,
+    "MAE_negatif_kat": 5
+   }
+  },
+  "V4": {
+   "aciklama": "V0 + alti alanin tamami",
+   "n_ozellik": 164,
+   "eklenen_sutun_sayisi": 87,
+   "eklenen_sutunlar": [
+    "kalinlik",
+    "kalinlik_eksik",
+    "katki_Cl",
+    "katki_Undoped",
+    "katki_5_AVAI",
+    "katki_SnF2",
+    "katki_HI",
+    "katki_Rb",
+    "katki_Pb_SCN_2",
+    "katki_Acetate",
+    "katki_KI",
+    "katki_RbI",
+    "katki_PbCl2",
+    "katki_Acetate__Cl",
+    "katki_NH4Cl",
+    "katki_HCl",
+    "katki_MACl",
+    "katki_diger",
+    "katki_bilinmiyor",
+    "antisolvent_Chlorobenzene",
+    "antisolvent_Toluene",
+    "antisolvent_Diethyl_ether",
+    "antisolvent_Ethyl_acetate",
+    "antisolvent_N2",
+    "antisolvent_Vacuum",
+    "antisolvent_Anisole",
+    "antisolvent_Ar",
+    "antisolvent_2_Butanol",
+    "antisolvent_Ethyl_ether",
+    "antisolvent_IPA",
+    "antisolvent_Trifluorotoluene",
+    "antisolvent_Ether",
+    "antisolvent_Gas",
+    "antisolvent_Air",
+    "antisolvent_diger",
+    "antisolvent_bilinmiyor",
+    "yontem_Spin_coating",
+    "yontem_Spin_coating____Spin_coating",
+    "yontem_Spin_coating____CBD",
+    "yontem_Drop_infiltration",
+    "yontem_Spin_coating____Gas_reaction",
+    "yontem_Co_evaporation",
+    "yontem_Doctor_blading",
+    "yontem_Evaporation____Evaporation",
+    "yontem_Slot_die_coating",
+    "yontem_Evaporation____Gas_reaction",
+    "yontem_Evaporation____Spin_coating",
+    "yontem_Spray_coating",
+    "yontem_Drop_infiltration____CBD",
+    "yontem_Ultrasonic_spray",
+    "yontem_Spin_coating____Spin_coating____Spin_coating",
+    "yontem_diger",
+    "yontem_bilinmiyor",
+    "arkakontak_Au",
+    "arkakontak_Ag",
+    "arkakontak_Al",
+    "arkakontak_Carbon",
+    "arkakontak_Cu",
+    "arkakontak_MoO3___Ag",
+    "arkakontak_Ca___Al",
+    "arkakontak_MoO3___Au",
+    "arkakontak_MoO3___Al",
+    "arkakontak_AgAl",
+    "arkakontak_Ag_nw",
+    "arkakontak_ITO",
+    "arkakontak_MoOx___Ag",
+    "arkakontak_MoOx___Al",
+    "arkakontak_Pt___FTO",
+    "arkakontak_diger",
+    "arkakontak_bilinmiyor",
+    "alttas_SLG___FTO",
+    "alttas_SLG___ITO",
+    "alttas_PET___ITO",
+    "alttas_PEN___ITO",
+    "alttas_PET___IZO",
+    "alttas_SLG___AZO",
+    "alttas_SLG",
+    "alttas_Ti_foil",
+    "alttas_PET",
+    "alttas_PET___Ag_grid",
+    "alttas_Ti",
+    "alttas_SLG___Graphene",
+    "alttas_PET___Graphene",
+    "alttas_SLG___rGO",
+    "alttas_ITO___PEN",
+    "alttas_diger",
+    "alttas_bilinmiyor"
+   ],
+   "katlar": {
+    "R2": [
+     0.4307406769222577,
+     0.4322622725993034,
+     0.45449026906538115,
+     0.41504081224672174,
+     0.4404445929844608
+    ],
+    "MAE": [
+     3.0647035624609025,
+     3.044042063447263,
+     2.973616362862258,
+     3.0237456243554215,
+     3.0878328476488273
+    ],
+    "RMSE": [
+     3.969586341187607,
+     3.965364232842872,
+     3.789633558778845,
+     3.9375227574694858,
+     4.027247630263141
+    ]
+   },
+   "ozet": {
+    "R2_ortalama": 0.43459572476362496,
+    "R2_ss_ddof0": 0.012905062176102749,
+    "MAE_ortalama": 3.0387880921549337,
+    "MAE_ss_ddof0": 0.038931308720548195,
+    "RMSE_ortalama": 3.93787090410839,
+    "RMSE_ss_ddof0": 0.07965473370566561
+   },
+   "v0_farki": {
+    "R2_kat_farklari": [
+     0.009611257059961131,
+     0.018487901807691665,
+     0.034616113755307265,
+     0.03751283219817503,
+     0.022287999790252644
+    ],
+    "R2_fark_ortalama": 0.024503220922277545,
+    "R2_pozitif_kat": 5,
+    "R2_negatif_kat": 0,
+    "MAE_kat_farklari": [
+     -0.03495057137627233,
+     -0.06593506696002027,
+     -0.1330388617604239,
+     -0.10936213776882964,
+     -0.07017482934195174
+    ],
+    "MAE_fark_ortalama": -0.08269229344149957,
+    "MAE_pozitif_kat": 0,
+    "MAE_negatif_kat": 5
+   }
+  },
+  "V5": {
+   "aciklama": "V0 + yalnizca alti 'bildirilmemis' bayragi",
+   "n_ozellik": 83,
+   "eklenen_sutun_sayisi": 6,
+   "eklenen_sutunlar": [
+    "kalinlik_eksik",
+    "katki_bilinmiyor",
+    "antisolvent_bilinmiyor",
+    "yontem_bilinmiyor",
+    "arkakontak_bilinmiyor",
+    "alttas_bilinmiyor"
+   ],
+   "katlar": {
+    "R2": [
+     0.4295101207283307,
+     0.4292728742285771,
+     0.43420452709050505,
+     0.39692850835776883,
+     0.4271072011111776
+    ],
+    "MAE": [
+     3.0701563496726503,
+     3.0595670865931925,
+     3.046503874799652,
+     3.0826881269251936,
+     3.139156811686641
+    ],
+    "RMSE": [
+     3.97387451168257,
+     3.9757902530822857,
+     3.859452503913166,
+     3.9980175209260658,
+     4.0749611062362785
+    ]
+   },
+   "ozet": {
+    "R2_ortalama": 0.4234046463032719,
+    "R2_ss_ddof0": 0.01343908579161306,
+    "MAE_ortalama": 3.079614449935466,
+    "MAE_ss_ddof0": 0.03206993282352787,
+    "RMSE_ortalama": 3.976419179168073,
+    "RMSE_ss_ddof0": 0.06908700855852803
+   },
+   "v0_farki": {
+    "R2_kat_farklari": [
+     0.008380700866034152,
+     0.01549850343696535,
+     0.014330371780431173,
+     0.01940052830922212,
+     0.008950607916969444
+    ],
+    "R2_fark_ortalama": 0.013312142461924447,
+    "R2_pozitif_kat": 5,
+    "R2_negatif_kat": 0,
+    "MAE_kat_farklari": [
+     -0.029497784164524532,
+     -0.050410043814090866,
+     -0.06015134982302994,
+     -0.050419635199057566,
+     -0.018850865304138154
+    ],
+    "MAE_fark_ortalama": -0.04186593566096821,
+    "MAE_pozitif_kat": 0,
+    "MAE_negatif_kat": 5
+   }
+  }
+ }
+}

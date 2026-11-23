@@ -1,0 +1,52 @@
+{
+  "stage": "stage26_alinmayan_alan_katkisi",
+  "timestamp_utc": "2026-11-23T03:06:02+00:00",
+  "seed": 42,
+  "target": "JV_default_PCE",
+  "group_col": "Ref_DOI_number",
+  "onehot_top_n": 15,
+  "versions": {
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.1",
+    "xgboost": "3.2.0",
+    "lightgbm": "4.6.0",
+    "catboost": "1.2.10",
+    "shap": "0.51.0"
+  },
+  "git": {
+    "commit": "48c648fd484e6902aa7c4bb805c122ac062ebd41",
+    "dirty": true
+  },
+  "metrics": {
+    "V0_R2_ortalama": 0.410093,
+    "V1_R2_ortalama": 0.413821,
+    "V2_R2_ortalama": 0.433465,
+    "V3_R2_ortalama": 0.413611,
+    "V4_R2_ortalama": 0.434596,
+    "V5_R2_ortalama": 0.423405,
+    "V0_n_ozellik": 77,
+    "V1_n_ozellik": 79,
+    "V2_n_ozellik": 113,
+    "V3_n_ozellik": 128,
+    "V4_n_ozellik": 164,
+    "V5_n_ozellik": 83,
+    "kat_atamasi_kimligi": "177507b245b27964d87a",
+    "girdi_sha256": {
+      "data/raw/Perovskite_database_content_all_data.csv": "da66a634e9106e58ce4d012558d468bc2f19b95987f149fb9c5d208d363ea67a",
+      "data/processed/model_ready_dataset.csv": "3c42a5433261ecdd5ba3701eba2fb0889025069f6ec0ed359c3f1706ca9c82c9",
+      "outputs/v4/model_comparison_groupkfold.csv": "f76225d36df9204bbe098e9d3e5e3cdd18ee7ce8f95a8975b53e65b2c6003cae"
+    }
+  },
+  "outputs": [
+    "outputs/robustness/alinmayan_alan_katkisi.json",
+    "outputs/robustness/alinmayan_alan_katkisi.csv"
+  ],
+  "output_hashes": {
+    "outputs/robustness/alinmayan_alan_katkisi.json": "cce24190f076e7a53a0848d7bca9b9e038b32d2794c421a9b2a3fceee6795ed0",
+    "outputs/robustness/alinmayan_alan_katkisi.csv": "37b6ebc73c26814afadd897f00f8795e078a6b6d803eab3d24af2945f66fb39e"
+  }
+}
