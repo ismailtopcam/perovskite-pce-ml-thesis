@@ -1,7 +1,7 @@
 # Veri Kartı — Perovskite Database Anlık Görüntüsü
 
 *Biçim: Gebru vd. (2021) "Datasheets for Datasets" uyarlaması.*
-*Son güncelleme: Ekim 2026 (v0.4.0 / kanonik DOI gruplamasıyla hizalandı) · İsmailTopçam_Tez_2026 ile uyumlu.*
+*Son güncelleme: Kasım 2026 (v0.4.1; veri anlık görüntüsü ve kanonik DOI gruplaması v0.4.0'daki gibidir, değişmemiştir) · İsmailTopçam_Tez_2026 ile uyumlu.*
 
 ## Kaynak ve lisans
 
