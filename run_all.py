@@ -3,7 +3,7 @@
 
 Kullanim:
   python run_all.py          # cekirdek hat (01-10)
-  python run_all.py --all    # + ek dogrulama/saglamlik betikleri (11-25 + thesis_data_analysis + thesis_figures)
+  python run_all.py --all    # + ek dogrulama/saglamlik betikleri (11-26 + thesis_data_analysis + thesis_figures)
   python run_thesis_audits.py  # kok-dizin saglamlik/provenans denetimleri (ayri calistirici)
 
 Her adim bir onceki adimin ciktilarina dayanir; bir adim basarisiz olursa
@@ -52,6 +52,8 @@ SUPP = [
     # tez v127 ek denetimleri (Bolum 4.3, 4.6)
     "24_tarama_tabanlari.py",
     "25_deney_a_tohum_duyarliligi.py",
+    # tez v129 ek denetimi (Bolum 3.2)
+    "26_alinmayan_alan_katkisi.py",
 ]
 
 

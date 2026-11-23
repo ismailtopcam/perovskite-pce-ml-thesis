@@ -7,7 +7,7 @@ PYTHON ?= python
 core:        ## Cekirdek hat (scripts 01-10)
 	$(PYTHON) run_all.py
 
-all:         ## Cekirdek + ek dogrulama/saglamlik betikleri (11-25 + thesis_data_analysis + thesis_figures)
+all:         ## Cekirdek + ek dogrulama/saglamlik betikleri (11-26 + thesis_data_analysis + thesis_figures)
 	$(PYTHON) run_all.py --all
 
 test:        ## Birim testleri
