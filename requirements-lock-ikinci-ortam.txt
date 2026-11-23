@@ -1,0 +1,15 @@
+# Ikinci ortam: tez v118 ek denetimleri (scripts/19-23, tarama_yonu_denetimi.py, kat_atamasi_denetimi.py)
+# Kaynak: outputs/manifests/manifest_stage19 ... manifest_stage23 (versions alani; 10 Kasim 2026)
+# Python 3.13.18
+# Bu dosya manifestlerde kayitli sekiz paketi icerir; manifest baska paket kaydetmez.
+# Ana hat (01-18) ve scripts/24-25 icin requirements-lock.txt kullanilir.
+# Bu ortamda scikit-learn GroupKFold esit boyutlu gruplari farkli siralar; arsiv degerleri icin
+# betikler kat atamasini kat_atamalari/ altindaki kayittan okur (README, "Kat atamalari").
+numpy==2.5.4
+pandas==3.1.1
+scikit-learn==1.9.1
+scipy==1.18.1
+xgboost==3.2.0
+lightgbm==4.6.0
+catboost==1.2.10
+shap==0.51.0

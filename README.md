@@ -242,7 +242,7 @@ koşuyu değil, uyumluluğu kanıtlar.
 Python 3.14.4, numpy 2.4.6, pandas 3.0.3, scikit-learn 1.8.0, scipy 1.17.1, xgboost 3.2.0, lightgbm 4.6.0, catboost 1.2.10, shap 0.51.0.
 Kesin sürümler `requirements-lock.txt` dosyasında; ayrıca her koşu `outputs/manifests/` altına timestamp + seed + paket sürümlerini JSON olarak yazar.
 
-**Not:** Tezde raporlanan tüm sayısal çıktılar bu lock ortamında üretilmiştir. `requirements.txt`
+**Not:** Ana hat (01–10) ile 11–18, 24 ve 25 numaralı ek betiklerin çıktıları bu lock ortamında üretilmiştir. Tez v118 ek denetimleri (19–23) ikinci bir ortamda koşulmuştur (aşağıda; manifestlerde kayıtlı sürümleri `requirements-lock-ikinci-ortam.txt` dosyasındadır). `requirements.txt`
 geniş uyumluluk için alt-sınır bildirir; birebir tekrar üretim için `requirements-lock.txt` kullanın.
 Seed sabitleme aynı ortam içinde determinizmi garanti eder; farklı işletim sistemi / derleyici /
 kütüphane sürümü kombinasyonlarında (özellikle boosting kütüphanelerinde) binde-bir düzeyinde
@@ -254,13 +254,13 @@ küçük sayısal farklar oluşabilir.
 gösterir: çıktılar 10 Ağustos 2026'da (07:53–08:34 UTC), v0.4.0 commit'ine (f2bf182, 08:45 UTC) giren
 değişikliklerle birlikte o commit oluşturulmadan hemen önce üretilmiş ve aynı commit'le eklenmiştir.
 Aynı koşuya ait şu çıktılar ise sürüm kontrolüne **sonradan** alınmıştır; v0.4.0 etiketinde ve onun Zenodo
-arşivinde (10.5281/zenodo.21870009) bulunmazlar, ana dalda bulunurlar:
+arşivinde (10.5281/zenodo.21870009) bulunmazlar; ana dalda ve v0.4.1 arşivinde bulunurlar:
 - `manifest_stage17_gurultu_tabani_v2.json` ve `outputs/robustness/gurultu_tabani_v2.*` (betik 17) — 17 Ekim 2026 (e2fb870);
 - `manifest_stage16_nested.json`, `manifest_stage18_group_conformal.json`, `outputs/nested/*` ve
   `outputs/conformal/group_conformal_*` (betik 16 ve 18), `outputs/candidates_full/primary_designation.json`
   ve `outputs/logs/removed_records_log.csv` — 9 Kasım 2026 (o güne dek `.gitignore`'daki `outputs/*` kuralına takılmışlardı).
 
-v0.4.0'dan sonra eklenen kök denetim betikleri ve çıktıları da yalnızca ana daldadır:
+v0.4.0'dan sonra eklenen kök denetim betikleri ve çıktıları da v0.4.0 arşivinde yoktur; ana dalda ve v0.4.1 arşivinde bulunur:
 `aday_mimari_yigin_tutarliligi.py` ve `scripts/thesis_data_analysis.py --out` (17 Ekim 2026; Tablo 5.1'in
 serbestlik derecesi düzeltmeli taban RMSE sütunu bu sürümden gelir) ile `isik_siddeti_denetimi.py`, `bandgap_kestirim_temeli.py`, `tarama_bootstrap.py`, `aday_izgara_destegi.py` ve `veri_baglam_denetimleri.py` (9 Kasım 2026).
 
@@ -269,6 +269,13 @@ Tez v118 ek denetimleri — `scripts/19_recete_grup_ve_taban.py`, `scripts/20_ad
 Tez v127 ek denetimleri — `scripts/24_tarama_tabanlari.py`, `scripts/25_deney_a_tohum_duyarliligi.py` ve kök denetimi `alan_doluluk_denetimi.py` — özet çıktıları (`outputs/robustness/tarama_tabanlari.json`, `deney_a_tohum_duyarliligi.json` ve `.csv`, `alan_doluluk_denetimi.json`) ve manifestleriyle (`outputs/manifests/manifest_stage24_tarama_tabanlari.json`, `manifest_stage25_deney_a_tohum.json`, `manifest_alan_doluluk_denetimi.json`) birlikte 23 Kasım 2026'da ana dala girmiştir (manifestlerdeki zaman damgaları UTC'dir: 22 Kasım 2026, 23:22–23:23). Bu betikler Python 3.14.4 ortamında koşulmuştur (NumPy 2.4.6, pandas 3.0.3, scikit-learn 1.8.0, SciPy 1.17.1, CatBoost 1.2.10). Manifestlerin `git.commit` alanı, betikler henüz commit'lenmemişken çalışılan ağacın üst commit'ini (`cd64fda`, `dirty: true`) gösterir. Kök denetimleri arasında koşu manifesti yazan tek betik `alan_doluluk_denetimi.py`'dir.
 
 Kat ataması kaydı (12 Kasım 2026): `kat_atamalari/` (13 arşiv yapılandırmasının kat ataması; on üçüncüsü ve kayıtların arşiv ortamındaki teyidi aynı gün eklenmiştir; bkz. "Kat atamaları"), `src/perovskite_ml/validation/splits.py` içindeki kayıt/kararlı atama mekanizması ve kök denetimi `kat_atamasi_denetimi.py` eklenmiştir. Çekirdek ve ek doğrulama betikleri (`scripts/04`, `13`, `14`, `16`) ile `doi_normalizasyon_duyarlilik.py` artık `GroupKFold`'u doğrudan çağırmaz; tez v118 denetimleri kararlı atamayı açıkça ister. Raporlanan hiçbir sayı değişmemiştir: `scripts/04` ikinci ortamda (scikit-learn 1.9.1) kayıtlı atamayla `outputs/v4/validation_experiments.csv` dosyasını bayt düzeyinde aynen üretir. `tarama_yonu_denetimi.py` çıktısına kat skorları ve taban–kovaryat eşleştirilmiş karşılaştırması eklenmiştir (eski alanlar aynıdır). `kat_atamasi_denetimi.py` Python 3.13.18 ortamında koşulmuştur; HistGBM kat skorları scikit-learn sürümüne duyarlı olduğundan CatBoost–HistGBM eşleştirilmiş farkı arşivde 0,0024 (5/5 kat, p = 0,006), bu ortamda 0,0013'tür (4/5 kat, p = 0,24).
+
+**Sürüm v0.4.1 (23 Kasım 2026):** Bu sürüm, v0.4.0'dan sonra ana dala giren ve yukarıda sayılan eklerin tamamını tek bir etikette ve Zenodo arşivinde toplar: sürüm kontrolüne sonradan alınan betik 16–18 çıktıları, kök denetim betikleri ve çıktıları, tez v118 ve v127 ek denetimleri (`scripts/19`–`25`), kat ataması kayıtları (`kat_atamalari/`), `scripts/tez_sekilleri_ek.py` ve yeniden üretilen tez şekilleri. Ana hat (01–18) bu sürüm için yeniden koşulmamıştır; 10 Ağustos 2026 koşusunun çıktıları ve manifestleri olduğu gibi durur ve tezde raporlanan değerler (CV R² 0,410 ± 0,016; holdout R² 0,394) değişmemiştir. Sürüme özgü DOI Zenodo kaydında yazılıdır; tüm sürümleri kapsayan DOI (10.5281/zenodo.20829027) en yeni sürüme çözülür.
+
+**Manifest özetleri ve satır sonları:** Koşu-manifestlerindeki `output_hashes` alanı, çıktı dosyasının koşu anında diskteki baytlarından hesaplanır. Koşular Windows'ta yapılmıştır ve metin çıktıları (CSV, JSON) çalışma ağacında CRLF satır sonu taşır; depo aynı dosyaları LF ile saklar. Bu sürümdeki 26 manifestte kayıtlı 31 özetin 25'i dosyanın CRLF'li hâline aittir: Linux/macOS klonunda ve GitHub/Zenodo zip arşivinde bu özetler, dosyanın satır sonları CRLF'ye çevrildikten sonra tutar. 23 Kasım 2026 tarihli üç manifestteki 4 özet LF'li hâle aittir ve doğrudan tutar. Kalan 2 özet depoda tutulmayan veri dosyalarına aittir (`data/processed/cleaned_dataset.csv`, `model_ready_dataset.csv`). 09, 10 ve 14 numaralı betiklerin manifestlerinde özet yoktur (sonraki koşuda yazılır). CRLF'li özeti hesaplamak için:
+```bash
+python -c "import hashlib,sys; b=open(sys.argv[1],'rb').read().replace(b'\r\n',b'\n').replace(b'\n',b'\r\n'); print(hashlib.sha256(b).hexdigest())" outputs/v4/model_comparison_holdout.csv
+```
 
 Not: Depo geçmişi 17 Ekim 2026'da yalnızca commit üst verisi (yazar kimliği, mesaj sonundaki araç satırları) için yeniden yazılmıştır; ağaç içerikleri ve dosya özetleri değişmemiştir. Manifestler yeniden yazımdan önceki commit kimliğini (d6ce55f) kaydeder; bunun yeni karşılığı 6eba260, tezin atıf yaptığı v0.4.0 sürümünün eski kimliği f65ed93, yeni kimliği f2bf182'dir.
 

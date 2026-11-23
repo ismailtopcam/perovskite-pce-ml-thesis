@@ -10,7 +10,7 @@
 | Model türü | CatBoostRegressor (gradyan-artırmalı karar ağaçları) |
 | Hiperparametreler | iterations=500, depth=6, learning_rate=0.05, seed=42 (test/holdout'a bakılmadan baştan sabitlendi; grup-güvenli ızgara araması aynı yapılandırmayı seçti — tez Bölüm 4.8) |
 | Eğitim ortamı | Python 3.14.4, catboost 1.2.10, scikit-learn 1.8.0 (tam liste: `requirements-lock.txt` ve `outputs/manifests/`) |
-| Kod sürümü | Bu depo (v0.4.0); kalıcı arşiv — tüm sürümleri kapsayan Zenodo DOI: 10.5281/zenodo.20829027 |
+| Kod sürümü | Bu depo (v0.4.1; model ve raporlanan değerler v0.4.0 koşusuna aittir, değişmemiştir); kalıcı arşiv — tüm sürümleri kapsayan Zenodo DOI: 10.5281/zenodo.20829027 |
 | Dağıtılan artefakt | Web uygulamasındaki `data_app/model.cbm` — SHA-256: `a260d88e6c018e1263ba5f742600c0e70a1b15041a590cc8e02222df0f8f0af3` (v0.4.0 kanonik-DOI eğitim bölmesiyle üretildi; 10 Ağustos 2026'da dağıtıldı) |
 
 ## Eğitim verisi
